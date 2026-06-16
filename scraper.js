@@ -35,7 +35,7 @@ function getDates(days = 4) {
 
 async function scrapeAMC() {
     console.log('Starting AMC Scraper...');
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ headless: process.env.CI ? true : false });
     const context = await browser.newContext({
         userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         viewport: { width: 1280, height: 800 }

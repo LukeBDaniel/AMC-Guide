@@ -1,4 +1,4 @@
-name: Daily AMC Scraper
+name: Daily AMC Scraper and Deploy
 
 on:
   schedule:
@@ -6,8 +6,17 @@ on:
     - cron: '0 8 * * *'
   workflow_dispatch: # Allows you to manually click "Run workflow" from the Actions tab
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   scrape-and-update:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     
     steps:
@@ -38,3 +47,23 @@ jobs:
           
           # Only commit if there are actual changes to the data
           git diff --staged --quiet || (git commit -m "Automated update: AMC showtimes data" && git push)
+
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build Frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './frontend/dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
