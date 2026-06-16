@@ -18,8 +18,8 @@ function App() {
   const [pinnedShowtimes, setPinnedShowtimes] = useState(new Set());
 
   useEffect(() => {
-    // Fetch data.json from public folder
-    fetch('/data.json')
+    // Fetch data.json using Vite's BASE_URL so it works on GitHub Pages subpaths
+    fetch(`${import.meta.env.BASE_URL}data.json`)
       .then(res => res.json())
       .then(json => {
         const processed = flattenScheduleData(json);
