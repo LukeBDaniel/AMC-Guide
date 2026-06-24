@@ -1,197 +1,10 @@
 {
-  "scrapedAt": "2026-06-23T10:51:25.549Z",
+  "scrapedAt": "2026-06-24T10:38:31.698Z",
   "theaters": {
     "amc-empire-25": {
       "id": "amc-empire-25",
       "location": "new-york",
       "schedule": [
-        {
-          "date": "2026-06-23",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Masters of the Universe",
-              "link": "/movies/masters-of-the-universe-76888",
-              "runtime": "2 HR 20 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Michael",
-              "link": "/movies/michael-75846",
-              "runtime": "2 HR 7 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Moonlight",
-              "link": "/movies/moonlight-83938",
-              "runtime": "1 HR 50 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Cocktail 2",
-              "link": "/movies/cocktail-2-84032",
-              "runtime": "2 HR 31 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Unidentified",
-              "link": "/movies/unidentified-83736",
-              "runtime": "1 HR 39 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Hell Trotter",
-              "link": "/movies/hell-trotter-83518",
-              "runtime": "1 HR 43 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Chaali Din",
-              "link": "/movies/chaali-din-83899",
-              "runtime": "2 HR 10 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Call Me By Your Name",
-              "link": "/movies/call-me-by-your-name-83937",
-              "runtime": "2 HR 10 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Breadwinner",
-              "link": "/movies/the-breadwinner-79903",
-              "runtime": "1 HR 39 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Main Vaapas Aaunga",
-              "link": "/movies/main-vaapas-aaunga-83531",
-              "runtime": "2 HR 47 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Amores Perros 25th Anniversary",
-              "link": "/movies/amores-perros-25th-anniversary-83679",
-              "runtime": "2 HR 34 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Sheep Detectives",
-              "link": "/movies/the-sheep-detectives-77276",
-              "runtime": "1 HR 49 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Tuner",
-              "link": "/movies/tuner-82606",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Deewana",
-              "link": "/movies/deewana-84165",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": []
-            }
-          ]
-        },
         {
           "date": "2026-06-24",
           "movies": [
@@ -343,10 +156,10 @@
               "formats": []
             },
             {
-              "title": "Amores Perros 25th Anniversary",
-              "link": "/movies/amores-perros-25th-anniversary-83679",
-              "runtime": "2 HR 34 MIN",
-              "rating": "R",
+              "title": "Supergirl Fan First Screenings",
+              "link": "/movies/supergirl-fan-first-screenings-83969",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -354,13 +167,6 @@
               "link": "/movies/the-sheep-detectives-77276",
               "runtime": "1 HR 49 MIN",
               "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Call Me By Your Name",
-              "link": "/movies/call-me-by-your-name-83937",
-              "runtime": "2 HR 10 MIN",
-              "rating": "R",
               "formats": []
             },
             {
@@ -378,17 +184,24 @@
               "formats": []
             },
             {
-              "title": "Supergirl Fan First Screenings",
-              "link": "/movies/supergirl-fan-first-screenings-83969",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
               "title": "Deewana",
               "link": "/movies/deewana-84165",
               "runtime": "2 HR 30 MIN",
               "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Call Me By Your Name",
+              "link": "/movies/call-me-by-your-name-83937",
+              "runtime": "2 HR 10 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Amores Perros 25th Anniversary",
+              "link": "/movies/amores-perros-25th-anniversary-83679",
+              "runtime": "2 HR 34 MIN",
+              "rating": "R",
               "formats": []
             }
           ]
@@ -411,9 +224,114 @@
               "formats": []
             },
             {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Leviticus",
               "link": "/movies/leviticus-82907",
               "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Moonlight",
+              "link": "/movies/moonlight-83938",
+              "runtime": "1 HR 50 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Call Me By Your Name",
+              "link": "/movies/call-me-by-your-name-83937",
+              "runtime": "2 HR 10 MIN",
               "rating": "R",
               "formats": []
             },
@@ -422,6 +340,13 @@
               "link": "/movies/couture-83323",
               "runtime": "1 HR 43 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -436,13 +361,6 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
               "formats": []
             },
             {
@@ -479,6 +397,111 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -493,10 +516,24 @@
               "formats": []
             },
             {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "To Wong Foo, Thanks for Everything, Julie Newmar",
               "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
               "runtime": "1 HR 49 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -514,16 +551,16 @@
               "formats": []
             },
             {
-              "title": "Toy Story 5: Private Theatre Rental",
-              "link": "/movies/toy-story-5-private-theatre-rental-83574",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
               "rating": "NR",
               "formats": []
             },
@@ -531,6 +568,13 @@
               "title": "Sugar Beach",
               "link": "/movies/sugar-beach-83868",
               "runtime": "1 HR 27 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": []
             }
@@ -554,6 +598,111 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -572,6 +721,20 @@
               "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
               "runtime": "1 HR 49 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -596,9 +759,16 @@
               "formats": []
             },
             {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
               "rating": "NR",
               "formats": []
             },
@@ -606,6 +776,13 @@
               "title": "Sugar Beach",
               "link": "/movies/sugar-beach-83868",
               "runtime": "1 HR 27 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": []
             }
@@ -629,6 +806,111 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -647,6 +929,13 @@
               "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
               "runtime": "1 HR 49 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -671,9 +960,23 @@
               "formats": []
             },
             {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
               "rating": "NR",
               "formats": []
             },
@@ -690,6 +993,13 @@
               "runtime": "1 HR 27 MIN",
               "rating": "NR",
               "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
             }
           ]
         },
@@ -704,6 +1014,118 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Sugar Beach",
+              "link": "/movies/sugar-beach-83868",
+              "runtime": "1 HR 27 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "To Wong Foo, Thanks for Everything, Julie Newmar",
               "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
               "runtime": "1 HR 49 MIN",
@@ -715,6 +1137,13 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -753,6 +1182,20 @@
               "formats": []
             },
             {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "AMC Screen Unseen: June 29",
               "link": "/movies/amc-screen-unseen-june-29-84153",
               "runtime": "1 HR 37 MIN",
@@ -760,9 +1203,9 @@
               "formats": []
             },
             {
-              "title": "Sugar Beach",
-              "link": "/movies/sugar-beach-83868",
-              "runtime": "1 HR 27 MIN",
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": []
             }
@@ -786,6 +1229,118 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Sugar Beach",
+              "link": "/movies/sugar-beach-83868",
+              "runtime": "1 HR 27 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -807,6 +1362,13 @@
               "formats": []
             },
             {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Couture",
               "link": "/movies/couture-83323",
               "runtime": "1 HR 43 MIN",
@@ -821,13 +1383,6 @@
               "formats": []
             },
             {
-              "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
-              "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
               "title": "Bleach: Thousand-Year Blood War - The Calamity",
               "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
               "runtime": "1 HR 25 MIN",
@@ -835,9 +1390,30 @@
               "formats": []
             },
             {
-              "title": "Sugar Beach",
-              "link": "/movies/sugar-beach-83868",
-              "runtime": "1 HR 27 MIN",
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
+              "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": []
             }
@@ -858,6 +1434,97 @@
               "link": "/movies/toy-story-5-72482",
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -882,17 +1549,17 @@
               "formats": []
             },
             {
-              "title": "Couture",
-              "link": "/movies/couture-83323",
-              "runtime": "1 HR 43 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -903,6 +1570,13 @@
               "formats": []
             },
             {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
               "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
               "runtime": "1 HR 47 MIN",
@@ -910,9 +1584,16 @@
               "formats": []
             },
             {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
               "rating": "NR",
               "formats": []
             },
@@ -954,6 +1635,13 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Lockbox",
+              "link": "/movies/lockbox-83768",
+              "runtime": "1 HR 40 MIN",
+              "rating": null,
               "formats": []
             },
             {
@@ -1016,6 +1704,13 @@
               "runtime": "2 HR 30 MIN",
               "rating": "NR",
               "formats": []
+            },
+            {
+              "title": "Lockbox",
+              "link": "/movies/lockbox-83768",
+              "runtime": "1 HR 40 MIN",
+              "rating": null,
+              "formats": []
             }
           ]
         },
@@ -1062,6 +1757,13 @@
               "link": "/movies/minions-monsters-private-theatre-rental-83940",
               "runtime": "1 HR 30 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Lockbox",
+              "link": "/movies/lockbox-83768",
+              "runtime": "1 HR 40 MIN",
+              "rating": null,
               "formats": []
             }
           ]
@@ -1124,6 +1826,13 @@
               "runtime": "2 HR 4 MIN",
               "rating": "PG",
               "formats": []
+            },
+            {
+              "title": "Lockbox",
+              "link": "/movies/lockbox-83768",
+              "runtime": "1 HR 40 MIN",
+              "rating": null,
+              "formats": []
             }
           ]
         },
@@ -1171,6 +1880,60 @@
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
               "formats": []
+            },
+            {
+              "title": "Lockbox",
+              "link": "/movies/lockbox-83768",
+              "runtime": "1 HR 40 MIN",
+              "rating": null,
+              "formats": []
+            }
+          ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Private Theatre Rental",
+              "link": "/movies/private-theatre-rental-65421",
+              "runtime": null,
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Toy Story 5",
+              "link": "/movies/toy-story-5-72482",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Lockbox",
+              "link": "/movies/lockbox-83768",
+              "runtime": "1 HR 40 MIN",
+              "rating": null,
+              "formats": []
             }
           ]
         }
@@ -1180,81 +1943,6 @@
       "id": "amc-lincoln-square-13",
       "location": "new-york",
       "schedule": [
-        {
-          "date": "2026-06-23",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Devil Wears Prada 2",
-              "link": "/movies/the-devil-wears-prada-2-80466",
-              "runtime": "2 HR 0 MIN",
-              "rating": "PG13",
-              "formats": []
-            }
-          ]
-        },
         {
           "date": "2026-06-24",
           "movies": [
@@ -1688,43 +2376,7 @@
         },
         {
           "date": "2026-06-29",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Couture",
-              "link": "/movies/couture-83323",
-              "runtime": "1 HR 43 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "AMC Screen Unseen: June 29",
-              "link": "/movies/amc-screen-unseen-june-29-84153",
-              "runtime": "1 HR 37 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": []
-            }
-          ]
+          "movies": []
         },
         {
           "date": "2026-06-30",
@@ -1942,6 +2594,25 @@
               "formats": []
             }
           ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": []
+            }
+          ]
         }
       ]
     },
@@ -1949,81 +2620,6 @@
       "id": "amc-34th-street-14",
       "location": "new-york",
       "schedule": [
-        {
-          "date": "2026-06-23",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            }
-          ]
-        },
         {
           "date": "2026-06-24",
           "movies": [
@@ -2101,106 +2697,7 @@
         },
         {
           "date": "2026-06-25",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 44 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "jackass: best and last: Opening Night Event",
-              "link": "/movies/jackass-best-and-last-fan-event-84077",
-              "runtime": "1 HR 32 MIN",
-              "rating": "R",
-              "formats": []
-            }
-          ]
+          "movies": []
         },
         {
           "date": "2026-06-26",
@@ -2907,6 +3404,32 @@
               "formats": []
             }
           ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            }
+          ]
         }
       ]
     },
@@ -2915,238 +3438,8 @@
       "location": "new-york",
       "schedule": [
         {
-          "date": "2026-06-23",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Moonlight",
-              "link": "/movies/moonlight-83938",
-              "runtime": "1 HR 50 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Panamá vs. Croacia - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/panama-vs-croacia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83635",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
-              "title": "Colombia vs. RD Congo - Telemundo presenta la Copa Mundial de la FIFA",
-              "link": "/movies/colombia-vs-por-definir-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83636",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            }
-          ]
-        },
-        {
           "date": "2026-06-24",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Ocean's Eleven 25th Anniversary",
-              "link": "/movies/ocean-s-eleven-25th-anniversary-82778",
-              "runtime": "2 HR 1 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Paddington in Peru",
-              "link": "/movies/paddington-in-peru-83805",
-              "runtime": "1 HR 46 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Moonlight",
-              "link": "/movies/moonlight-83938",
-              "runtime": "1 HR 50 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Suiza vs. Canadá - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/suiza-vs-canada-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83637",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
-              "title": "Escocia vs. Brasil - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/escocia-vs-brasil-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83638",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
-              "title": "Supergirl Fan First Screenings",
-              "link": "/movies/supergirl-fan-first-screenings-83969",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "República Checa vs. México - Telemundo presenta la Copa Mundial de la FIFA",
-              "link": "/movies/por-definir-vs-mexico-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83639",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            }
-          ]
+          "movies": []
         },
         {
           "date": "2026-06-25",
@@ -3163,6 +3456,55 @@
               "link": "/movies/disclosure-day-77140",
               "runtime": "2 HR 25 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -3191,6 +3533,13 @@
               "link": "/movies/ecuador-vs-alemania-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83640",
               "runtime": "3 HR 0 MIN",
               "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Lucky Strike",
+              "link": "/movies/lucky-strike-83414",
+              "runtime": "1 HR 42 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -3234,16 +3583,58 @@
               "formats": []
             },
             {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
-              "title": "Couture",
-              "link": "/movies/couture-83323",
-              "runtime": "1 HR 43 MIN",
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
               "rating": "R",
               "formats": []
             },
@@ -3259,6 +3650,34 @@
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Lucky Strike",
+              "link": "/movies/lucky-strike-83414",
+              "runtime": "1 HR 42 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -3286,71 +3705,7 @@
         },
         {
           "date": "2026-06-27",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Couture",
-              "link": "/movies/couture-83323",
-              "runtime": "1 HR 43 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 44 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "To Wong Foo, Thanks for Everything, Julie Newmar",
-              "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
-              "runtime": "1 HR 49 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Panamá vs. Inglaterra - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/panama-vs-inglaterra-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83645",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
-              "title": "Colombia vs. Portugal - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/colombia-vs-portugal-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83646",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
-              "title": "Jordania vs. Argentina - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/jordania-vs-argentina-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83647",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            }
-          ]
+          "movies": []
         },
         {
           "date": "2026-06-28",
@@ -3363,16 +3718,51 @@
               "formats": []
             },
             {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
-              "title": "Couture",
-              "link": "/movies/couture-83323",
-              "runtime": "1 HR 43 MIN",
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
               "rating": "R",
               "formats": []
             },
@@ -3384,10 +3774,38 @@
               "formats": []
             },
             {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Lucky Strike",
+              "link": "/movies/lucky-strike-83414",
+              "runtime": "1 HR 42 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -3417,6 +3835,62 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "David",
               "link": "/movies/david-83806",
               "runtime": "1 HR 55 MIN",
@@ -3431,17 +3905,17 @@
               "formats": []
             },
             {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
               "formats": []
             },
             {
@@ -3513,9 +3987,72 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
               "rating": "PG13",
               "formats": []
             },
@@ -3545,6 +4082,13 @@
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83653",
               "runtime": "3 HR 30 MIN",
               "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Lucky Strike",
+              "link": "/movies/lucky-strike-83414",
+              "runtime": "1 HR 42 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -3585,6 +4129,55 @@
               "link": "/movies/toy-story-5-72482",
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -3858,6 +4451,46 @@
               "formats": []
             }
           ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Octavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83670",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Octavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83671",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": []
+            }
+          ]
         }
       ]
     },
@@ -3865,67 +4498,6 @@
       "id": "amc-mountainside-10",
       "location": "new-jersey",
       "schedule": [
-        {
-          "date": "2026-06-23",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Masters of the Universe",
-              "link": "/movies/masters-of-the-universe-76888",
-              "runtime": "2 HR 20 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Michael",
-              "link": "/movies/michael-75846",
-              "runtime": "2 HR 7 MIN",
-              "rating": "PG13",
-              "formats": []
-            }
-          ]
-        },
         {
           "date": "2026-06-24",
           "movies": [
@@ -4005,6 +4577,55 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
@@ -4038,6 +4659,41 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -4064,10 +4720,38 @@
               "formats": []
             },
             {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4075,6 +4759,13 @@
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             }
           ]
@@ -4087,6 +4778,41 @@
               "link": "/movies/toy-story-5-72482",
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4113,6 +4839,41 @@
               "link": "/movies/toy-story-5-72482",
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4149,6 +4910,41 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
@@ -4182,9 +4978,30 @@
               "formats": []
             },
             {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
               "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
               "rating": "PG13",
               "formats": []
             },
@@ -4193,6 +5010,13 @@
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             }
           ]
@@ -4368,16 +5192,17 @@
               "formats": []
             }
           ]
-        }
-      ]
-    },
-    "amc-east-hanover-12": {
-      "id": "amc-east-hanover-12",
-      "location": "new-jersey",
-      "schedule": [
+        },
         {
-          "date": "2026-06-23",
+          "date": "2026-07-07",
           "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
             {
               "title": "Toy Story 5",
               "link": "/movies/toy-story-5-72482",
@@ -4386,84 +5211,27 @@
               "formats": []
             },
             {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Masters of the Universe",
-              "link": "/movies/masters-of-the-universe-76888",
-              "runtime": "2 HR 20 MIN",
               "rating": "PG13",
               "formats": []
             },
             {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
               "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Michael",
-              "link": "/movies/michael-75846",
-              "runtime": "2 HR 7 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
               "formats": []
             }
           ]
-        },
+        }
+      ]
+    },
+    "amc-east-hanover-12": {
+      "id": "amc-east-hanover-12",
+      "location": "new-jersey",
+      "schedule": [
         {
           "date": "2026-06-24",
           "movies": [
@@ -4592,10 +5360,73 @@
               "formats": []
             },
             {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Star Wars: The Mandalorian and Grogu",
               "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
               "runtime": "2 HR 12 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4632,9 +5463,51 @@
               "formats": []
             },
             {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 44 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
               "rating": "R",
               "formats": []
             },
@@ -4643,6 +5516,20 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Jackass: Best and Last",
+              "link": "/movies/jackass-best-and-last-82549",
+              "runtime": "1 HR 44 MIN",
+              "rating": "R",
               "formats": []
             }
           ]
@@ -4658,9 +5545,58 @@
               "formats": []
             },
             {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 44 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
               "rating": "R",
               "formats": []
             },
@@ -4669,6 +5605,13 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Jackass: Best and Last",
+              "link": "/movies/jackass-best-and-last-82549",
+              "runtime": "1 HR 44 MIN",
+              "rating": "R",
               "formats": []
             }
           ]
@@ -4684,9 +5627,58 @@
               "formats": []
             },
             {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 44 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
               "rating": "R",
               "formats": []
             },
@@ -4695,6 +5687,13 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Jackass: Best and Last",
+              "link": "/movies/jackass-best-and-last-82549",
+              "runtime": "1 HR 44 MIN",
+              "rating": "R",
               "formats": []
             }
           ]
@@ -4707,6 +5706,55 @@
               "link": "/movies/toy-story-5-72482",
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4728,6 +5776,13 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4750,6 +5805,55 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
@@ -4761,6 +5865,13 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
               "formats": []
             }
           ]
@@ -4783,9 +5894,9 @@
               "formats": []
             },
             {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
               "rating": "PG13",
               "formats": []
             },
@@ -4801,6 +5912,13 @@
               "link": "/movies/david-83806",
               "runtime": "1 HR 55 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Couture",
+              "link": "/movies/couture-83323",
+              "runtime": "1 HR 43 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -4997,16 +6115,17 @@
               "formats": []
             }
           ]
-        }
-      ]
-    },
-    "amc-aviation-12": {
-      "id": "amc-aviation-12",
-      "location": "new-jersey",
-      "schedule": [
+        },
         {
-          "date": "2026-06-23",
+          "date": "2026-07-07",
           "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
             {
               "title": "Toy Story 5",
               "link": "/movies/toy-story-5-72482",
@@ -5015,70 +6134,27 @@
               "formats": []
             },
             {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Masters of the Universe",
-              "link": "/movies/masters-of-the-universe-76888",
-              "runtime": "2 HR 20 MIN",
               "rating": "PG13",
               "formats": []
             },
             {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Michael",
-              "link": "/movies/michael-75846",
-              "runtime": "2 HR 7 MIN",
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
               "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
               "formats": []
             }
           ]
-        },
+        }
+      ]
+    },
+    "amc-aviation-12": {
+      "id": "amc-aviation-12",
+      "location": "new-jersey",
+      "schedule": [
         {
           "date": "2026-06-24",
           "movies": [
@@ -5172,10 +6248,66 @@
               "formats": []
             },
             {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -5183,6 +6315,13 @@
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -5430,6 +6569,55 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -5463,6 +6651,55 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
@@ -5489,6 +6726,34 @@
               "formats": []
             },
             {
+              "title": "Toy Story 5",
+              "link": "/movies/toy-story-5-72482",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
@@ -5505,6 +6770,20 @@
               "link": "/movies/minions-monsters-77563",
               "runtime": "1 HR 30 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Toy Story 5",
+              "link": "/movies/toy-story-5-72482",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -5619,6 +6898,32 @@
               "formats": []
             }
           ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            }
+          ]
         }
       ]
     },
@@ -5627,7 +6932,187 @@
       "location": "new-jersey",
       "schedule": [
         {
-          "date": "2026-06-23",
+          "date": "2026-06-24",
+          "movies": [
+            {
+              "title": "Toy Story 5",
+              "link": "/movies/toy-story-5-72482",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Ocean's Eleven 25th Anniversary",
+              "link": "/movies/ocean-s-eleven-25th-anniversary-82778",
+              "runtime": "2 HR 1 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Paddington in Peru",
+              "link": "/movies/paddington-in-peru-83805",
+              "runtime": "1 HR 46 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Moonlight",
+              "link": "/movies/moonlight-83938",
+              "runtime": "1 HR 50 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "STOP! THAT! TRAIN!",
+              "link": "/movies/stop-that-train-82242",
+              "runtime": "1 HR 30 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Unidentified",
+              "link": "/movies/unidentified-83736",
+              "runtime": "1 HR 39 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Supergirl Fan First Screenings",
+              "link": "/movies/supergirl-fan-first-screenings-83969",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Toy Story 5: Sensory Friendly Screening",
+              "link": "/movies/toy-story-5-sensory-friendly-screening-83733",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Balan",
+              "link": "/movies/balan-84093",
+              "runtime": "2 HR 33 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Engal Thangam",
+              "link": "/movies/engal-thangam-83895",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Jindagi Once More",
+              "link": "/movies/jindagi-once-more-84164",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Chaali Din",
+              "link": "/movies/chaali-din-83899",
+              "runtime": "2 HR 10 MIN",
+              "rating": "NR",
+              "formats": []
+            }
+          ]
+        },
+        {
+          "date": "2026-06-25",
           "movies": [
             {
               "title": "Toy Story 5",
@@ -5742,9 +7227,23 @@
               "formats": []
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Balan",
               "link": "/movies/balan-84093",
               "runtime": "2 HR 33 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Engal Thangam",
+              "link": "/movies/engal-thangam-83895",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": []
             },
@@ -5763,61 +7262,17 @@
               "formats": []
             },
             {
-              "title": "Engal Thangam",
-              "link": "/movies/engal-thangam-83895",
-              "runtime": "2 HR 20 MIN",
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
               "rating": "NR",
               "formats": []
             },
             {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
               "rating": "NR",
-              "formats": []
-            },
-            {
-              "title": "Colombia vs. RD Congo - Telemundo presenta la Copa Mundial de la FIFA",
-              "link": "/movies/colombia-vs-por-definir-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83636",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            }
-          ]
-        },
-        {
-          "date": "2026-06-24",
-          "movies": []
-        },
-        {
-          "date": "2026-06-25",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
               "formats": []
             },
             {
@@ -5889,10 +7344,101 @@
               "formats": []
             },
             {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 44 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -5900,6 +7446,27 @@
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Jackass: Best and Last",
+              "link": "/movies/jackass-best-and-last-82549",
+              "runtime": "1 HR 44 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -5914,6 +7481,13 @@
               "link": "/movies/lucky-strike-83414",
               "runtime": "1 HR 42 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -5943,6 +7517,13 @@
               "runtime": "3 HR 0 MIN",
               "rating": null,
               "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
+              "formats": []
             }
           ]
         },
@@ -5964,10 +7545,115 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Toy Story 5: Sensory Friendly Screening",
               "link": "/movies/toy-story-5-sensory-friendly-screening-83733",
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -5978,9 +7664,23 @@
               "formats": []
             },
             {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Lucky Strike",
+              "link": "/movies/lucky-strike-83414",
+              "runtime": "1 HR 42 MIN",
               "rating": "R",
               "formats": []
             },
@@ -5992,16 +7692,16 @@
               "formats": []
             },
             {
-              "title": "Lucky Strike",
-              "link": "/movies/lucky-strike-83414",
-              "runtime": "1 HR 42 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
               "title": "WWE Night of the Champions 2026",
               "link": "/movies/wwe-night-of-the-champions-2026-83995",
               "runtime": "4 HR 0 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": []
             },
@@ -6039,19 +7739,19 @@
               "runtime": "3 HR 0 MIN",
               "rating": null,
               "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
+              "formats": []
             }
           ]
         },
         {
           "date": "2026-06-28",
           "movies": [
-            {
-              "title": "Private Theatre Rental",
-              "link": "/movies/private-theatre-rental-65421",
-              "runtime": null,
-              "rating": null,
-              "formats": []
-            },
             {
               "title": "Toy Story 5",
               "link": "/movies/toy-story-5-72482",
@@ -6060,10 +7760,122 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Supergirl",
               "link": "/movies/supergirl-77031",
               "runtime": "1 HR 48 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Lucky Strike",
+              "link": "/movies/lucky-strike-83414",
+              "runtime": "1 HR 42 MIN",
+              "rating": "R",
               "formats": []
             },
             {
@@ -6081,10 +7893,10 @@
               "formats": []
             },
             {
-              "title": "Lucky Strike",
-              "link": "/movies/lucky-strike-83414",
-              "runtime": "1 HR 42 MIN",
-              "rating": "R",
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -6114,6 +7926,20 @@
               "runtime": "1 HR 49 MIN",
               "rating": "PG13",
               "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
+              "formats": []
             }
           ]
         },
@@ -6128,6 +7954,104 @@
               "formats": []
             },
             {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "David",
               "link": "/movies/david-83806",
               "runtime": "1 HR 55 MIN",
@@ -6135,17 +8059,17 @@
               "formats": []
             },
             {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
               "title": "Jackass: Best and Last",
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -6177,6 +8101,13 @@
               "formats": []
             },
             {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83649",
               "runtime": "3 HR 0 MIN",
@@ -6198,10 +8129,31 @@
               "formats": []
             },
             {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83652",
               "runtime": "3 HR 0 MIN",
               "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
               "formats": []
             }
           ]
@@ -6217,10 +8169,101 @@
               "formats": []
             },
             {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Masters of the Universe",
+              "link": "/movies/masters-of-the-universe-76888",
+              "runtime": "2 HR 20 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Michael",
+              "link": "/movies/michael-75846",
+              "runtime": "2 HR 7 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Girls Like Girls",
+              "link": "/movies/girls-like-girls-82442",
+              "runtime": "1 HR 35 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Furious",
+              "link": "/movies/the-furious-82946",
+              "runtime": "1 HR 53 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -6228,6 +8271,13 @@
               "link": "/movies/jackass-best-and-last-82549",
               "runtime": "1 HR 44 MIN",
               "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
               "formats": []
             },
             {
@@ -6245,10 +8295,24 @@
               "formats": []
             },
             {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "To Wong Foo, Thanks for Everything, Julie Newmar",
               "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
               "runtime": "1 HR 49 MIN",
               "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -6259,6 +8323,13 @@
               "formats": []
             },
             {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
               "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
               "runtime": "1 HR 47 MIN",
@@ -6266,10 +8337,24 @@
               "formats": []
             },
             {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83655",
               "runtime": "3 HR 30 MIN",
               "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Welcome To The Jungle",
+              "link": "/movies/welcome-to-the-jungle-84048",
+              "runtime": "2 HR 50 MIN",
+              "rating": "NR",
               "formats": []
             }
           ]
@@ -6288,6 +8373,76 @@
               "title": "Toy Story 5",
               "link": "/movies/toy-story-5-72482",
               "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Disclosure Day",
+              "link": "/movies/disclosure-day-77140",
+              "runtime": "2 HR 25 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Obsession",
+              "link": "/movies/obsession-82063",
+              "runtime": "1 HR 48 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Leviticus",
+              "link": "/movies/leviticus-82907",
+              "runtime": "1 HR 28 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "The Death of Robin Hood",
+              "link": "/movies/the-death-of-robin-hood-82802",
+              "runtime": "2 HR 3 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Scary Movie",
+              "link": "/movies/scary-movie-79322",
+              "runtime": "1 HR 36 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Backrooms",
+              "link": "/movies/backrooms-83009",
+              "runtime": "1 HR 45 MIN",
+              "rating": "R",
+              "formats": []
+            },
+            {
+              "title": "Star Wars: The Mandalorian and Grogu",
+              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
+              "runtime": "2 HR 12 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Cocktail 2",
+              "link": "/movies/cocktail-2-84032",
+              "runtime": "2 HR 31 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
+              "title": "Minions & Monsters: Private Theatre Rental",
+              "link": "/movies/minions-monsters-private-theatre-rental-83940",
+              "runtime": "1 HR 30 MIN",
               "rating": "PG",
               "formats": []
             },
@@ -6313,13 +8468,6 @@
               "formats": []
             },
             {
-              "title": "Lucky Strike",
-              "link": "/movies/lucky-strike-83414",
-              "runtime": "1 HR 42 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83656",
               "runtime": "3 HR 30 MIN",
@@ -6327,10 +8475,10 @@
               "formats": []
             },
             {
-              "title": "Minions & Monsters: Private Theatre Rental",
-              "link": "/movies/minions-monsters-private-theatre-rental-83940",
-              "runtime": "1 HR 30 MIN",
-              "rating": "PG",
+              "title": "7 Dogs",
+              "link": "/movies/7-dogs-84179",
+              "runtime": "2 HR 5 MIN",
+              "rating": "NR",
               "formats": []
             },
             {
@@ -6355,10 +8503,24 @@
               "formats": []
             },
             {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": []
+            },
+            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83658",
               "runtime": "3 HR 30 MIN",
               "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Bleach: Thousand-Year Blood War - The Calamity",
+              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
+              "runtime": "1 HR 25 MIN",
+              "rating": "NR",
               "formats": []
             }
           ]
@@ -6674,6 +8836,60 @@
               "formats": []
             }
           ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Private Theatre Rental",
+              "link": "/movies/private-theatre-rental-65421",
+              "runtime": null,
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Octavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83670",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Octavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83671",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Alpha (dir. Rawail)",
+              "link": "/movies/alpha-dir-rawail-81765",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": []
+            }
+          ]
         }
       ]
     },
@@ -6681,109 +8897,6 @@
       "id": "amc-clifton-commons-16",
       "location": "new-jersey",
       "schedule": [
-        {
-          "date": "2026-06-23",
-          "movies": [
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Masters of the Universe",
-              "link": "/movies/masters-of-the-universe-76888",
-              "runtime": "2 HR 20 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Star Wars: The Mandalorian and Grogu",
-              "link": "/movies/star-wars-the-mandalorian-and-grogu-60322",
-              "runtime": "2 HR 12 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Michael",
-              "link": "/movies/michael-75846",
-              "runtime": "2 HR 7 MIN",
-              "rating": "PG13",
-              "formats": []
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Moonlight",
-              "link": "/movies/moonlight-83938",
-              "runtime": "1 HR 50 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "STOP! THAT! TRAIN!",
-              "link": "/movies/stop-that-train-82242",
-              "runtime": "1 HR 30 MIN",
-              "rating": "R",
-              "formats": []
-            },
-            {
-              "title": "Colombia vs. RD Congo - Telemundo presenta la Copa Mundial de la FIFA",
-              "link": "/movies/colombia-vs-por-definir-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83636",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            }
-          ]
-        },
         {
           "date": "2026-06-24",
           "movies": [
@@ -6900,27 +9013,6 @@
               "formats": []
             },
             {
-              "title": "Toy Story 5: Sensory Friendly Screening",
-              "link": "/movies/toy-story-5-sensory-friendly-screening-83733",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Suiza vs. Canadá - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/suiza-vs-canada-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83637",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
-              "title": "Escocia vs. Brasil - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/escocia-vs-brasil-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83638",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": []
-            },
-            {
               "title": "Supergirl Fan First Screenings",
               "link": "/movies/supergirl-fan-first-screenings-83969",
               "runtime": "1 HR 48 MIN",
@@ -6928,8 +9020,15 @@
               "formats": []
             },
             {
-              "title": "República Checa vs. México - Telemundo presenta la Copa Mundial de la FIFA",
-              "link": "/movies/por-definir-vs-mexico-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83639",
+              "title": "Toy Story 5: Sensory Friendly Screening",
+              "link": "/movies/toy-story-5-sensory-friendly-screening-83733",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Escocia vs. Brasil - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/escocia-vs-brasil-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83638",
               "runtime": "3 HR 0 MIN",
               "rating": null,
               "formats": []
@@ -8294,6 +10393,67 @@
               "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83669",
               "runtime": "3 HR 30 MIN",
               "rating": null,
+              "formats": []
+            }
+          ]
+        },
+        {
+          "date": "2026-07-07",
+          "movies": [
+            {
+              "title": "Minions & Monsters",
+              "link": "/movies/minions-monsters-77563",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Private Theatre Rental",
+              "link": "/movies/private-theatre-rental-65421",
+              "runtime": null,
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Toy Story 5",
+              "link": "/movies/toy-story-5-72482",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Supergirl",
+              "link": "/movies/supergirl-77031",
+              "runtime": "1 HR 48 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Octavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83670",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Young Washington",
+              "link": "/movies/young-washington-a-founder-s-story-80772",
+              "runtime": "2 HR 5 MIN",
+              "rating": "PG13",
+              "formats": []
+            },
+            {
+              "title": "Octavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/octavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83671",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": []
+            },
+            {
+              "title": "Alpha (dir. Rawail)",
+              "link": "/movies/alpha-dir-rawail-81765",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
               "formats": []
             }
           ]
