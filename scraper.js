@@ -35,9 +35,12 @@ function getDates(days = 4) {
 
 async function scrapeAMC() {
     console.log('Starting AMC Scraper...');
-    const browser = await chromium.launch({ headless: process.env.CI ? true : false });
+    const browser = await chromium.launch({ 
+        headless: false, // Run headed (we will use xvfb in GitHub Actions)
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-blink-features=AutomationControlled']
+    });
     const context = await browser.newContext({
-        userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         viewport: { width: 1280, height: 800 }
     });
     
@@ -142,7 +145,13 @@ async function scrapeAMC() {
                     dailyData.movies.push(movieObj);
                 });
 
-                console.log(`Extracted ${dailyData.movies.length} movies for ${date}`);
+                if (dailyData.movies.length === 0) {
+                    console.warn(`[WARNING] Extracted 0 movies for ${date}. This might be an anti-bot block.`);
+                    console.log(`HTML Snippet:`, mainHtml.substring(0, 400));
+                } else {
+                    console.log(`Extracted ${dailyData.movies.length} movies for ${date}`);
+                }
+                
                 fullSchedule.theaters[theater.id].schedule.push(dailyData);
 
             } catch (err) {

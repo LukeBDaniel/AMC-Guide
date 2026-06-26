@@ -28,7 +28,7 @@ jobs:
         run: npx playwright install chromium --with-deps
         
       - name: Run AMC Scraper
-        run: node scraper.js
+        run: xvfb-run --auto-servernum -- node scraper.js
         
       - name: Commit and Push changes
         run: |
