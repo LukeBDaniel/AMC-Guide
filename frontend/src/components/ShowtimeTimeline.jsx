@@ -46,7 +46,8 @@ export default function ShowtimeTimeline({ showtimes, allDates, pinnedShowtimes 
 
     // Calculate layout for overlapping events (VERTICAL TIMELINE)
     const calculateLayout = (events) => {
-        const sorted = [...events].sort((a, b) => a.timeMinutes - b.timeMinutes);
+        // Shallow clone to prevent mutating the global data.showtimes objects
+        const sorted = events.map(e => ({ ...e })).sort((a, b) => a.timeMinutes - b.timeMinutes);
         const positioned = [];
         
         // Pass 1: Indent Assignment
