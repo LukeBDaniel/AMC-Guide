@@ -1,5 +1,7 @@
 # AMC Guide
 
+**Live Site:** [https://LukeBDaniel.github.io/AMC-Guide](https://LukeBDaniel.github.io/AMC-Guide)
+
 A personalized, automated web application designed to track, aggregate, and filter AMC theater showtimes across the New York and New Jersey areas. 
 
 Built to solve the friction of navigating fragmented theater schedules, this project uses a custom web scraper and a responsive React frontend to deliver a lightning-fast, faceted search experience.
@@ -17,21 +19,3 @@ Built to solve the friction of navigating fragmented theater schedules, this pro
 - **Data Pipeline:** Node.js, Playwright (Headless Web Scraping)
 - **CI/CD & Automation:** GitHub Actions (Automated Cron Jobs)
 - **Hosting:** Static deployment ready
-
-## Running Locally
-
-### 1. Scrape the Data
-To manually fetch the latest showtimes and generate the `data.json` file:
-```bash
-npm install
-npx playwright install chromium
-node scraper.js
-```
-
-### 2. Run the Frontend
-To boot up the React application:
-```bash
-cd frontend
-npm install
-npm run dev
-```
