@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-06-26T03:08:16.435Z",
+  "scrapedAt": "2026-06-26T10:40:54.014Z",
   "theaters": {
     "amc-empire-25": {
       "id": "amc-empire-25",
@@ -1399,29 +1399,6 @@
               ]
             },
             {
-              "title": "Sugar Beach",
-              "link": "/movies/sugar-beach-83868",
-              "runtime": "1 HR 27 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "ID Required",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30am",
-                      "performanceId": "144707468",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Maa Inti Bangaaram",
               "link": "/movies/maa-inti-bangaaram-83165",
               "runtime": "2 HR 20 MIN",
@@ -1456,40 +1433,6 @@
               ]
             },
             {
-              "title": "Main Vaapas Aaunga",
-              "link": "/movies/main-vaapas-aaunga-83531",
-              "runtime": "2 HR 47 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:05pm",
-                      "performanceId": "144665487",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:00pm",
-                      "performanceId": "144665654",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "144707471",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "The Devil Wears Prada 20th Anniversary Double Feature",
               "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
               "runtime": "3 HR 59 MIN",
@@ -1508,6 +1451,29 @@
                       "time": "2:00pm",
                       "performanceId": "144665564",
                       "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Sugar Beach",
+              "link": "/movies/sugar-beach-83868",
+              "runtime": "1 HR 27 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "ID Required",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30am",
+                      "performanceId": "144707468",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -1536,6 +1502,40 @@
                     {
                       "time": "11:30pm",
                       "performanceId": "144665784",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:05pm",
+                      "performanceId": "144665487",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "6:00pm",
+                      "performanceId": "144665654",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "144707471",
                       "alert": null
                     }
                   ]
@@ -3033,42 +3033,6 @@
               ]
             },
             {
-              "title": "Main Vaapas Aaunga",
-              "link": "/movies/main-vaapas-aaunga-83531",
-              "runtime": "2 HR 47 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:30am",
-                      "performanceId": "144665492",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:00pm",
-                      "performanceId": "144665489",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Toy Story 5: Private Theatre Rental",
-              "link": "/movies/toy-story-5-private-theatre-rental-83574",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
               "title": "Maa Inti Bangaaram",
               "link": "/movies/maa-inti-bangaaram-83165",
               "runtime": "2 HR 20 MIN",
@@ -3101,6 +3065,13 @@
                   ]
                 }
               ]
+            },
+            {
+              "title": "Toy Story 5: Private Theatre Rental",
+              "link": "/movies/toy-story-5-private-theatre-rental-83574",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
             },
             {
               "title": "The Devil Wears Prada 20th Anniversary Double Feature",
@@ -3182,6 +3153,35 @@
                     {
                       "time": "10:45pm",
                       "performanceId": "144665766",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "11:30am",
+                      "performanceId": "144665492",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "6:00pm",
+                      "performanceId": "144665489",
                       "alert": null
                     }
                   ]
@@ -4488,6 +4488,30 @@
               ]
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "144665368",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Toy Story 5: Private Theatre Rental",
               "link": "/movies/toy-story-5-private-theatre-rental-83574",
               "runtime": "1 HR 42 MIN",
@@ -4536,30 +4560,6 @@
               ]
             },
             {
-              "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
-              "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Fan Faves",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "143488588",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Sugar Beach",
               "link": "/movies/sugar-beach-83868",
               "runtime": "1 HR 27 MIN",
@@ -4588,14 +4588,14 @@
               ]
             },
             {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
               "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Telugu Spoken with English Subtitles",
+                    "Punjabi Spoken with English Subtitles",
                     "AMC Club Rockers",
                     "Laser at AMC",
                     "Reserved Seating",
@@ -4603,8 +4603,13 @@
                   ],
                   "showtimes": [
                     {
-                      "time": "6:45pm",
-                      "performanceId": "144665368",
+                      "time": "10:50pm",
+                      "performanceId": "144665764",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:50pm",
+                      "performanceId": "144665764",
                       "alert": null
                     }
                   ]
@@ -4636,28 +4641,23 @@
               ]
             },
             {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
+              "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
+              "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG13",
               "formats": [
                 {
                   "formats": [
-                    "Punjabi Spoken with English Subtitles",
+                    "Fan Faves",
                     "AMC Club Rockers",
                     "Laser at AMC",
                     "Reserved Seating",
-                    "International Films"
+                    "Closed Caption"
                   ],
                   "showtimes": [
                     {
-                      "time": "10:50pm",
-                      "performanceId": "144665764",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:50pm",
-                      "performanceId": "144665764",
+                      "time": "4:00pm",
+                      "performanceId": "143488588",
                       "alert": null
                     }
                   ]
@@ -5973,64 +5973,6 @@
               ]
             },
             {
-              "title": "Sugar Beach",
-              "link": "/movies/sugar-beach-83868",
-              "runtime": "1 HR 27 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "ID Required",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00am",
-                      "performanceId": "144665741",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "8:15pm",
-                      "performanceId": "144363346",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "David",
-              "link": "/movies/david-83806",
-              "runtime": "1 HR 55 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Fan Faves",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:00am",
-                      "performanceId": "142838260",
-                      "alert": null
-                    },
-                    {
-                      "time": "2:00pm",
-                      "performanceId": "142838261",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Maa Inti Bangaaram",
               "link": "/movies/maa-inti-bangaaram-83165",
               "runtime": "2 HR 20 MIN",
@@ -6089,24 +6031,56 @@
               ]
             },
             {
-              "title": "Minions & Monsters Early Access Screening",
-              "link": "/movies/minions-monsters-early-access-screening-81567",
-              "runtime": "1 HR 30 MIN",
-              "rating": "PG",
+              "title": "Sugar Beach",
+              "link": "/movies/sugar-beach-83868",
+              "runtime": "1 HR 27 MIN",
+              "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "RealD 3D",
-                    "AMC Club Rockers",
                     "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
+                    "ID Required",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
                   ],
                   "showtimes": [
                     {
-                      "time": "6:00pm",
-                      "performanceId": "143755099",
+                      "time": "10:00am",
+                      "performanceId": "144665741",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "8:15pm",
+                      "performanceId": "144363346",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:45pm",
+                      "performanceId": "144665773",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:45pm",
+                      "performanceId": "144665773",
                       "alert": null
                     }
                   ]
@@ -6138,6 +6112,61 @@
               ]
             },
             {
+              "title": "David",
+              "link": "/movies/david-83806",
+              "runtime": "1 HR 55 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Fan Faves",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "11:00am",
+                      "performanceId": "142838260",
+                      "alert": null
+                    },
+                    {
+                      "time": "2:00pm",
+                      "performanceId": "142838261",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Minions & Monsters Early Access Screening",
+              "link": "/movies/minions-monsters-early-access-screening-81567",
+              "runtime": "1 HR 30 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "RealD 3D",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:00pm",
+                      "performanceId": "143755099",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "AMC Screen Unseen: June 29",
               "link": "/movies/amc-screen-unseen-june-29-84153",
               "runtime": "1 HR 37 MIN",
@@ -6153,35 +6182,6 @@
                     {
                       "time": "7:00pm",
                       "performanceId": "144331249",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:45pm",
-                      "performanceId": "144665773",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:45pm",
-                      "performanceId": "144665773",
                       "alert": null
                     }
                   ]
@@ -7650,6 +7650,60 @@
               ]
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:45pm",
+                      "performanceId": "144665634",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:45pm",
+                      "performanceId": "144665634",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "2:15pm",
+                      "performanceId": "144665553",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Sugar Beach",
               "link": "/movies/sugar-beach-83868",
               "runtime": "1 HR 27 MIN",
@@ -7671,6 +7725,35 @@
                     {
                       "time": "8:30pm",
                       "performanceId": "144363349",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "11:00pm",
+                      "performanceId": "144665754",
+                      "alert": null
+                    },
+                    {
+                      "time": "11:00pm",
+                      "performanceId": "144665754",
                       "alert": null
                     }
                   ]
@@ -7712,31 +7795,6 @@
               ]
             },
             {
-              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
-              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
-              "runtime": "3 HR 59 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "2:15pm",
-                      "performanceId": "144665553",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
               "link": "/movies/talladega-nights-ballad-of-ricky-bobby-20th-anniversary-84009",
               "runtime": "1 HR 47 MIN",
@@ -7755,64 +7813,6 @@
                     {
                       "time": "7:00pm",
                       "performanceId": "143488589",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "144665634",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "144665634",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:00pm",
-                      "performanceId": "144665754",
-                      "alert": null
-                    },
-                    {
-                      "time": "11:00pm",
-                      "performanceId": "144665754",
                       "alert": null
                     }
                   ]
@@ -9084,6 +9084,83 @@
               ]
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:00pm",
+                      "performanceId": "144665637",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:00pm",
+                      "performanceId": "144665637",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "8:30pm",
+                      "performanceId": "144665358",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Main Vaapas Aaunga",
+              "link": "/movies/main-vaapas-aaunga-83531",
+              "runtime": "2 HR 47 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:15pm",
+                      "performanceId": "144665753",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "David",
               "link": "/movies/david-83806",
               "runtime": "1 HR 55 MIN",
@@ -9133,83 +9210,6 @@
                     {
                       "time": "4:00pm",
                       "performanceId": "143488590",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Main Vaapas Aaunga",
-              "link": "/movies/main-vaapas-aaunga-83531",
-              "runtime": "2 HR 47 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:15pm",
-                      "performanceId": "144665753",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "8:30pm",
-                      "performanceId": "144665358",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00pm",
-                      "performanceId": "144665637",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:00pm",
-                      "performanceId": "144665637",
                       "alert": null
                     }
                   ]
@@ -12387,6 +12387,41 @@
               ]
             },
             {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "AMC Artisan Films",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:00pm",
+                      "performanceId": "144556693",
+                      "alert": null
+                    },
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "144556694",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "144556695",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Evil Dead Burn",
               "link": "/movies/evil-dead-burn-80306",
               "runtime": "1 HR 50 MIN",
@@ -12438,41 +12473,6 @@
                     {
                       "time": "11:15pm",
                       "performanceId": "144363284",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "144556693",
-                      "alert": null
-                    },
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "144556694",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "144556695",
                       "alert": null
                     }
                   ]
@@ -13121,7 +13121,7 @@
                     {
                       "time": "8:30pm",
                       "performanceId": "144572543",
-                      "alert": null
+                      "alert": "Almost Full"
                     },
                     {
                       "time": "9:30pm",
@@ -16155,33 +16155,6 @@
               ]
             },
             {
-              "title": "F1 on Apple TV Live in IMAX: British Race",
-              "link": "/movies/f1-on-apple-tv-live-in-imax-british-race-84063",
-              "runtime": "4 HR 30 MIN",
-              "rating": null,
-              "formats": [
-                {
-                  "formats": [
-                    "IMAX with Laser at AMC",
-                    "No Trailers",
-                    "IMAX at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Livestream Event",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30am",
-                      "performanceId": "144059395",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "The Invite",
               "link": "/movies/the-invite-82975",
               "runtime": "1 HR 47 MIN",
@@ -16218,6 +16191,33 @@
                     {
                       "time": "10:30pm",
                       "performanceId": "144023578",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "F1 on Apple TV Live in IMAX: British Race",
+              "link": "/movies/f1-on-apple-tv-live-in-imax-british-race-84063",
+              "runtime": "4 HR 30 MIN",
+              "rating": null,
+              "formats": [
+                {
+                  "formats": [
+                    "IMAX with Laser at AMC",
+                    "No Trailers",
+                    "IMAX at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Livestream Event",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30am",
+                      "performanceId": "144059395",
                       "alert": null
                     }
                   ]
@@ -22816,6 +22816,41 @@
               "formats": []
             },
             {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "AMC Artisan Films",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:00pm",
+                      "performanceId": "144572669",
+                      "alert": null
+                    },
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "144572670",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "144572671",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Evil Dead Burn",
               "link": "/movies/evil-dead-burn-80306",
               "runtime": "1 HR 50 MIN",
@@ -22861,41 +22896,6 @@
                     {
                       "time": "9:00pm",
                       "performanceId": "144408888",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "144572669",
-                      "alert": null
-                    },
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "144572670",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "144572671",
                       "alert": null
                     }
                   ]
@@ -23688,30 +23688,6 @@
               ]
             },
             {
-              "title": "Noruega vs. Francia - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/noruega-vs-francia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83643",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": [
-                {
-                  "formats": [
-                    "Spanish Spoken with No Subtitles",
-                    "No Trailers",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Livestream Event"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:00pm",
-                      "performanceId": "143205916",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Uruguay vs. España - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/uruguay-vs-espana-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83644",
               "runtime": "3 HR 0 MIN",
@@ -23730,6 +23706,30 @@
                       "time": "8:00pm",
                       "performanceId": "143745171",
                       "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Noruega vs. Francia - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/noruega-vs-francia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83643",
+              "runtime": "3 HR 0 MIN",
+              "rating": null,
+              "formats": [
+                {
+                  "formats": [
+                    "Spanish Spoken with No Subtitles",
+                    "No Trailers",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Livestream Event"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:00pm",
+                      "performanceId": "143205916",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -25989,6 +25989,30 @@
               ]
             },
             {
+              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
+              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
+              "runtime": "3 HR 59 MIN",
+              "rating": "PG13",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "11:05am",
+                      "performanceId": "144616987",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "David",
               "link": "/movies/david-83806",
               "runtime": "1 HR 55 MIN",
@@ -26011,30 +26035,6 @@
                     {
                       "time": "2:00pm",
                       "performanceId": "142838380",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Devil Wears Prada 20th Anniversary Double Feature",
-              "link": "/movies/the-devil-wears-prada-20th-anniversary-double-feature-84238",
-              "runtime": "3 HR 59 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:05am",
-                      "performanceId": "144616987",
                       "alert": null
                     }
                   ]
@@ -29863,6 +29863,40 @@
               ]
             },
             {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "AMC Artisan Films",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:00pm",
+                      "performanceId": "144687147",
+                      "alert": null
+                    },
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "144687149",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "144687151",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Young Washington",
               "link": "/movies/young-washington-a-founder-s-story-80772",
               "runtime": "2 HR 5 MIN",
@@ -29992,40 +30026,6 @@
                     {
                       "time": "4:00pm",
                       "performanceId": "143205898",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "AMC Artisan Films",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "144687147",
-                      "alert": null
-                    },
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "144687149",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "144687151",
                       "alert": null
                     }
                   ]
@@ -34343,6 +34343,41 @@
               ]
             },
             {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "AMC Artisan Films",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:50pm",
+                      "performanceId": "144554133",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:40pm",
+                      "performanceId": "144554132",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "144554131",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Young Washington",
               "link": "/movies/young-washington-a-founder-s-story-80772",
               "runtime": "2 HR 5 MIN",
@@ -34400,41 +34435,6 @@
                     {
                       "time": "9:45pm",
                       "performanceId": "144359494",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:50pm",
-                      "performanceId": "144554133",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:40pm",
-                      "performanceId": "144554132",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "144554131",
                       "alert": null
                     }
                   ]
@@ -39569,6 +39569,41 @@
               ]
             },
             {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "AMC Artisan Films",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:15pm",
+                      "performanceId": "144588711",
+                      "alert": null
+                    },
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "144588605",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "144588606",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Young Washington",
               "link": "/movies/young-washington-a-founder-s-story-80772",
               "runtime": "2 HR 5 MIN",
@@ -39631,41 +39666,6 @@
                     {
                       "time": "9:45pm",
                       "performanceId": "144423453",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:15pm",
-                      "performanceId": "144588711",
-                      "alert": null
-                    },
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "144588605",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "144588606",
                       "alert": null
                     }
                   ]
@@ -44490,6 +44490,40 @@
               ]
             },
             {
+              "title": "The Invite",
+              "link": "/movies/the-invite-82975",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Artisan Films",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:00pm",
+                      "performanceId": "144701266",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:15pm",
+                      "performanceId": "144701267",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "144701268",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Evil Dead Burn",
               "link": "/movies/evil-dead-burn-80306",
               "runtime": "1 HR 50 MIN",
@@ -44534,40 +44568,6 @@
                     {
                       "time": "9:00pm",
                       "performanceId": "144486535",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Invite",
-              "link": "/movies/the-invite-82975",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "144701266",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:15pm",
-                      "performanceId": "144701267",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "144701268",
                       "alert": null
                     }
                   ]
@@ -45501,54 +45501,27 @@
               ]
             },
             {
-              "title": "Con City",
-              "link": "/movies/con-city-84146",
-              "runtime": "2 HR 30 MIN",
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Tamil Spoken with English Subtitles",
+                    "Telugu Spoken with English Subtitles",
                     "Laser at AMC",
                     "Reserved Seating",
                     "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "10:40am",
-                      "performanceId": "144614837",
+                      "time": "12:50pm",
+                      "performanceId": "144614807",
                       "alert": "20% OFF"
                     },
                     {
-                      "time": "5:20pm",
-                      "performanceId": "144614835",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Ananthan Kaadu",
-              "link": "/movies/ananthan-kaadu-84143",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:15am",
-                      "performanceId": "144614808",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:50pm",
-                      "performanceId": "144614805",
+                      "time": "10:25pm",
+                      "performanceId": "144614806",
                       "alert": null
                     }
                   ]
@@ -45573,34 +45546,6 @@
                       "time": "11:30am",
                       "performanceId": "143394185",
                       "alert": "1-20 Guests"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:50pm",
-                      "performanceId": "144614807",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "10:25pm",
-                      "performanceId": "144614806",
-                      "alert": null
                     }
                   ]
                 }
@@ -45640,24 +45585,55 @@
               ]
             },
             {
-              "title": "Noruega vs. Francia - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/noruega-vs-francia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83643",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Spanish Spoken with No Subtitles",
-                    "No Trailers",
+                    "Malayalam Spoken with English Subtitles",
                     "Laser at AMC",
-                    "Reserved Seating",
-                    "Livestream Event"
+                    "Reserved Seating"
                   ],
                   "showtimes": [
                     {
-                      "time": "3:00pm",
-                      "performanceId": "143205959",
+                      "time": "11:15am",
+                      "performanceId": "144614808",
                       "alert": "20% OFF"
+                    },
+                    {
+                      "time": "6:50pm",
+                      "performanceId": "144614805",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Tamil Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:40am",
+                      "performanceId": "144614837",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "144614835",
+                      "alert": null
                     }
                   ]
                 }
@@ -45682,6 +45658,30 @@
                       "time": "8:00pm",
                       "performanceId": "143745175",
                       "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Noruega vs. Francia - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/noruega-vs-francia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83643",
+              "runtime": "3 HR 0 MIN",
+              "rating": null,
+              "formats": [
+                {
+                  "formats": [
+                    "Spanish Spoken with No Subtitles",
+                    "No Trailers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Livestream Event"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:00pm",
+                      "performanceId": "143205959",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -46592,6 +46592,69 @@
               ]
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:50pm",
+                      "performanceId": "144614877",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "10:25pm",
+                      "performanceId": "144614876",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Toy Story 5: Private Theatre Rental",
+              "link": "/movies/toy-story-5-private-theatre-rental-83574",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:45pm",
+                      "performanceId": "144614846",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "3:55pm",
+                      "performanceId": "144614845",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Ananthan Kaadu",
               "link": "/movies/ananthan-kaadu-84143",
               "runtime": "2 HR 37 MIN",
@@ -46673,41 +46736,6 @@
               ]
             },
             {
-              "title": "Toy Story 5: Private Theatre Rental",
-              "link": "/movies/toy-story-5-private-theatre-rental-83574",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
-            },
-            {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:50pm",
-                      "performanceId": "144614877",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "10:25pm",
-                      "performanceId": "144614876",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "WWE Night of the Champions 2026",
               "link": "/movies/wwe-night-of-the-champions-2026-83995",
               "runtime": "4 HR 0 MIN",
@@ -46727,34 +46755,6 @@
                       "time": "1:00pm",
                       "performanceId": "144059337",
                       "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:45pm",
-                      "performanceId": "144614846",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "3:55pm",
-                      "performanceId": "144614845",
-                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -47762,27 +47762,27 @@
               ]
             },
             {
-              "title": "Con City",
-              "link": "/movies/con-city-84146",
-              "runtime": "2 HR 30 MIN",
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Tamil Spoken with English Subtitles",
+                    "Telugu Spoken with English Subtitles",
                     "Laser at AMC",
                     "Reserved Seating",
                     "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "8:50am",
-                      "performanceId": "144614907",
+                      "time": "12:50pm",
+                      "performanceId": "144614923",
                       "alert": "20% OFF"
                     },
                     {
-                      "time": "5:20pm",
-                      "performanceId": "144614937",
+                      "time": "10:25pm",
+                      "performanceId": "144614922",
                       "alert": null
                     }
                   ]
@@ -47795,6 +47795,34 @@
               "runtime": "1 HR 42 MIN",
               "rating": "PG",
               "formats": []
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:50pm",
+                      "performanceId": "144614909",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "144614908",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
             },
             {
               "title": "Ananthan Kaadu",
@@ -47824,27 +47852,27 @@
               ]
             },
             {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Telugu Spoken with English Subtitles",
+                    "Tamil Spoken with English Subtitles",
                     "Laser at AMC",
                     "Reserved Seating",
                     "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "12:50pm",
-                      "performanceId": "144614923",
+                      "time": "8:50am",
+                      "performanceId": "144614907",
                       "alert": "20% OFF"
                     },
                     {
-                      "time": "10:25pm",
-                      "performanceId": "144614922",
+                      "time": "5:20pm",
+                      "performanceId": "144614937",
                       "alert": null
                     }
                   ]
@@ -47892,34 +47920,6 @@
                     {
                       "time": "4:00pm",
                       "performanceId": "143485368",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:50pm",
-                      "performanceId": "144614909",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "144614908",
                       "alert": null
                     }
                   ]
@@ -48807,6 +48807,79 @@
               ]
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:50pm",
+                      "performanceId": "144632206",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "10:40pm",
+                      "performanceId": "144632205",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Carry On Jatta 4",
+              "link": "/movies/carry-on-jatta-4-83786",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:50pm",
+                      "performanceId": "144632163",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "144632204",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Con City",
               "link": "/movies/con-city-84146",
               "runtime": "2 HR 30 MIN",
@@ -48857,34 +48930,6 @@
                     {
                       "time": "2:00pm",
                       "performanceId": "142837789",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:50pm",
-                      "performanceId": "144632206",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "10:40pm",
-                      "performanceId": "144632205",
                       "alert": null
                     }
                   ]
@@ -48985,28 +49030,6 @@
               ]
             },
             {
-              "title": "Ananthan Kaadu",
-              "link": "/movies/ananthan-kaadu-84143",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "144632204",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83652",
               "runtime": "3 HR 0 MIN",
@@ -49024,29 +49047,6 @@
                     {
                       "time": "9:00pm",
                       "performanceId": "143745178",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Carry On Jatta 4",
-              "link": "/movies/carry-on-jatta-4-83786",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:50pm",
-                      "performanceId": "144632163",
                       "alert": null
                     }
                   ]
@@ -49944,34 +49944,6 @@
               ]
             },
             {
-              "title": "Con City",
-              "link": "/movies/con-city-84146",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Tamil Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:40am",
-                      "performanceId": "144632246",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "144632244",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Maa Inti Bangaaram",
               "link": "/movies/maa-inti-bangaaram-83165",
               "runtime": "2 HR 20 MIN",
@@ -50000,31 +49972,6 @@
               ]
             },
             {
-              "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83653",
-              "runtime": "3 HR 30 MIN",
-              "rating": null,
-              "formats": [
-                {
-                  "formats": [
-                    "Spanish Spoken with No Subtitles",
-                    "No Trailers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from 50% off Discount",
-                    "Livestream Event"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:00pm",
-                      "performanceId": "143205952",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Carry On Jatta 4",
               "link": "/movies/carry-on-jatta-4-83786",
               "runtime": "2 HR 20 MIN",
@@ -50047,6 +49994,81 @@
                       "time": "9:50pm",
                       "performanceId": "144632180",
                       "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "144632207",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Con City",
+              "link": "/movies/con-city-84146",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Tamil Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:40am",
+                      "performanceId": "144632246",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "144632244",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
+              "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83653",
+              "runtime": "3 HR 30 MIN",
+              "rating": null,
+              "formats": [
+                {
+                  "formats": [
+                    "Spanish Spoken with No Subtitles",
+                    "No Trailers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Excluded from 50% off Discount",
+                    "Livestream Event"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:00pm",
+                      "performanceId": "143205952",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -50095,28 +50117,6 @@
                     {
                       "time": "7:00pm",
                       "performanceId": "143485369",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Ananthan Kaadu",
-              "link": "/movies/ananthan-kaadu-84143",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "144632207",
                       "alert": null
                     }
                   ]
@@ -50955,6 +50955,61 @@
               ]
             },
             {
+              "title": "Maa Inti Bangaaram",
+              "link": "/movies/maa-inti-bangaaram-83165",
+              "runtime": "2 HR 20 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:40pm",
+                      "performanceId": "144632209",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "6:50pm",
+                      "performanceId": "144632208",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Ananthan Kaadu",
+              "link": "/movies/ananthan-kaadu-84143",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:10pm",
+                      "performanceId": "144632171",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "144632210",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Minions & Monsters: Private Theatre Rental",
               "link": "/movies/minions-monsters-private-theatre-rental-83940",
               "runtime": "1 HR 30 MIN",
@@ -51034,34 +51089,6 @@
               ]
             },
             {
-              "title": "Maa Inti Bangaaram",
-              "link": "/movies/maa-inti-bangaaram-83165",
-              "runtime": "2 HR 20 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:40pm",
-                      "performanceId": "144632209",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:50pm",
-                      "performanceId": "144632208",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83657",
               "runtime": "3 HR 30 MIN",
@@ -51104,33 +51131,6 @@
                     {
                       "time": "4:00pm",
                       "performanceId": "143485370",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Ananthan Kaadu",
-              "link": "/movies/ananthan-kaadu-84143",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:10pm",
-                      "performanceId": "144632171",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "144632210",
                       "alert": null
                     }
                   ]
@@ -54454,871 +54454,7 @@
       "schedule": [
         {
           "date": "2026-06-26",
-          "movies": [
-            {
-              "title": "Supergirl",
-              "link": "/movies/supergirl-77031",
-              "runtime": "1 HR 48 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "IMAX with Laser at AMC",
-                    "IMAX at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:00am",
-                      "performanceId": "143641855",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "2:00pm",
-                      "performanceId": "143641854",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "5:00pm",
-                      "performanceId": "143641853",
-                      "alert": null
-                    },
-                    {
-                      "time": "8:00pm",
-                      "performanceId": "143641852",
-                      "alert": null
-                    },
-                    {
-                      "time": "11:00pm",
-                      "performanceId": "143641856",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00pm",
-                      "performanceId": "144553387",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:30pm",
-                      "performanceId": "143641728",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "RealD 3D",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:30pm",
-                      "performanceId": "143641731",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "143641729",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "XL at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:15am",
-                      "performanceId": "143641788",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "1:15pm",
-                      "performanceId": "143641787",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "4:15pm",
-                      "performanceId": "143641786",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:15pm",
-                      "performanceId": "143641790",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "143641789",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:45am",
-                      "performanceId": "144553522",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "2:45pm",
-                      "performanceId": "144553521",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "5:45pm",
-                      "performanceId": "144553519",
-                      "alert": null
-                    },
-                    {
-                      "time": "6:30pm",
-                      "performanceId": "143641730",
-                      "alert": null
-                    },
-                    {
-                      "time": "8:45pm",
-                      "performanceId": "144553520",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Jackass: Best and Last",
-              "link": "/movies/jackass-best-and-last-82549",
-              "runtime": "1 HR 32 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:45am",
-                      "performanceId": "144065143",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:30pm",
-                      "performanceId": "144065142",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "4:15pm",
-                      "performanceId": "144065141",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "144065118",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:15pm",
-                      "performanceId": "144705166",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "144065119",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Toy Story 5",
-              "link": "/movies/toy-story-5-72482",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00am",
-                      "performanceId": "144553391",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "1:00pm",
-                      "performanceId": "144553390",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "144553389",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "144553388",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Spanish Language Dubbed with No Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:00am",
-                      "performanceId": "144553471",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "RealD 3D",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:30pm",
-                      "performanceId": "143406032",
-                      "alert": "UP TO 15% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "XL at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:00pm",
-                      "performanceId": "144553438",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "3:00pm",
-                      "performanceId": "144553437",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "6:00pm",
-                      "performanceId": "144553435",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:00pm",
-                      "performanceId": "144553436",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:30am",
-                      "performanceId": "144257433",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "12:30pm",
-                      "performanceId": "144553285",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "4:30pm",
-                      "performanceId": "143406031",
-                      "alert": null
-                    },
-                    {
-                      "time": "6:30pm",
-                      "performanceId": "144705165",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:30pm",
-                      "performanceId": "143406029",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Disclosure Day",
-              "link": "/movies/disclosure-day-77140",
-              "runtime": "2 HR 25 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:10am",
-                      "performanceId": "144553427",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "2:50pm",
-                      "performanceId": "144553426",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:30pm",
-                      "performanceId": "144553424",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "144553425",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Obsession",
-              "link": "/movies/obsession-82063",
-              "runtime": "1 HR 48 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Thrills & Chills",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:00am",
-                      "performanceId": "144553343",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "2:00pm",
-                      "performanceId": "144553342",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "5:00pm",
-                      "performanceId": "144553341",
-                      "alert": null
-                    },
-                    {
-                      "time": "8:00pm",
-                      "performanceId": "144553340",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "144553321",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Backrooms",
-              "link": "/movies/backrooms-83009",
-              "runtime": "1 HR 45 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Artisan Films",
-                    "Thrills & Chills",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "144553467",
-                      "alert": null
-                    },
-                    {
-                      "time": "11:00pm",
-                      "performanceId": "144553339",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Bleach: Thousand-Year Blood War - The Calamity",
-              "link": "/movies/bleach-thousand-year-blood-war-the-calamity-83858",
-              "runtime": "1 HR 25 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "No Trailers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:10am",
-                      "performanceId": "144553366",
-                      "alert": null
-                    },
-                    {
-                      "time": "2:00pm",
-                      "performanceId": "144553322",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "English Language Dubbed with No Subtitles",
-                    "No Trailers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "143197954",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Lucky Strike",
-              "link": "/movies/lucky-strike-83414",
-              "runtime": "1 HR 42 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:30pm",
-                      "performanceId": "144257021",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "144257042",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "To Wong Foo, Thanks for Everything, Julie Newmar",
-              "link": "/movies/to-wong-foo-thanks-for-everything-julie-newmar-83939",
-              "runtime": "1 HR 49 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Fan Faves",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:45pm",
-                      "performanceId": "143483082",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Death of Robin Hood",
-              "link": "/movies/the-death-of-robin-hood-82802",
-              "runtime": "2 HR 3 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00am",
-                      "performanceId": "144553485",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Masters of the Universe",
-              "link": "/movies/masters-of-the-universe-76888",
-              "runtime": "2 HR 20 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:10pm",
-                      "performanceId": "144553489",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "4:30pm",
-                      "performanceId": "144553486",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Scary Movie",
-              "link": "/movies/scary-movie-79322",
-              "runtime": "1 HR 36 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "8:00pm",
-                      "performanceId": "144553487",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:45pm",
-                      "performanceId": "144553488",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Leviticus",
-              "link": "/movies/leviticus-82907",
-              "runtime": "1 HR 28 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Thrills & Chills",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00am",
-                      "performanceId": "144553286",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:30pm",
-                      "performanceId": "144553282",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "144553468",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Couture",
-              "link": "/movies/couture-83323",
-              "runtime": "1 HR 43 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:30am",
-                      "performanceId": "144065109",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "2:15pm",
-                      "performanceId": "144065108",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "5:00pm",
-                      "performanceId": "144065107",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "144065105",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "144065106",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Welcome To The Jungle",
-              "link": "/movies/welcome-to-the-jungle-84048",
-              "runtime": "2 HR 50 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:15pm",
-                      "performanceId": "144553283",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Girls Like Girls",
-              "link": "/movies/girls-like-girls-82442",
-              "runtime": "1 HR 35 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:00pm",
-                      "performanceId": "144553338",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Michael",
-              "link": "/movies/michael-75846",
-              "runtime": "2 HR 7 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Artisan Films",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:45am",
-                      "performanceId": "144553320",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Furious",
-              "link": "/movies/the-furious-82946",
-              "runtime": "1 HR 53 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:45pm",
-                      "performanceId": "144707964",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "144559652",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Noruega vs. Francia - Telemundo presenta la Copa Mundial de la FIFA 2026",
-              "link": "/movies/noruega-vs-francia-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83643",
-              "runtime": "3 HR 0 MIN",
-              "rating": null,
-              "formats": [
-                {
-                  "formats": [
-                    "Spanish Spoken with No Subtitles",
-                    "No Trailers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Livestream Event"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:00pm",
-                      "performanceId": "143205491",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "movies": []
         },
         {
           "date": "2026-06-27",
@@ -56087,6 +55223,13 @@
               ]
             },
             {
+              "title": "Toy Story 5: Private Theatre Rental",
+              "link": "/movies/toy-story-5-private-theatre-rental-83574",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
               "title": "Toy Story 5: Sensory Friendly Screening",
               "link": "/movies/toy-story-5-sensory-friendly-screening-83733",
               "runtime": "1 HR 42 MIN",
@@ -56111,13 +55254,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "Toy Story 5: Private Theatre Rental",
-              "link": "/movies/toy-story-5-private-theatre-rental-83574",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
             },
             {
               "title": "WWE Night of the Champions 2026",
@@ -57009,6 +56145,13 @@
               ]
             },
             {
+              "title": "Toy Story 5: Private Theatre Rental",
+              "link": "/movies/toy-story-5-private-theatre-rental-83574",
+              "runtime": "1 HR 42 MIN",
+              "rating": "PG",
+              "formats": []
+            },
+            {
               "title": "Dieciseisavos de Final - Telemundo presenta la Copa Mundial de la FIFA 2026",
               "link": "/movies/dieciseisavos-de-final-telemundo-presenta-la-copa-mundial-de-la-fifa-2026-83648",
               "runtime": "3 HR 30 MIN",
@@ -57031,13 +56174,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "Toy Story 5: Private Theatre Rental",
-              "link": "/movies/toy-story-5-private-theatre-rental-83574",
-              "runtime": "1 HR 42 MIN",
-              "rating": "PG",
-              "formats": []
             },
             {
               "title": "Talladega Nights: Ballad of Ricky Bobby - 20th Anniversary",
