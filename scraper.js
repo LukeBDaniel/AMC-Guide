@@ -119,9 +119,12 @@ async function scrapeAMC() {
 
                         const showtimes = [];
                         $format.find('ul[aria-label="Showtime Group Results"] a').each((k, timeEl) => {
-                            const timeTextNode = $(timeEl).contents().filter(function() {
-                                return this.nodeType === 3;
-                            }).text().trim();
+                            let timeTextNode = $(timeEl).find('time').text().trim();
+                            if (!timeTextNode) {
+                                timeTextNode = $(timeEl).contents().filter(function() {
+                                    return this.nodeType === 3;
+                                }).text().trim();
+                            }
                             
                             const timeLink = $(timeEl).attr('href');
                             const performanceId = timeLink ? timeLink.split('/').pop() : null;
