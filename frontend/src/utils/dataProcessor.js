@@ -58,6 +58,9 @@ export function flattenScheduleData(rawData) {
 
         theater.schedule.forEach(day => {
             day.movies.forEach(movie => {
+                // Aggregate showtimes by unique identifier to prevent duplicate React keys
+                const uniqueShowtimes = new Map();
+
                 movie.formats.forEach(formatObj => {
                     let rawFormats = formatObj.formats || [formatObj.format];
                     let parsedFormats = rawFormats.map(f => {
@@ -102,24 +105,41 @@ export function flattenScheduleData(rawData) {
                         !f.toLowerCase().includes('no passes')
                     );
 
-                    formatsArray.forEach(f => uniqueFormats.add(f));
-
                     formatObj.showtimes.forEach(showtime => {
-                            flattened.push({
-                                id: showtime.performanceId || `${theater.id}-${movie.title}-${showtime.time}-${Math.random()}`,
-                                date: day.date,
-                                time: showtime.time,
-                                timeMinutes: parseTimeToMinutes(showtime.time),
-                                runtimeMinutes: parseRuntimeToMinutes(movie.runtime, Array.from(finalFormatsSet)),
-                                movieTitle: movie.title,
-                                theaterId: theater.id,
-                                theaterName: theaterName,
-                                runtime: movie.runtime ? movie.runtime.toLowerCase().replace(/\s*hr\s*/g, 'h ').replace(/\s*min\s*/g, 'm').trim() : '',
-                                rating: movie.rating,
-                                format: formatsArray,
-                                alert: showtime.alert,
-                                link: movie.link ? `https://www.amctheatres.com${movie.link}` : '#'
+                        const showtimeId = showtime.performanceId || `${theater.id}-${movie.title}-${showtime.time}`;
+                        
+                        if (uniqueShowtimes.has(showtimeId)) {
+                            // Merge formats
+                            const existing = uniqueShowtimes.get(showtimeId);
+                            formatsArray.forEach(f => existing.formatsSet.add(f));
+                        } else {
+                            uniqueShowtimes.set(showtimeId, {
+                                showtime,
+                                formatsSet: new Set(formatsArray)
                             });
+                        }
+                    });
+                });
+
+                // Now push the deduplicated showtimes to flattened
+                uniqueShowtimes.forEach(({ showtime, formatsSet }, showtimeId) => {
+                    const finalFormatsArray = Array.from(formatsSet);
+                    finalFormatsArray.forEach(f => uniqueFormats.add(f));
+
+                    flattened.push({
+                        id: showtime.performanceId ? showtime.performanceId.toString() : `${showtimeId}-${Math.random()}`,
+                        date: day.date,
+                        time: showtime.time,
+                        timeMinutes: parseTimeToMinutes(showtime.time),
+                        runtimeMinutes: parseRuntimeToMinutes(movie.runtime, finalFormatsArray),
+                        movieTitle: movie.title,
+                        theaterId: theater.id,
+                        theaterName: theaterName,
+                        runtime: movie.runtime ? movie.runtime.toLowerCase().replace(/\s*hr\s*/g, 'h ').replace(/\s*min\s*/g, 'm').trim() : '',
+                        rating: movie.rating,
+                        format: finalFormatsArray,
+                        alert: showtime.alert,
+                        link: movie.link ? `https://www.amctheatres.com${movie.link}` : '#'
                     });
                 });
             });
