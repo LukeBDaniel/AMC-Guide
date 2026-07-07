@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
-export default function Filters({ 
-    groupedMovies, 
+export default function Filters({
+    groupedMovies,
+    movieDisplayTitles,
+    movieVariants,
     availableMovies,
-    theaters, 
+    availableVariantKeys,
+    theaters,
     formats,
     languages,
-    selectedMovies, 
+    selectedMovies,
     setSelectedMovies,
+    selectedVariants,
+    setSelectedVariants,
     selectedTheaters,
     setSelectedTheaters,
     selectedFormats,
@@ -74,6 +79,7 @@ export default function Filters({
 
     const clearFilters = () => {
         setSelectedMovies(new Set());
+        setSelectedVariants(new Set());
         setSelectedTheaters(new Set());
         setSelectedFormats(new Set());
         setSelectedSeatings(new Set());
@@ -83,7 +89,7 @@ export default function Filters({
         setInclude70mm(false);
     };
 
-    const hasFilters = selectedMovies.size > 0 || selectedTheaters.size > 0 || selectedFormats.size > 0 || selectedSeatings.size > 0 || selectedOthers.size > 0 || selectedLanguages.size > 0 || includeImax || include70mm;
+    const hasFilters = selectedMovies.size > 0 || selectedVariants.size > 0 || selectedTheaters.size > 0 || selectedFormats.size > 0 || selectedSeatings.size > 0 || selectedOthers.size > 0 || selectedLanguages.size > 0 || includeImax || include70mm;
 
     return (
         <aside className="filters-sidebar">
@@ -282,17 +288,43 @@ export default function Filters({
                                         <span>{cat}</span>
                                         <Chevron isOpen={openSubGenres[cat]} />
                                     </div>
-                                    {openSubGenres[cat] && catMovies.map(movie => (
-                                        <label key={movie} className="filter-label">
-                                            <input 
-                                                type="checkbox" 
-                                                className="filter-checkbox"
-                                                checked={selectedMovies.has(movie)}
-                                                onChange={() => handleCheckboxChange(setSelectedMovies, selectedMovies, movie)}
-                                            />
-                                            <span>{movie}</span>
-                                        </label>
-                                    ))}
+                                    {openSubGenres[cat] && catMovies.map(movie => {
+                                        const label = (movieDisplayTitles && movieDisplayTitles[movie]) || movie;
+                                        const allVariants = (movieVariants && movieVariants[movie]) || [];
+                                        const variants = availableVariantKeys
+                                            ? allVariants.filter(({ variant }) => availableVariantKeys.has(`${movie}::${variant}`))
+                                            : allVariants;
+                                        return (
+                                            <div key={movie} style={{ marginBottom: variants.length ? '0.5rem' : 0 }}>
+                                                <label className="filter-label">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="filter-checkbox"
+                                                        checked={selectedMovies.has(movie)}
+                                                        onChange={() => handleCheckboxChange(setSelectedMovies, selectedMovies, movie)}
+                                                    />
+                                                    <span>{label}</span>
+                                                </label>
+                                                {variants.map(({ variant, isInformational }) => (
+                                                    isInformational ? (
+                                                        <div key={variant} style={{ fontSize: '0.7rem', opacity: 0.7, marginLeft: '1.5rem' }}>
+                                                            {variant}
+                                                        </div>
+                                                    ) : (
+                                                        <label key={variant} className="filter-label" style={{ marginLeft: '1.5rem', fontSize: '0.85rem', opacity: 0.85 }}>
+                                                            <input
+                                                                type="checkbox"
+                                                                className="filter-checkbox"
+                                                                checked={selectedVariants.has(`${movie}::${variant}`)}
+                                                                onChange={() => handleCheckboxChange(setSelectedVariants, selectedVariants, `${movie}::${variant}`)}
+                                                            />
+                                                            <span>{variant}</span>
+                                                        </label>
+                                                    )
+                                                ))}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             );
                         })}

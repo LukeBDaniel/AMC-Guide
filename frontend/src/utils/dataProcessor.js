@@ -1,9 +1,11 @@
+import { buildTitleGroups } from './titleNormalizer.js';
+
 // Helper to parse '3:00pm' or '11:00am' into minutes since midnight
 function parseTimeToMinutes(timeStr) {
     if (!timeStr) return 0;
     const match = timeStr.trim().toLowerCase().match(/(\d+):(\d+)(am|pm)/);
     if (!match) return 0;
-    
+
     let hours = parseInt(match[1], 10);
     const minutes = parseInt(match[2], 10);
     const period = match[3];
@@ -45,8 +47,25 @@ export function flattenScheduleData(rawData) {
     const uniqueMovies = new Set();
     const uniqueTheaters = new Map();
     const uniqueFormats = new Set();
-    
-    if (!rawData || !rawData.theaters) return { showtimes: [], movies: [], theaters: [], formats: [] };
+    const movieDisplayTitles = {};
+    // movieKey -> Map(variant text -> isInformational). A movie's event/anniversary
+    // variants (e.g. "Fan Event Screening", "85th Anniversary") are tracked per movie
+    // rather than merged into the movie's own identity, so the UI can offer them as
+    // per-movie sub-filters instead of separate top-level list items.
+    const movieVariantMaps = {};
+
+    if (!rawData || !rawData.theaters) return { showtimes: [], movies: [], theaters: [], formats: [], movieDisplayTitles: {}, movieVariants: {} };
+
+    // First pass: collect every distinct raw title so AMC's inconsistent event-naming
+    // (e.g. "Moana" vs "MOANA IMAX Opening Night Fan Event") can be resolved into a
+    // shared movie identity + optional variant (see titleNormalizer.js for the rules).
+    const rawTitles = new Set();
+    Object.values(rawData.theaters).forEach(theater => {
+        theater.schedule.forEach(day => {
+            day.movies.forEach(movie => rawTitles.add(movie.title));
+        });
+    });
+    const titleGroups = buildTitleGroups(rawTitles);
 
     Object.values(rawData.theaters).forEach(theater => {
         // Pretty format the theater name and remove redundant "Amc"
@@ -60,6 +79,12 @@ export function flattenScheduleData(rawData) {
             day.movies.forEach(movie => {
                 // Aggregate showtimes by unique identifier to prevent duplicate React keys
                 const uniqueShowtimes = new Map();
+                const { movieKey, displayTitle, variant, isInformational } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
+                movieDisplayTitles[movieKey] = displayTitle;
+                if (variant) {
+                    if (!movieVariantMaps[movieKey]) movieVariantMaps[movieKey] = new Map();
+                    movieVariantMaps[movieKey].set(variant, isInformational);
+                }
 
                 movie.formats.forEach(formatObj => {
                     let rawFormats = formatObj.formats || [formatObj.format];
@@ -71,7 +96,7 @@ export function flattenScheduleData(rawData) {
                         }
                         return stripped;
                     });
-                    
+
                     let finalFormatsSet = new Set();
                     parsedFormats.forEach(rawFormat => {
                         if (rawFormat === 'IMAX with Laser') {
@@ -97,7 +122,11 @@ export function flattenScheduleData(rawData) {
                         finalFormatsSet.add('Included in A-List');
                     }
 
-                    let formatsArray = Array.from(finalFormatsSet).filter(f => 
+                    if (variant) {
+                        finalFormatsSet.add(variant);
+                    }
+
+                    let formatsArray = Array.from(finalFormatsSet).filter(f =>
                         !f.toLowerCase().includes('excluded from 50% off discount') &&
                         !f.toLowerCase().includes('choose from our available movie selection') &&
                         !f.toLowerCase().includes('no trailers') &&
@@ -107,7 +136,7 @@ export function flattenScheduleData(rawData) {
 
                     formatObj.showtimes.forEach(showtime => {
                         const showtimeId = showtime.performanceId || `${theater.id}-${movie.title}-${showtime.time}`;
-                        
+
                         if (uniqueShowtimes.has(showtimeId)) {
                             // Merge formats
                             const existing = uniqueShowtimes.get(showtimeId);
@@ -132,7 +161,9 @@ export function flattenScheduleData(rawData) {
                         time: showtime.time,
                         timeMinutes: parseTimeToMinutes(showtime.time),
                         runtimeMinutes: parseRuntimeToMinutes(movie.runtime, finalFormatsArray),
-                        movieTitle: movie.title,
+                        movieTitle: displayTitle,
+                        movieKey: movieKey,
+                        variant: variant || null,
                         theaterId: theater.id,
                         theaterName: theaterName,
                         runtime: movie.runtime ? movie.runtime.toLowerCase().replace(/\s*hr\s*/g, 'h ').replace(/\s*min\s*/g, 'm').trim() : '',
@@ -158,25 +189,54 @@ export function flattenScheduleData(rawData) {
     const uniqueDates = Array.from(new Set(flattened.map(s => s.date))).sort();
 
     const movieFormatsMap = {};
+    // A movie's showtimes can be a mix of normal public showings and special ones (e.g.
+    // "Toy Story 5" merges with "Toy Story 5: Private Theatre Rental"). Track how many of
+    // each movie's showtimes carry a given special-showing signal so categorizeMovie can
+    // require it be true of ALL showtimes (dominant) rather than just present in the union
+    // of formats across some showtimes — otherwise one merged-in rental/livestream/
+    // international/anniversary showing would reclassify an otherwise-normal movie out of
+    // "New Movies".
+    const movieShowtimeCounts = {};
     flattened.forEach(s => {
-        if (!movieFormatsMap[s.movieTitle]) movieFormatsMap[s.movieTitle] = new Set();
-        s.format.forEach(f => movieFormatsMap[s.movieTitle].add(f));
+        if (!movieFormatsMap[s.movieKey]) movieFormatsMap[s.movieKey] = new Set();
+        s.format.forEach(f => movieFormatsMap[s.movieKey].add(f));
+
+        if (!movieShowtimeCounts[s.movieKey]) {
+            movieShowtimeCounts[s.movieKey] = { total: 0, privateRental: 0, livestream: 0, event: 0, international: 0, informational: 0 };
+        }
+        const counts = movieShowtimeCounts[s.movieKey];
+        counts.total += 1;
+        const lowerFormats = s.format.map(f => f.toLowerCase());
+        if (lowerFormats.some(f => f.includes('private theatre rental'))) counts.privateRental += 1;
+        if (lowerFormats.some(f => f.includes('livestream event'))) counts.livestream += 1;
+        if (lowerFormats.some(f => f.includes('alternative content') || f.includes('fan first screening') || f.includes('opening night event'))) counts.event += 1;
+        if (lowerFormats.some(f => f.includes('international films'))) counts.international += 1;
+        if (s.variant && movieVariantMaps[s.movieKey]?.get(s.variant)) counts.informational += 1;
     });
 
-    const categorizeMovie = (title, formatsList) => {
+    const movieHasVariantMatching = (key, regex) => {
+        const variants = movieVariantMaps[key];
+        return !!variants && Array.from(variants.keys()).some(v => regex.test(v));
+    };
+
+    const categorizeMovie = (key, title, formatsList, counts) => {
         const lowerTitle = title.toLowerCase();
-        if (lowerTitle.includes('private theatre rental') || formatsList.some(f => f.toLowerCase().includes('private theatre rental'))) return 'Private Theatre Rentals';
-        if (formatsList.some(f => f.toLowerCase().includes('livestream event'))) return 'Livestream Events';
-        if (formatsList.some(f => f.toLowerCase().includes('alternative content') || f.toLowerCase().includes('fan first screening') || f.toLowerCase().includes('opening night event'))) return 'Events';
-        if (formatsList.some(f => f.toLowerCase().includes('international films'))) return 'International Films';
-        if (formatsList.some(f => f.toLowerCase().includes('fan faves')) || lowerTitle.includes('fan faves') || /studio ghibli/i.test(title)) return 'Fan Faves & Classics';
-        
+        const isDominant = (n) => counts && counts.total > 0 && n === counts.total;
+        if (lowerTitle.includes('private theatre rental') || isDominant(counts?.privateRental)) return 'Private Theatre Rentals';
+        if (isDominant(counts?.livestream)) return 'Livestream Events';
+        // Anniversary re-releases and Ghibli Fest screenings take priority over the generic
+        // "Events" signal (AMC often also tags these revival screenings with a genuine
+        // "Alternative Content" format).
+        if (isDominant(counts?.informational) || formatsList.some(f => f.toLowerCase().includes('fan faves')) || lowerTitle.includes('fan faves') || /studio ghibli/i.test(title) || movieHasVariantMatching(key, /studio ghibli/i)) return 'Fan Faves & Classics';
+        if (isDominant(counts?.event)) return 'Events';
+        if (isDominant(counts?.international)) return 'International Films';
+
         if (/\bamc\b/i.test(title) || /crunchyroll/i.test(title) || /fan first screening/i.test(title) || /opening night event/i.test(title)) return 'Events';
-        
+
         return 'New Movies';
     };
 
-    flattened.forEach(s => uniqueMovies.add(s.movieTitle));
+    flattened.forEach(s => uniqueMovies.add(s.movieKey));
 
     const groupedMovies = {
         'New Movies': [],
@@ -187,26 +247,41 @@ export function flattenScheduleData(rawData) {
         'Private Theatre Rentals': []
     };
 
-    Array.from(uniqueMovies).sort().forEach(title => {
-        const formatsList = Array.from(movieFormatsMap[title] || []);
-        const cat = categorizeMovie(title, formatsList);
+    Array.from(uniqueMovies).sort().forEach(key => {
+        const formatsList = Array.from(movieFormatsMap[key] || []);
+        const cat = categorizeMovie(key, movieDisplayTitles[key] || key, formatsList, movieShowtimeCounts[key]);
         if (groupedMovies[cat]) {
-            groupedMovies[cat].push(title);
+            groupedMovies[cat].push(key);
         }
     });
 
+    // Convert the internal variant maps into a plain, sorted structure for the UI:
+    // { [movieKey]: [{ variant, isInformational }, ...] }
+    const movieVariants = {};
+    Object.entries(movieVariantMaps).forEach(([key, variantMap]) => {
+        movieVariants[key] = Array.from(variantMap.entries())
+            .map(([variant, isInformational]) => ({ variant, isInformational }))
+            .sort((a, b) => a.variant.localeCompare(b.variant));
+    });
+
+    // Variant text (anniversary labels, special-showing tags) is per-movie informational/
+    // sub-filter text, not a shared filter value, so it's excluded from the format filter lists.
+    const variantValues = new Set(
+        Object.values(movieVariantMaps).flatMap(variantMap => Array.from(variantMap.keys()))
+    );
+
     const allValidFormats = Array.from(uniqueFormats)
-        .filter(f => !f.toLowerCase().includes('fan faves') && 
-                     !f.toLowerCase().includes('amc artisan films') && 
+        .filter(f => !f.toLowerCase().includes('fan faves') &&
+                     !f.toLowerCase().includes('amc artisan films') &&
                      !f.toLowerCase().includes('thrills & chills') &&
                      !f.toLowerCase().includes('livestream event') &&
                      !f.toLowerCase().includes('alternative content') &&
                      !f.toLowerCase().includes('international films') &&
                      !f.toLowerCase().includes('reserved seating') &&
-                     !f.toLowerCase().includes('private theatre rental') &&
                      !f.toLowerCase().includes('fan first screening') &&
                      !f.toLowerCase().includes('opening night event') &&
-                     !f.toLowerCase().includes('excluded from a-list'));
+                     !f.toLowerCase().includes('excluded from a-list') &&
+                     !variantValues.has(f));
 
     const isSeating = f => {
         const lower = f.toLowerCase();
@@ -218,7 +293,8 @@ export function flattenScheduleData(rawData) {
                lower.includes('closed caption') ||
                lower.includes('included in a-list') ||
                lower.includes('sensory friendly film') ||
-               lower.includes('open caption');
+               lower.includes('open caption') ||
+               lower.includes('private theatre rental');
     };
     const isLanguage = f => f.includes('Spoken') || f.includes('Dubbed');
 
@@ -245,6 +321,8 @@ export function flattenScheduleData(rawData) {
         seatings: finalSeatings,
         others: finalOthers,
         languages: finalLanguages,
+        movieDisplayTitles,
+        movieVariants,
         dates: uniqueDates
     };
 }
