@@ -1,14 +1,10 @@
 {
-  "scrapedAt": "2026-08-05T10:18:53.066Z",
+  "scrapedAt": "2026-08-06T10:21:02.760Z",
   "theaters": {
     "amc-empire-25": {
       "id": "amc-empire-25",
       "location": "new-york",
       "schedule": [
-        {
-          "date": "2026-08-05",
-          "movies": []
-        },
         {
           "date": "2026-08-06",
           "movies": []
@@ -59,6 +55,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -68,10 +68,6 @@
       "location": "new-york",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -121,6 +117,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -130,10 +130,6 @@
       "location": "new-york",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -183,6 +179,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -192,10 +192,6 @@
       "location": "new-york",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -245,6 +241,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -254,10 +254,6 @@
       "location": "new-jersey",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -307,6 +303,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -316,10 +316,6 @@
       "location": "new-jersey",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -369,6 +365,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -378,10 +378,6 @@
       "location": "new-jersey",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -431,6 +427,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -440,10 +440,6 @@
       "location": "new-jersey",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -493,6 +489,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
@@ -502,10 +502,6 @@
       "location": "new-jersey",
       "schedule": [
         {
-          "date": "2026-08-05",
-          "movies": []
-        },
-        {
           "date": "2026-08-06",
           "movies": []
         },
@@ -555,6 +551,10 @@
         },
         {
           "date": "2026-08-18",
+          "movies": []
+        },
+        {
+          "date": "2026-08-19",
           "movies": []
         }
       ]
