@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-21T17:11:43.960Z",
+  "scrapedAt": "2026-08-21T17:21:46.084Z",
   "theaters": {
     "amc-empire-25": {
       "id": "amc-empire-25",
@@ -14497,30 +14497,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:45pm",
-                      "performanceId": "145939067",
-                      "alert": "UP TO 15% OFF"
-                    }
-                  ]
-                }
-              ]
             }
           ]
         },
@@ -25191,7 +25167,7 @@
               "formats": [
                 {
                   "formats": [
-                    "Open Caption (On-Screen Subtitles)",
+                    "Open Caption (On-screen Subtitles)",
                     "AMC Signature Recliners",
                     "Laser at AMC",
                     "Reserved Seating"
@@ -25235,7 +25211,7 @@
               "formats": [
                 {
                   "formats": [
-                    "Open Caption (On-Screen Subtitles)",
+                    "Open Caption (On-screen Subtitles)",
                     "AMC Signature Recliners",
                     "Laser at AMC",
                     "Reserved Seating"
@@ -25305,7 +25281,7 @@
                 },
                 {
                   "formats": [
-                    "Open Caption (On-Screen Subtitles)",
+                    "Open Caption (On-screen Subtitles)",
                     "AMC Signature Recliners",
                     "Laser at AMC",
                     "Reserved Seating"
@@ -26766,11 +26742,6 @@
                     "Audio Description"
                   ],
                   "showtimes": [
-                    {
-                      "time": "12:45pm",
-                      "performanceId": "146315904",
-                      "alert": "20% OFF"
-                    },
                     {
                       "time": "5:15pm",
                       "performanceId": "146281276",
@@ -36900,11 +36871,6 @@
                   ],
                   "showtimes": [
                     {
-                      "time": "12:45pm",
-                      "performanceId": "146354510",
-                      "alert": "20% OFF"
-                    },
-                    {
                       "time": "4:00pm",
                       "performanceId": "146354567",
                       "alert": null
@@ -42140,30 +42106,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:45pm",
-                      "performanceId": "146218129",
-                      "alert": "UP TO 15% OFF"
-                    }
-                  ]
-                }
-              ]
             }
           ]
         },
@@ -46365,21 +46307,6 @@
                 },
                 {
                   "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "Laser at AMC",
-                    "Thrills & Chills",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:50pm",
-                      "performanceId": "145491617",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
                     "Spanish Language Dubbed with No Subtitles",
                     "Laser at AMC",
                     "Thrills & Chills",
@@ -46492,11 +46419,6 @@
                     "Audio Description"
                   ],
                   "showtimes": [
-                    {
-                      "time": "12:45pm",
-                      "performanceId": "146281822",
-                      "alert": "UP TO 15% OFF"
-                    },
                     {
                       "time": "4:10pm",
                       "performanceId": "146281821",
@@ -49196,11 +49118,6 @@
                       "time": "2:00pm",
                       "performanceId": "145508083",
                       "alert": "20% OFF"
-                    },
-                    {
-                      "time": "6:30pm",
-                      "performanceId": "145508086",
-                      "alert": null
                     }
                   ]
                 }
