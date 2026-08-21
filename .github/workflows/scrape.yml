@@ -22,7 +22,10 @@ jobs:
           node-version: '20'
           
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Test scraper
+        run: npm test
         
       - name: Install Playwright Browsers
         run: npx playwright install chromium --with-deps
