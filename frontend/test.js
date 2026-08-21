@@ -17,6 +17,6 @@ setTimeout(async () => {
         console.error(e);
     } finally {
         server.kill();
-        process.exit(0);
+        globalThis.process.exit(0);
     }
 }, 2000);

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, Pin } from 'lucide-react';
 
 export default function ShowtimeTimeline({ showtimes, allDates, pinnedShowtimes = new Set(), onTogglePin }) {

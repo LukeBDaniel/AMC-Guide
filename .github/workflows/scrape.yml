@@ -38,8 +38,8 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # Stage the JSON data files
-          git add data.json frontend/public/data.json
+          # Stage published data and persistent advance-discovery state
+          git add data.json frontend/public/data.json scraper-state.json
           
           # Only commit if there are actual changes to the data
           git diff --staged --quiet || (git commit -m "Automated update: AMC showtimes data" && git push)

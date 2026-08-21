@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, Clock, MapPin, Film } from 'lucide-react';
 
 export default function ShowtimeFeed({ showtimes }) {

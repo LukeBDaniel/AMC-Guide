@@ -1,4 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+const Chevron = ({ isOpen }) => (
+    <span style={{
+        fontSize: '0.6rem',
+        transform: isOpen ? 'rotate(0deg)' : 'rotate(-90deg)',
+        transition: 'transform 0.2s ease',
+        opacity: 0.6
+    }}>
+        ▼
+    </span>
+);
 
 export default function Filters({
     groupedMovies,
@@ -41,6 +52,7 @@ export default function Filters({
 
     const [openSubGenres, setOpenSubGenres] = useState({
         'New Movies': true,
+        'Coming Soon': true,
         'International Films': false,
         'Fan Faves & Classics': false,
         'Events': false,
@@ -55,17 +67,6 @@ export default function Filters({
     const toggleSubGenre = (genre) => {
         setOpenSubGenres(prev => ({ ...prev, [genre]: !prev[genre] }));
     };
-
-    const Chevron = ({ isOpen }) => (
-        <span style={{ 
-            fontSize: '0.6rem', 
-            transform: isOpen ? 'rotate(0deg)' : 'rotate(-90deg)', 
-            transition: 'transform 0.2s ease',
-            opacity: 0.6
-        }}>
-            ▼
-        </span>
-    );
 
     const handleCheckboxChange = (setFn, currentSelection, value) => {
         const newSelection = new Set(currentSelection);
@@ -261,8 +262,9 @@ export default function Filters({
                 </div>
                 {openSections.movies && (
                     <div className="filter-content">
-                        {['New Movies', 'International Films', 'Fan Faves & Classics', 'Events', 'Livestream Events', 'Private Theatre Rentals'].map(cat => {
-                            const catMovies = availableMovies ? groupedMovies[cat].filter(m => availableMovies.has(m)) : groupedMovies[cat];
+                        {['New Movies', 'Coming Soon', 'International Films', 'Fan Faves & Classics', 'Events', 'Livestream Events', 'Private Theatre Rentals'].map(cat => {
+                            const moviesInCategory = groupedMovies[cat] || [];
+                            const catMovies = availableMovies ? moviesInCategory.filter(m => availableMovies.has(m)) : moviesInCategory;
                             if (!catMovies || catMovies.length === 0) return null;
                             
                             return (

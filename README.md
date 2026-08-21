@@ -8,7 +8,8 @@ Built to solve the friction of navigating fragmented theater schedules, this pro
 
 ## Features
 
-- **Automated Daily Scraping:** Powered by GitHub Actions, a headless Playwright scraper runs every morning at 4:00 AM EDT to fetch a rolling 14-day window of showtimes.
+- **Automated Daily Scraping:** Powered by GitHub Actions, a headless Playwright scraper runs every morning at 4:00 AM EDT to refresh an authoritative rolling 14-day window and discover ticketable releases farther in advance.
+- **Coming Soon Tracking:** Far-future performances are cached across runs and grouped separately in the Movies filter without breaking the unified, scrollable timeline.
 - **True Faceted Search:** Dynamically filters theaters, formats (IMAX, 70mm, Dolby), and movies in real-time. Selecting mutually exclusive options intelligently hides conflicting tags to prevent empty calendar states.
 - **Smart Categorization:** Automatically groups movies into custom subgenres (e.g., *New Movies*, *Fan Faves & Classics*, *Events*) based on metadata, title parsing, and format tags.
 - **Visual Timeline:** Renders showtimes in an intuitive, horizontally-scrollable timeline clustered by time block, ensuring premium formats and overlapping schedules are easy to digest at a glance.

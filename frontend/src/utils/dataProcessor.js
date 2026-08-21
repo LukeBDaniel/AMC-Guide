@@ -189,6 +189,7 @@ export function flattenScheduleData(rawData) {
     const uniqueDates = Array.from(new Set(flattened.map(s => s.date))).sort();
 
     const movieFormatsMap = {};
+    const movieDatesMap = {};
     // A movie's showtimes can be a mix of normal public showings and special ones (e.g.
     // "Toy Story 5" merges with "Toy Story 5: Private Theatre Rental"). Track how many of
     // each movie's showtimes carry a given special-showing signal so categorizeMovie can
@@ -200,6 +201,8 @@ export function flattenScheduleData(rawData) {
     flattened.forEach(s => {
         if (!movieFormatsMap[s.movieKey]) movieFormatsMap[s.movieKey] = new Set();
         s.format.forEach(f => movieFormatsMap[s.movieKey].add(f));
+        if (!movieDatesMap[s.movieKey]) movieDatesMap[s.movieKey] = new Set();
+        movieDatesMap[s.movieKey].add(s.date);
 
         if (!movieShowtimeCounts[s.movieKey]) {
             movieShowtimeCounts[s.movieKey] = { total: 0, privateRental: 0, livestream: 0, event: 0, international: 0, informational: 0 };
@@ -222,6 +225,10 @@ export function flattenScheduleData(rawData) {
     const categorizeMovie = (key, title, formatsList, counts) => {
         const lowerTitle = title.toLowerCase();
         const isDominant = (n) => counts && counts.total > 0 && n === counts.total;
+        const showtimeDates = Array.from(movieDatesMap[key] || []);
+        if (rawData.nearTermThrough
+            && showtimeDates.length > 0
+            && showtimeDates.every(date => date > rawData.nearTermThrough)) return 'Coming Soon';
         if (lowerTitle.includes('private theatre rental') || isDominant(counts?.privateRental)) return 'Private Theatre Rentals';
         if (isDominant(counts?.livestream)) return 'Livestream Events';
         // Anniversary re-releases and Ghibli Fest screenings take priority over the generic
@@ -240,6 +247,7 @@ export function flattenScheduleData(rawData) {
 
     const groupedMovies = {
         'New Movies': [],
+        'Coming Soon': [],
         'International Films': [],
         'Fan Faves & Classics': [],
         'Events': [],
@@ -309,11 +317,11 @@ export function flattenScheduleData(rawData) {
         groupedMovies,
         theaters: {
             'New York': Array.from(uniqueTheaters.entries())
-                .filter(([id, data]) => data.location === 'New York')
+                .filter(([, data]) => data.location === 'New York')
                 .map(([id, data]) => ({ id, name: data.name }))
                 .sort((a, b) => a.name.localeCompare(b.name)),
             'New Jersey': Array.from(uniqueTheaters.entries())
-                .filter(([id, data]) => data.location === 'New Jersey')
+                .filter(([, data]) => data.location === 'New Jersey')
                 .map(([id, data]) => ({ id, name: data.name }))
                 .sort((a, b) => a.name.localeCompare(b.name))
         },
