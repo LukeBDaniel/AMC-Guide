@@ -44,6 +44,10 @@ test('buildShowtimesUrl uses AMC current canonical date query', () => {
         buildShowtimesUrl(theater, '2026-08-21'),
         'https://www.amctheatres.com/movie-theatres/new-york/amc-test-1/showtimes?date=2026-08-21'
     );
+    assert.equal(
+        buildShowtimesUrl({ id: 'amc-newport-centre-11', location: 'jersey-city' }, '2026-08-23'),
+        'https://www.amctheatres.com/movie-theatres/jersey-city/amc-newport-centre-11/showtimes?date=2026-08-23'
+    );
 });
 
 test('buildMovieShowtimesUrl scopes a movie to a theater and optional date', () => {
