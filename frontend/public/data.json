@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-24T00:50:14.966Z",
+  "scrapedAt": "2026-08-24T08:32:34.698Z",
   "nearTermThrough": "2026-09-06",
   "theaters": {
     "amc-empire-25": {
@@ -1113,53 +1113,6 @@
               ]
             },
             {
-              "title": "Modha Rathiri",
-              "link": "/movies/modha-rathiri-84658",
-              "runtime": "2 HR 35 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Tamil Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30am",
-                      "performanceId": "146344211",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Elijah Peel",
-              "link": "/movies/elijah-peel-82326",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:45am",
-                      "performanceId": "146343791",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "La La Land 10th Anniversary",
               "link": "/movies/la-la-land-10th-anniversary-84447",
               "runtime": "2 HR 8 MIN",
@@ -1182,6 +1135,192 @@
                     {
                       "time": "4:00pm",
                       "performanceId": "146200879",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "AMC Scream Unseen: August 24",
+              "link": "/movies/amc-scream-unseen-august-24-84688",
+              "runtime": "1 HR 41 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "145900609",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:05pm",
+                      "performanceId": "146398609",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
+              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
+              "runtime": "1 HR 51 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "No Trailers",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "143261426",
+                      "alert": "Almost Full"
+                    },
+                    {
+                      "time": "9:45pm",
+                      "performanceId": "146398608",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Your Name. 10th Anniversary",
+              "link": "/movies/your-name-10th-anniversary-83876",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:00pm",
+                      "performanceId": "146344213",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "3:45pm",
+                      "performanceId": "146344212",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Nimrods",
+              "link": "/movies/nimrods-83495",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "11:00pm",
+                      "performanceId": "146343819",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Bethlehem Kudumba Unit",
+              "link": "/movies/bethlehem-kudumba-unit-84635",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "146343792",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "146398611",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Wrong Girls",
+              "link": "/movies/the-wrong-girls-83781",
+              "runtime": "1 HR 40 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:45pm",
+                      "performanceId": "146343890",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Paper Flowers",
+              "link": "/movies/paper-flowers-80137",
+              "runtime": "1 HR 40 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:30pm",
+                      "performanceId": "145845098",
                       "alert": null
                     }
                   ]
@@ -1252,14 +1391,14 @@
               ]
             },
             {
-              "title": "Your Name. 10th Anniversary",
-              "link": "/movies/your-name-10th-anniversary-83876",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG",
+              "title": "Modha Rathiri",
+              "link": "/movies/modha-rathiri-84658",
+              "runtime": "2 HR 35 MIN",
+              "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Japanese Spoken with English Subtitles",
+                    "Tamil Spoken with English Subtitles",
                     "AMC Club Rockers",
                     "Laser at AMC",
                     "Reserved Seating",
@@ -1267,13 +1406,8 @@
                   ],
                   "showtimes": [
                     {
-                      "time": "1:00pm",
-                      "performanceId": "146344213",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "3:45pm",
-                      "performanceId": "146344212",
+                      "time": "9:30am",
+                      "performanceId": "146344211",
                       "alert": "20% OFF"
                     }
                   ]
@@ -1281,157 +1415,23 @@
               ]
             },
             {
-              "title": "Paper Flowers",
-              "link": "/movies/paper-flowers-80137",
-              "runtime": "1 HR 40 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:30pm",
-                      "performanceId": "145845098",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
-              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
-              "runtime": "1 HR 51 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "No Trailers",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "143261426",
-                      "alert": "Almost Full"
-                    },
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "146398608",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "AMC Scream Unseen: August 24",
-              "link": "/movies/amc-scream-unseen-august-24-84688",
-              "runtime": "1 HR 41 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "145900609",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:05pm",
-                      "performanceId": "146398609",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Bethlehem Kudumba Unit",
-              "link": "/movies/bethlehem-kudumba-unit-84635",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "146343792",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "146398611",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Wrong Girls",
-              "link": "/movies/the-wrong-girls-83781",
-              "runtime": "1 HR 40 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "146343890",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Nimrods",
-              "link": "/movies/nimrods-83495",
+              "title": "Elijah Peel",
+              "link": "/movies/elijah-peel-82326",
               "runtime": "1 HR 47 MIN",
-              "rating": "R",
+              "rating": "PG13",
               "formats": [
                 {
                   "formats": [
-                    "Laser at AMC",
+                    "Open Caption (On-screen Subtitles)",
                     "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
+                    "Laser at AMC",
+                    "Reserved Seating"
                   ],
                   "showtimes": [
                     {
-                      "time": "11:00pm",
-                      "performanceId": "146343819",
-                      "alert": null
+                      "time": "9:45am",
+                      "performanceId": "146343791",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -2390,7 +2390,7 @@
                     {
                       "time": "6:25pm",
                       "performanceId": "146343842",
-                      "alert": null
+                      "alert": "Almost Full"
                     }
                   ]
                 }
@@ -2454,105 +2454,6 @@
                       "time": "12:25pm",
                       "performanceId": "146343847",
                       "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Elijah Peel",
-              "link": "/movies/elijah-peel-82326",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30am",
-                      "performanceId": "146343789",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Nimrods",
-              "link": "/movies/nimrods-83495",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30am",
-                      "performanceId": "146343843",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Modha Rathiri",
-              "link": "/movies/modha-rathiri-84658",
-              "runtime": "2 HR 35 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Tamil Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30am",
-                      "performanceId": "146344207",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00am",
-                      "performanceId": "146200866",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "146200864",
-                      "alert": null
                     }
                   ]
                 }
@@ -2623,6 +2524,184 @@
               ]
             },
             {
+              "title": "La La Land 10th Anniversary",
+              "link": "/movies/la-la-land-10th-anniversary-84447",
+              "runtime": "2 HR 8 MIN",
+              "rating": "PG13",
+              "formats": [
+                {
+                  "formats": [
+                    "Dolby Cinema at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:00am",
+                      "performanceId": "146200866",
+                      "alert": "UP TO 15% OFF"
+                    },
+                    {
+                      "time": "4:00pm",
+                      "performanceId": "146200864",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
+              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
+              "runtime": "1 HR 51 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "No Trailers",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "143261427",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Your Name. 10th Anniversary",
+              "link": "/movies/your-name-10th-anniversary-83876",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:00pm",
+                      "performanceId": "146344209",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "9:45pm",
+                      "performanceId": "146344050",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Nimrods",
+              "link": "/movies/nimrods-83495",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30am",
+                      "performanceId": "146343843",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Bethlehem Kudumba Unit",
+              "link": "/movies/bethlehem-kudumba-unit-84635",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:35pm",
+                      "performanceId": "146343788",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Wrong Girls",
+              "link": "/movies/the-wrong-girls-83781",
+              "runtime": "1 HR 40 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "146343787",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Paper Flowers",
+              "link": "/movies/paper-flowers-80137",
+              "runtime": "1 HR 40 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "4:20pm",
+                      "performanceId": "145845099",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Awarapan 2",
               "link": "/movies/awarapan-2-84435",
               "runtime": "2 HR 30 MIN",
@@ -2676,75 +2755,47 @@
               ]
             },
             {
-              "title": "Your Name. 10th Anniversary",
-              "link": "/movies/your-name-10th-anniversary-83876",
+              "title": "Modha Rathiri",
+              "link": "/movies/modha-rathiri-84658",
+              "runtime": "2 HR 35 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Tamil Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30am",
+                      "performanceId": "146344207",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Elijah Peel",
+              "link": "/movies/elijah-peel-82326",
               "runtime": "1 HR 47 MIN",
-              "rating": "PG",
+              "rating": "PG13",
               "formats": [
                 {
                   "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "AMC Club Rockers",
                     "Laser at AMC",
+                    "AMC Club Rockers",
                     "Reserved Seating",
-                    "International Films"
+                    "Closed Caption"
                   ],
                   "showtimes": [
                     {
-                      "time": "1:00pm",
-                      "performanceId": "146344209",
+                      "time": "9:30am",
+                      "performanceId": "146343789",
                       "alert": "20% OFF"
-                    },
-                    {
-                      "time": "9:45pm",
-                      "performanceId": "146344050",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Bethlehem Kudumba Unit",
-              "link": "/movies/bethlehem-kudumba-unit-84635",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:35pm",
-                      "performanceId": "146343788",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Paper Flowers",
-              "link": "/movies/paper-flowers-80137",
-              "runtime": "1 HR 40 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:20pm",
-                      "performanceId": "145845099",
-                      "alert": null
                     }
                   ]
                 }
@@ -2810,33 +2861,6 @@
                     {
                       "time": "9:00pm",
                       "performanceId": "146344113",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
-              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
-              "runtime": "1 HR 51 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "No Trailers",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "143261427",
                       "alert": null
                     }
                   ]
@@ -2911,30 +2935,6 @@
                     {
                       "time": "8:00pm",
                       "performanceId": "146192742",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Wrong Girls",
-              "link": "/movies/the-wrong-girls-83781",
-              "runtime": "1 HR 40 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "146343787",
                       "alert": null
                     }
                   ]
@@ -3929,6 +3929,302 @@
               ]
             },
             {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "XL at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "8:00pm",
+                      "performanceId": "145923706",
+                      "alert": null
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "XL at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:35pm",
+                      "performanceId": "146344015",
+                      "alert": "UP TO 15% OFF"
+                    },
+                    {
+                      "time": "3:00pm",
+                      "performanceId": "146344014",
+                      "alert": "UP TO 15% OFF"
+                    },
+                    {
+                      "time": "5:30pm",
+                      "performanceId": "146344013",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "145923709",
+                      "alert": null
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:30pm",
+                      "performanceId": "145923663",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "La La Land 10th Anniversary",
+              "link": "/movies/la-la-land-10th-anniversary-84447",
+              "runtime": "2 HR 8 MIN",
+              "rating": "PG13",
+              "formats": [
+                {
+                  "formats": [
+                    "Dolby Cinema at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:00am",
+                      "performanceId": "146343918",
+                      "alert": "UP TO 15% OFF"
+                    },
+                    {
+                      "time": "4:00pm",
+                      "performanceId": "146343917",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
+              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
+              "runtime": "1 HR 51 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "English Language Dubbed with No Subtitles",
+                    "No Trailers",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "143261428",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Your Name. 10th Anniversary",
+              "link": "/movies/your-name-10th-anniversary-83876",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:00pm",
+                      "performanceId": "146344202",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "3:45pm",
+                      "performanceId": "146344204",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Nimrods",
+              "link": "/movies/nimrods-83495",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "11:15pm",
+                      "performanceId": "146343840",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Bethlehem Kudumba Unit",
+              "link": "/movies/bethlehem-kudumba-unit-84635",
+              "runtime": "2 HR 37 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:25pm",
+                      "performanceId": "146343784",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Wrong Girls",
+              "link": "/movies/the-wrong-girls-83781",
+              "runtime": "1 HR 40 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "9:30pm",
+                      "performanceId": "146343783",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Paper Flowers",
+              "link": "/movies/paper-flowers-80137",
+              "runtime": "1 HR 40 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Club Rockers",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "146344042",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Awarapan 2",
+              "link": "/movies/awarapan-2-84435",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:00pm",
+                      "performanceId": "146344083",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Khalifa",
+              "link": "/movies/khalifa-84450",
+              "runtime": "2 HR 55 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "AMC Club Rockers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "1:00pm",
+                      "performanceId": "146344044",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Modha Rathiri",
               "link": "/movies/modha-rathiri-84658",
               "runtime": "2 HR 35 MIN",
@@ -3970,35 +4266,6 @@
                       "time": "10:00am",
                       "performanceId": "146343785",
                       "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:00am",
-                      "performanceId": "146343918",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "146343917",
-                      "alert": null
                     }
                   ]
                 }
@@ -4086,177 +4353,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "XL at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "8:00pm",
-                      "performanceId": "145923706",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "XL at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:35pm",
-                      "performanceId": "146344015",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "3:00pm",
-                      "performanceId": "146344014",
-                      "alert": "UP TO 15% OFF"
-                    },
-                    {
-                      "time": "5:30pm",
-                      "performanceId": "146344013",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "145923709",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:30pm",
-                      "performanceId": "145923663",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Khalifa",
-              "link": "/movies/khalifa-84450",
-              "runtime": "2 HR 55 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:00pm",
-                      "performanceId": "146344044",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Awarapan 2",
-              "link": "/movies/awarapan-2-84435",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:00pm",
-                      "performanceId": "146344083",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Your Name. 10th Anniversary",
-              "link": "/movies/your-name-10th-anniversary-83876",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "1:00pm",
-                      "performanceId": "146344202",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "3:45pm",
-                      "performanceId": "146344204",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Bethlehem Kudumba Unit",
-              "link": "/movies/bethlehem-kudumba-unit-84635",
-              "runtime": "2 HR 37 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:25pm",
-                      "performanceId": "146343784",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "GHOST: 2 Big To Rig",
               "link": "/movies/ghost-2-big-to-rig-84091",
               "runtime": "1 HR 55 MIN",
@@ -4278,33 +4374,6 @@
                     {
                       "time": "6:00pm",
                       "performanceId": "145396630",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
-              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
-              "runtime": "1 HR 51 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "English Language Dubbed with No Subtitles",
-                    "No Trailers",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "143261428",
                       "alert": null
                     }
                   ]
@@ -4380,76 +4449,7 @@
                     {
                       "time": "7:30pm",
                       "performanceId": "145782988",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "The Wrong Girls",
-              "link": "/movies/the-wrong-girls-83781",
-              "runtime": "1 HR 40 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Club Rockers",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "146343783",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Paper Flowers",
-              "link": "/movies/paper-flowers-80137",
-              "runtime": "1 HR 40 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "146344042",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Nimrods",
-              "link": "/movies/nimrods-83495",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "11:15pm",
-                      "performanceId": "146343840",
-                      "alert": null
+                      "alert": "Almost Full"
                     }
                   ]
                 }
@@ -5422,7 +5422,7 @@
                     {
                       "time": "8:15pm",
                       "performanceId": "145923652",
-                      "alert": "Almost Full"
+                      "alert": null
                     },
                     {
                       "time": "10:45pm",
@@ -12434,7 +12434,7 @@
                     {
                       "time": "7:30pm",
                       "performanceId": "146283556",
-                      "alert": null
+                      "alert": "Almost Full"
                     }
                   ]
                 }
@@ -16953,7 +16953,7 @@
                     {
                       "time": "8:00pm",
                       "performanceId": "146259566",
-                      "alert": null
+                      "alert": "Almost Full"
                     },
                     {
                       "time": "10:45pm",
@@ -17125,30 +17125,6 @@
               ]
             },
             {
-              "title": "Your Name. 10th Anniversary",
-              "link": "/movies/your-name-10th-anniversary-83876",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "2:30pm",
-                      "performanceId": "146259804",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "La La Land 10th Anniversary",
               "link": "/movies/la-la-land-10th-anniversary-84447",
               "runtime": "2 HR 8 MIN",
@@ -17173,23 +17149,26 @@
               ]
             },
             {
-              "title": "All Wishes Come True!",
-              "link": "/movies/all-wishes-come-true-84550",
-              "runtime": "2 HR 24 MIN",
-              "rating": "NR",
+              "title": "AMC Scream Unseen: August 24",
+              "link": "/movies/amc-scream-unseen-august-24-84688",
+              "runtime": "1 HR 41 MIN",
+              "rating": "R",
               "formats": [
                 {
                   "formats": [
-                    "Mandarin Spoken with Chinese and English Subtitles",
-                    "AMC Signature Recliners",
                     "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
+                    "AMC Signature Recliners",
+                    "Reserved Seating"
                   ],
                   "showtimes": [
                     {
-                      "time": "4:30pm",
-                      "performanceId": "146259662",
+                      "time": "7:00pm",
+                      "performanceId": "145900639",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "145900638",
                       "alert": null
                     }
                   ]
@@ -17228,26 +17207,47 @@
               ]
             },
             {
-              "title": "AMC Scream Unseen: August 24",
-              "link": "/movies/amc-scream-unseen-august-24-84688",
-              "runtime": "1 HR 41 MIN",
-              "rating": "R",
+              "title": "Your Name. 10th Anniversary",
+              "link": "/movies/your-name-10th-anniversary-83876",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG",
               "formats": [
                 {
                   "formats": [
-                    "Laser at AMC",
+                    "Japanese Spoken with English Subtitles",
                     "AMC Signature Recliners",
-                    "Reserved Seating"
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "7:00pm",
-                      "performanceId": "145900639",
-                      "alert": null
-                    },
+                      "time": "2:30pm",
+                      "performanceId": "146259804",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "All Wishes Come True!",
+              "link": "/movies/all-wishes-come-true-84550",
+              "runtime": "2 HR 24 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Mandarin Spoken with Chinese and English Subtitles",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
                     {
-                      "time": "7:00pm",
-                      "performanceId": "145900638",
+                      "time": "4:30pm",
+                      "performanceId": "146259662",
                       "alert": null
                     }
                   ]
@@ -17893,6 +17893,38 @@
               ]
             },
             {
+              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
+              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
+              "runtime": "1 HR 51 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "No Trailers",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "143264384",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:20pm",
+                      "performanceId": "146259691",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Your Name. 10th Anniversary",
               "link": "/movies/your-name-10th-anniversary-83876",
               "runtime": "1 HR 47 MIN",
@@ -17934,38 +17966,6 @@
                     {
                       "time": "4:40pm",
                       "performanceId": "146259644",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
-              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
-              "runtime": "1 HR 51 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "No Trailers",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "143264384",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:20pm",
-                      "performanceId": "146259691",
                       "alert": null
                     }
                   ]
@@ -18692,30 +18692,6 @@
               ]
             },
             {
-              "title": "All Wishes Come True!",
-              "link": "/movies/all-wishes-come-true-84550",
-              "runtime": "2 HR 24 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Mandarin Spoken with Chinese and English Subtitles",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:40pm",
-                      "performanceId": "146259706",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "La La Land 10th Anniversary",
               "link": "/movies/la-la-land-10th-anniversary-84447",
               "runtime": "2 HR 8 MIN",
@@ -18733,58 +18709,6 @@
                     {
                       "time": "4:15pm",
                       "performanceId": "146259616",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Your Name. 10th Anniversary",
-              "link": "/movies/your-name-10th-anniversary-83876",
-              "runtime": "1 HR 47 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:15pm",
-                      "performanceId": "146259659",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "GHOST: 2 Big To Rig",
-              "link": "/movies/ghost-2-big-to-rig-84091",
-              "runtime": "1 HR 55 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "IMAX with Laser at AMC",
-                    "IMAX at AMC",
-                    "ID Required",
-                    "AMC Club Rockers",
-                    "Reserved Seating",
-                    "Alternative Content",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:00pm",
-                      "performanceId": "145393736",
                       "alert": null
                     }
                   ]
@@ -18817,6 +18741,82 @@
                     {
                       "time": "9:20pm",
                       "performanceId": "146259704",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Your Name. 10th Anniversary",
+              "link": "/movies/your-name-10th-anniversary-83876",
+              "runtime": "1 HR 47 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:15pm",
+                      "performanceId": "146259659",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "All Wishes Come True!",
+              "link": "/movies/all-wishes-come-true-84550",
+              "runtime": "2 HR 24 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Mandarin Spoken with Chinese and English Subtitles",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:40pm",
+                      "performanceId": "146259706",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "GHOST: 2 Big To Rig",
+              "link": "/movies/ghost-2-big-to-rig-84091",
+              "runtime": "1 HR 55 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "IMAX with Laser at AMC",
+                    "IMAX at AMC",
+                    "ID Required",
+                    "AMC Club Rockers",
+                    "Reserved Seating",
+                    "Alternative Content",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:00pm",
+                      "performanceId": "145393736",
                       "alert": null
                     }
                   ]
@@ -18918,6 +18918,30 @@
                       "time": "2:10pm",
                       "performanceId": "146390375",
                       "alert": "UP TO 15% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "146259552",
+                      "alert": null
                     }
                   ]
                 }
@@ -19133,30 +19157,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "146259552",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "GHOST: 2 Big To Rig",
               "link": "/movies/ghost-2-big-to-rig-84091",
               "runtime": "1 HR 55 MIN",
@@ -19272,6 +19272,40 @@
                     {
                       "time": "10:00pm",
                       "performanceId": "146390382",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:25pm",
+                      "performanceId": "146259698",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "7:40pm",
+                      "performanceId": "146259700",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146259701",
                       "alert": null
                     }
                   ]
@@ -19434,40 +19468,6 @@
                       "time": "11:00am",
                       "performanceId": "145693661",
                       "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:25pm",
-                      "performanceId": "146259698",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "7:40pm",
-                      "performanceId": "146259700",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146259701",
-                      "alert": null
                     }
                   ]
                 }
@@ -19656,6 +19656,50 @@
               ]
             },
             {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:25pm",
+                      "performanceId": "146259685",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:40pm",
+                      "performanceId": "146259683",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146259684",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Finding Emily",
               "link": "/movies/finding-emily-82868",
               "runtime": "1 HR 50 MIN",
@@ -19815,50 +19859,6 @@
                       "time": "3:00pm",
                       "performanceId": "145693673",
                       "alert": "UP TO 15% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:25pm",
-                      "performanceId": "146259685",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:40pm",
-                      "performanceId": "146259683",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146259684",
-                      "alert": null
                     }
                   ]
                 }
@@ -20074,6 +20074,50 @@
               ]
             },
             {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:25pm",
+                      "performanceId": "146259677",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:40pm",
+                      "performanceId": "146259686",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146259687",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Finding Emily",
               "link": "/movies/finding-emily-82868",
               "runtime": "1 HR 50 MIN",
@@ -20239,50 +20283,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:25pm",
-                      "performanceId": "146259677",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:40pm",
-                      "performanceId": "146259686",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146259687",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Terminator 2: Judgment Day 35th Anniversary",
               "link": "/movies/terminator-2-judgment-day-35th-anniversary-84287",
               "runtime": "2 HR 27 MIN",
@@ -20400,6 +20400,50 @@
               ]
             },
             {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Signature Recliners",
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:25pm",
+                      "performanceId": "146259680",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:40pm",
+                      "performanceId": "146259678",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146259679",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Coyote vs. Acme",
               "link": "/movies/coyote-vs-acme-65798",
               "runtime": "1 HR 43 MIN",
@@ -20458,50 +20502,6 @@
                     {
                       "time": "9:25pm",
                       "performanceId": "145352269",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Signature Recliners",
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:25pm",
-                      "performanceId": "146259680",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:40pm",
-                      "performanceId": "146259678",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146259679",
                       "alert": null
                     }
                   ]
@@ -20737,6 +20737,40 @@
               ]
             },
             {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:25pm",
+                      "performanceId": "146259673",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "7:40pm",
+                      "performanceId": "146259681",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146259682",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Finding Emily",
               "link": "/movies/finding-emily-82868",
               "runtime": "1 HR 50 MIN",
@@ -20875,40 +20909,6 @@
                     {
                       "time": "9:25pm",
                       "performanceId": "145352281",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:25pm",
-                      "performanceId": "146259673",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "7:40pm",
-                      "performanceId": "146259681",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146259682",
                       "alert": null
                     }
                   ]
@@ -22906,24 +22906,27 @@
               ]
             },
             {
-              "title": "Nimrods",
-              "link": "/movies/nimrods-83495",
-              "runtime": "1 HR 47 MIN",
+              "title": "AMC Scream Unseen: August 24",
+              "link": "/movies/amc-scream-unseen-august-24-84688",
+              "runtime": "1 HR 41 MIN",
               "rating": "R",
               "formats": [
                 {
                   "formats": [
                     "undefined",
                     "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
+                    "Reserved Seating"
                   ],
                   "showtimes": [
                     {
-                      "time": "3:15pm",
-                      "performanceId": "146315889",
-                      "alert": "20% OFF"
+                      "time": "7:00pm",
+                      "performanceId": "145900657",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "145900656",
+                      "alert": null
                     }
                   ]
                 }
@@ -22955,27 +22958,24 @@
               ]
             },
             {
-              "title": "AMC Scream Unseen: August 24",
-              "link": "/movies/amc-scream-unseen-august-24-84688",
-              "runtime": "1 HR 41 MIN",
+              "title": "Nimrods",
+              "link": "/movies/nimrods-83495",
+              "runtime": "1 HR 47 MIN",
               "rating": "R",
               "formats": [
                 {
                   "formats": [
                     "undefined",
                     "AMC Signature Recliners",
-                    "Reserved Seating"
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
                   ],
                   "showtimes": [
                     {
-                      "time": "7:00pm",
-                      "performanceId": "145900657",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "145900656",
-                      "alert": null
+                      "time": "3:15pm",
+                      "performanceId": "146315889",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -23158,7 +23158,7 @@
                     {
                       "time": "6:05pm",
                       "performanceId": "146316176",
-                      "alert": null
+                      "alert": "Almost Full"
                     },
                     {
                       "time": "10:00pm",
@@ -23604,6 +23604,32 @@
               ]
             },
             {
+              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
+              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
+              "runtime": "1 HR 51 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "No Trailers",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "143258851",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Nimrods",
               "link": "/movies/nimrods-83495",
               "runtime": "1 HR 47 MIN",
@@ -23628,25 +23654,22 @@
               ]
             },
             {
-              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
-              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
-              "runtime": "1 HR 51 MIN",
-              "rating": "PG",
+              "title": "All Wishes Come True!",
+              "link": "/movies/all-wishes-come-true-84550",
+              "runtime": "2 HR 24 MIN",
+              "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "No Trailers",
+                    "Mandarin Spoken with Chinese and English Subtitles",
                     "AMC Signature Recliners",
                     "Reserved Seating",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
+                    "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "7:00pm",
-                      "performanceId": "143258851",
+                      "time": "10:35pm",
+                      "performanceId": "146316101",
                       "alert": null
                     }
                   ]
@@ -23698,30 +23721,7 @@
                     {
                       "time": "8:00pm",
                       "performanceId": "146192849",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "All Wishes Come True!",
-              "link": "/movies/all-wishes-come-true-84550",
-              "runtime": "2 HR 24 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Mandarin Spoken with Chinese and English Subtitles",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:35pm",
-                      "performanceId": "146316101",
-                      "alert": null
+                      "alert": "Almost Full"
                     }
                   ]
                 }
@@ -24445,55 +24445,6 @@
               ]
             },
             {
-              "title": "Nimrods",
-              "link": "/movies/nimrods-83495",
-              "runtime": "1 HR 47 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Signature Recliners",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "3:15pm",
-                      "performanceId": "146315882",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "GHOST: 2 Big To Rig",
-              "link": "/movies/ghost-2-big-to-rig-84091",
-              "runtime": "1 HR 55 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "ID Required",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Alternative Content",
-                    "Excluded from 50% off Discount",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:00pm",
-                      "performanceId": "145393742",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
               "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
               "runtime": "1 HR 51 MIN",
@@ -24520,6 +24471,28 @@
               ]
             },
             {
+              "title": "Nimrods",
+              "link": "/movies/nimrods-83495",
+              "runtime": "1 HR 47 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Signature Recliners",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:15pm",
+                      "performanceId": "146315882",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "All Wishes Come True!",
               "link": "/movies/all-wishes-come-true-84550",
               "runtime": "2 HR 24 MIN",
@@ -24536,6 +24509,33 @@
                     {
                       "time": "9:15pm",
                       "performanceId": "146315968",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "GHOST: 2 Big To Rig",
+              "link": "/movies/ghost-2-big-to-rig-84091",
+              "runtime": "1 HR 55 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "ID Required",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Alternative Content",
+                    "Excluded from 50% off Discount",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:00pm",
+                      "performanceId": "145393742",
                       "alert": null
                     }
                   ]
@@ -24655,6 +24655,35 @@
               ]
             },
             {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "146145804",
+                      "alert": null
+                    },
+                    {
+                      "time": "9:25pm",
+                      "performanceId": "146145805",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "The Dog Stars",
               "link": "/movies/the-dog-stars-72464",
               "runtime": "1 HR 58 MIN",
@@ -24757,35 +24786,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "146145804",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:25pm",
-                      "performanceId": "146145805",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
             }
           ]
         },
@@ -24810,6 +24810,40 @@
                     {
                       "time": "6:15pm",
                       "performanceId": "145529374",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "146145808",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "146145806",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "146145807",
                       "alert": null
                     }
                   ]
@@ -24976,40 +25010,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "146145808",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "146145806",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "146145807",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Legend of the White Dragon",
               "link": "/movies/legend-of-the-white-dragon-83347",
               "runtime": "1 HR 37 MIN",
@@ -25054,6 +25054,40 @@
                     {
                       "time": "8:15pm",
                       "performanceId": "145529370",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "146145819",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "146145809",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "146145818",
                       "alert": null
                     }
                   ]
@@ -25271,40 +25305,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "146145819",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "146145809",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "146145818",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
             }
           ]
         },
@@ -25329,6 +25329,49 @@
                     {
                       "time": "8:15pm",
                       "performanceId": "145529375",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Signature Recliners",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "146145822",
+                      "alert": null
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "146145820",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "146145821",
                       "alert": null
                     }
                   ]
@@ -25551,49 +25594,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Signature Recliners",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "146145822",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "146145820",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "146145821",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Legend of the White Dragon",
               "link": "/movies/legend-of-the-white-dragon-83347",
               "runtime": "1 HR 37 MIN",
@@ -25638,6 +25638,40 @@
                     {
                       "time": "7:15pm",
                       "performanceId": "145529372",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "146145813",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "146145823",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "146145812",
                       "alert": null
                     }
                   ]
@@ -25799,40 +25833,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "146145813",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "146145823",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "146145812",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "The Last Blossom",
               "link": "/movies/the-last-blossom-84140",
               "runtime": "1 HR 30 MIN",
@@ -25906,6 +25906,40 @@
                     {
                       "time": "7:15pm",
                       "performanceId": "145529373",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "146145816",
+                      "alert": null
+                    },
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "146145814",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "146145815",
                       "alert": null
                     }
                   ]
@@ -26069,40 +26103,6 @@
               ]
             },
             {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "146145816",
-                      "alert": null
-                    },
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "146145814",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "146145815",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "Legend of the White Dragon",
               "link": "/movies/legend-of-the-white-dragon-83347",
               "runtime": "1 HR 37 MIN",
@@ -26130,6 +26130,49 @@
         {
           "date": "2026-09-02",
           "movies": [
+            {
+              "title": "It Ends",
+              "link": "/movies/it-ends-84289",
+              "runtime": "1 HR 29 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Open Caption (On-screen Subtitles)",
+                    "AMC Signature Recliners",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:45pm",
+                      "performanceId": "146145817",
+                      "alert": null
+                    }
+                  ]
+                },
+                {
+                  "formats": [
+                    "undefined",
+                    "AMC Signature Recliners",
+                    "Reserved Seating",
+                    "Closed Caption",
+                    "Audio Description"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "5:20pm",
+                      "performanceId": "146145811",
+                      "alert": null
+                    },
+                    {
+                      "time": "10:15pm",
+                      "performanceId": "146145810",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "title": "Coyote vs. Acme",
               "link": "/movies/coyote-vs-acme-65798",
@@ -26312,49 +26355,6 @@
                     {
                       "time": "4:00pm",
                       "performanceId": "144896661",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "It Ends",
-              "link": "/movies/it-ends-84289",
-              "runtime": "1 HR 29 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Open Caption (On-screen Subtitles)",
-                    "AMC Signature Recliners",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:45pm",
-                      "performanceId": "146145817",
-                      "alert": null
-                    }
-                  ]
-                },
-                {
-                  "formats": [
-                    "undefined",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "5:20pm",
-                      "performanceId": "146145811",
-                      "alert": null
-                    },
-                    {
-                      "time": "10:15pm",
-                      "performanceId": "146145810",
                       "alert": null
                     }
                   ]
@@ -30441,6 +30441,28 @@
               ]
             },
             {
+              "title": "AMC Scream Unseen: August 24",
+              "link": "/movies/amc-scream-unseen-august-24-84688",
+              "runtime": "1 HR 41 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "AMC Signature Recliners",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "145899779",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
               "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
               "runtime": "1 HR 51 MIN",
@@ -30460,28 +30482,6 @@
                     {
                       "time": "7:00pm",
                       "performanceId": "143257896",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "AMC Scream Unseen: August 24",
-              "link": "/movies/amc-scream-unseen-august-24-84688",
-              "runtime": "1 HR 41 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "145899779",
                       "alert": null
                     }
                   ]
@@ -35363,6 +35363,11 @@
                   ],
                   "showtimes": [
                     {
+                      "time": "6:45pm",
+                      "performanceId": "146399369",
+                      "alert": null
+                    },
+                    {
                       "time": "9:45pm",
                       "performanceId": "146227579",
                       "alert": null
@@ -37765,27 +37770,69 @@
               ]
             },
             {
-              "title": "Awarapan 2",
-              "link": "/movies/awarapan-2-84435",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
+              "title": "La La Land 10th Anniversary",
+              "link": "/movies/la-la-land-10th-anniversary-84447",
+              "runtime": "2 HR 8 MIN",
+              "rating": "PG13",
               "formats": [
                 {
                   "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "Laser at AMC",
+                    "Dolby Cinema at AMC",
+                    "AMC Signature Recliners",
                     "Reserved Seating",
-                    "International Films"
+                    "Closed Caption",
+                    "Audio Description"
                   ],
                   "showtimes": [
                     {
-                      "time": "12:20pm",
-                      "performanceId": "146344340",
-                      "alert": "20% OFF"
-                    },
+                      "time": "4:00pm",
+                      "performanceId": "146344394",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "AMC Scream Unseen: August 24",
+              "link": "/movies/amc-scream-unseen-august-24-84688",
+              "runtime": "1 HR 41 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
                     {
-                      "time": "10:30pm",
-                      "performanceId": "146344441",
+                      "time": "7:00pm",
+                      "performanceId": "145900276",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
+              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
+              "runtime": "1 HR 51 MIN",
+              "rating": "PG",
+              "formats": [
+                {
+                  "formats": [
+                    "Japanese Spoken with English Subtitles",
+                    "No Trailers",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "Excluded from A-List",
+                    "No Passes"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "143258671",
                       "alert": null
                     }
                   ]
@@ -37859,51 +37906,27 @@
               ]
             },
             {
-              "title": "Modha Rathiri",
-              "link": "/movies/modha-rathiri-84658",
-              "runtime": "2 HR 35 MIN",
+              "title": "Vishwanath & Sons",
+              "link": "/movies/vishwanath-sons-84494",
+              "runtime": "2 HR 30 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Tamil Spoken with English Subtitles",
+                    "Telugu Spoken with English Subtitles",
                     "Laser at AMC",
                     "Reserved Seating",
                     "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "3:50pm",
-                      "performanceId": "146344339",
-                      "alert": "20% OFF"
+                      "time": "6:00pm",
+                      "performanceId": "146344457",
+                      "alert": null
                     },
                     {
-                      "time": "10:25pm",
-                      "performanceId": "146344433",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "146344394",
+                      "time": "9:30pm",
+                      "performanceId": "146344458",
                       "alert": null
                     }
                   ]
@@ -37932,6 +37955,34 @@
               ]
             },
             {
+              "title": "Awarapan 2",
+              "link": "/movies/awarapan-2-84435",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:20pm",
+                      "performanceId": "146344340",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "146344441",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Khalifa",
               "link": "/movies/khalifa-84450",
               "runtime": "2 HR 55 MIN",
@@ -37948,6 +37999,34 @@
                     {
                       "time": "5:10pm",
                       "performanceId": "146344325",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Modha Rathiri",
+              "link": "/movies/modha-rathiri-84658",
+              "runtime": "2 HR 35 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Tamil Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:50pm",
+                      "performanceId": "146344339",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "10:25pm",
+                      "performanceId": "146344433",
                       "alert": null
                     }
                   ]
@@ -37983,9 +38062,9 @@
               ]
             },
             {
-              "title": "Vishwanath & Sons",
-              "link": "/movies/vishwanath-sons-84494",
-              "runtime": "2 HR 30 MIN",
+              "title": "Hushar Pittalu",
+              "link": "/movies/hushar-pittalu-84677",
+              "runtime": "2 HR 23 MIN",
               "rating": "NR",
               "formats": [
                 {
@@ -37997,59 +38076,8 @@
                   ],
                   "showtimes": [
                     {
-                      "time": "6:00pm",
-                      "performanceId": "146344457",
-                      "alert": null
-                    },
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "146344458",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
-              "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
-              "runtime": "1 HR 51 MIN",
-              "rating": "PG",
-              "formats": [
-                {
-                  "formats": [
-                    "Japanese Spoken with English Subtitles",
-                    "No Trailers",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "Excluded from A-List",
-                    "No Passes"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "143258671",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "AMC Scream Unseen: August 24",
-              "link": "/movies/amc-scream-unseen-august-24-84688",
-              "runtime": "1 HR 41 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "145900276",
+                      "time": "10:10pm",
+                      "performanceId": "146344338",
                       "alert": null
                     }
                   ]
@@ -38073,29 +38101,6 @@
                     {
                       "time": "7:15pm",
                       "performanceId": "146344434",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Hushar Pittalu",
-              "link": "/movies/hushar-pittalu-84677",
-              "runtime": "2 HR 23 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146344338",
                       "alert": null
                     }
                   ]
@@ -38710,50 +38715,23 @@
               ]
             },
             {
-              "title": "Khalifa",
-              "link": "/movies/khalifa-84450",
-              "runtime": "2 HR 55 MIN",
-              "rating": "NR",
+              "title": "La La Land 10th Anniversary",
+              "link": "/movies/la-la-land-10th-anniversary-84447",
+              "runtime": "2 HR 8 MIN",
+              "rating": "PG13",
               "formats": [
                 {
                   "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "Laser at AMC",
+                    "Dolby Cinema at AMC",
+                    "AMC Signature Recliners",
                     "Reserved Seating",
-                    "International Films"
+                    "Closed Caption",
+                    "Audio Description"
                   ],
                   "showtimes": [
                     {
-                      "time": "12:00pm",
-                      "performanceId": "146344322",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Awarapan 2",
-              "link": "/movies/awarapan-2-84435",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:20pm",
-                      "performanceId": "146344337",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "146344438",
+                      "time": "4:00pm",
+                      "performanceId": "146344401",
                       "alert": null
                     }
                   ]
@@ -38827,46 +38805,22 @@
               ]
             },
             {
-              "title": "Modha Rathiri",
-              "link": "/movies/modha-rathiri-84658",
-              "runtime": "2 HR 35 MIN",
+              "title": "Vishwanath & Sons",
+              "link": "/movies/vishwanath-sons-84494",
+              "runtime": "2 HR 30 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Tamil Spoken with English Subtitles",
+                    "Telugu Spoken with English Subtitles",
                     "Laser at AMC",
                     "Reserved Seating",
                     "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "3:50pm",
-                      "performanceId": "146344336",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "146344401",
+                      "time": "9:30pm",
+                      "performanceId": "146344453",
                       "alert": null
                     }
                   ]
@@ -38889,6 +38843,80 @@
                       "time": "4:30pm",
                       "performanceId": "145705259",
                       "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Awarapan 2",
+              "link": "/movies/awarapan-2-84435",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:20pm",
+                      "performanceId": "146344337",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "146344438",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Khalifa",
+              "link": "/movies/khalifa-84450",
+              "runtime": "2 HR 55 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:00pm",
+                      "performanceId": "146344322",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Modha Rathiri",
+              "link": "/movies/modha-rathiri-84658",
+              "runtime": "2 HR 35 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Tamil Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:50pm",
+                      "performanceId": "146344336",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -38921,6 +38949,52 @@
                     {
                       "time": "10:20pm",
                       "performanceId": "146344375",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Hushar Pittalu",
+              "link": "/movies/hushar-pittalu-84677",
+              "runtime": "2 HR 23 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146344335",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Judaa",
+              "link": "/movies/judaa-84613",
+              "runtime": "2 HR 10 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:40pm",
+                      "performanceId": "146344345",
                       "alert": null
                     }
                   ]
@@ -38993,75 +39067,6 @@
                     {
                       "time": "8:00pm",
                       "performanceId": "146192853",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Vishwanath & Sons",
-              "link": "/movies/vishwanath-sons-84494",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "146344453",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Hushar Pittalu",
-              "link": "/movies/hushar-pittalu-84677",
-              "runtime": "2 HR 23 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146344335",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Judaa",
-              "link": "/movies/judaa-84613",
-              "runtime": "2 HR 10 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:40pm",
-                      "performanceId": "146344345",
                       "alert": null
                     }
                   ]
@@ -39671,50 +39676,23 @@
               ]
             },
             {
-              "title": "Khalifa",
-              "link": "/movies/khalifa-84450",
-              "runtime": "2 HR 55 MIN",
-              "rating": "NR",
+              "title": "La La Land 10th Anniversary",
+              "link": "/movies/la-la-land-10th-anniversary-84447",
+              "runtime": "2 HR 8 MIN",
+              "rating": "PG13",
               "formats": [
                 {
                   "formats": [
-                    "Malayalam Spoken with English Subtitles",
-                    "Laser at AMC",
+                    "Dolby Cinema at AMC",
+                    "AMC Signature Recliners",
                     "Reserved Seating",
-                    "International Films"
+                    "Closed Caption",
+                    "Audio Description"
                   ],
                   "showtimes": [
                     {
-                      "time": "12:00pm",
-                      "performanceId": "146344320",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Awarapan 2",
-              "link": "/movies/awarapan-2-84435",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Hindi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "12:20pm",
-                      "performanceId": "146344334",
-                      "alert": "20% OFF"
-                    },
-                    {
-                      "time": "10:30pm",
-                      "performanceId": "146344436",
+                      "time": "4:00pm",
+                      "performanceId": "146344399",
                       "alert": null
                     }
                   ]
@@ -39788,46 +39766,22 @@
               ]
             },
             {
-              "title": "Modha Rathiri",
-              "link": "/movies/modha-rathiri-84658",
-              "runtime": "2 HR 35 MIN",
+              "title": "Vishwanath & Sons",
+              "link": "/movies/vishwanath-sons-84494",
+              "runtime": "2 HR 30 MIN",
               "rating": "NR",
               "formats": [
                 {
                   "formats": [
-                    "Tamil Spoken with English Subtitles",
+                    "Telugu Spoken with English Subtitles",
                     "Laser at AMC",
                     "Reserved Seating",
                     "International Films"
                   ],
                   "showtimes": [
                     {
-                      "time": "3:50pm",
-                      "performanceId": "146344333",
-                      "alert": "20% OFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "La La Land 10th Anniversary",
-              "link": "/movies/la-la-land-10th-anniversary-84447",
-              "runtime": "2 HR 8 MIN",
-              "rating": "PG13",
-              "formats": [
-                {
-                  "formats": [
-                    "Dolby Cinema at AMC",
-                    "AMC Signature Recliners",
-                    "Reserved Seating",
-                    "Closed Caption",
-                    "Audio Description"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "4:00pm",
-                      "performanceId": "146344399",
+                      "time": "9:30pm",
+                      "performanceId": "146344450",
                       "alert": null
                     }
                   ]
@@ -39850,6 +39804,80 @@
                       "time": "4:30pm",
                       "performanceId": "145705260",
                       "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Awarapan 2",
+              "link": "/movies/awarapan-2-84435",
+              "runtime": "2 HR 30 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Hindi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:20pm",
+                      "performanceId": "146344334",
+                      "alert": "20% OFF"
+                    },
+                    {
+                      "time": "10:30pm",
+                      "performanceId": "146344436",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Khalifa",
+              "link": "/movies/khalifa-84450",
+              "runtime": "2 HR 55 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Malayalam Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "12:00pm",
+                      "performanceId": "146344320",
+                      "alert": "20% OFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Modha Rathiri",
+              "link": "/movies/modha-rathiri-84658",
+              "runtime": "2 HR 35 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Tamil Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "3:50pm",
+                      "performanceId": "146344333",
+                      "alert": "20% OFF"
                     }
                   ]
                 }
@@ -39882,6 +39910,52 @@
                     {
                       "time": "10:20pm",
                       "performanceId": "146344372",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Hushar Pittalu",
+              "link": "/movies/hushar-pittalu-84677",
+              "runtime": "2 HR 23 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Telugu Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:10pm",
+                      "performanceId": "146344332",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Judaa",
+              "link": "/movies/judaa-84613",
+              "runtime": "2 HR 10 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Punjabi Spoken with English Subtitles",
+                    "Laser at AMC",
+                    "Reserved Seating",
+                    "International Films"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "10:40pm",
+                      "performanceId": "146344342",
                       "alert": null
                     }
                   ]
@@ -39984,75 +40058,6 @@
                     {
                       "time": "7:30pm",
                       "performanceId": "145782986",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Vishwanath & Sons",
-              "link": "/movies/vishwanath-sons-84494",
-              "runtime": "2 HR 30 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "9:30pm",
-                      "performanceId": "146344450",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Hushar Pittalu",
-              "link": "/movies/hushar-pittalu-84677",
-              "runtime": "2 HR 23 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Telugu Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:10pm",
-                      "performanceId": "146344332",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Judaa",
-              "link": "/movies/judaa-84613",
-              "runtime": "2 HR 10 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Punjabi Spoken with English Subtitles",
-                    "Laser at AMC",
-                    "Reserved Seating",
-                    "International Films"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "10:40pm",
-                      "performanceId": "146344342",
                       "alert": null
                     }
                   ]
@@ -42949,6 +42954,29 @@
               ]
             },
             {
+              "title": "Dreams in Nightmares",
+              "link": "/movies/dreams-in-nightmares-84335",
+              "runtime": "2 HR 8 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "ID Required",
+                    "Reserved Seating",
+                    "Closed Caption"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "145626510",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Akira",
               "link": "/movies/akira-84498",
               "runtime": "2 HR 4 MIN",
@@ -43151,29 +43179,6 @@
               ]
             },
             {
-              "title": "Dreams in Nightmares",
-              "link": "/movies/dreams-in-nightmares-84335",
-              "runtime": "2 HR 8 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "ID Required",
-                    "Reserved Seating",
-                    "Closed Caption"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "145626510",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "The Hunger Games: Catching Fire (2026)",
               "link": "/movies/the-hunger-games-catching-fire-2026-84390",
               "runtime": "2 HR 27 MIN",
@@ -43300,6 +43305,29 @@
                     {
                       "time": "9:30pm",
                       "performanceId": "146133970",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Dreams in Nightmares",
+              "link": "/movies/dreams-in-nightmares-84335",
+              "runtime": "2 HR 8 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "ID Required",
+                    "Reserved Seating",
+                    "Closed Caption"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "145626511",
                       "alert": null
                     }
                   ]
@@ -43505,29 +43533,6 @@
               ]
             },
             {
-              "title": "Dreams in Nightmares",
-              "link": "/movies/dreams-in-nightmares-84335",
-              "runtime": "2 HR 8 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "ID Required",
-                    "Reserved Seating",
-                    "Closed Caption"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "145626511",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "title": "The Hunger Games: Mockingjay - Part 1 (2026)",
               "link": "/movies/the-hunger-games-mockingjay-part-1-2026-84391",
               "runtime": "2 HR 3 MIN",
@@ -43654,6 +43659,29 @@
                     {
                       "time": "9:30pm",
                       "performanceId": "146133973",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Dreams in Nightmares",
+              "link": "/movies/dreams-in-nightmares-84335",
+              "runtime": "2 HR 8 MIN",
+              "rating": "NR",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "ID Required",
+                    "Reserved Seating",
+                    "Closed Caption"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "6:45pm",
+                      "performanceId": "145626506",
                       "alert": null
                     }
                   ]
@@ -43875,29 +43903,6 @@
                     {
                       "time": "7:10pm",
                       "performanceId": "146373784",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Dreams in Nightmares",
-              "link": "/movies/dreams-in-nightmares-84335",
-              "runtime": "2 HR 8 MIN",
-              "rating": "NR",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "ID Required",
-                    "Reserved Seating",
-                    "Closed Caption"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "6:45pm",
-                      "performanceId": "145626506",
                       "alert": null
                     }
                   ]
@@ -44654,6 +44659,27 @@
               ]
             },
             {
+              "title": "AMC Scream Unseen: August 24",
+              "link": "/movies/amc-scream-unseen-august-24-84688",
+              "runtime": "1 HR 41 MIN",
+              "rating": "R",
+              "formats": [
+                {
+                  "formats": [
+                    "Laser at AMC",
+                    "Reserved Seating"
+                  ],
+                  "showtimes": [
+                    {
+                      "time": "7:00pm",
+                      "performanceId": "145900224",
+                      "alert": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Castle in the Sky 40th Anniversary - Studio Ghibli Fest 2026",
               "link": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
               "runtime": "1 HR 51 MIN",
@@ -44672,27 +44698,6 @@
                     {
                       "time": "7:00pm",
                       "performanceId": "143257954",
-                      "alert": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "AMC Scream Unseen: August 24",
-              "link": "/movies/amc-scream-unseen-august-24-84688",
-              "runtime": "1 HR 41 MIN",
-              "rating": "R",
-              "formats": [
-                {
-                  "formats": [
-                    "Laser at AMC",
-                    "Reserved Seating"
-                  ],
-                  "showtimes": [
-                    {
-                      "time": "7:00pm",
-                      "performanceId": "145900224",
                       "alert": null
                     }
                   ]
@@ -50653,7 +50658,7 @@
                     {
                       "time": "6:10pm",
                       "performanceId": "146324869",
-                      "alert": null
+                      "alert": "Almost Full"
                     },
                     {
                       "time": "9:10pm",
