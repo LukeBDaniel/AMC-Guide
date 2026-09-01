@@ -7,6 +7,7 @@ const {
     emptyScraperState,
     getCandidateProbeDates,
     getDates,
+    inspectScheduleHtml,
     isCandidateDue,
     mergeAdvanceSchedule,
     parseAdvanceCatalogHtml,
@@ -83,6 +84,35 @@ test('parseScheduleHtml extracts movie metadata, formats, and showtimes', () => 
 test('parseScheduleHtml rejects a partially rendered movie header', () => {
     const parsed = parseScheduleHtml('<section id="movie"><h1><a href="/movie">Movie</a></h1></section>', '2026-08-21');
     assert.deepEqual(parsed.movies, []);
+});
+
+test('schedule readiness rejects streamed showtimes before they join their movie section', () => {
+    const partialHtml = `
+        <main>
+            <section id="example-movie-1">
+                <h1><a href="/movies/example-movie-1">Example Movie</a></h1>
+            </section>
+            <div hidden>
+                <ul aria-label="Showtime Group Results">
+                    <li><a href="/showtimes/123"><time>7:30 pm</time></a></li>
+                </ul>
+            </div>
+        </main>`;
+
+    assert.deepEqual(inspectScheduleHtml(partialHtml), {
+        ready: false,
+        totalShowtimeLinks: 1,
+        nestedShowtimeLinks: 0,
+        parsedMovies: 0,
+        parsedShowtimes: 0
+    });
+    assert.deepEqual(inspectScheduleHtml(completeHtml), {
+        ready: true,
+        totalShowtimeLinks: 1,
+        nestedShowtimeLinks: 1,
+        parsedMovies: 1,
+        parsedShowtimes: 1
+    });
 });
 
 test('validateSchedule accepts complete data and rejects blank data', () => {

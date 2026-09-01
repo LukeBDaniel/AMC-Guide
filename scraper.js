@@ -356,6 +356,34 @@ function parseScheduleHtml(mainHtml, date) {
   return dailyData;
 }
 
+function inspectScheduleHtml(mainHtml) {
+  const $ = cheerio.load(mainHtml);
+  const totalShowtimeLinks = $(SHOWTIME_SELECTOR).length;
+  const nestedShowtimeLinks = $(`section[id] ${SHOWTIME_SELECTOR}`).length;
+  const parsed = parseScheduleHtml(mainHtml, null);
+  const parsedShowtimes = parsed.movies.reduce(
+    (count, movie) =>
+      count +
+      movie.formats.reduce(
+        (formatCount, format) => formatCount + format.showtimes.length,
+        0,
+      ),
+    0,
+  );
+
+  return {
+    ready:
+      totalShowtimeLinks > 0 &&
+      nestedShowtimeLinks === totalShowtimeLinks &&
+      parsed.movies.length > 0 &&
+      parsedShowtimes > 0,
+    totalShowtimeLinks,
+    nestedShowtimeLinks,
+    parsedMovies: parsed.movies.length,
+    parsedShowtimes,
+  };
+}
+
 function getScheduleStats(schedule) {
   let days = 0;
   let movies = 0;
@@ -644,17 +672,27 @@ function validateAdvanceState(state, configuredTheaters, nearTermThrough) {
 async function waitForShowtimesHtml(page, timeoutMs) {
   const deadline = Date.now() + timeoutMs;
   let nextProgressLog = Date.now() + 30000;
+  let lastInspection = null;
 
   while (Date.now() < deadline) {
     try {
-      // Check readiness and capture the document in one browser evaluation.
-      // Queue-it can redirect a fully rendered AMC page away moments later.
-      const html = await page.evaluate((selector) => {
+      // AMC streams showtime groups into hidden staging nodes before React
+      // attaches them to their movie sections. Capture the DOM atomically,
+      // then verify that every detected showtime link has reached the hierarchy
+      // expected by parseScheduleHtml.
+      const snapshot = await page.evaluate((selector) => {
         if (!document.querySelector(selector)) return null;
         const main = document.querySelector("main");
-        return main ? main.innerHTML : document.body.innerHTML;
+        return {
+          html: main ? main.innerHTML : document.body.innerHTML,
+          documentReady: document.readyState === "complete",
+        };
       }, SHOWTIME_SELECTOR);
-      if (html) return html;
+      if (snapshot?.html) {
+        lastInspection = inspectScheduleHtml(snapshot.html);
+        if (snapshot.documentReady && lastInspection.ready)
+          return snapshot.html;
+      }
     } catch (_) {
       // Navigation can replace the execution context while Queue-it returns
       // the visitor to AMC. Poll again until the overall timeout expires.
@@ -675,7 +713,8 @@ async function waitForShowtimesHtml(page, timeoutMs) {
     .catch(() => ({ title: "", text: "" }));
   throw new Error(
     `Timed out after ${timeoutMs}ms waiting for showtimes. ` +
-      `Final URL: ${page.url()}; title: ${diagnostic.title}; page text: ${diagnostic.text}`,
+      `Final URL: ${page.url()}; title: ${diagnostic.title}; ` +
+      `DOM stats: ${JSON.stringify(lastInspection)}; page text: ${diagnostic.text}`,
   );
 }
 
@@ -1215,6 +1254,7 @@ module.exports = {
   parseMovieShowtimesHtml,
   parseReleaseDateText,
   parseScheduleHtml,
+  inspectScheduleHtml,
   scrapeAMC,
   updateCandidatePerformances,
   validateAdvanceState,
