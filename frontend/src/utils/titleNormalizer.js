@@ -35,7 +35,7 @@ const DESCRIPTOR_PATTERNS = [
     // verbatim (whitespace-trimmed, casing untouched) — for descriptors like these where
     // the trailing text varies per-title (a name list, a year) and can't be a fixed `tag`
     // string. Same idea as `informational` below, generalized to any variable text.
-    { regex: new RegExp(`${SEP}(\\(\\d{4}\\s+event\\))$`, 'i'), captureTag: true },
+    { regex: new RegExp(`${SEP}\\(\\d{4}\\s+event\\)$`, 'i'), eventCategory: true },
     { regex: new RegExp(`${SEP}(q&a\\s+with\\s+.+)$`, 'i'), captureTag: true },
     { regex: new RegExp(`${SEP}(studio\\s+ghibli\\s+fest(?:\\s+\\d+)?)$`, 'i'), informational: true },
     // Optionally allow "Celebrates (Its) Nth Anniversary" phrasing (e.g. "Mob Psycho 100
@@ -68,14 +68,16 @@ export function stripEventDescriptor(title) {
     let base = title.trim();
     const tags = [];
     let infoLabel = null;
+    let isEvent = false;
 
     let matched = true;
     while (matched) {
         matched = false;
-        for (const { regex, tag, informational, captureTag } of DESCRIPTOR_PATTERNS) {
+        for (const { regex, tag, informational, captureTag, eventCategory } of DESCRIPTOR_PATTERNS) {
             const match = base.match(regex);
             if (match) {
                 base = base.replace(regex, '').trim();
+                if (eventCategory) isEvent = true;
                 if (informational) {
                     infoLabel = titleCaseCaptured(match[1]);
                 } else if (captureTag) {
@@ -90,7 +92,9 @@ export function stripEventDescriptor(title) {
         }
     }
 
-    return { base, tags, infoLabel };
+    const result = { base, tags, infoLabel };
+    if (isEvent) result.isEvent = true;
+    return result;
 }
 
 function smartTitleCase(str) {
@@ -163,7 +167,11 @@ function findPrefixMatch(title, candidates) {
 // found it — AMC already flags these showtimes with a genuine format of their own
 // ("Private Theatre Rentals", "Sensory Friendly Film"), surfaced under "Other Filters"
 // instead. The title still strips normally for merging; only the variant is suppressed.
-const SUPPRESSED_VARIANTS = [/^private\s+theatre\s+rental$/i, /^sensory\s+friendly\s+screening$/i];
+const SUPPRESSED_VARIANTS = [
+    /^private\s+theatre\s+rental$/i,
+    /^sensory\s+friendly\s+screening$/i,
+    /^\(\d{4}\s+event\)$/i
+];
 const isSuppressedVariant = (text) => SUPPRESSED_VARIANTS.some(r => r.test(text));
 
 export function buildTitleGroups(rawTitles) {
@@ -182,6 +190,8 @@ export function buildTitleGroups(rawTitles) {
         let base;
         let variant = null;
         let isInformational = false;
+        const stripped = stripEventDescriptor(title);
+        const isEvent = stripped.isEvent === true;
 
         // First check: is this title just another known title with extra text tacked on?
         const prefixMatch = findPrefixMatch(title, cleanCandidates);
@@ -190,7 +200,6 @@ export function buildTitleGroups(rawTitles) {
             variant = prefixMatch.subtitle;
         } else {
             // Fallback: known AMC event-descriptor phrasing (curated patterns).
-            const stripped = stripEventDescriptor(title);
             if (stripped.base) {
                 base = stripped.base;
                 if (stripped.infoLabel) {
@@ -213,7 +222,7 @@ export function buildTitleGroups(rawTitles) {
         const key = (base.toLowerCase().replace(/\s+/g, ' ').trim()) || title.toLowerCase();
         if (!groups.has(key)) groups.set(key, { members: [] });
         const group = groups.get(key);
-        group.members.push({ title, base, variant, isInformational });
+        group.members.push({ title, base, variant, isInformational, isEvent });
         if (base === title) group.cleanTitle = title;
     });
 
@@ -228,8 +237,10 @@ export function buildTitleGroups(rawTitles) {
             displayTitle = smartTitleCase(shortest.base);
         }
 
-        group.members.forEach(({ title, variant, isInformational }) => {
-            result.set(title, { movieKey: displayTitle, displayTitle, variant, isInformational });
+        group.members.forEach(({ title, variant, isInformational, isEvent }) => {
+            const normalized = { movieKey: displayTitle, displayTitle, variant, isInformational };
+            if (isEvent) normalized.isEvent = true;
+            result.set(title, normalized);
         });
     });
 

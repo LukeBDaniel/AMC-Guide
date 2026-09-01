@@ -79,7 +79,7 @@ export function flattenScheduleData(rawData) {
             day.movies.forEach(movie => {
                 // Aggregate showtimes by unique identifier to prevent duplicate React keys
                 const uniqueShowtimes = new Map();
-                const { movieKey, displayTitle, variant, isInformational } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
+                const { movieKey, displayTitle, variant, isInformational, isEvent = false } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
                 movieDisplayTitles[movieKey] = displayTitle;
                 if (variant) {
                     if (!movieVariantMaps[movieKey]) movieVariantMaps[movieKey] = new Map();
@@ -164,6 +164,7 @@ export function flattenScheduleData(rawData) {
                         movieTitle: displayTitle,
                         movieKey: movieKey,
                         variant: variant || null,
+                        _isEventTitle: isEvent,
                         theaterId: theater.id,
                         theaterName: theaterName,
                         runtime: movie.runtime ? movie.runtime.toLowerCase().replace(/\s*hr\s*/g, 'h ').replace(/\s*min\s*/g, 'm').trim() : '',
@@ -205,13 +206,14 @@ export function flattenScheduleData(rawData) {
         movieDatesMap[s.movieKey].add(s.date);
 
         if (!movieShowtimeCounts[s.movieKey]) {
-            movieShowtimeCounts[s.movieKey] = { total: 0, privateRental: 0, livestream: 0, event: 0, international: 0, informational: 0 };
+            movieShowtimeCounts[s.movieKey] = { total: 0, privateRental: 0, livestream: 0, titleEvent: 0, event: 0, international: 0, informational: 0 };
         }
         const counts = movieShowtimeCounts[s.movieKey];
         counts.total += 1;
         const lowerFormats = s.format.map(f => f.toLowerCase());
         if (lowerFormats.some(f => f.includes('private theatre rental'))) counts.privateRental += 1;
         if (lowerFormats.some(f => f.includes('livestream event'))) counts.livestream += 1;
+        if (s._isEventTitle) counts.titleEvent += 1;
         if (lowerFormats.some(f => f.includes('alternative content') || f.includes('fan first screening') || f.includes('opening night event'))) counts.event += 1;
         if (lowerFormats.some(f => f.includes('international films'))) counts.international += 1;
         if (s.variant && movieVariantMaps[s.movieKey]?.get(s.variant)) counts.informational += 1;
@@ -231,6 +233,7 @@ export function flattenScheduleData(rawData) {
             && showtimeDates.every(date => date > rawData.nearTermThrough)) return 'Coming Soon';
         if (lowerTitle.includes('private theatre rental') || isDominant(counts?.privateRental)) return 'Private Theatre Rentals';
         if (isDominant(counts?.livestream)) return 'Livestream Events';
+        if (isDominant(counts?.titleEvent)) return 'Events';
         // Anniversary re-releases and Ghibli Fest screenings take priority over the generic
         // "Events" signal (AMC often also tags these revival screenings with a genuine
         // "Alternative Content" format).
@@ -310,6 +313,7 @@ export function flattenScheduleData(rawData) {
     const finalOthers = allValidFormats.filter(isOther).sort();
     const finalLanguages = allValidFormats.filter(isLanguage).sort();
     const finalFormats = allValidFormats.filter(f => !isLanguage(f) && !isSeating(f) && !isOther(f)).sort();
+    flattened.forEach(showtime => delete showtime._isEventTitle);
 
     return {
         showtimes: flattened,

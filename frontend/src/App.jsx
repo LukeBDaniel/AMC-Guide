@@ -229,15 +229,12 @@ function App() {
       />
 
       {/* Right Main Content */}
-      <main style={{ flex: 1, minWidth: 0 }}>
-        <header style={{ marginBottom: '2rem' }}>
+      <main className="main-content">
+        <header className="main-header">
           <h1 className="header-title" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <Ticket className="text-accent-color" size={32} color="var(--accent-color)" />
             AMC Guide
           </h1>
-          <p className="header-subtitle">
-            Showing {filteredShowtimes.length} upcoming showtimes
-          </p>
         </header>
 
         <ShowtimeTimeline

@@ -73,7 +73,7 @@ test('special-screening title containment is case-insensitive', async () => {
     });
 });
 
-test('parenthesized year events become showing formats', async () => {
+test('parenthesized year events are categorized without becoming showing formats', async () => {
     const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
     const raw = {
         theaters: {
@@ -90,10 +90,10 @@ test('parenthesized year events become showing formats', async () => {
 
     const result = flattenScheduleData(raw);
     assert.equal(result.showtimes[0].movieTitle, 'The Passion of the Christ');
-    assert.equal(result.showtimes[0].variant, '(2026 Event)');
-    assert.ok(result.showtimes[0].format.includes('(2026 Event)'));
-    assert.deepEqual(result.movieVariants['The Passion of the Christ'], [{
-        variant: '(2026 Event)',
-        isInformational: false
-    }]);
+    assert.equal(result.showtimes[0].variant, null);
+    assert.ok(!result.showtimes[0].format.includes('(2026 Event)'));
+    assert.equal(result.movieVariants['The Passion of the Christ'], undefined);
+    assert.deepEqual(result.groupedMovies.Events, ['The Passion of the Christ']);
+    assert.ok(!result.groupedMovies['New Movies'].includes('The Passion of the Christ'));
+    assert.equal('_isEventTitle' in result.showtimes[0], false);
 });
