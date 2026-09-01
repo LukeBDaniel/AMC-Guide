@@ -330,12 +330,14 @@ body {
 
 .timeline-corner {
   height: 60px; /* matches header height */
+  flex: 0 0 60px;
   border-bottom: 1px solid var(--border-color);
   background: var(--badge-bg);
 }
 
 .timeline-hour-marker-y {
   height: 60px; /* each hour is 60px tall */
+  flex: 0 0 60px;
   text-align: right;
   padding: 0.5rem;
   font-size: 0.75rem;
@@ -362,6 +364,7 @@ body {
 
 .timeline-col-label {
   height: 60px;
+  flex: 0 0 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -378,6 +381,7 @@ body {
 .timeline-day-col {
   position: relative;
   height: 1140px; /* 19 hours * 60px */
+  flex: 0 0 1140px;
 }
 
 .timeline-grid-line-x {
@@ -484,6 +488,8 @@ body {
     position: sticky;
     left: 0;
     z-index: 30;
+    align-self: flex-start;
+    flex: 0 0 60px;
   }
 
   .timeline-corner {
