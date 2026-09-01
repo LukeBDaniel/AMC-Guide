@@ -14,6 +14,7 @@ const {
     parseMovieShowtimesHtml,
     parseReleaseDateText,
     parseScheduleHtml,
+    theaters,
     updateCandidatePerformances,
     validateAdvanceState,
     validateSchedule
@@ -49,6 +50,17 @@ test('buildShowtimesUrl uses AMC current canonical date query', () => {
         buildShowtimesUrl({ id: 'amc-newport-centre-11', location: 'jersey-city' }, '2026-08-23'),
         'https://www.amctheatres.com/movie-theatres/jersey-city/amc-newport-centre-11/showtimes?date=2026-08-23'
     );
+});
+
+test('scraper includes all supported Manhattan theaters', () => {
+    const configured = new Map(theaters.map(item => [item.id, item.location]));
+    [
+        'amc-magic-johnson-harlem-9',
+        'amc-84th-street-6',
+        'amc-orpheum-7',
+        'amc-19th-st-east-6',
+        'amc-village-7'
+    ].forEach(id => assert.equal(configured.get(id), 'new-york'));
 });
 
 test('buildMovieShowtimesUrl scopes a movie to a theater and optional date', () => {

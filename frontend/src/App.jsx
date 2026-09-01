@@ -28,10 +28,6 @@ function App() {
       .then(json => {
         const processed = flattenScheduleData(json);
         setData(processed);
-
-        const allTheaterIds = Object.values(processed.theaters).flat().map(t => t.id);
-        setSelectedTheaters(new Set(allTheaterIds));
-
         setLoading(false);
       })
       .catch(err => {
@@ -39,8 +35,6 @@ function App() {
         setLoading(false);
       });
   }, []);
-
-
 
   const togglePin = (showtimeId) => {
     setPinnedShowtimes(prev => {
