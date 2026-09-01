@@ -48,3 +48,52 @@ test('frontend remains backward compatible when nearTermThrough is absent', asyn
     assert.deepEqual(result.groupedMovies['Coming Soon'], []);
     assert.deepEqual(result.groupedMovies['New Movies'], ['Future Film']);
 });
+
+test('title normalization recognizes anniversary event suffixes', async () => {
+    const { stripEventDescriptor } = await import('../frontend/src/utils/titleNormalizer.js');
+    assert.deepEqual(stripEventDescriptor('The Matrix 25th Anniversary Event'), {
+        base: 'The Matrix',
+        tags: [],
+        infoLabel: '25th Anniversary Event'
+    });
+});
+
+test('special-screening title containment is case-insensitive', async () => {
+    const { buildTitleGroups } = await import('../frontend/src/utils/titleNormalizer.js');
+    const groups = buildTitleGroups(new Set([
+        'The Conversation',
+        'THE CONVERSATION: One-Night Q&A'
+    ]));
+
+    assert.deepEqual(groups.get('THE CONVERSATION: One-Night Q&A'), {
+        movieKey: 'The Conversation',
+        displayTitle: 'The Conversation',
+        variant: 'One-Night Q&A',
+        isInformational: false
+    });
+});
+
+test('parenthesized year events become showing formats', async () => {
+    const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const raw = {
+        theaters: {
+            'amc-empire-25': {
+                id: 'amc-empire-25',
+                location: 'new-york',
+                schedule: [{
+                    date: '2026-09-01',
+                    movies: [movie('The Passion of the Christ (2026 Event)', 'passion-event')]
+                }]
+            }
+        }
+    };
+
+    const result = flattenScheduleData(raw);
+    assert.equal(result.showtimes[0].movieTitle, 'The Passion of the Christ');
+    assert.equal(result.showtimes[0].variant, '(2026 Event)');
+    assert.ok(result.showtimes[0].format.includes('(2026 Event)'));
+    assert.deepEqual(result.movieVariants['The Passion of the Christ'], [{
+        variant: '(2026 Event)',
+        isInformational: false
+    }]);
+});

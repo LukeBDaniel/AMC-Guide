@@ -35,11 +35,12 @@ const DESCRIPTOR_PATTERNS = [
     // verbatim (whitespace-trimmed, casing untouched) — for descriptors like these where
     // the trailing text varies per-title (a name list, a year) and can't be a fixed `tag`
     // string. Same idea as `informational` below, generalized to any variable text.
+    { regex: new RegExp(`${SEP}(\\(\\d{4}\\s+event\\))$`, 'i'), captureTag: true },
     { regex: new RegExp(`${SEP}(q&a\\s+with\\s+.+)$`, 'i'), captureTag: true },
     { regex: new RegExp(`${SEP}(studio\\s+ghibli\\s+fest(?:\\s+\\d+)?)$`, 'i'), informational: true },
     // Optionally allow "Celebrates (Its) Nth Anniversary" phrasing (e.g. "Mob Psycho 100
     // Celebrates Its 10th Anniversary") without pulling "Celebrates Its" into the base title.
-    { regex: new RegExp(`${SEP}(?:celebrates\\s+(?:its\\s+)?)?(\\d+(?:st|nd|rd|th)\\s+anniversary(?:${SEP}double\\s+feature)?)$`, 'i'), informational: true },
+    { regex: new RegExp(`${SEP}(?:celebrates\\s+(?:its\\s+)?)?(\\d+(?:st|nd|rd|th)\\s+anniversary(?:${SEP}(?:double\\s+feature|event))?)$`, 'i'), informational: true },
 ];
 
 // The set of concrete badge strings the descriptor patterns above can inject
@@ -117,13 +118,13 @@ function smartTitleCase(str) {
 // recognize (i.e. nothing to strip on their own), so this can't chain off an
 // already-suffixed title.
 function findPrefixMatch(title, candidates) {
-    const titleNorm = title.trim().toLowerCase();
+    const titleNorm = title.trim().toLocaleLowerCase('en-US');
     let best = null;
 
     candidates.forEach(candidate => {
-        if (candidate === title) return;
         const candidateTrimmed = candidate.trim();
-        const candidateNorm = candidateTrimmed.toLowerCase();
+        const candidateNorm = candidateTrimmed.toLocaleLowerCase('en-US');
+        if (candidateNorm === titleNorm) return;
         if (titleNorm.length <= candidateNorm.length || !titleNorm.startsWith(candidateNorm)) return;
         if (!/^[\s\-–—:]/.test(titleNorm.slice(candidateNorm.length))) return;
 
