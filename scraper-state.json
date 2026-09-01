@@ -1,87 +1,87 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-26T08:27:08.174Z",
+  "updatedAt": "2026-09-01T18:13:45.087Z",
   "candidates": {
     "/movies/insidious-out-of-the-further-77101": {
       "moviePath": "/movies/insidious-out-of-the-further-77101",
       "title": "Insidious: Out of the Further details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/spider-man-brand-new-day-78598": {
       "moviePath": "/movies/spider-man-brand-new-day-78598",
       "title": "Spider-Man: Brand New Day details",
       "releaseDateText": "July 31, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/the-odyssey-76238": {
       "moviePath": "/movies/the-odyssey-76238",
       "title": "The Odyssey details",
       "releaseDateText": "July 17, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/paw-patrol-the-dino-movie-76344": {
       "moviePath": "/movies/paw-patrol-the-dino-movie-76344",
       "title": "PAW Patrol: The Dino Movie details",
       "releaseDateText": "August 14, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/the-end-of-oak-street-71226": {
       "moviePath": "/movies/the-end-of-oak-street-71226",
       "title": "The End of Oak Street details",
       "releaseDateText": "August 14, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/mutiny-79550": {
       "moviePath": "/movies/mutiny-79550",
       "title": "Mutiny details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/spa-weekend-82597": {
       "moviePath": "/movies/spa-weekend-82597",
       "title": "Spa Weekend details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/tony-83859": {
       "moviePath": "/movies/tony-83859",
       "title": "Tony details",
       "releaseDateText": "August 7, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/teenage-sex-and-death-at-camp-miasma-82941": {
       "moviePath": "/movies/teenage-sex-and-death-at-camp-miasma-82941",
       "title": "Teenage Sex and Death at Camp Miasma details",
       "releaseDateText": "August 7, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/hot-spot-83783": {
       "moviePath": "/movies/hot-spot-83783",
@@ -96,19 +96,19 @@
       "moviePath": "/movies/the-fast-and-the-furious-25th-anniversary-84081",
       "title": "The Fast and the Furious 25th Anniversary details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/the-magic-faraway-tree-83464": {
       "moviePath": "/movies/the-magic-faraway-tree-83464",
       "title": "The Magic Faraway Tree details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-08-26T08:27:08.174Z",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-08-22T01:58:16.771Z",
-      "lastSuccessfulCheckAt": "2026-08-22T01:58:16.771Z"
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     },
     "/movies/the-brink-of-war-83719": {
       "moviePath": "/movies/the-brink-of-war-83719",
@@ -208,6 +208,132 @@
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-08-26T08:27:08.174Z",
       "lastSuccessfulCheckAt": "2026-08-26T08:27:08.174Z"
+    },
+    "/movies/coyote-vs-acme-65798": {
+      "moviePath": "/movies/coyote-vs-acme-65798",
+      "title": "Coyote vs. Acme details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/the-dog-stars-72464": {
+      "moviePath": "/movies/the-dog-stars-72464",
+      "title": "The Dog Stars details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/buddy-83749": {
+      "moviePath": "/movies/buddy-83749",
+      "title": "Buddy details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/idiots-83461": {
+      "moviePath": "/movies/idiots-83461",
+      "title": "Idiots details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/finding-emily-82868": {
+      "moviePath": "/movies/finding-emily-82868",
+      "title": "Finding Emily details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/steel-magnolias-84878": {
+      "moviePath": "/movies/steel-magnolias-84878",
+      "title": "Steel Magnolias details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/the-best-little-whorehouse-in-texas-84879": {
+      "moviePath": "/movies/the-best-little-whorehouse-in-texas-84879",
+      "title": "The Best Little Whorehouse In Texas details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/harry-potter-and-the-sorcerer-s-stone-84536": {
+      "moviePath": "/movies/harry-potter-and-the-sorcerer-s-stone-84536",
+      "title": "Harry Potter and the Sorcerer’s Stone: 25th Anniversary details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/harry-potter-deathly-hallows-part-1-hpd26-84542": {
+      "moviePath": "/movies/harry-potter-deathly-hallows-part-1-hpd26-84542",
+      "title": "Harry Potter & Deathly Hallows: Part 1 (HPD26) details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/legend-of-the-white-dragon-83347": {
+      "moviePath": "/movies/legend-of-the-white-dragon-83347",
+      "title": "Legend of the White Dragon details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/terminator-2-judgment-day-35th-anniversary-84287": {
+      "moviePath": "/movies/terminator-2-judgment-day-35th-anniversary-84287",
+      "title": "Terminator 2: Judgment Day 35th Anniversary details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/colony-83566": {
+      "moviePath": "/movies/colony-83566",
+      "title": "Colony details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/it-ends-84289": {
+      "moviePath": "/movies/it-ends-84289",
+      "title": "It Ends details",
+      "releaseDateText": "August 21, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
+    },
+    "/movies/beyond-belief-83794": {
+      "moviePath": "/movies/beyond-belief-83794",
+      "title": "Beyond Belief details",
+      "releaseDateText": "August 28, 2026",
+      "lastCatalogSeenAt": "2026-09-01T18:13:45.087Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-01T18:13:45.087Z",
+      "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
     }
   },
   "performances": {}
