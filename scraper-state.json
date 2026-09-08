@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-06T11:45:58.225Z",
+  "updatedAt": "2026-09-08T12:19:14.275Z",
   "candidates": {
     "/movies/insidious-out-of-the-further-77101": {
       "moviePath": "/movies/insidious-out-of-the-further-77101",
       "title": "Insidious: Out of the Further details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -15,7 +15,7 @@
       "moviePath": "/movies/spider-man-brand-new-day-78598",
       "title": "Spider-Man: Brand New Day details",
       "releaseDateText": "July 31, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -24,7 +24,7 @@
       "moviePath": "/movies/the-odyssey-76238",
       "title": "The Odyssey details",
       "releaseDateText": "July 17, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -33,7 +33,7 @@
       "moviePath": "/movies/paw-patrol-the-dino-movie-76344",
       "title": "PAW Patrol: The Dino Movie details",
       "releaseDateText": "August 14, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -42,7 +42,7 @@
       "moviePath": "/movies/the-end-of-oak-street-71226",
       "title": "The End of Oak Street details",
       "releaseDateText": "August 14, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -51,7 +51,7 @@
       "moviePath": "/movies/mutiny-79550",
       "title": "Mutiny details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -60,7 +60,7 @@
       "moviePath": "/movies/spa-weekend-82597",
       "title": "Spa Weekend details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -69,7 +69,7 @@
       "moviePath": "/movies/tony-83859",
       "title": "Tony details",
       "releaseDateText": "August 7, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -150,7 +150,7 @@
       "moviePath": "/movies/toy-story-5-72482",
       "title": "Toy Story 5 details",
       "releaseDateText": "June 19, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -213,7 +213,7 @@
       "moviePath": "/movies/coyote-vs-acme-65798",
       "title": "Coyote vs. Acme details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -222,7 +222,7 @@
       "moviePath": "/movies/the-dog-stars-72464",
       "title": "The Dog Stars details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -231,7 +231,7 @@
       "moviePath": "/movies/buddy-83749",
       "title": "Buddy details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -249,7 +249,7 @@
       "moviePath": "/movies/finding-emily-82868",
       "title": "Finding Emily details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-01T18:13:45.087Z",
       "lastSuccessfulCheckAt": "2026-09-01T18:13:45.087Z"
@@ -339,7 +339,7 @@
       "moviePath": "/movies/by-any-means-82711",
       "title": "By Any Means details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -348,7 +348,7 @@
       "moviePath": "/movies/onslaught-84108",
       "title": "Onslaught details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -357,7 +357,7 @@
       "moviePath": "/movies/cars-20th-anniversary-84149",
       "title": "Cars: 20th Anniversary details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -366,7 +366,7 @@
       "moviePath": "/movies/fall-2-deadpoint-82974",
       "title": "Fall 2: Deadpoint details",
       "releaseDateText": "September 2, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -375,7 +375,7 @@
       "moviePath": "/movies/akira-84498",
       "title": "Akira details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -393,7 +393,7 @@
       "moviePath": "/movies/tom-and-jerry-the-forbidden-compass-83488",
       "title": "Tom and Jerry: The Forbidden Compass details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -420,7 +420,7 @@
       "moviePath": "/movies/the-sun-never-sets-84482",
       "title": "The Sun Never Sets details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -429,7 +429,7 @@
       "moviePath": "/movies/mirzapur-84313",
       "title": "Mirzapur details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -438,7 +438,7 @@
       "moviePath": "/movies/cocoon-one-summer-of-girlhood-83878",
       "title": "cocoon - One Summer of Girlhood details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-06T11:45:58.225Z",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-05T11:24:54.639Z",
       "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
@@ -469,6 +469,15 @@
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-06T11:45:58.225Z",
       "lastSuccessfulCheckAt": "2026-09-06T11:45:58.225Z"
+    },
+    "/movies/the-city-on-the-edge-of-forever-star-trek-iv-the-voyage-home-60th-anniversary-event-84716": {
+      "moviePath": "/movies/the-city-on-the-edge-of-forever-star-trek-iv-the-voyage-home-60th-anniversary-event-84716",
+      "title": "The City on The Edge of Forever + Star Trek IV: The Voyage Home 60th Anniversary Event details",
+      "releaseDateText": "September 7, 2026",
+      "lastCatalogSeenAt": "2026-09-08T12:19:14.275Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-08T12:19:14.275Z",
+      "lastSuccessfulCheckAt": "2026-09-08T12:19:14.275Z"
     }
   },
   "performances": {}
