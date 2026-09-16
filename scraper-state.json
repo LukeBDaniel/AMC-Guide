@@ -1,51 +1,51 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-11T12:22:54.101Z",
+  "updatedAt": "2026-09-16T12:52:21.158Z",
   "candidates": {
     "/movies/insidious-out-of-the-further-77101": {
       "moviePath": "/movies/insidious-out-of-the-further-77101",
       "title": "Insidious: Out of the Further details",
       "releaseDateText": "August 21, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/spider-man-brand-new-day-78598": {
       "moviePath": "/movies/spider-man-brand-new-day-78598",
       "title": "Spider-Man: Brand New Day details",
       "releaseDateText": "July 31, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/the-odyssey-76238": {
       "moviePath": "/movies/the-odyssey-76238",
       "title": "The Odyssey details",
       "releaseDateText": "July 17, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/paw-patrol-the-dino-movie-76344": {
       "moviePath": "/movies/paw-patrol-the-dino-movie-76344",
       "title": "PAW Patrol: The Dino Movie details",
       "releaseDateText": "August 14, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/the-end-of-oak-street-71226": {
       "moviePath": "/movies/the-end-of-oak-street-71226",
       "title": "The End of Oak Street details",
       "releaseDateText": "August 14, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/mutiny-79550": {
       "moviePath": "/movies/mutiny-79550",
@@ -213,28 +213,28 @@
       "moviePath": "/movies/coyote-vs-acme-65798",
       "title": "Coyote vs. Acme details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/the-dog-stars-72464": {
       "moviePath": "/movies/the-dog-stars-72464",
       "title": "The Dog Stars details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/buddy-83749": {
       "moviePath": "/movies/buddy-83749",
       "title": "Buddy details",
       "releaseDateText": "August 28, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-09T12:30:34.297Z",
-      "lastSuccessfulCheckAt": "2026-09-09T12:30:34.297Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/idiots-83461": {
       "moviePath": "/movies/idiots-83461",
@@ -339,46 +339,46 @@
       "moviePath": "/movies/by-any-means-82711",
       "title": "By Any Means details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-05T11:24:54.639Z",
-      "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/onslaught-84108": {
       "moviePath": "/movies/onslaught-84108",
       "title": "Onslaught details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-05T11:24:54.639Z",
-      "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/cars-20th-anniversary-84149": {
       "moviePath": "/movies/cars-20th-anniversary-84149",
       "title": "Cars: 20th Anniversary details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-05T11:24:54.639Z",
-      "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/fall-2-deadpoint-82974": {
       "moviePath": "/movies/fall-2-deadpoint-82974",
       "title": "Fall 2: Deadpoint details",
       "releaseDateText": "September 2, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-05T11:24:54.639Z",
-      "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/akira-84498": {
       "moviePath": "/movies/akira-84498",
       "title": "Akira details",
       "releaseDateText": "September 4, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-09-05T11:24:54.639Z",
-      "lastSuccessfulCheckAt": "2026-09-05T11:24:54.639Z"
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     },
     "/movies/katy-perry-the-lifetimes-tour-live-from-paris-84442": {
       "moviePath": "/movies/katy-perry-the-lifetimes-tour-live-from-paris-84442",
@@ -483,7 +483,7 @@
       "moviePath": "/movies/practical-magic-2-77331",
       "title": "Practical Magic 2 details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -510,7 +510,7 @@
       "moviePath": "/movies/runner-83715",
       "title": "Runner details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -519,7 +519,7 @@
       "moviePath": "/movies/hope-84082",
       "title": "Hope details",
       "releaseDateText": "September 9, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -528,7 +528,7 @@
       "moviePath": "/movies/the-uprising-83716",
       "title": "The Uprising details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -537,7 +537,7 @@
       "moviePath": "/movies/oasis-don-t-look-back-in-anger-83884",
       "title": "Oasis: Don't Look Back in Anger details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -546,7 +546,7 @@
       "moviePath": "/movies/don-t-move-84246",
       "title": "Don't Move details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -555,7 +555,7 @@
       "moviePath": "/movies/the-fix-84047",
       "title": "The Fix details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -564,7 +564,7 @@
       "moviePath": "/movies/the-passion-of-the-christ-2026-event-84018",
       "title": "The Passion of the Christ (2026 Event) details",
       "releaseDateText": "September 10, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -573,7 +573,7 @@
       "moviePath": "/movies/haiwaan-84807",
       "title": "Haiwaan details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -582,7 +582,7 @@
       "moviePath": "/movies/epic-first-semester-84798",
       "title": "Epic - First Semester details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -591,7 +591,7 @@
       "moviePath": "/movies/hanuman-ansh-84956",
       "title": "Hanuman Ansh details",
       "releaseDateText": "September 11, 2026",
-      "lastCatalogSeenAt": "2026-09-11T12:22:54.101Z",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
@@ -604,6 +604,15 @@
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-09-11T12:22:54.101Z",
       "lastSuccessfulCheckAt": "2026-09-11T12:22:54.101Z"
+    },
+    "/movies/juan-gabriel-mi-primer-bellas-artes-84552": {
+      "moviePath": "/movies/juan-gabriel-mi-primer-bellas-artes-84552",
+      "title": "Juan Gabriel: Mi Primer Bellas Artes details",
+      "releaseDateText": "September 15, 2026",
+      "lastCatalogSeenAt": "2026-09-16T12:52:21.158Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-09-16T12:52:21.158Z",
+      "lastSuccessfulCheckAt": "2026-09-16T12:52:21.158Z"
     }
   },
   "performances": {}
