@@ -1,5 +1,8 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 
 const {
     buildMovieShowtimesUrl,
@@ -9,11 +12,13 @@ const {
     getDates,
     inspectScheduleHtml,
     isCandidateDue,
+    loadShowtimesHtml,
     mergeAdvanceSchedule,
     parseAdvanceCatalogHtml,
     parseMovieShowtimesHtml,
     parseReleaseDateText,
     parseScheduleHtml,
+    scrapeAMC,
     theaters,
     updateCandidatePerformances,
     validateAdvanceState,
@@ -40,6 +45,129 @@ const completeHtml = `
         </section>
     </main>
 `;
+
+function navigationPage(statuses) {
+    const waits = [];
+    let navigation = 0;
+    return {
+        waits,
+        async goto(url) {
+            if (url === 'about:blank') return null;
+            const status = statuses[navigation++];
+            return { status: () => status, headers: () => ({ 'cf-ray': 'test-ray' }) };
+        },
+        url: () => 'https://www.amctheatres.com/test',
+        async evaluate(fn, selector) {
+            return selector
+                ? { html: completeHtml, documentReady: true }
+                : { title: 'Attention Required! | Cloudflare', text: 'Sorry, you have been blocked' };
+        },
+        async waitForTimeout(ms) { waits.push(ms); }
+    };
+}
+
+test('navigation backs off after AMC access errors and recovers to parsed content', async () => {
+    for (const status of [403, 429, 503]) {
+        const page = navigationPage([status, status, 200]);
+        const html = await loadShowtimesHtml(page, theater, '2026-09-18');
+        assert.deepEqual(page.waits, [30000, 60000]);
+        assert.equal(parseScheduleHtml(html, '2026-09-18').movies.length, 1);
+    }
+});
+
+test('persistent access blocks fail with diagnostics rather than returning blocked HTML', async () => {
+    const page = navigationPage([403, 403, 403]);
+    await assert.rejects(
+        loadShowtimesHtml(page, theater, '2026-09-18'),
+        /HTTP 403.*Cloudflare.*Sorry, you have been blocked.*Cloudflare Ray ID: test-ray/
+    );
+    assert.deepEqual(page.waits, [30000, 60000]);
+});
+
+test('ordinary navigation errors retain the short retry delay', async () => {
+    const page = navigationPage([404, 200]);
+    await loadShowtimesHtml(page, theater, '2026-09-18');
+    assert.deepEqual(page.waits, [2000]);
+});
+
+function fakeBrowser() {
+    return {
+        async newContext() {
+            return {
+                async route() {},
+                async newPage() { return {}; }
+            };
+        },
+        async close() {}
+    };
+}
+
+test('partial scrape publishes fresh days and carries forward failed future days', async (t) => {
+    const configuredTheater = theaters[0];
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-partial-'));
+    t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
+    const outputPath = path.join(directory, 'data.json');
+    const statePath = path.join(directory, 'state.json');
+    const previous = {
+        scrapedAt: '2026-09-14T12:00:00Z',
+        nearTermThrough: '2026-09-27',
+        theaters: {
+            [configuredTheater.id]: { ...configuredTheater, schedule: [
+                parseScheduleHtml(completeHtml, '2026-09-14'),
+                parseScheduleHtml(completeHtml, '2026-09-15'),
+                parseScheduleHtml(completeHtml, '2026-09-18')
+            ] }
+        }
+    };
+    previous.theaters[configuredTheater.id].schedule[1].movies[0].title = 'Stale Tuesday';
+    previous.theaters[configuredTheater.id].schedule[2].movies[0].title = 'Friday from Monday';
+    fs.writeFileSync(outputPath, JSON.stringify(previous));
+
+    await assert.rejects(scrapeAMC({
+        browser: fakeBrowser(), theaterId: configuredTheater.id, days: 4,
+        now: new Date('2026-09-15T12:00:00Z'), advanceEnabled: false,
+        outputPaths: [outputPath], statePath,
+        async loadShowtimesHtml(_page, _theater, date) {
+            if (date === '2026-09-18') throw new Error('rate limited');
+            return completeHtml;
+        }
+    }), /Partial scrape published with 1 theater-date failures/);
+
+    const published = JSON.parse(fs.readFileSync(outputPath));
+    assert.deepEqual(published.theaters[configuredTheater.id].schedule.map(day => day.date), [
+        '2026-09-15', '2026-09-16', '2026-09-17', '2026-09-18'
+    ]);
+    assert.equal(published.theaters[configuredTheater.id].schedule[0].movies[0].title, 'Example Movie');
+    assert.equal(published.theaters[configuredTheater.id].schedule[3].movies[0].title, 'Friday from Monday');
+});
+
+test('all-blocked run retains future cached data and skips further requests', async (t) => {
+    const configuredTheater = theaters[0];
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-blocked-'));
+    t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
+    const outputPath = path.join(directory, 'data.json');
+    const previous = { theaters: { [configuredTheater.id]: { ...configuredTheater, schedule: [
+        parseScheduleHtml(completeHtml, '2026-09-15'),
+        parseScheduleHtml(completeHtml, '2026-09-18')
+    ] } } };
+    fs.writeFileSync(outputPath, JSON.stringify(previous));
+    let requests = 0;
+    await assert.rejects(scrapeAMC({
+        browser: fakeBrowser(), theaterId: configuredTheater.id, days: 4,
+        now: new Date('2026-09-16T12:00:00Z'), advanceEnabled: false,
+        outputPaths: [outputPath], statePath: path.join(directory, 'state.json'),
+        async loadShowtimesHtml() {
+            requests++;
+            const error = new Error('AMC returned HTTP 403');
+            error.status = 403;
+            throw error;
+        }
+    }), /Partial scrape published with 4 theater-date failures/);
+    assert.equal(requests, 1);
+    assert.deepEqual(JSON.parse(fs.readFileSync(outputPath)).theaters[configuredTheater.id].schedule.map(day => day.date), [
+        '2026-09-18'
+    ]);
+});
 
 test('buildShowtimesUrl uses AMC current canonical date query', () => {
     assert.equal(

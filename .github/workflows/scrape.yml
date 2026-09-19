@@ -31,9 +31,11 @@ jobs:
         run: npx playwright install chromium --with-deps
         
       - name: Run AMC Scraper
+        id: scrape
         run: xvfb-run --auto-servernum -- node scraper.js
         
       - name: Commit and Push changes
+        if: ${{ always() && (steps.scrape.outcome == 'success' || steps.scrape.outcome == 'failure') }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"

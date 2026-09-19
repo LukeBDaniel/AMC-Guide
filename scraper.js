@@ -739,9 +739,7 @@ async function loadShowtimesHtml(page, theater, date, options = {}) {
         waitUntil: "domcontentloaded",
         timeout: 60000,
       });
-      if (response && response.status() >= 400) {
-        throw new Error(`AMC returned HTTP ${response.status()}`);
-      }
+      await assertNavigationResponse(page, response);
 
       return await waitForShowtimesHtml(page, timeoutMs);
     } catch (error) {
@@ -749,13 +747,44 @@ async function loadShowtimesHtml(page, theater, date, options = {}) {
       console.warn(
         `Attempt ${attempt}/${attempts} failed for ${theater.id} ${date}: ${error.message}`,
       );
-      if (attempt < attempts) await page.waitForTimeout(attempt * 2000);
+      if (attempt < attempts)
+        await page.waitForTimeout(navigationRetryDelay(error, attempt));
     }
   }
 
-  throw new Error(
+  const failure = new Error(
     `Unable to load ${theater.id} ${date}: ${lastError?.message || "unknown error"}`,
   );
+  failure.status = lastError?.status;
+  throw failure;
+}
+
+function navigationRetryDelay(error, attempt) {
+  // Access/rate-limit blocks and upstream outages need time to clear. The old
+  // 2s/4s retries exhausted all attempts in the same brief blocking window.
+  const status = error?.status;
+  return status === 403 || status === 429 || status >= 500
+    ? 30000 * 2 ** (attempt - 1)
+    : attempt * 2000;
+}
+
+async function assertNavigationResponse(page, response) {
+  if (!response || response.status() < 400) return;
+  const status = response.status();
+  const diagnostic = await page
+    .evaluate(() => ({
+      title: document.title,
+      text: document.body?.innerText?.slice(0, 300) || "",
+    }))
+    .catch(() => ({ title: "", text: "" }));
+  const ray = response.headers()["cf-ray"];
+  const error = new Error(
+    `AMC returned HTTP ${status}; URL: ${page.url()}; ` +
+      `title: ${diagnostic.title}; page text: ${diagnostic.text}` +
+      (ray ? `; Cloudflare Ray ID: ${ray}` : ""),
+  );
+  error.status = status;
+  throw error;
 }
 
 async function waitForRenderedAdvanceHtml(page, kind, timeoutMs) {
@@ -825,15 +854,15 @@ async function loadRenderedAdvanceHtml(page, url, kind, options = {}) {
         waitUntil: "domcontentloaded",
         timeout: 60000,
       });
-      if (response && response.status() >= 400)
-        throw new Error(`AMC returned HTTP ${response.status()}`);
+      await assertNavigationResponse(page, response);
       return await waitForRenderedAdvanceHtml(page, kind, timeoutMs);
     } catch (error) {
       lastError = error;
       console.warn(
         `Advance ${kind} attempt ${attempt}/${attempts} failed for ${url}: ${error.message}`,
       );
-      if (attempt < attempts) await page.waitForTimeout(attempt * 2000);
+      if (attempt < attempts)
+        await page.waitForTimeout(navigationRetryDelay(error, attempt));
     }
   }
   throw lastError || new Error(`Unable to load ${url}`);
@@ -1052,6 +1081,43 @@ function writeScrapeResultsAtomically(
   }
 }
 
+function loadPreviousSchedule(path = OUTPUT_PATHS[0]) {
+  if (!fs.existsSync(path)) return null;
+  try {
+    const schedule = JSON.parse(fs.readFileSync(path, "utf8"));
+    if (!schedule.theaters || typeof schedule.theaters !== "object")
+      throw new Error("missing theaters");
+    return schedule;
+  } catch (error) {
+    console.warn(`Could not load previous schedule from ${path}: ${error.message}`);
+    return null;
+  }
+}
+
+function mergePreviousSchedule(schedule, previous, today, nearTermThrough) {
+  for (const [theaterId, theater] of Object.entries(schedule.theaters)) {
+    const freshDates = new Set(theater.schedule.map((day) => day.date));
+    const priorDays = previous?.theaters?.[theaterId]?.schedule;
+    if (!Array.isArray(priorDays)) continue;
+    for (const day of priorDays) {
+      if (
+        typeof day.date === "string" &&
+        day.date >= today &&
+        day.date <= nearTermThrough &&
+        !freshDates.has(day.date) &&
+        Array.isArray(day.movies) &&
+        day.movies.some((movie) =>
+          movie.formats?.some((format) => format.showtimes?.length > 0),
+        )
+      ) {
+        theater.schedule.push(day);
+      }
+    }
+    theater.schedule.sort((a, b) => a.date.localeCompare(b.date));
+  }
+  return schedule;
+}
+
 async function scrapeAMC(options = {}) {
   const days =
     options.days || positiveInteger(process.env.SCRAPER_DAYS, DEFAULT_DAYS);
@@ -1080,14 +1146,19 @@ async function scrapeAMC(options = {}) {
   console.log("Starting AMC Scraper...");
   console.log("Calendar dates to scrape:", dates);
 
-  const browser = await chromium.launch({
-    headless,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-blink-features=AutomationControlled",
-    ],
-  });
+  const outputPaths = options.outputPaths || OUTPUT_PATHS;
+  const previousSchedule = loadPreviousSchedule(outputPaths[0]);
+
+  const browser =
+    options.browser ||
+    (await chromium.launch({
+      headless,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-blink-features=AutomationControlled",
+      ],
+    }));
   const context = await browser.newContext({
     viewport: { width: 1280, height: 800 },
   });
@@ -1106,6 +1177,8 @@ async function scrapeAMC(options = {}) {
     nearTermThrough,
     theaters: {},
   };
+  const failures = [];
+  let accessBlocked = false;
 
   try {
     for (const theater of selectedTheaters) {
@@ -1116,37 +1189,55 @@ async function scrapeAMC(options = {}) {
       };
 
       for (const date of dates) {
-        console.log(`Navigating to ${theater.id} for ${date}...`);
-        const mainHtml = await loadShowtimesHtml(page, theater, date, {
-          timeoutMs,
-        });
-        const dailyData = parseScheduleHtml(mainHtml, date);
-        const showtimeCount = dailyData.movies.reduce(
-          (count, movie) =>
-            count +
-            movie.formats.reduce(
-              (formatCount, format) => formatCount + format.showtimes.length,
-              0,
-            ),
-          0,
-        );
-
-        if (dailyData.movies.length === 0 || showtimeCount === 0) {
-          throw new Error(
-            `${theater.id} ${date}: rendered page contained no usable showtime data`,
-          );
+        if (accessBlocked) {
+          failures.push(`${theater.id} ${date}: skipped after persistent AMC access block`);
+          continue;
         }
+        try {
+          console.log(`Navigating to ${theater.id} for ${date}...`);
+          const mainHtml = await (options.loadShowtimesHtml || loadShowtimesHtml)(
+            page,
+            theater,
+            date,
+            { timeoutMs },
+          );
+          const dailyData = parseScheduleHtml(mainHtml, date);
+          const showtimeCount = dailyData.movies.reduce(
+            (count, movie) =>
+              count +
+              movie.formats.reduce(
+                (formatCount, format) => formatCount + format.showtimes.length,
+                0,
+              ),
+            0,
+          );
 
-        console.log(
-          `Extracted ${dailyData.movies.length} movies and ${showtimeCount} showtimes`,
-        );
-        fullSchedule.theaters[theater.id].schedule.push(dailyData);
+          if (dailyData.movies.length === 0 || showtimeCount === 0) {
+            throw new Error("rendered page contained no usable showtime data");
+          }
+
+          console.log(
+            `Extracted ${dailyData.movies.length} movies and ${showtimeCount} showtimes`,
+          );
+          fullSchedule.theaters[theater.id].schedule.push(dailyData);
+        } catch (error) {
+          failures.push(`${theater.id} ${date}: ${error.message}`);
+          console.warn(`Could not scrape ${theater.id} ${date}: ${error.message}`);
+          if (error.status === 403 || error.status === 429) accessBlocked = true;
+        }
       }
     }
 
-    const stats = validateSchedule(fullSchedule, selectedTheaters, dates);
+    const freshDays = getScheduleStats(fullSchedule).days;
+    mergePreviousSchedule(fullSchedule, previousSchedule, dates[0], nearTermThrough);
+    if (freshDays === 0 && previousSchedule?.scrapedAt)
+      fullSchedule.scrapedAt = previousSchedule.scrapedAt;
+    const stats = getScheduleStats(fullSchedule);
+    if (stats.showtimes === 0)
+      throw new Error("No usable current or previous showtimes; existing data files were preserved");
     console.log(
-      `Validated ${stats.days} days, ${stats.movies} movies, and ${stats.showtimes} showtimes.`,
+      `Prepared ${stats.days} theater-days, ${stats.movies} movies, and ${stats.showtimes} showtimes ` +
+        `(${failures.length} theater-date failures).`,
     );
 
     const advanceState = loadScraperState(options.statePath || STATE_PATH);
@@ -1158,7 +1249,7 @@ async function scrapeAMC(options = {}) {
       cachedPerformances: Object.keys(advanceState.performances).length,
       pageLoads: 0,
     };
-    if (advanceEnabled) {
+    if (advanceEnabled && !accessBlocked) {
       try {
         advanceStats = await discoverAdvanceShowtimes(
           page,
@@ -1177,9 +1268,7 @@ async function scrapeAMC(options = {}) {
         );
       }
     } else {
-      console.log(
-        "Advance discovery disabled; retaining valid cached advance showtimes.",
-      );
+      console.log("Advance discovery skipped; retaining cached advance showtimes.");
       cleanAdvanceState(advanceState, dates[0], nearTermThrough);
     }
 
@@ -1218,7 +1307,7 @@ async function scrapeAMC(options = {}) {
       writeScrapeResultsAtomically(
         fullSchedule,
         advanceState,
-        options.outputPaths || OUTPUT_PATHS,
+        outputPaths,
         options.statePath || STATE_PATH,
       );
       console.log(
@@ -1226,6 +1315,13 @@ async function scrapeAMC(options = {}) {
       );
     } else {
       console.log("Dry run complete; data files were not changed.");
+    }
+
+    if (failures.length) {
+      throw new Error(
+        `Partial scrape published with ${failures.length} theater-date failures. ` +
+          `Fresh results and available prior showtimes were retained. First failure: ${failures[0]}`,
+      );
     }
 
     return fullSchedule;
@@ -1253,6 +1349,8 @@ module.exports = {
   isCandidateDue,
   loadShowtimesHtml,
   loadScraperState,
+  loadPreviousSchedule,
+  mergePreviousSchedule,
   mergeAdvanceSchedule,
   normalizeMoviePath,
   parseAdvanceCatalogHtml,
