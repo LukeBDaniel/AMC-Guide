@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-12T17:03:21.546Z",
+  "updatedAt": "2026-10-27T13:51:23.543Z",
   "candidates": {
     "/movies/insidious-out-of-the-further-77101": {
       "moviePath": "/movies/insidious-out-of-the-further-77101",
@@ -177,10 +177,10 @@
       "moviePath": "/movies/private-theatre-rental-65421",
       "title": "Private Theatre Rental details",
       "releaseDateText": null,
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "pending",
-      "lastAttemptAt": "2026-10-12T17:03:21.546Z",
-      "lastSuccessfulCheckAt": "2026-10-12T17:03:21.546Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589": {
       "moviePath": "/movies/castle-in-the-sky-40th-anniversary-studio-ghibli-fest-2026-83589",
@@ -618,10 +618,10 @@
       "moviePath": "/movies/resident-evil-79697",
       "title": "Resident Evil details",
       "releaseDateText": "September 18, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-12T17:03:21.546Z",
-      "lastSuccessfulCheckAt": "2026-10-12T17:03:21.546Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/the-transformers-the-movie-40th-anniversary-84517": {
       "moviePath": "/movies/the-transformers-the-movie-40th-anniversary-84517",
@@ -717,10 +717,10 @@
       "moviePath": "/movies/forgotten-island-71470",
       "title": "Forgotten Island details",
       "releaseDateText": "September 25, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-12T17:03:21.546Z",
-      "lastSuccessfulCheckAt": "2026-10-12T17:03:21.546Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/heaven-in-stone-and-glass-84371": {
       "moviePath": "/movies/heaven-in-stone-and-glass-84371",
@@ -744,19 +744,19 @@
       "moviePath": "/movies/primetime-84605",
       "title": "Primetime details",
       "releaseDateText": "September 25, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-12T17:03:21.546Z",
-      "lastSuccessfulCheckAt": "2026-10-12T17:03:21.546Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/heart-of-the-beast-82707": {
       "moviePath": "/movies/heart-of-the-beast-82707",
       "title": "Heart of the Beast details",
       "releaseDateText": "September 25, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-12T17:03:21.546Z",
-      "lastSuccessfulCheckAt": "2026-10-12T17:03:21.546Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/charlie-harper-81850": {
       "moviePath": "/movies/charlie-harper-81850",
@@ -879,10 +879,10 @@
       "moviePath": "/movies/verity-79853",
       "title": "Verity details",
       "releaseDateText": "October 2, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-11T14:25:26.923Z",
-      "lastSuccessfulCheckAt": "2026-10-11T14:25:26.923Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/the-influencer-project-84764": {
       "moviePath": "/movies/the-influencer-project-84764",
@@ -1005,19 +1005,19 @@
       "moviePath": "/movies/other-mommy-80303",
       "title": "Other Mommy details",
       "releaseDateText": "October 9, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-11T14:25:26.923Z",
-      "lastSuccessfulCheckAt": "2026-10-11T14:25:26.923Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/the-social-reckoning-81643": {
       "moviePath": "/movies/the-social-reckoning-81643",
       "title": "The Social Reckoning details",
       "releaseDateText": "October 9, 2026",
-      "lastCatalogSeenAt": "2026-10-12T17:03:21.546Z",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
       "status": "covered-by-near-term",
-      "lastAttemptAt": "2026-10-11T14:25:26.923Z",
-      "lastSuccessfulCheckAt": "2026-10-11T14:25:26.923Z"
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     },
     "/movies/angel-and-the-badman-83714": {
       "moviePath": "/movies/angel-and-the-badman-83714",
@@ -1117,6 +1117,159 @@
       "status": "covered-by-near-term",
       "lastAttemptAt": "2026-10-12T17:03:21.546Z",
       "lastSuccessfulCheckAt": "2026-10-12T17:03:21.546Z"
+    },
+    "/movies/clayface-71218": {
+      "moviePath": "/movies/clayface-71218",
+      "title": "Clayface details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/wildwood-82629": {
+      "moviePath": "/movies/wildwood-82629",
+      "title": "Wildwood details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/you-can-see-everything-85142": {
+      "moviePath": "/movies/you-can-see-everything-85142",
+      "title": "You Can See Everything details",
+      "releaseDateText": "October 16, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/wicker-84240": {
+      "moviePath": "/movies/wicker-84240",
+      "title": "Wicker details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/street-fighter-77447": {
+      "moviePath": "/movies/street-fighter-77447",
+      "title": "Street Fighter details",
+      "releaseDateText": "October 16, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/klara-and-the-sun-83553": {
+      "moviePath": "/movies/klara-and-the-sun-83553",
+      "title": "Klara and the Sun details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/sense-and-sensibility-82178": {
+      "moviePath": "/movies/sense-and-sensibility-82178",
+      "title": "Sense and Sensibility details",
+      "releaseDateText": "October 16, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/whalefall-80471": {
+      "moviePath": "/movies/whalefall-80471",
+      "title": "Whalefall details",
+      "releaseDateText": "October 16, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/seventeen-world-tour-new-85198": {
+      "moviePath": "/movies/seventeen-world-tour-new-85198",
+      "title": "SEVENTEEN WORLD TOUR 'NEW_' details",
+      "releaseDateText": "October 26, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/marie-antoinette-20th-anniversary-84988": {
+      "moviePath": "/movies/marie-antoinette-20th-anniversary-84988",
+      "title": "Marie Antoinette (20th Anniversary) details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/a-talent-for-murder-84492": {
+      "moviePath": "/movies/a-talent-for-murder-84492",
+      "title": "A Talent for Murder details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/pet-sematary-welcome-to-horrorwood-series-84830": {
+      "moviePath": "/movies/pet-sematary-welcome-to-horrorwood-series-84830",
+      "title": "Pet Sematary  - Welcome to Horrorwood Series details",
+      "releaseDateText": "October 23, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/enhypen-world-tour-blood-saga-85200": {
+      "moviePath": "/movies/enhypen-world-tour-blood-saga-85200",
+      "title": "ENHYPEN WORLD TOUR 'BLOOD SAGA' details",
+      "releaseDateText": "October 25, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/ken-russell-s-the-devils-84750": {
+      "moviePath": "/movies/ken-russell-s-the-devils-84750",
+      "title": "Ken Russell's The Devils details",
+      "releaseDateText": "October 16, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/tomorrow-x-together-world-tour-act-tomorrow-85197": {
+      "moviePath": "/movies/tomorrow-x-together-world-tour-act-tomorrow-85197",
+      "title": "TOMORROW X TOGETHER WORLD TOUR 'ACT : TOMORROW' details",
+      "releaseDateText": "October 24, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/hybe-cheering-party-85199": {
+      "moviePath": "/movies/hybe-cheering-party-85199",
+      "title": "HYBE CHEERING PARTY details",
+      "releaseDateText": "October 24, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
+    },
+    "/movies/your-mother-your-mother-your-mother-84071": {
+      "moviePath": "/movies/your-mother-your-mother-your-mother-84071",
+      "title": "Your Mother Your Mother Your Mother details",
+      "releaseDateText": "September 25, 2026",
+      "lastCatalogSeenAt": "2026-10-27T13:51:23.543Z",
+      "status": "covered-by-near-term",
+      "lastAttemptAt": "2026-10-27T13:51:23.543Z",
+      "lastSuccessfulCheckAt": "2026-10-27T13:51:23.543Z"
     }
   },
   "performances": {}
