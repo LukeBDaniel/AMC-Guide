@@ -1,21 +1,13 @@
 {
   "name": "amc",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "fetch-showtimes.js",
   "scripts": {
-    "scrape": "node scraper.js",
     "fetch": "node fetch-showtimes.js",
-    "fetch:compare": "node fetch-showtimes.js --compare",
     "test": "node --test test/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "cheerio": "^1.2.0",
-    "playwright": "^1.61.0",
-    "playwright-extra": "^4.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
-  }
+  "description": ""
 }

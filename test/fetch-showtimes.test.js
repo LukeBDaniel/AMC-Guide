@@ -57,7 +57,7 @@ function fakeFetch(handler) {
     return { fetchImpl, calls };
 }
 
-test('times, runtimes, and late-night dates match the scraped data format', () => {
+test('times, runtimes, and late-night dates match the data.json format', () => {
     assert.equal(formatTime('2026-10-30T19:00:00'), '7:00pm');
     assert.equal(formatTime('2026-10-30T12:05:00'), '12:05pm');
     assert.equal(formatTime('2026-10-31T00:15:00'), '12:15am');
