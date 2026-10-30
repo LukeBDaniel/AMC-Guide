@@ -370,28 +370,47 @@ test('a theatre with no showtimes in the coming week is treated as a failure', a
     assert.match(failures[0], /no showtimes between 2026-10-30 and 2026-11-05/);
 });
 
-test('fetchShowtimes writes all outputs, and preserves them when everything fails', async () => {
+test('fetchShowtimes writes minified output, and preserves it when everything fails', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-api-'));
-    const outputPaths = [path.join(dir, 'data.json'), path.join(dir, 'public.json')];
+    const outputPath = path.join(dir, 'data.json');
     const ok = stubClient({
         [twoTheaters[0].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
         [twoTheaters[1].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-31T19:00:00' })]
     });
 
-    await fetchShowtimes({ now: NOW, theaters: twoTheaters, client: ok, outputPaths, dryRun: true });
-    assert.ok(!fs.existsSync(outputPaths[0]));
+    await fetchShowtimes({ now: NOW, theaters: twoTheaters, client: ok, outputPath, dryRun: true });
+    assert.ok(!fs.existsSync(outputPath));
 
-    const schedule = await fetchShowtimes({ now: NOW, theaters: twoTheaters, client: ok, outputPaths });
-    for (const outputPath of outputPaths) {
-        assert.deepEqual(JSON.parse(fs.readFileSync(outputPath, 'utf8')), schedule);
-    }
+    const schedule = await fetchShowtimes({ now: NOW, theaters: twoTheaters, client: ok, outputPath });
+    const written = fs.readFileSync(outputPath, 'utf8');
+    assert.deepEqual(JSON.parse(written), schedule);
+    assert.ok(!written.includes('\n'), 'output should be minified');
 
-    const before = fs.readFileSync(outputPaths[0], 'utf8');
     const down = stubClient({ [twoTheaters[0].apiId]: new Error('down'), [twoTheaters[1].apiId]: new Error('down') });
     await assert.rejects(
-        fetchShowtimes({ now: new Date('2027-03-01T12:00:00Z'), theaters: twoTheaters, client: down, outputPaths }),
-        /No usable showtimes; existing data files were preserved/
+        fetchShowtimes({ now: new Date('2027-03-01T12:00:00Z'), theaters: twoTheaters, client: down, outputPath }),
+        /No usable showtimes; the existing data file was preserved/
     );
-    assert.equal(fs.readFileSync(outputPaths[0], 'utf8'), before);
-    assert.deepEqual(fs.readdirSync(dir).sort(), ['data.json', 'public.json']);
+    assert.equal(fs.readFileSync(outputPath, 'utf8'), written);
+    assert.deepEqual(fs.readdirSync(dir), ['data.json']);
+});
+
+test('a downloaded previous schedule fills in for a theatre that fails', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-api-'));
+    const outputPath = path.join(dir, 'data.json');
+    // Stands in for the copy CI downloads from the live site before fetching.
+    fs.writeFileSync(outputPath, JSON.stringify({
+        theaters: { [twoTheaters[1].id]: { schedule: [{ date: '2026-10-31', movies: [{ title: 'Kept', formats: [] }] }] } }
+    }));
+    const client = stubClient({
+        [twoTheaters[0].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
+        [twoTheaters[1].apiId]: new Error('HTTP 500')
+    });
+    await assert.rejects(
+        fetchShowtimes({ now: NOW, theaters: twoTheaters, client, outputPath }),
+        /Partial update published with 1 theater failures/
+    );
+    const published = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    assert.equal(published.theaters[twoTheaters[1].id].schedule[0].movies[0].title, 'Kept');
+    assert.equal(published.theaters[twoTheaters[0].id].schedule[0].movies[0].title, 'Resident Evil');
 });

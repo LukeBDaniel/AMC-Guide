@@ -1,7 +1,10 @@
 const fs = require("fs");
 const { createAmcClient } = require("./amc-api");
 
-const OUTPUT_PATHS = ["data.json", "frontend/public/data.json"];
+// Served by the frontend and bundled into the site at build time. In CI the
+// currently deployed copy is downloaded here first so it can serve as the
+// previous schedule.
+const OUTPUT_PATH = "frontend/public/data.json";
 const NEAR_TERM_DAYS = 14;
 const MIN_RECENT_DAYS = 7;
 const CONCURRENCY = 4;
@@ -200,7 +203,7 @@ function validateTheaterSchedule(theater, schedule, today) {
   }
 }
 
-function loadPreviousSchedule(path = OUTPUT_PATHS[0]) {
+function loadPreviousSchedule(path = OUTPUT_PATH) {
   if (!fs.existsSync(path)) return null;
   try {
     const schedule = JSON.parse(fs.readFileSync(path, "utf8"));
@@ -213,16 +216,15 @@ function loadPreviousSchedule(path = OUTPUT_PATHS[0]) {
   }
 }
 
-function writeScheduleAtomically(schedule, outputPaths = OUTPUT_PATHS) {
-  const json = JSON.stringify(schedule, null, 2);
-  const temporaryFiles = outputPaths.map((outputPath) => `${outputPath}.${process.pid}.tmp`);
+function writeScheduleAtomically(schedule, outputPath = OUTPUT_PATH) {
+  // Minified: the file is only read by the frontend, never diffed.
+  const json = JSON.stringify(schedule);
+  const tempPath = `${outputPath}.${process.pid}.tmp`;
   try {
-    temporaryFiles.forEach((tempPath) => fs.writeFileSync(tempPath, json));
-    outputPaths.forEach((outputPath, index) => fs.renameSync(temporaryFiles[index], outputPath));
+    fs.writeFileSync(tempPath, json);
+    fs.renameSync(tempPath, outputPath);
   } finally {
-    temporaryFiles.forEach((tempPath) => {
-      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
-    });
+    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
   }
 }
 
@@ -289,14 +291,14 @@ async function buildSchedule(options = {}) {
 }
 
 async function fetchShowtimes(options = {}) {
-  const outputPaths = options.outputPaths || OUTPUT_PATHS;
-  const previousSchedule = loadPreviousSchedule(outputPaths[0]);
+  const outputPath = options.outputPath || OUTPUT_PATH;
+  const previousSchedule = loadPreviousSchedule(outputPath);
   const { schedule, failures } = await buildSchedule({ ...options, previousSchedule });
 
   const stats = getScheduleStats(schedule);
   if (failures.length === Object.keys(schedule.theaters).length || stats.showtimes === 0) {
     throw new Error(
-      `No usable showtimes; existing data files were preserved.\n- ${failures.join("\n- ")}`,
+      `No usable showtimes; the existing data file was preserved.\n- ${failures.join("\n- ")}`,
     );
   }
 
@@ -307,10 +309,10 @@ async function fetchShowtimes(options = {}) {
   );
 
   if (options.dryRun) {
-    console.log("Dry run complete; data files were not changed.");
+    console.log("Dry run complete; the data file was not changed.");
   } else {
-    writeScheduleAtomically(schedule, outputPaths);
-    console.log(`Saved ${outputPaths.join(" and ")}.`);
+    writeScheduleAtomically(schedule, outputPath);
+    console.log(`Saved ${outputPath}.`);
   }
 
   if (failures.length) {

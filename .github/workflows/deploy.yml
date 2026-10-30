@@ -4,10 +4,9 @@ on:
   push:
     branches:
       - main
-  workflow_run:
-    workflows: ["Daily AMC Scraper"]
-    types:
-      - completed
+  schedule:
+    # 4:00 AM EDT / 3:00 AM EST
+    - cron: '0 8 * * *'
   workflow_dispatch:
 
 permissions:
@@ -15,32 +14,63 @@ permissions:
   pages: write
   id-token: write
 
+# Never let two deployments overlap, but don't cancel one mid-deploy either.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
 
-      - name: Install Frontend Dependencies
-        working-directory: ./frontend
-        run: npm install
-
-      - name: Build Frontend
-        working-directory: ./frontend
-        run: npm run build
+      - name: Run tests
+        run: npm test
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v4
+
+      # The live copy is the fallback for any theatre the API fails to return.
+      - name: Download currently deployed showtimes
+        run: |
+          curl --fail --silent --show-error --location --retry 2 \
+            --output frontend/public/data.json \
+            "${{ steps.pages.outputs.base_url }}/data.json" \
+            || echo "::warning::No deployed data.json to fall back on"
+
+      # A partial fetch still publishes (failed theatres keep their previous
+      # showtimes); the run is marked failed at the end so it gets noticed.
+      - name: Fetch showtimes from AMC API
+        id: fetch
+        continue-on-error: true
+        run: npm run fetch
+        env:
+          AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
+
+      - name: Check showtimes data exists
+        run: test -s frontend/public/data.json
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -50,3 +80,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Fail run if the showtimes fetch failed
+        if: ${{ steps.fetch.outcome == 'failure' }}
+        run: |
+          echo "::error::Showtimes fetch failed; see the 'Fetch showtimes from AMC API' step. Previous data was kept where needed."
+          exit 1

@@ -8,7 +8,7 @@ Built to solve the friction of navigating fragmented theater schedules, this pro
 
 ## Features
 
-- **Automated Daily Updates:** Powered by GitHub Actions, a Node.js job queries the AMC Theatres API every morning at 4:00 AM EDT, fetching every ticketable showtime for each tracked theater in a single request per theater.
+- **Automated Daily Updates:** Every morning at 4:00 AM EDT (and on every push), a single GitHub Actions workflow fetches every ticketable showtime from the AMC Theatres API — one request per tracked theater — then builds and deploys the site. Showtime data is generated at deploy time rather than committed to the repository.
 - **Coming Soon Tracking:** Advance-ticket performances beyond the next two weeks are grouped separately in the Movies filter without breaking the unified, scrollable timeline.
 - **True Faceted Search:** Dynamically filters theaters, formats (IMAX, 70mm, Dolby), and movies in real-time. Selecting mutually exclusive options intelligently hides conflicting tags to prevent empty calendar states.
 - **Smart Categorization:** Automatically groups movies into custom subgenres (e.g., *New Movies*, *Fan Faves & Classics*, *Events*) based on metadata, title parsing, and format tags.
@@ -34,7 +34,7 @@ Then:
 ```
 npm test                     # pipeline and frontend data-processing tests
 npm run fetch -- --dry-run   # fetch and validate without writing files
-npm run fetch                # update data.json and frontend/public/data.json
+npm run fetch                # write frontend/public/data.json (used by `npm run dev` in frontend/)
 ```
 
-Tracked theaters (with their API IDs) are configured in `fetch-showtimes.js`. In GitHub Actions, the key comes from the `AMC_VENDOR_KEY` repository secret.
+Tracked theaters (API ID, name and state) are configured in `fetch-showtimes.js`. In GitHub Actions, the key comes from the `AMC_VENDOR_KEY` repository secret, and the currently deployed `data.json` is downloaded first so that any theater the API fails to return keeps its previous showtimes.
