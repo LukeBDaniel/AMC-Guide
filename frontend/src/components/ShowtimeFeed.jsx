@@ -44,7 +44,7 @@ export default function ShowtimeFeed({ showtimes }) {
                     {groupedByDate[date].map(showtime => (
                         <a 
                             key={showtime.id} 
-                            href={showtime.link} 
+                            href={showtime.ticketLink || showtime.link}
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="showtime-card"

@@ -24,6 +24,11 @@ function parseTimeToMinutes(timeStr) {
     return (hours * 60) + minutes;
 }
 
+// 'new-york' -> 'New York'
+function titleCaseSlug(slug) {
+    return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
 // Helper to parse '2 HR 25 MIN' into total minutes
 function parseRuntimeToMinutes(runtimeStr, formatsArray = []) {
     if (!runtimeStr) return 120; // default 2 hours if unknown
@@ -68,11 +73,11 @@ export function flattenScheduleData(rawData) {
     const titleGroups = buildTitleGroups(rawTitles);
 
     Object.values(rawData.theaters).forEach(theater => {
-        // Pretty format the theater name and remove redundant "Amc"
-        let theaterName = theater.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        theaterName = theaterName.replace(/^Amc\s+/i, '').replace(/\s+\d+$/, '').trim();
-        const isNY = ['amc-empire-25', 'amc-lincoln-square-13', 'amc-34th-street-14', 'amc-kips-bay-15'].includes(theater.id);
-        const location = theater.location === 'new-york' || isNY ? 'New York' : 'New Jersey';
+        // AMC's name (e.g. "AMC 19th St. East 6") without the redundant brand prefix and
+        // screen count. Older data files only have the slug, so fall back to prettifying it.
+        const sourceName = theater.name || titleCaseSlug(theater.id);
+        const theaterName = sourceName.replace(/^Amc\s+/i, '').replace(/\s+\d+$/, '').trim();
+        const location = theater.location ? titleCaseSlug(theater.location) : 'Other';
         uniqueTheaters.set(theater.id, { name: theaterName, location });
 
         theater.schedule.forEach(day => {
@@ -171,7 +176,9 @@ export function flattenScheduleData(rawData) {
                         rating: movie.rating,
                         format: finalFormatsArray,
                         alert: showtime.alert,
-                        link: movie.link ? `https://www.amctheatres.com${movie.link}` : '#'
+                        link: movie.link ? `https://www.amctheatres.com${movie.link}` : '#',
+                        // The same seat-selection URL AMC's own showtime buttons link to.
+                        ticketLink: showtime.performanceId ? `https://www.amctheatres.com/showtimes/${showtime.performanceId}` : null
                     });
                 });
             });
@@ -316,20 +323,18 @@ export function flattenScheduleData(rawData) {
     const finalFormats = allValidFormats.filter(f => !isLanguage(f) && !isSeating(f) && !isOther(f)).sort();
     flattened.forEach(showtime => delete showtime._isEventTitle);
 
+    // Grouped by state, in the order states first appear in the data file.
+    const theatersByLocation = {};
+    uniqueTheaters.forEach(({ name, location }, id) => {
+        (theatersByLocation[location] ||= []).push({ id, name });
+    });
+    Object.values(theatersByLocation).forEach(list => list.sort((a, b) => a.name.localeCompare(b.name)));
+
     return {
         showtimes: flattened,
         movies: Array.from(uniqueMovies).sort(),
         groupedMovies,
-        theaters: {
-            'New York': Array.from(uniqueTheaters.entries())
-                .filter(([, data]) => data.location === 'New York')
-                .map(([id, data]) => ({ id, name: data.name }))
-                .sort((a, b) => a.name.localeCompare(b.name)),
-            'New Jersey': Array.from(uniqueTheaters.entries())
-                .filter(([, data]) => data.location === 'New Jersey')
-                .map(([id, data]) => ({ id, name: data.name }))
-                .sort((a, b) => a.name.localeCompare(b.name))
-        },
+        theaters: theatersByLocation,
         formats: finalFormats,
         seatings: finalSeatings,
         others: finalOthers,

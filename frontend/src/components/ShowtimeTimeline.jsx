@@ -175,7 +175,7 @@ export default function ShowtimeTimeline({ showtimes, allDates, pinnedShowtimes 
                                             key={event.id}
                                             className={`timeline-block ${isPinned ? 'pinned' : ''}`}
                                             style={event.styleObj}
-                                            onClick={() => window.open(event.link, '_blank')}
+                                            onClick={() => window.open(event.ticketLink || event.link, '_blank')}
                                             role="button"
                                             tabIndex={0}
                                             title={`${event.movieTitle} (${event.time} - ${event.runtime})`}

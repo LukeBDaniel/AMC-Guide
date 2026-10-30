@@ -80,7 +80,11 @@ function createAmcClient({
     return getAllPages(`/v2/theatres/${theatreId}/showtimes`, "showtimes");
   }
 
-  return { apiGet, getAllPages, getTheatreShowtimes };
+  function getTheatre(theatreId) {
+    return apiGet(`/v2/theatres/${theatreId}`);
+  }
+
+  return { apiGet, getAllPages, getTheatre, getTheatreShowtimes };
 }
 
 module.exports = { AmcApiError, createAmcClient, PAGE_SIZE };

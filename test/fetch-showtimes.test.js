@@ -279,15 +279,81 @@ test('client refuses to run without a key or to send it to another host', async 
 const NOW = new Date('2026-10-30T12:00:00Z');
 const twoTheaters = theaters.slice(0, 2);
 
-function stubClient(byApiId) {
+function theatreDetails(theater, overrides = {}) {
     return {
-        getTheatreShowtimes: async (apiId) => {
-            const result = byApiId[apiId];
-            if (result instanceof Error) throw result;
-            return result;
-        }
+        id: theater.apiId,
+        slug: theater.id,
+        name: `AMC Test ${theater.apiId}`,
+        isClosed: false,
+        location: { stateUrlSuffixText: 'new-york' },
+        ...overrides
     };
 }
+
+// `details` maps apiId -> theatre details or Error; defaults to valid details.
+function stubClient(byApiId, details = {}) {
+    const resolve = (result) => {
+        if (result instanceof Error) throw result;
+        return result;
+    };
+    return {
+        getTheatreShowtimes: async (apiId) => resolve(byApiId[apiId]),
+        getTheatre: async (apiId) => resolve(
+            details[apiId] ?? theatreDetails(theaters.find((t) => t.apiId === apiId))
+        )
+    };
+}
+
+test('theatre names and locations come from the API, falling back to published data', async () => {
+    const [first, second] = twoTheaters;
+    const previousSchedule = {
+        theaters: { [second.id]: { name: 'AMC Previous 13', location: 'new-york', schedule: [] } }
+    };
+    const { schedule, failures } = await buildSchedule({
+        now: NOW,
+        theaters: twoTheaters,
+        previousSchedule,
+        client: stubClient(
+            {
+                [first.apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
+                [second.apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })]
+            },
+            {
+                [first.apiId]: theatreDetails(first, { name: 'AMC Clifton Commons 16', location: { stateUrlSuffixText: 'new-jersey' } }),
+                [second.apiId]: new Error('HTTP 503')
+            }
+        )
+    });
+    // Missing details are not a theatre failure: its showtimes still publish.
+    assert.deepEqual(failures, []);
+    assert.equal(schedule.theaters[first.id].name, 'AMC Clifton Commons 16');
+    assert.equal(schedule.theaters[first.id].location, 'new-jersey');
+    assert.equal(schedule.theaters[second.id].name, 'AMC Previous 13');
+    assert.equal(schedule.theaters[second.id].location, 'new-york');
+    assert.equal(schedule.theaters[second.id].schedule.length, 1);
+});
+
+test('frontend uses API theatre names, groups by state, and links to ticketing', async () => {
+    const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const day = toTheaterSchedule([apiShowtime({ id: 147375309, showDateTimeLocal: '2026-10-30T19:00:00' })]);
+    const result = flattenScheduleData({
+        nearTermThrough: '2026-11-12',
+        theaters: {
+            'amc-19th-st-east-6': { id: 'amc-19th-st-east-6', name: 'AMC 19th St. East 6', location: 'new-york', schedule: day },
+            'amc-clifton-commons-16': { id: 'amc-clifton-commons-16', name: 'AMC Clifton Commons 16', location: 'new-jersey', schedule: day },
+            // Data published before theatre names were added.
+            'amc-kips-bay-15': { id: 'amc-kips-bay-15', location: 'new-york', schedule: day }
+        }
+    });
+    assert.deepEqual(result.theaters, {
+        'New York': [{ id: 'amc-19th-st-east-6', name: '19th St. East' }, { id: 'amc-kips-bay-15', name: 'Kips Bay' }],
+        'New Jersey': [{ id: 'amc-clifton-commons-16', name: 'Clifton Commons' }]
+    });
+    const showtime = result.showtimes.find((s) => s.theaterId === 'amc-19th-st-east-6');
+    assert.equal(showtime.theaterName, '19th St. East');
+    assert.equal(showtime.ticketLink, 'https://www.amctheatres.com/showtimes/147375309');
+    assert.equal(showtime.link, 'https://www.amctheatres.com/movies/resident-evil-79697');
+});
 
 test('a failed theatre keeps its previously published future days', async () => {
     const previousSchedule = {

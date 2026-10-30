@@ -128,7 +128,7 @@ export default function Filters({
                                         />
                                         <span>Select All Theaters</span>
                                     </label>
-                                    {['New York', 'New Jersey'].map(state => {
+                                    {Object.keys(theaters || {}).map(state => {
                                         const stateTheaters = theaters[state];
                                         if (!stateTheaters || stateTheaters.length === 0) return null;
                                         

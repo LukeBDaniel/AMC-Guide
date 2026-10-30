@@ -10,22 +10,24 @@ const TIME_ZONE = "America/New_York";
 // Matches the late-night handling in frontend/src/utils/dataProcessor.js.
 const LATE_NIGHT_CUTOFF_HOUR = 5;
 
+// Tracked theatres. Display names and locations come from the API; `id` is the
+// stable key for each theatre in data.json.
 const theaters = [
-  { id: "amc-empire-25", apiId: 552, location: "new-york" },
-  { id: "amc-lincoln-square-13", apiId: 2116, location: "new-york" },
-  { id: "amc-34th-street-14", apiId: 2120, location: "new-york" },
-  { id: "amc-kips-bay-15", apiId: 2195, location: "new-york" },
-  { id: "amc-magic-johnson-harlem-9", apiId: 2304, location: "new-york" },
-  { id: "amc-84th-street-6", apiId: 2102, location: "new-york" },
-  { id: "amc-orpheum-7", apiId: 2104, location: "new-york" },
-  { id: "amc-19th-st-east-6", apiId: 2112, location: "new-york" },
-  { id: "amc-village-7", apiId: 2110, location: "new-york" },
-  { id: "amc-mountainside-10", apiId: 2183, location: "new-jersey" },
-  { id: "amc-east-hanover-12", apiId: 2181, location: "new-jersey" },
-  { id: "amc-aviation-12", apiId: 2249, location: "new-jersey" },
-  { id: "amc-jersey-gardens-20", apiId: 2198, location: "new-jersey" },
-  { id: "amc-clifton-commons-16", apiId: 865, location: "new-jersey" },
-  { id: "amc-newport-centre-11", apiId: 2184, location: "new-jersey" },
+  { id: "amc-empire-25", apiId: 552 },
+  { id: "amc-lincoln-square-13", apiId: 2116 },
+  { id: "amc-34th-street-14", apiId: 2120 },
+  { id: "amc-kips-bay-15", apiId: 2195 },
+  { id: "amc-magic-johnson-harlem-9", apiId: 2304 },
+  { id: "amc-84th-street-6", apiId: 2102 },
+  { id: "amc-orpheum-7", apiId: 2104 },
+  { id: "amc-19th-st-east-6", apiId: 2112 },
+  { id: "amc-village-7", apiId: 2110 },
+  { id: "amc-mountainside-10", apiId: 2183 },
+  { id: "amc-east-hanover-12", apiId: 2181 },
+  { id: "amc-aviation-12", apiId: 2249 },
+  { id: "amc-jersey-gardens-20", apiId: 2198 },
+  { id: "amc-clifton-commons-16", apiId: 865 },
+  { id: "amc-newport-centre-11", apiId: 2184 },
 ];
 
 // Internal or payment-related attributes that amctheatres.com never displays.
@@ -171,6 +173,18 @@ function toTheaterSchedule(apiShowtimes) {
     }));
 }
 
+function theaterInfo(theater, details) {
+  if (details.slug && details.slug !== theater.id) {
+    console.warn(`${theater.id}: AMC now uses the slug ${details.slug}`);
+  }
+  if (details.isClosed) console.warn(`${theater.id}: AMC reports this theatre as closed`);
+  return {
+    name: details.name || null,
+    // e.g. "new-york"; the frontend groups the theatre filter by this value.
+    location: details.location?.stateUrlSuffixText || null,
+  };
+}
+
 function getScheduleStats(schedule) {
   let days = 0;
   let movies = 0;
@@ -252,31 +266,42 @@ async function buildSchedule(options = {}) {
   const failures = [];
 
   const results = await mapWithConcurrency(selectedTheaters, CONCURRENCY, async (theater) => {
+    // Theatre details only supply display metadata, so a failure there is not
+    // treated as a theatre failure.
+    const detailsRequest = client.getTheatre(theater.apiId).then(
+      (details) => theaterInfo(theater, details),
+      (error) => {
+        console.warn(`${theater.id}: theatre details unavailable: ${error.message}`);
+        return null;
+      },
+    );
     try {
       const showtimes = await client.getTheatreShowtimes(theater.apiId);
       const theaterSchedule = toTheaterSchedule(showtimes);
       validateTheaterSchedule(theater, theaterSchedule, today);
       console.log(`${theater.id}: ${showtimes.length} showtimes across ${theaterSchedule.length} days`);
-      return { theaterSchedule };
+      return { theaterSchedule, info: await detailsRequest };
     } catch (error) {
       console.warn(`${theater.id}: ${error.message}`);
-      return { error };
+      return { error, info: await detailsRequest };
     }
   });
 
   selectedTheaters.forEach((theater, index) => {
-    let { theaterSchedule, error } = results[index];
+    let { theaterSchedule, error, info } = results[index];
+    const prior = previous?.theaters?.[theater.id];
     if (error) {
       failures.push(`${theater.id}: ${error.message}`);
       // Keep this theatre's previously published future showtimes rather than
       // dropping it from the site for a day.
-      theaterSchedule = (previous?.theaters?.[theater.id]?.schedule || []).filter(
+      theaterSchedule = (prior?.schedule || []).filter(
         (day) => typeof day.date === "string" && day.date >= today,
       );
     }
     schedule.theaters[theater.id] = {
       id: theater.id,
-      location: theater.location,
+      name: info?.name ?? prior?.name ?? null,
+      location: info?.location ?? prior?.location ?? null,
       schedule: theaterSchedule,
     };
   });
