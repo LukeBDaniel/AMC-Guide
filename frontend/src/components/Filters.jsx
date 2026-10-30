@@ -56,8 +56,7 @@ export default function Filters({
         'International Films': false,
         'Fan Faves & Classics': false,
         'Events': false,
-        'Livestream Events': false,
-        'Private Theatre Rentals': false
+        'Livestream Events': false
     });
 
     const toggleSection = (section) => {
@@ -262,7 +261,7 @@ export default function Filters({
                 </div>
                 {openSections.movies && (
                     <div className="filter-content">
-                        {['New Movies', 'Coming Soon', 'International Films', 'Fan Faves & Classics', 'Events', 'Livestream Events', 'Private Theatre Rentals'].map(cat => {
+                        {['New Movies', 'Coming Soon', 'International Films', 'Fan Faves & Classics', 'Events', 'Livestream Events'].map(cat => {
                             const moviesInCategory = groupedMovies[cat] || [];
                             const catMovies = availableMovies ? moviesInCategory.filter(m => availableMovies.has(m)) : moviesInCategory;
                             if (!catMovies || catMovies.length === 0) return null;
