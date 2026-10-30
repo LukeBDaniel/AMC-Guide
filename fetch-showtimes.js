@@ -320,16 +320,7 @@ async function fetchShowtimes(options = {}) {
 
 async function main(argv = process.argv.slice(2)) {
   loadEnvFile();
-  if (argv.includes("--compare")) {
-    const { compareWithPublished } = require("./compare-schedules");
-    const baseline = loadPreviousSchedule(OUTPUT_PATHS[0]);
-    if (!baseline) throw new Error(`${OUTPUT_PATHS[0]} is required for --compare`);
-    const { schedule, failures } = await buildSchedule({ previousSchedule: baseline });
-    if (failures.length) console.warn(`Fetch failures:\n- ${failures.join("\n- ")}`);
-    await compareWithPublished(baseline, schedule);
-    return;
-  }
-  await fetchShowtimes({ dryRun: argv.includes("--dry-run") || process.env.SCRAPER_DRY_RUN === "1" });
+  await fetchShowtimes({ dryRun: argv.includes("--dry-run") });
 }
 
 if (require.main === module) {
