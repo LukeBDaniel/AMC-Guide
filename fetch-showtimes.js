@@ -11,6 +11,7 @@ const OUTPUT_PATH = "frontend/public/data.json";
 //   theaters: [{ id, name, location, purchaseUrlTemplate }],
 //   movies: { [movieId]: { title, url, runtime, rating } },  // runtime in minutes or null
 //   tagSets: [[tag, ...], ...],                 // shared tag lists, in display form
+//   tagGroups: { [tag]: group },                // format | seating | language | other | info
 //   showtimes: [{
 //     id, theater, movie, tags,                 // tags: index into tagSets
 //     date,                                     // schedule day; shows before 5am belong to the previous day
@@ -22,7 +23,7 @@ const OUTPUT_PATH = "frontend/public/data.json";
 // }
 // Bump when this shape changes; a previous file with another version is not
 // used as a fallback.
-const DATA_VERSION = 2;
+const DATA_VERSION = 3;
 const NEAR_TERM_DAYS = 14;
 const MIN_RECENT_DAYS = 7;
 const CONCURRENCY = 4;
@@ -50,20 +51,82 @@ const theaters = [
   { id: "amc-newport-centre-11", apiId: 2184, name: "AMC Newport Centre 11", location: "new-jersey" },
 ];
 
-// Internal or payment-related attributes that amctheatres.com never displays.
-const HIDDEN_ATTRIBUTE_CODES = new Set(["AONELIVE", "DCDCLIVE", "DISNEYRWDS"]);
+// What each AMC attribute code contributes to a showtime: the tags it is
+// published as, and the filter group of each tag. Codes map to tags rather than
+// using AMC's display names, so a renamed attribute keeps its filter, and a
+// variant like "IMAX with Laser 3D" matches the IMAX, Laser and 3D filters.
+//   format, seating, language, other: shown in that filter section
+//   info: kept on the showtime (badges, movie categories) but not a filter
+const ATTRIBUTE_TAGS = {
+  // Formats
+  IMAX: { format: ["IMAX"] },
+  IMAX3D: { format: ["IMAX", "3D"] },
+  IMAX70MM: { format: ["IMAX", "70MM"] },
+  IMAXWITHLASERATAMC: { format: ["IMAX", "Laser"] },
+  IMAXWITHLASER3D: { format: ["IMAX", "Laser", "3D"] },
+  DOLBYCINEMAATAMCPRIME: { format: ["Dolby Cinema"] },
+  DOLBY3D: { format: ["Dolby Cinema", "3D"] },
+  AMCPRIME: { format: ["PRIME"] },
+  PRIME3D: { format: ["PRIME", "3D"] },
+  XL: { format: ["XL"] },
+  REALD3D: { format: ["3D"] },
+  "70MM": { format: ["70MM"] },
+  LASERATAMC: { format: ["Laser"] },
+  INFINITYVI: { format: ["Infinity Vision"] },
+  "4DX": { format: ["4DX"] },
+  SCREENX: { format: ["ScreenX"] },
+  VISTVISION: { format: ["VistaVision"] },
+  // Seating
+  RECLINERSEATING: { seating: ["Signature Recliners"] },
+  HEATEDSEATS: { seating: ["Heated Signature Recliners"] },
+  AMCCLUBROCKERS: { seating: ["Club Rockers"] },
+  // Accessibility and special showings
+  CLOSEDCAPTION: { other: ["Closed Caption"] },
+  OPENCAPTION: { other: ["Open Caption (On-screen Subtitles)"] },
+  DESCRIPTIVEVIDEO: { other: ["Audio Description"] },
+  SENSORYFRIENDLY: { other: ["Sensory Friendly Film"] },
+  MOMMYME: { other: ["Mommy & Me Movies"] },
+  PARENTALESCORTPOLICYUNDER18AFTER6PM: { other: ["Adult Supervision Required (Under 18 Starting 6pm)"] },
+  INCLINTER: { other: ["Includes Intermission"] },
+  INPERSNQA: { other: ["Special Guest In-Person Q&A"] },
+  INPERSNINT: { other: ["Special Guest In-Person Intro"] },
+  LIVEQA: { other: ["AMC Live Q&A"] },
+  LIVESTRQA: { other: ["Livestream - Q&A"] },
+  LIVE: { other: ["Live event"] },
+  // Curated series and event markers: drive the movie categories
+  AMCARTISANFILMS: { info: ["AMC Artisan Films"] },
+  THRLSCHLS: { info: ["Thrills & Chills"] },
+  FANFAVES: { info: ["Fan Faves"] },
+  INTFILMS: { info: ["International Films"] },
+  EVENT: { info: ["Event"] },
+  ALTERNATIVECONTENT: { info: ["Alternative Content"] },
+  NOALIST: { info: ["Excluded from A-List"] },
+  // Not published: on every showtime, ticketing restrictions, payment options,
+  // and internal markers amctheatres.com never displays
+  RESERVEDSEATING: {},
+  EXCLDISDAY: {},
+  EXCLDISMAT: {},
+  NOGREENRED: {},
+  TREATASR: {},
+  DISNEYRWDS: {},
+  AONELIVE: {},
+  DCDCLIVE: {},
+  // Published as the showtime's `noTrailers` flag instead
+  NOTRAILER: {},
+  NOTRAILERS: {},
+};
 
-// Attributes published as a showtime flag rather than a tag.
+// e.g. JAPANESEENGLISHSUBTITLE, KOREANSPOKEN, SPANISHDUBBED. New languages
+// appear often enough that these are recognised by pattern.
+const LANGUAGE_CODE = /(SPOKEN|SUBTITLE|DUBBED)$/;
+
 const NO_TRAILER_CODES = new Set(["NOTRAILER", "NOTRAILERS"]);
-
-// Ticketing restrictions that are not useful as filters.
-const RESTRICTION_ATTRIBUTE_CODES = new Set(["EXCLDISDAY", "NOGREENRED", "TREATASR"]);
 
 // Private bookings are not public showtimes.
 const EXCLUDED_ATTRIBUTE_CODES = new Set(["PRIVATE"]);
 
-// Showtimes with none of these "experience" attributes (premium format, Laser,
-// Open Caption, language, curated series) are tagged as the standard presentation.
+// Showtimes with none of these attributes (premium format, Laser, Open Caption,
+// language, curated series) are tagged as the standard presentation.
 const EXPERIENCE_ATTRIBUTE_CODE =
   /LASER|IMAX|DOLBY|PRIME|^XL$|3D|70MM|INFINITYVI|OPENCAPTION|SPOKEN|SUBTITLE|DUBBED|ARTISAN|FANFAVES|THRLSCHLS|INTERNATIONAL/;
 
@@ -99,36 +162,36 @@ function scheduleDate(showDateTimeLocal) {
   return hour < LATE_NIGHT_CUTOFF_HOUR ? addDays(date, -1) : date;
 }
 
-// Display label for an attribute: "IMAX with Laser at AMC" -> "IMAX with Laser",
-// "AMC Signature Recliners" -> "Signature Recliners".
-function tagLabel(name) {
-  const label = name.replace(/\s+at AMC$/i, "");
-  return /club rockers|signature recliners/i.test(label) ? label.replace(/^AMC\s+/i, "") : label;
+// Tags for one attribute as { group: [tag, ...] }. Codes missing from
+// ATTRIBUTE_TAGS fall back to AMC's name under "other" and are reported.
+function attributeTags(attribute, unknownCodes) {
+  if (ATTRIBUTE_TAGS[attribute.code]) return ATTRIBUTE_TAGS[attribute.code];
+  if (LANGUAGE_CODE.test(attribute.code)) return { language: [attribute.name] };
+  unknownCodes?.set(attribute.code, attribute.name);
+  return { other: [attribute.name.replace(/\s+at AMC$/i, "")] };
 }
 
-// The filterable tags for a showtime, already in their display form.
-function showtimeTags(showtime) {
-  const attributes = (showtime.attributes || []).filter(
-    (attribute) =>
-      !HIDDEN_ATTRIBUTE_CODES.has(attribute.code) &&
-      !NO_TRAILER_CODES.has(attribute.code) &&
-      !RESTRICTION_ATTRIBUTE_CODES.has(attribute.code),
-  );
-  const tags = new Set();
+// The showtime's tags and the filter group of each.
+function classifyShowtime(showtime, unknownCodes) {
+  const groups = new Map();
+  const add = (group, tag) => {
+    if (!groups.has(tag)) groups.set(tag, group);
+  };
+  const attributes = showtime.attributes || [];
   const isStandard =
     !showtime.premiumFormat && !attributes.some((attribute) => EXPERIENCE_ATTRIBUTE_CODE.test(attribute.code));
-  if (isStandard) tags.add("Standard");
+  if (isStandard) add("format", "Standard");
   for (const attribute of attributes) {
-    const label = tagLabel(attribute.name);
-    tags.add(label);
-    // Let "IMAX" and "Laser" filters both match IMAX with Laser showings.
-    if (label === "IMAX with Laser") {
-      tags.add("IMAX");
-      tags.add("Laser");
+    for (const [group, tags] of Object.entries(attributeTags(attribute, unknownCodes))) {
+      tags.forEach((tag) => add(group, tag));
     }
   }
-  if (!tags.has("Excluded from A-List")) tags.add("Included in A-List");
-  return Array.from(tags);
+  if (!groups.has("Excluded from A-List")) add("other", "Included in A-List");
+  return { tags: Array.from(groups.keys()), groups };
+}
+
+function showtimeTags(showtime) {
+  return classifyShowtime(showtime).tags;
 }
 
 function showtimeAlert(showtime) {
@@ -159,7 +222,13 @@ function runtimeMinutes(value) {
 function toTheaterShowtimes(theaterId, apiShowtimes) {
   const movies = {};
   const showtimes = [];
+  const tagGroups = {};
+  const unknownCodes = new Map();
   for (const showtime of apiShowtimes.filter(isPublicShowtime)) {
+    const { tags, groups } = classifyShowtime(showtime, unknownCodes);
+    groups.forEach((group, tag) => {
+      tagGroups[tag] = group;
+    });
     const movie = movieKey(showtime);
     movies[movie] ??= {
       title: (showtime.movieName || "").trim(),
@@ -176,13 +245,13 @@ function toTheaterShowtimes(theaterId, apiShowtimes) {
       startsAt: showtime.showDateTimeLocal,
       // AMC occasionally lists a different runtime for the same movie at one theatre.
       runtime: runtimeMinutes(showtime.runTime),
-      tags: showtimeTags(showtime),
+      tags,
       noTrailers: (showtime.attributes || []).some((attribute) => NO_TRAILER_CODES.has(attribute.code)),
       alert: showtimeAlert(showtime),
       purchaseUrl: showtime.purchaseUrl || null,
     });
   }
-  return { movies, showtimes };
+  return { movies, showtimes, tagGroups, unknownCodes };
 }
 
 function getScheduleStats(schedule) {
@@ -232,7 +301,13 @@ function previousTheaterShowtimes(previous, theaterId, today) {
       purchaseUrl: row.purchaseUrl !== undefined ? row.purchaseUrl : template ? fillPurchaseUrl(template, row) : null,
     });
   }
-  return { movies, showtimes };
+  const tagGroups = {};
+  for (const row of showtimes) {
+    for (const tag of row.tags) {
+      if (previous.tagGroups?.[tag]) tagGroups[tag] = previous.tagGroups[tag];
+    }
+  }
+  return { movies, showtimes, tagGroups };
 }
 
 // Shrinks full rows into the published form: tag lists are shared through
@@ -283,7 +358,7 @@ function loadPreviousSchedule(path = OUTPUT_PATH) {
     if (schedule.version !== DATA_VERSION) {
       throw new Error(`data version ${schedule.version ?? 1} is not ${DATA_VERSION}`);
     }
-    if (!Array.isArray(schedule.showtimes) || !Array.isArray(schedule.tagSets)) {
+    if (!Array.isArray(schedule.showtimes) || !Array.isArray(schedule.tagSets) || !schedule.tagGroups) {
       throw new Error("missing showtimes");
     }
     return schedule;
@@ -332,9 +407,11 @@ async function buildSchedule(options = {}) {
     nearTermThrough: addDays(today, NEAR_TERM_DAYS - 1),
     theaters: selectedTheaters.map(({ id, name, location }) => ({ id, name, location })),
     movies: {},
+    tagGroups: {},
     showtimes: [],
   };
   const failures = [];
+  const unknownCodes = new Map();
 
   const results = await mapWithConcurrency(selectedTheaters, CONCURRENCY, async (theater) => {
     try {
@@ -358,6 +435,8 @@ async function buildSchedule(options = {}) {
       result = previousTheaterShowtimes(previous, theater.id, today);
     }
     Object.assign(schedule.movies, result.movies);
+    Object.assign(schedule.tagGroups, result.tagGroups);
+    result.unknownCodes?.forEach((name, code) => unknownCodes.set(code, name));
     schedule.showtimes.push(...result.showtimes);
   });
 
@@ -369,6 +448,12 @@ async function buildSchedule(options = {}) {
       theaterOrder.get(a.theater) - theaterOrder.get(b.theater),
   );
   compactSchedule(schedule);
+
+  // Shown as annotations on the GitHub Actions run.
+  const annotation = process.env.GITHUB_ACTIONS ? "::warning::" : "";
+  unknownCodes.forEach((name, code) => {
+    console.warn(`${annotation}Unmapped AMC attribute ${code} ("${name}") was filed under Other; add it to ATTRIBUTE_TAGS.`);
+  });
 
   return { schedule, failures };
 }
@@ -429,6 +514,7 @@ module.exports = {
   getScheduleStats,
   loadEnvFile,
   scheduleDate,
+  ATTRIBUTE_TAGS,
   showtimeAlert,
   showtimeTags,
   theaters,

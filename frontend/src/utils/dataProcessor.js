@@ -205,48 +205,13 @@ export function flattenScheduleData(rawData) {
             .sort((a, b) => a.variant.localeCompare(b.variant));
     });
 
-    // Variant text (anniversary labels, special-showing tags) is per-movie informational/
-    // sub-filter text, not a shared filter value, so it's excluded from the format filter lists.
-    const variantValues = new Set(
-        Object.values(movieVariantMaps).flatMap(variantMap => Array.from(variantMap.keys()))
-    );
-
-    const allValidFormats = Array.from(uniqueFormats)
-        .filter(f => !f.toLowerCase().includes('fan faves') &&
-                     !f.toLowerCase().includes('amc artisan films') &&
-                     !f.toLowerCase().includes('thrills & chills') &&
-                     !f.toLowerCase().includes('livestream event') &&
-                     !f.toLowerCase().includes('alternative content') &&
-                     f.toLowerCase() !== 'event' &&
-                     !f.toLowerCase().includes('international films') &&
-                     !f.toLowerCase().includes('reserved seating') &&
-                     !f.toLowerCase().includes('fan first screening') &&
-                     !f.toLowerCase().includes('opening night event') &&
-                     !f.toLowerCase().includes('excluded from a-list') &&
-                     !variantValues.has(f));
-
-    const isSeating = f => {
-        const lower = f.toLowerCase();
-        return lower.includes('club rockers') || lower.includes('signature recliners') || lower.includes('prime');
-    };
-    const isOther = f => {
-        const lower = f.toLowerCase();
-        return lower.includes('audio description') ||
-               lower.includes('closed caption') ||
-               lower.includes('included in a-list') ||
-               lower.includes('sensory friendly film') ||
-               lower.includes('open caption') ||
-               lower.includes('adult supervision') ||
-               lower.includes('includes intermission') ||
-               lower.includes('live event') ||
-               lower.includes('mommy & me');
-    };
-    const isLanguage = f => f.includes('Spoken') || f.includes('Dubbed');
-
-    const finalSeatings = allValidFormats.filter(isSeating).sort();
-    const finalOthers = allValidFormats.filter(isOther).sort();
-    const finalLanguages = allValidFormats.filter(isLanguage).sort();
-    const finalFormats = allValidFormats.filter(f => !isLanguage(f) && !isSeating(f) && !isOther(f)).sort();
+    // Filter sections come from the pipeline's tag groups. Tags in no section (curated
+    // series, event markers, title variants) still appear on showtimes but aren't filters.
+    const tagsInGroup = group => Array.from(uniqueFormats).filter(tag => rawData.tagGroups[tag] === group).sort();
+    const finalFormats = tagsInGroup('format');
+    const finalSeatings = tagsInGroup('seating');
+    const finalOthers = tagsInGroup('other');
+    const finalLanguages = tagsInGroup('language');
     flattened.forEach(showtime => delete showtime._isEventTitle);
 
     // Grouped by state, in the order states first appear in the data file.

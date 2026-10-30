@@ -9,10 +9,11 @@ function dataFile(entries, extra = {}) {
         return { id, theater: 'amc-empire-25', movie: title, date, startsAt: `${date}T19:00:00`, tags: 0 };
     });
     return {
-        version: 2,
+        version: 3,
         theaters: [{ id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york', purchaseUrlTemplate: null }],
         movies,
         tagSets: [['Standard', 'Included in A-List']],
+        tagGroups: { Standard: 'format', 'Included in A-List': 'other' },
         showtimes,
         ...extra
     };

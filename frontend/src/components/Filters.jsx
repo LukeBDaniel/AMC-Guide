@@ -36,10 +36,6 @@ export default function Filters({
     setSelectedOthers,
     selectedLanguages,
     setSelectedLanguages,
-    includeImax,
-    setIncludeImax,
-    include70mm,
-    setInclude70mm
 }) {
     const [openSections, setOpenSections] = useState({
         theaters: true,
@@ -85,11 +81,9 @@ export default function Filters({
         setSelectedSeatings(new Set());
         setSelectedOthers(new Set());
         setSelectedLanguages(new Set());
-        setIncludeImax(false);
-        setInclude70mm(false);
     };
 
-    const hasFilters = selectedMovies.size > 0 || selectedVariants.size > 0 || selectedTheaters.size > 0 || selectedFormats.size > 0 || selectedSeatings.size > 0 || selectedOthers.size > 0 || selectedLanguages.size > 0 || includeImax || include70mm;
+    const hasFilters = selectedMovies.size > 0 || selectedVariants.size > 0 || selectedTheaters.size > 0 || selectedFormats.size > 0 || selectedSeatings.size > 0 || selectedOthers.size > 0 || selectedLanguages.size > 0;
 
     return (
         <aside className="filters-sidebar">
