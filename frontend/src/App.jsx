@@ -12,7 +12,7 @@ function App() {
   const [selectedMovies, setSelectedMovies] = useState(new Set());
   // Composite `${movieKey}::${variant}` keys — a movie's Fan Event/Anniversary/etc.
   // sub-checkboxes, scoped per movie so the same variant text on two different movies
-  // (e.g. "Private Theatre Rental") doesn't cross-filter both of them.
+  // (e.g. "Fan Event") doesn't cross-filter both of them.
   const [selectedVariants, setSelectedVariants] = useState(new Set());
   const [selectedTheaters, setSelectedTheaters] = useState(new Set());
   const [selectedFormats, setSelectedFormats] = useState(new Set());

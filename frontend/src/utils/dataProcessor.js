@@ -192,10 +192,10 @@ export function flattenScheduleData(rawData) {
     const movieFormatsMap = {};
     const movieDatesMap = {};
     // A movie's showtimes can be a mix of normal public showings and special ones (e.g.
-    // "Toy Story 5" merges with "Toy Story 5: Private Theatre Rental"). Track how many of
+    // "Moana" merges with "MOANA IMAX Opening Night Fan Event"). Track how many of
     // each movie's showtimes carry a given special-showing signal so categorizeMovie can
     // require it be true of ALL showtimes (dominant) rather than just present in the union
-    // of formats across some showtimes — otherwise one merged-in rental/livestream/
+    // of formats across some showtimes — otherwise one merged-in livestream/
     // international/anniversary showing would reclassify an otherwise-normal movie out of
     // "New Movies".
     const movieShowtimeCounts = {};
@@ -206,15 +206,14 @@ export function flattenScheduleData(rawData) {
         movieDatesMap[s.movieKey].add(s.date);
 
         if (!movieShowtimeCounts[s.movieKey]) {
-            movieShowtimeCounts[s.movieKey] = { total: 0, privateRental: 0, livestream: 0, titleEvent: 0, event: 0, international: 0, informational: 0 };
+            movieShowtimeCounts[s.movieKey] = { total: 0, livestream: 0, titleEvent: 0, event: 0, international: 0, informational: 0 };
         }
         const counts = movieShowtimeCounts[s.movieKey];
         counts.total += 1;
         const lowerFormats = s.format.map(f => f.toLowerCase());
-        if (lowerFormats.some(f => f.includes('private theatre rental'))) counts.privateRental += 1;
         if (lowerFormats.some(f => f.includes('livestream event'))) counts.livestream += 1;
         if (s._isEventTitle) counts.titleEvent += 1;
-        if (lowerFormats.some(f => f.includes('alternative content') || f.includes('fan first screening') || f.includes('opening night event'))) counts.event += 1;
+        if (lowerFormats.some(f => f === 'event' || f.includes('alternative content') || f.includes('fan first screening') || f.includes('opening night event'))) counts.event += 1;
         if (lowerFormats.some(f => f.includes('international films'))) counts.international += 1;
         if (s.variant && movieVariantMaps[s.movieKey]?.get(s.variant)) counts.informational += 1;
     });
@@ -231,7 +230,6 @@ export function flattenScheduleData(rawData) {
         if (rawData.nearTermThrough
             && showtimeDates.length > 0
             && showtimeDates.every(date => date > rawData.nearTermThrough)) return 'Coming Soon';
-        if (lowerTitle.includes('private theatre rental') || isDominant(counts?.privateRental)) return 'Private Theatre Rentals';
         if (isDominant(counts?.livestream)) return 'Livestream Events';
         if (isDominant(counts?.titleEvent)) return 'Events';
         // Anniversary re-releases and Ghibli Fest screenings take priority over the generic
@@ -254,8 +252,7 @@ export function flattenScheduleData(rawData) {
         'International Films': [],
         'Fan Faves & Classics': [],
         'Events': [],
-        'Livestream Events': [],
-        'Private Theatre Rentals': []
+        'Livestream Events': []
     };
 
     Array.from(uniqueMovies).sort().forEach(key => {
@@ -287,6 +284,7 @@ export function flattenScheduleData(rawData) {
                      !f.toLowerCase().includes('thrills & chills') &&
                      !f.toLowerCase().includes('livestream event') &&
                      !f.toLowerCase().includes('alternative content') &&
+                     f.toLowerCase() !== 'event' &&
                      !f.toLowerCase().includes('international films') &&
                      !f.toLowerCase().includes('reserved seating') &&
                      !f.toLowerCase().includes('fan first screening') &&
@@ -305,7 +303,10 @@ export function flattenScheduleData(rawData) {
                lower.includes('included in a-list') ||
                lower.includes('sensory friendly film') ||
                lower.includes('open caption') ||
-               lower.includes('private theatre rental');
+               lower.includes('adult supervision') ||
+               lower.includes('includes intermission') ||
+               lower.includes('live event') ||
+               lower.includes('mommy & me');
     };
     const isLanguage = f => f.includes('Spoken') || f.includes('Dubbed');
 

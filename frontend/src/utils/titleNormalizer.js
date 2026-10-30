@@ -24,12 +24,11 @@ const SEP = '[\\s\\-\\u2013\\u2014:]*';
 const DESCRIPTOR_PATTERNS = [
     { regex: new RegExp(`${SEP}(imax${SEP}opening\\s+night\\s+fan\\s+event)$`, 'i'), captureTag: true },
     { regex: new RegExp(`${SEP}(imax${SEP}70\\s*mm${SEP}event)$`, 'i'), captureTag: true },
-    // Private Theatre Rental / Sensory Friendly Screening deliberately get no `tag`: AMC
-    // already flags these showtimes with a genuine format of their own ("Private Theatre
-    // Rentals", "Sensory Friendly Film"), which dataProcessor.js surfaces as an "Other
-    // Filters" checkbox — so these just strip from the title for merging, with no separate
-    // per-movie sub-filter checkbox and no duplicate injected tag.
-    { regex: new RegExp(`${SEP}private\\s+theatre\\s+rental$`, 'i'), tag: null },
+    // Sensory Friendly Screening deliberately gets no `tag`: AMC already flags these
+    // showtimes with a genuine format of their own ("Sensory Friendly Film"), which
+    // dataProcessor.js surfaces as an "Other Filters" checkbox — so it just strips from
+    // the title for merging, with no separate per-movie sub-filter checkbox and no
+    // duplicate injected tag.
     { regex: new RegExp(`${SEP}sensory\\s+friendly\\s+screening$`, 'i'), tag: null },
     // `captureTag: true` means the matched capture group's text becomes the subtitle
     // verbatim (whitespace-trimmed, casing untouched) — for descriptors like these where
@@ -165,10 +164,9 @@ function findPrefixMatch(title, candidates) {
 // Variant text that should never become a per-movie sub-filter checkbox, even if the
 // generic title-prefix check (which doesn't know what the trailing text means) is what
 // found it — AMC already flags these showtimes with a genuine format of their own
-// ("Private Theatre Rentals", "Sensory Friendly Film"), surfaced under "Other Filters"
+// ("Sensory Friendly Film"), surfaced under "Other Filters"
 // instead. The title still strips normally for merging; only the variant is suppressed.
 const SUPPRESSED_VARIANTS = [
-    /^private\s+theatre\s+rental$/i,
     /^sensory\s+friendly\s+screening$/i,
     /^\(\d{4}\s+event\)$/i
 ];
@@ -210,7 +208,7 @@ export function buildTitleGroups(rawTitles) {
                 }
             } else {
                 // Guard against a title that IS entirely the descriptor phrase (e.g. a bare
-                // "Private Theatre Rental" listing with no movie name before it) — stripping
+                // "Sensory Friendly Screening" listing with no movie name before it) — stripping
                 // it down to an empty base would produce a blank display title, so treat it
                 // as if nothing had matched and keep the original title intact.
                 base = title;
