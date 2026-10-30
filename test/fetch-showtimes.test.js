@@ -28,7 +28,7 @@ const AMENITIES = [
 
 let nextId = 1000;
 function apiShowtime(overrides = {}) {
-    return {
+    const showtime = {
         id: nextId++,
         movieId: 79697,
         movieName: 'Resident Evil',
@@ -43,6 +43,10 @@ function apiShowtime(overrides = {}) {
         discountMatineeMessage: null,
         attributes: AMENITIES,
         ...overrides
+    };
+    return {
+        purchaseUrl: `https://www.amctheatres.com/showtimes/all/${showtime.showDateTimeLocal.slice(0, 10)}/empire/all/${showtime.id}`,
+        ...showtime
     };
 }
 
@@ -189,10 +193,11 @@ test('API showtimes become the day -> movie -> format group structure', () => {
     assert.equal(movie.runtime, '1 HR 34 MIN');
     assert.equal(movie.rating, 'R');
     assert.deepEqual(movie.formats.map((group) => group.formats[0]), ['Standard', 'IMAX with Laser at AMC']);
+    const purchaseUrl = (date, id) => `https://www.amctheatres.com/showtimes/all/${date}/empire/all/${id}`;
     assert.deepEqual(movie.formats[0].showtimes, [
-        { time: '1:00pm', performanceId: '1', alert: '20% OFF' },
-        { time: '9:00pm', performanceId: '3', alert: null },
-        { time: '12:30am', performanceId: '4', alert: null }
+        { time: '1:00pm', performanceId: '1', purchaseUrl: purchaseUrl('2026-10-30', 1), alert: '20% OFF' },
+        { time: '9:00pm', performanceId: '3', purchaseUrl: purchaseUrl('2026-10-30', 3), alert: null },
+        { time: '12:30am', performanceId: '4', purchaseUrl: purchaseUrl('2026-10-31', 4), alert: null }
     ]);
     assert.deepEqual(movie.formats[1].showtimes.map((s) => s.performanceId), ['2']);
 
@@ -279,61 +284,35 @@ test('client refuses to run without a key or to send it to another host', async 
 const NOW = new Date('2026-10-30T12:00:00Z');
 const twoTheaters = theaters.slice(0, 2);
 
-function theatreDetails(theater, overrides = {}) {
+function stubClient(byApiId) {
     return {
-        id: theater.apiId,
-        slug: theater.id,
-        name: `AMC Test ${theater.apiId}`,
-        isClosed: false,
-        location: { stateUrlSuffixText: 'new-york' },
-        ...overrides
+        getTheatreShowtimes: async (apiId) => {
+            const result = byApiId[apiId];
+            if (result instanceof Error) throw result;
+            return result;
+        }
     };
 }
 
-// `details` maps apiId -> theatre details or Error; defaults to valid details.
-function stubClient(byApiId, details = {}) {
-    const resolve = (result) => {
-        if (result instanceof Error) throw result;
-        return result;
-    };
-    return {
-        getTheatreShowtimes: async (apiId) => resolve(byApiId[apiId]),
-        getTheatre: async (apiId) => resolve(
-            details[apiId] ?? theatreDetails(theaters.find((t) => t.apiId === apiId))
-        )
-    };
-}
-
-test('theatre names and locations come from the API, falling back to published data', async () => {
-    const [first, second] = twoTheaters;
-    const previousSchedule = {
-        theaters: { [second.id]: { name: 'AMC Previous 13', location: 'new-york', schedule: [] } }
-    };
-    const { schedule, failures } = await buildSchedule({
+test('published theatres carry their configured name and location', async () => {
+    const { schedule } = await buildSchedule({
         now: NOW,
         theaters: twoTheaters,
-        previousSchedule,
-        client: stubClient(
-            {
-                [first.apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
-                [second.apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })]
-            },
-            {
-                [first.apiId]: theatreDetails(first, { name: 'AMC Clifton Commons 16', location: { stateUrlSuffixText: 'new-jersey' } }),
-                [second.apiId]: new Error('HTTP 503')
-            }
-        )
+        client: stubClient({
+            [twoTheaters[0].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
+            [twoTheaters[1].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })]
+        })
     });
-    // Missing details are not a theatre failure: its showtimes still publish.
-    assert.deepEqual(failures, []);
-    assert.equal(schedule.theaters[first.id].name, 'AMC Clifton Commons 16');
-    assert.equal(schedule.theaters[first.id].location, 'new-jersey');
-    assert.equal(schedule.theaters[second.id].name, 'AMC Previous 13');
-    assert.equal(schedule.theaters[second.id].location, 'new-york');
-    assert.equal(schedule.theaters[second.id].schedule.length, 1);
+    const { schedule: days, ...empire } = schedule.theaters['amc-empire-25'];
+    assert.deepEqual(empire, { id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york' });
+    assert.equal(days.length, 1);
+    for (const theater of theaters) {
+        assert.match(theater.name, /^AMC .+ \d+$/, theater.id);
+        assert.match(theater.location, /^new-(york|jersey)$/, theater.id);
+    }
 });
 
-test('frontend uses API theatre names, groups by state, and links to ticketing', async () => {
+test('frontend uses theatre names, groups by state, and links to ticket purchase', async () => {
     const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
     const day = toTheaterSchedule([apiShowtime({ id: 147375309, showDateTimeLocal: '2026-10-30T19:00:00' })]);
     const result = flattenScheduleData({
@@ -351,7 +330,7 @@ test('frontend uses API theatre names, groups by state, and links to ticketing',
     });
     const showtime = result.showtimes.find((s) => s.theaterId === 'amc-19th-st-east-6');
     assert.equal(showtime.theaterName, '19th St. East');
-    assert.equal(showtime.ticketLink, 'https://www.amctheatres.com/showtimes/147375309');
+    assert.equal(showtime.ticketLink, 'https://www.amctheatres.com/showtimes/all/2026-10-30/empire/all/147375309');
     assert.equal(showtime.link, 'https://www.amctheatres.com/movies/resident-evil-79697');
 });
 

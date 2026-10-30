@@ -177,8 +177,7 @@ export function flattenScheduleData(rawData) {
                         format: finalFormatsArray,
                         alert: showtime.alert,
                         link: movie.link ? `https://www.amctheatres.com${movie.link}` : '#',
-                        // The same seat-selection URL AMC's own showtime buttons link to.
-                        ticketLink: showtime.performanceId ? `https://www.amctheatres.com/showtimes/${showtime.performanceId}` : null
+                        ticketLink: showtime.purchaseUrl || null
                     });
                 });
             });
