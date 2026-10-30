@@ -1,52 +1,49 @@
 import { buildTitleGroups } from './titleNormalizer.js';
 
-// Helper to parse '3:00pm' or '11:00am' into minutes since midnight
-function parseTimeToMinutes(timeStr) {
-    if (!timeStr) return 0;
-    const match = timeStr.trim().toLowerCase().match(/(\d+):(\d+)(am|pm)/);
-    if (!match) return 0;
-
-    let hours = parseInt(match[1], 10);
-    const minutes = parseInt(match[2], 10);
-    const period = match[3];
-
-    if (period === 'pm' && hours !== 12) {
-        hours += 12;
-    } else if (period === 'am' && hours === 12) {
-        hours = 0;
-    }
-
-    // Treat anything before 5 AM as the late night of the current schedule day
-    if (hours < 5) {
-        return (hours * 60) + minutes + 1440;
-    }
-
-    return (hours * 60) + minutes;
-}
+// Assumed length of the pre-show trailers when a showtime has them.
+const TRAILER_MINUTES = 30;
+// Used for the timeline when AMC has not published a runtime.
+const DEFAULT_RUNTIME_MINUTES = 120;
 
 // 'new-york' -> 'New York'
 function titleCaseSlug(slug) {
     return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
-// Helper to parse '2 HR 25 MIN' into total minutes
-function parseRuntimeToMinutes(runtimeStr, formatsArray = []) {
-    if (!runtimeStr) return 120; // default 2 hours if unknown
-    let mins = 0;
-    const hrMatch = runtimeStr.match(/(\d+)\s*HR/i);
-    const minMatch = runtimeStr.match(/(\d+)\s*MIN/i);
-    if (hrMatch) mins += parseInt(hrMatch[1], 10) * 60;
-    if (minMatch) mins += parseInt(minMatch[1], 10);
-
-    // Add 30 minutes for typical AMC trailers, unless 'No Trailers' tag exists
-    const hasNoTrailers = formatsArray.some(f => f.toLowerCase().includes('no trailers'));
-    if (!hasNoTrailers && mins > 0) {
-        mins += 30;
-    }
-
-    return mins || 120;
+// Minutes from midnight of the showtime's schedule day. Late-night shows belong to the
+// previous day's schedule, so a 1:00am start on the following calendar day is 25 * 60.
+function minutesIntoScheduleDay(startsAt, scheduleDate) {
+    const minutes = Number(startsAt.slice(11, 13)) * 60 + Number(startsAt.slice(14, 16));
+    return startsAt.slice(0, 10) === scheduleDate ? minutes : minutes + 1440;
 }
 
+// "2026-10-30T19:05:00" -> "7:05pm"
+function formatClockTime(startsAt) {
+    const hour = Number(startsAt.slice(11, 13));
+    return `${hour % 12 || 12}:${startsAt.slice(14, 16)}${hour >= 12 ? 'pm' : 'am'}`;
+}
+
+// 94 -> "1h 34m"
+function formatRuntime(minutes) {
+    return minutes ? `${Math.floor(minutes / 60)}h ${minutes % 60}m` : '';
+}
+
+// The showtime's own URL when it has one, otherwise its theatre's template.
+function purchaseUrl(showtime, theater) {
+    if (showtime.purchaseUrl !== undefined) return showtime.purchaseUrl;
+    if (!theater.purchaseUrlTemplate) return null;
+    return theater.purchaseUrlTemplate
+        .replace('{startDate}', showtime.startsAt.slice(0, 10))
+        .replace('{id}', showtime.id);
+}
+
+// "AMC 19th St. East 6" -> "19th St. East"
+function theaterDisplayName(name) {
+    return name.replace(/^AMC\s+/i, '').replace(/\s+\d+$/, '').trim();
+}
+
+// Turns data.json (see fetch-showtimes.js) into the showtime list, filter options and
+// movie groupings the UI renders.
 export function flattenScheduleData(rawData) {
     const flattened = [];
     const uniqueMovies = new Set();
@@ -59,128 +56,58 @@ export function flattenScheduleData(rawData) {
     // per-movie sub-filters instead of separate top-level list items.
     const movieVariantMaps = {};
 
-    if (!rawData || !rawData.theaters) return { showtimes: [], movies: [], theaters: [], formats: [], movieDisplayTitles: {}, movieVariants: {} };
+    if (!Array.isArray(rawData?.showtimes)) {
+        return { showtimes: [], movies: [], groupedMovies: {}, theaters: {}, formats: [], seatings: [], others: [], languages: [], movieDisplayTitles: {}, movieVariants: {}, dates: [] };
+    }
 
-    // First pass: collect every distinct raw title so AMC's inconsistent event-naming
-    // (e.g. "Moana" vs "MOANA IMAX Opening Night Fan Event") can be resolved into a
-    // shared movie identity + optional variant (see titleNormalizer.js for the rules).
-    const rawTitles = new Set();
-    Object.values(rawData.theaters).forEach(theater => {
-        theater.schedule.forEach(day => {
-            day.movies.forEach(movie => rawTitles.add(movie.title));
+    rawData.theaters.forEach(theater => {
+        uniqueTheaters.set(theater.id, {
+            name: theaterDisplayName(theater.name),
+            location: titleCaseSlug(theater.location),
+            purchaseUrlTemplate: theater.purchaseUrlTemplate
         });
     });
-    const titleGroups = buildTitleGroups(rawTitles);
 
-    Object.values(rawData.theaters).forEach(theater => {
-        // AMC's name (e.g. "AMC 19th St. East 6") without the redundant brand prefix and
-        // screen count. Older data files only have the slug, so fall back to prettifying it.
-        const sourceName = theater.name || titleCaseSlug(theater.id);
-        const theaterName = sourceName.replace(/^Amc\s+/i, '').replace(/\s+\d+$/, '').trim();
-        const location = theater.location ? titleCaseSlug(theater.location) : 'Other';
-        uniqueTheaters.set(theater.id, { name: theaterName, location });
+    // AMC's inconsistent event naming (e.g. "Moana" vs "MOANA IMAX Opening Night Fan
+    // Event") is resolved into a shared movie identity + optional variant (see
+    // titleNormalizer.js for the rules).
+    const titleGroups = buildTitleGroups(new Set(Object.values(rawData.movies).map(movie => movie.title)));
 
-        theater.schedule.forEach(day => {
-            day.movies.forEach(movie => {
-                // Aggregate showtimes by unique identifier to prevent duplicate React keys
-                const uniqueShowtimes = new Map();
-                const { movieKey, displayTitle, variant, isInformational, isEvent = false } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
-                movieDisplayTitles[movieKey] = displayTitle;
-                if (variant) {
-                    if (!movieVariantMaps[movieKey]) movieVariantMaps[movieKey] = new Map();
-                    movieVariantMaps[movieKey].set(variant, isInformational);
-                }
+    rawData.showtimes.forEach(showtime => {
+        const movie = rawData.movies[showtime.movie];
+        const theater = uniqueTheaters.get(showtime.theater);
+        if (!movie || !theater) return;
 
-                movie.formats.forEach(formatObj => {
-                    let rawFormats = formatObj.formats || [formatObj.format];
-                    let parsedFormats = rawFormats.map(f => {
-                        if (!f) return '';
-                        let stripped = f.replace(/\s+at AMC$/i, '');
-                        if (stripped.toLowerCase().includes('club rockers') || stripped.toLowerCase().includes('signature recliners')) {
-                            stripped = stripped.replace(/^AMC\s+/i, '');
-                        }
-                        return stripped;
-                    });
+        const { movieKey, displayTitle, variant, isInformational, isEvent = false } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
+        movieDisplayTitles[movieKey] = displayTitle;
+        if (variant) {
+            if (!movieVariantMaps[movieKey]) movieVariantMaps[movieKey] = new Map();
+            movieVariantMaps[movieKey].set(variant, isInformational);
+        }
 
-                    let finalFormatsSet = new Set();
-                    parsedFormats.forEach(rawFormat => {
-                        if (rawFormat === 'IMAX with Laser') {
-                            finalFormatsSet.add('IMAX with Laser');
-                            finalFormatsSet.add('IMAX');
-                            finalFormatsSet.add('Laser');
-                        } else if (rawFormat === 'undefined' || rawFormat === '') {
-                            finalFormatsSet.add('Standard');
-                        } else {
-                            finalFormatsSet.add(rawFormat);
-                        }
-                    });
+        const tags = rawData.tagSets[showtime.tags];
+        const format = variant ? Array.from(new Set([...tags, variant])) : tags;
+        format.forEach(f => uniqueFormats.add(f));
+        const runtime = showtime.runtime !== undefined ? showtime.runtime : movie.runtime;
 
-                    let hasExcludedFromAList = false;
-                    for (const fmt of finalFormatsSet) {
-                        if (fmt.toLowerCase() === 'excluded from a-list') {
-                            hasExcludedFromAList = true;
-                            break;
-                        }
-                    }
-
-                    if (!hasExcludedFromAList) {
-                        finalFormatsSet.add('Included in A-List');
-                    }
-
-                    if (variant) {
-                        finalFormatsSet.add(variant);
-                    }
-
-                    let formatsArray = Array.from(finalFormatsSet).filter(f =>
-                        !f.toLowerCase().includes('excluded from 50% off discount') &&
-                        !f.toLowerCase().includes('choose from our available movie selection') &&
-                        !f.toLowerCase().includes('no trailers') &&
-                        !f.toLowerCase().includes('id required') &&
-                        !f.toLowerCase().includes('no passes')
-                    );
-
-                    formatObj.showtimes.forEach(showtime => {
-                        const showtimeId = showtime.performanceId || `${theater.id}-${movie.title}-${showtime.time}`;
-
-                        if (uniqueShowtimes.has(showtimeId)) {
-                            // Merge formats
-                            const existing = uniqueShowtimes.get(showtimeId);
-                            formatsArray.forEach(f => existing.formatsSet.add(f));
-                        } else {
-                            uniqueShowtimes.set(showtimeId, {
-                                showtime,
-                                formatsSet: new Set(formatsArray)
-                            });
-                        }
-                    });
-                });
-
-                // Now push the deduplicated showtimes to flattened
-                uniqueShowtimes.forEach(({ showtime, formatsSet }, showtimeId) => {
-                    const finalFormatsArray = Array.from(formatsSet);
-                    finalFormatsArray.forEach(f => uniqueFormats.add(f));
-
-                    flattened.push({
-                        id: showtime.performanceId ? showtime.performanceId.toString() : `${showtimeId}-${Math.random()}`,
-                        date: day.date,
-                        time: showtime.time,
-                        timeMinutes: parseTimeToMinutes(showtime.time),
-                        runtimeMinutes: parseRuntimeToMinutes(movie.runtime, finalFormatsArray),
-                        movieTitle: displayTitle,
-                        movieKey: movieKey,
-                        variant: variant || null,
-                        _isEventTitle: isEvent,
-                        theaterId: theater.id,
-                        theaterName: theaterName,
-                        runtime: movie.runtime ? movie.runtime.toLowerCase().replace(/\s*hr\s*/g, 'h ').replace(/\s*min\s*/g, 'm').trim() : '',
-                        rating: movie.rating,
-                        format: finalFormatsArray,
-                        alert: showtime.alert,
-                        link: movie.link ? `https://www.amctheatres.com${movie.link}` : '#',
-                        ticketLink: showtime.purchaseUrl || null
-                    });
-                });
-            });
+        flattened.push({
+            id: showtime.id,
+            date: showtime.date,
+            time: formatClockTime(showtime.startsAt),
+            timeMinutes: minutesIntoScheduleDay(showtime.startsAt, showtime.date),
+            runtimeMinutes: runtime ? runtime + (showtime.noTrailers ? 0 : TRAILER_MINUTES) : DEFAULT_RUNTIME_MINUTES,
+            movieTitle: displayTitle,
+            movieKey: movieKey,
+            variant: variant || null,
+            _isEventTitle: isEvent,
+            theaterId: showtime.theater,
+            theaterName: theater.name,
+            runtime: formatRuntime(runtime),
+            rating: movie.rating,
+            format,
+            alert: showtime.alert ?? null,
+            link: movie.url || '#',
+            ticketLink: purchaseUrl(showtime, theater)
         });
     });
 

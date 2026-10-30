@@ -5,12 +5,29 @@ const { createAmcClient } = require("./amc-api");
 // currently deployed copy is downloaded here first so it can serve as the
 // previous schedule.
 const OUTPUT_PATH = "frontend/public/data.json";
+// data.json (read by frontend/src/utils/dataProcessor.js):
+// {
+//   version, generatedAt, nearTermThrough,      // nearTermThrough: last day of the 14-day window
+//   theaters: [{ id, name, location, purchaseUrlTemplate }],
+//   movies: { [movieId]: { title, url, runtime, rating } },  // runtime in minutes or null
+//   tagSets: [[tag, ...], ...],                 // shared tag lists, in display form
+//   showtimes: [{
+//     id, theater, movie, tags,                 // tags: index into tagSets
+//     date,                                     // schedule day; shows before 5am belong to the previous day
+//     startsAt,                                 // AMC local time, e.g. "2026-10-30T19:00:00"
+//     alert?, noTrailers?,                      // omitted when there's no alert / trailers play
+//     runtime?,                                 // only when it differs from the movie's
+//     purchaseUrl?,                             // only when it doesn't match the theatre's template
+//   }],
+// }
+// Bump when this shape changes; a previous file with another version is not
+// used as a fallback.
+const DATA_VERSION = 2;
 const NEAR_TERM_DAYS = 14;
 const MIN_RECENT_DAYS = 7;
 const CONCURRENCY = 4;
 const TIME_ZONE = "America/New_York";
 // Shows that start before this hour belong to the previous evening's schedule.
-// Matches the late-night handling in frontend/src/utils/dataProcessor.js.
 const LATE_NIGHT_CUTOFF_HOUR = 5;
 
 // Tracked theatres. `apiId`, `name` and `location` match AMC's /v2/theatres/{apiId}
@@ -36,17 +53,17 @@ const theaters = [
 // Internal or payment-related attributes that amctheatres.com never displays.
 const HIDDEN_ATTRIBUTE_CODES = new Set(["AONELIVE", "DCDCLIVE", "DISNEYRWDS"]);
 
-// Display names for attributes whose API name differs from the label used elsewhere.
-const ATTRIBUTE_NAME_OVERRIDES = {
-  NOTRAILERS: "No Trailers", // variant of NOTRAILER; the frontend keys trailer padding off this label
-};
+// Attributes published as a showtime flag rather than a tag.
+const NO_TRAILER_CODES = new Set(["NOTRAILER", "NOTRAILERS"]);
+
+// Ticketing restrictions that are not useful as filters.
+const RESTRICTION_ATTRIBUTE_CODES = new Set(["EXCLDISDAY", "NOGREENRED", "TREATASR"]);
 
 // Private bookings are not public showtimes.
 const EXCLUDED_ATTRIBUTE_CODES = new Set(["PRIVATE"]);
 
-// The website groups each showtime under its first "experience" attribute
-// (premium format, Laser, Open Caption, language, curated series). Showtimes
-// with only amenity attributes are grouped as the standard presentation.
+// Showtimes with none of these "experience" attributes (premium format, Laser,
+// Open Caption, language, curated series) are tagged as the standard presentation.
 const EXPERIENCE_ATTRIBUTE_CODE =
   /LASER|IMAX|DOLBY|PRIME|^XL$|3D|70MM|INFINITYVI|OPENCAPTION|SPOKEN|SUBTITLE|DUBBED|ARTISAN|FANFAVES|THRLSCHLS|INTERNATIONAL/;
 
@@ -82,39 +99,36 @@ function scheduleDate(showDateTimeLocal) {
   return hour < LATE_NIGHT_CUTOFF_HOUR ? addDays(date, -1) : date;
 }
 
-function formatTime(showDateTimeLocal) {
-  const hour = Number(showDateTimeLocal.slice(11, 13));
-  const minute = showDateTimeLocal.slice(14, 16);
-  const period = hour >= 12 ? "pm" : "am";
-  return `${hour % 12 || 12}:${minute}${period}`;
+// Display label for an attribute: "IMAX with Laser at AMC" -> "IMAX with Laser",
+// "AMC Signature Recliners" -> "Signature Recliners".
+function tagLabel(name) {
+  const label = name.replace(/\s+at AMC$/i, "");
+  return /club rockers|signature recliners/i.test(label) ? label.replace(/^AMC\s+/i, "") : label;
 }
 
-function formatRuntime(minutes) {
-  if (!Number.isInteger(minutes) || minutes <= 0) return null;
-  return `${Math.floor(minutes / 60)} HR ${minutes % 60} MIN`;
-}
-
-function moviePath(movieUrl) {
-  if (!movieUrl) return null;
-  try {
-    return new URL(movieUrl).pathname;
-  } catch (_) {
-    return null;
-  }
-}
-
-function showtimeFormats(showtime) {
+// The filterable tags for a showtime, already in their display form.
+function showtimeTags(showtime) {
   const attributes = (showtime.attributes || []).filter(
-    (attribute) => !HIDDEN_ATTRIBUTE_CODES.has(attribute.code),
+    (attribute) =>
+      !HIDDEN_ATTRIBUTE_CODES.has(attribute.code) &&
+      !NO_TRAILER_CODES.has(attribute.code) &&
+      !RESTRICTION_ATTRIBUTE_CODES.has(attribute.code),
   );
-  const header = attributes.find((attribute) =>
-    EXPERIENCE_ATTRIBUTE_CODE.test(attribute.code),
-  );
-  const names = attributes
-    .filter((attribute) => attribute !== header)
-    .map((attribute) => ATTRIBUTE_NAME_OVERRIDES[attribute.code] || attribute.name);
-  const lead = header ? header.name : showtime.premiumFormat || "Standard";
-  return Array.from(new Set([lead, ...names].filter(Boolean)));
+  const tags = new Set();
+  const isStandard =
+    !showtime.premiumFormat && !attributes.some((attribute) => EXPERIENCE_ATTRIBUTE_CODE.test(attribute.code));
+  if (isStandard) tags.add("Standard");
+  for (const attribute of attributes) {
+    const label = tagLabel(attribute.name);
+    tags.add(label);
+    // Let "IMAX" and "Laser" filters both match IMAX with Laser showings.
+    if (label === "IMAX with Laser") {
+      tags.add("IMAX");
+      tags.add("Laser");
+    }
+  }
+  if (!tags.has("Excluded from A-List")) tags.add("Included in A-List");
+  return Array.from(tags);
 }
 
 function showtimeAlert(showtime) {
@@ -125,90 +139,153 @@ function showtimeAlert(showtime) {
   return parts.length ? parts.join(", ") : null;
 }
 
-// Converts API showtimes into the day -> movie -> format group structure that
-// the frontend has always consumed from data.json.
-function toTheaterSchedule(apiShowtimes) {
-  const days = new Map();
-  const sorted = apiShowtimes
-    .filter(
-      (showtime) =>
-        !showtime.isCanceled &&
-        showtime.showDateTimeLocal &&
-        !(showtime.attributes || []).some((attribute) => EXCLUDED_ATTRIBUTE_CODES.has(attribute.code)),
-    )
-    .sort((a, b) => a.showDateTimeLocal.localeCompare(b.showDateTimeLocal));
+function isPublicShowtime(showtime) {
+  return (
+    !showtime.isCanceled &&
+    Boolean(showtime.showDateTimeLocal) &&
+    !(showtime.attributes || []).some((attribute) => EXCLUDED_ATTRIBUTE_CODES.has(attribute.code))
+  );
+}
 
-  for (const showtime of sorted) {
-    const date = scheduleDate(showtime.showDateTimeLocal);
-    if (!days.has(date)) days.set(date, new Map());
-    const movies = days.get(date);
+function movieKey(showtime) {
+  return showtime.movieId != null ? String(showtime.movieId) : `name:${showtime.movieName}`;
+}
 
-    const movieKey = showtime.movieId ?? showtime.movieName;
-    if (!movies.has(movieKey)) {
-      movies.set(movieKey, {
-        title: (showtime.movieName || "").trim(),
-        link: moviePath(showtime.movieUrl),
-        runtime: formatRuntime(showtime.runTime),
-        rating: showtime.mpaaRating || null,
-        groups: new Map(),
-      });
-    }
-    const movie = movies.get(movieKey);
+function runtimeMinutes(value) {
+  return Number.isInteger(value) && value > 0 ? value : null;
+}
 
-    const formats = showtimeFormats(showtime);
-    const groupKey = formats.join("|");
-    if (!movie.groups.has(groupKey)) movie.groups.set(groupKey, { formats, showtimes: [] });
-    movie.groups.get(groupKey).showtimes.push({
-      time: formatTime(showtime.showDateTimeLocal),
-      performanceId: String(showtime.id),
-      purchaseUrl: showtime.purchaseUrl || null,
+// Converts one theatre's API showtimes into movie entries and full showtime rows.
+function toTheaterShowtimes(theaterId, apiShowtimes) {
+  const movies = {};
+  const showtimes = [];
+  for (const showtime of apiShowtimes.filter(isPublicShowtime)) {
+    const movie = movieKey(showtime);
+    movies[movie] ??= {
+      title: (showtime.movieName || "").trim(),
+      url: showtime.movieUrl || null,
+      runtime: runtimeMinutes(showtime.runTime),
+      rating: showtime.mpaaRating || null,
+    };
+    showtimes.push({
+      id: String(showtime.id),
+      theater: theaterId,
+      movie,
+      date: scheduleDate(showtime.showDateTimeLocal),
+      // AMC's local time, without an offset, e.g. "2026-10-30T19:00:00".
+      startsAt: showtime.showDateTimeLocal,
+      // AMC occasionally lists a different runtime for the same movie at one theatre.
+      runtime: runtimeMinutes(showtime.runTime),
+      tags: showtimeTags(showtime),
+      noTrailers: (showtime.attributes || []).some((attribute) => NO_TRAILER_CODES.has(attribute.code)),
       alert: showtimeAlert(showtime),
+      purchaseUrl: showtime.purchaseUrl || null,
     });
   }
-
-  return Array.from(days.entries())
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([date, movies]) => ({
-      date,
-      movies: Array.from(movies.values()).map(({ groups, ...movie }) => ({
-        ...movie,
-        formats: Array.from(groups.values()),
-      })),
-    }));
+  return { movies, showtimes };
 }
 
 function getScheduleStats(schedule) {
-  let days = 0;
-  let movies = 0;
-  let showtimes = 0;
-  for (const theater of Object.values(schedule.theaters || {})) {
-    for (const day of theater.schedule || []) {
-      days++;
-      movies += day.movies.length;
-      for (const movie of day.movies) {
-        for (const format of movie.formats) showtimes += format.showtimes.length;
-      }
-    }
-  }
-  return { days, movies, showtimes };
+  const days = new Set(schedule.showtimes.map((showtime) => `${showtime.theater} ${showtime.date}`));
+  return {
+    days: days.size,
+    movies: Object.keys(schedule.movies).length,
+    showtimes: schedule.showtimes.length,
+  };
 }
 
-function validateTheaterSchedule(theater, schedule, today) {
+function validateTheaterShowtimes(theater, showtimes, today) {
   const recentThrough = addDays(today, MIN_RECENT_DAYS - 1);
-  const recentDays = schedule.filter(
-    (day) => day.date >= today && day.date <= recentThrough && day.movies.length > 0,
-  );
-  if (recentDays.length === 0) {
+  if (!showtimes.some((showtime) => showtime.date >= today && showtime.date <= recentThrough)) {
     throw new Error(`${theater.id}: no showtimes between ${today} and ${recentThrough}`);
   }
+}
+
+const PURCHASE_URL = /^(https:\/\/www\.amctheatres\.com\/showtimes\/all\/)(\d{4}-\d{2}-\d{2})(\/[^/]+\/all\/)(\d+)$/;
+
+function fillPurchaseUrl(template, row) {
+  return template.replace("{startDate}", row.startsAt.slice(0, 10)).replace("{id}", row.id);
+}
+
+// "https://www.amctheatres.com/showtimes/all/2026-10-30/empire/all/147375309"
+//   -> "https://www.amctheatres.com/showtimes/all/{startDate}/empire/all/{id}"
+function purchaseUrlTemplate(rows) {
+  for (const row of rows) {
+    const match = row.purchaseUrl?.match(PURCHASE_URL);
+    if (match) return `${match[1]}{startDate}${match[3]}{id}`;
+  }
+  return null;
+}
+
+// A failed theatre's future showtimes from the previously published file, as full rows.
+function previousTheaterShowtimes(previous, theaterId, today) {
+  const template = previous?.theaters?.find((theater) => theater.id === theaterId)?.purchaseUrlTemplate;
+  const movies = {};
+  const showtimes = [];
+  for (const row of previous?.showtimes || []) {
+    if (row.theater !== theaterId || row.date < today) continue;
+    if (previous.movies?.[row.movie]) movies[row.movie] = previous.movies[row.movie];
+    showtimes.push({
+      ...row,
+      tags: previous.tagSets[row.tags],
+      runtime: row.runtime !== undefined ? row.runtime : previous.movies?.[row.movie]?.runtime ?? null,
+      purchaseUrl: row.purchaseUrl !== undefined ? row.purchaseUrl : template ? fillPurchaseUrl(template, row) : null,
+    });
+  }
+  return { movies, showtimes };
+}
+
+// Shrinks full rows into the published form: tag lists are shared through
+// `tagSets`, purchase URLs come from each theatre's `purchaseUrlTemplate`, and
+// fields at their default (no alert, has trailers, the movie's usual runtime)
+// are left out. Values that don't fit the shared form stay on the row.
+function compactSchedule(schedule) {
+  const runtimeCounts = {};
+  for (const row of schedule.showtimes) {
+    const counts = (runtimeCounts[row.movie] ??= new Map());
+    counts.set(row.runtime, (counts.get(row.runtime) || 0) + 1);
+  }
+  for (const [movie, counts] of Object.entries(runtimeCounts)) {
+    schedule.movies[movie].runtime = [...counts].sort((a, b) => b[1] - a[1])[0][0];
+  }
+
+  const tagSetIndex = new Map();
+  schedule.tagSets = [];
+  for (const theater of schedule.theaters) {
+    theater.purchaseUrlTemplate = purchaseUrlTemplate(
+      schedule.showtimes.filter((row) => row.theater === theater.id),
+    );
+  }
+  const templates = new Map(schedule.theaters.map((theater) => [theater.id, theater.purchaseUrlTemplate]));
+
+  for (const row of schedule.showtimes) {
+    const key = JSON.stringify(row.tags);
+    if (!tagSetIndex.has(key)) {
+      tagSetIndex.set(key, schedule.tagSets.length);
+      schedule.tagSets.push(row.tags);
+    }
+    row.tags = tagSetIndex.get(key);
+
+    const template = templates.get(row.theater);
+    if (row.purchaseUrl && template && fillPurchaseUrl(template, row) === row.purchaseUrl) delete row.purchaseUrl;
+    else if (!template && !row.purchaseUrl) delete row.purchaseUrl;
+    if (row.alert == null) delete row.alert;
+    if (!row.noTrailers) delete row.noTrailers;
+    if (row.runtime === schedule.movies[row.movie].runtime) delete row.runtime;
+  }
+  return schedule;
 }
 
 function loadPreviousSchedule(path = OUTPUT_PATH) {
   if (!fs.existsSync(path)) return null;
   try {
     const schedule = JSON.parse(fs.readFileSync(path, "utf8"));
-    if (!schedule.theaters || typeof schedule.theaters !== "object")
-      throw new Error("missing theaters");
+    if (schedule.version !== DATA_VERSION) {
+      throw new Error(`data version ${schedule.version ?? 1} is not ${DATA_VERSION}`);
+    }
+    if (!Array.isArray(schedule.showtimes) || !Array.isArray(schedule.tagSets)) {
+      throw new Error("missing showtimes");
+    }
     return schedule;
   } catch (error) {
     console.warn(`Could not load previous schedule from ${path}: ${error.message}`);
@@ -250,19 +327,22 @@ async function buildSchedule(options = {}) {
   const previous = options.previousSchedule;
 
   const schedule = {
-    scrapedAt: now.toISOString(),
+    version: DATA_VERSION,
+    generatedAt: now.toISOString(),
     nearTermThrough: addDays(today, NEAR_TERM_DAYS - 1),
-    theaters: {},
+    theaters: selectedTheaters.map(({ id, name, location }) => ({ id, name, location })),
+    movies: {},
+    showtimes: [],
   };
   const failures = [];
 
   const results = await mapWithConcurrency(selectedTheaters, CONCURRENCY, async (theater) => {
     try {
-      const showtimes = await client.getTheatreShowtimes(theater.apiId);
-      const theaterSchedule = toTheaterSchedule(showtimes);
-      validateTheaterSchedule(theater, theaterSchedule, today);
-      console.log(`${theater.id}: ${showtimes.length} showtimes across ${theaterSchedule.length} days`);
-      return { theaterSchedule };
+      const apiShowtimes = await client.getTheatreShowtimes(theater.apiId);
+      const result = toTheaterShowtimes(theater.id, apiShowtimes);
+      validateTheaterShowtimes(theater, result.showtimes, today);
+      console.log(`${theater.id}: ${result.showtimes.length} showtimes`);
+      return result;
     } catch (error) {
       console.warn(`${theater.id}: ${error.message}`);
       return { error };
@@ -270,22 +350,25 @@ async function buildSchedule(options = {}) {
   });
 
   selectedTheaters.forEach((theater, index) => {
-    let { theaterSchedule, error } = results[index];
-    if (error) {
-      failures.push(`${theater.id}: ${error.message}`);
+    let result = results[index];
+    if (result.error) {
+      failures.push(`${theater.id}: ${result.error.message}`);
       // Keep this theatre's previously published future showtimes rather than
       // dropping it from the site for a day.
-      theaterSchedule = (previous?.theaters?.[theater.id]?.schedule || []).filter(
-        (day) => typeof day.date === "string" && day.date >= today,
-      );
+      result = previousTheaterShowtimes(previous, theater.id, today);
     }
-    schedule.theaters[theater.id] = {
-      id: theater.id,
-      name: theater.name,
-      location: theater.location,
-      schedule: theaterSchedule,
-    };
+    Object.assign(schedule.movies, result.movies);
+    schedule.showtimes.push(...result.showtimes);
   });
+
+  const theaterOrder = new Map(selectedTheaters.map((theater, index) => [theater.id, index]));
+  schedule.showtimes.sort(
+    (a, b) =>
+      a.date.localeCompare(b.date) ||
+      a.startsAt.localeCompare(b.startsAt) ||
+      theaterOrder.get(a.theater) - theaterOrder.get(b.theater),
+  );
+  compactSchedule(schedule);
 
   return { schedule, failures };
 }
@@ -296,16 +379,16 @@ async function fetchShowtimes(options = {}) {
   const { schedule, failures } = await buildSchedule({ ...options, previousSchedule });
 
   const stats = getScheduleStats(schedule);
-  if (failures.length === Object.keys(schedule.theaters).length || stats.showtimes === 0) {
+  if (failures.length === schedule.theaters.length || stats.showtimes === 0) {
     throw new Error(
       `No usable showtimes; the existing data file was preserved.\n- ${failures.join("\n- ")}`,
     );
   }
 
-  const dates = Object.values(schedule.theaters).flatMap((theater) => theater.schedule.map((day) => day.date));
+  const { showtimes } = schedule;
   console.log(
     `Prepared ${stats.days} theater-days, ${stats.movies} movies, and ${stats.showtimes} showtimes ` +
-      `from ${dates.sort()[0]} through ${dates.pop()} (${failures.length} theater failures).`,
+      `from ${showtimes[0].date} through ${showtimes[showtimes.length - 1].date} (${failures.length} theater failures).`,
   );
 
   if (options.dryRun) {
@@ -337,18 +420,17 @@ if (require.main === module) {
 }
 
 module.exports = {
-  HIDDEN_ATTRIBUTE_CODES,
+  DATA_VERSION,
   addDays,
   buildSchedule,
+  compactSchedule,
   dateInTimeZone,
   fetchShowtimes,
-  formatRuntime,
-  formatTime,
   getScheduleStats,
   loadEnvFile,
   scheduleDate,
   showtimeAlert,
-  showtimeFormats,
+  showtimeTags,
   theaters,
-  toTheaterSchedule,
+  toTheaterShowtimes,
 };

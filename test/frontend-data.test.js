@@ -1,31 +1,31 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
 
-function movie(title, id) {
+// Builds a data.json (version 2) with one theatre and one showtime per entry.
+function dataFile(entries, extra = {}) {
+    const movies = {};
+    const showtimes = entries.map(({ date, title, id }) => {
+        movies[title] = { title, url: `https://www.amctheatres.com/movies/${id}`, runtime: 120, rating: 'PG13' };
+        return { id, theater: 'amc-empire-25', movie: title, date, startsAt: `${date}T19:00:00`, tags: 0 };
+    });
     return {
-        title,
-        link: `/movies/${id}`,
-        runtime: '2 HR',
-        rating: 'PG13',
-        formats: [{ formats: ['Standard'], showtimes: [{ time: '7:00pm', performanceId: id }] }]
+        version: 2,
+        theaters: [{ id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york', purchaseUrlTemplate: null }],
+        movies,
+        tagSets: [['Standard', 'Included in A-List']],
+        showtimes,
+        ...extra
     };
 }
 
 test('frontend groups only exclusively far-future titles under Coming Soon', async () => {
     const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
-    const raw = {
-        nearTermThrough: '2026-09-03',
-        theaters: {
-            'amc-empire-25': {
-                id: 'amc-empire-25',
-                location: 'new-york',
-                schedule: [
-                    { date: '2026-08-22', movies: [movie('Current Film', 'current-1'), movie('Mixed Film', 'mixed-1')] },
-                    { date: '2026-11-06', movies: [movie('Future Film', 'future-1'), movie('Mixed Film', 'mixed-2')] }
-                ]
-            }
-        }
-    };
+    const raw = dataFile([
+        { date: '2026-08-22', title: 'Current Film', id: 'current-1' },
+        { date: '2026-08-22', title: 'Mixed Film', id: 'mixed-1' },
+        { date: '2026-11-06', title: 'Future Film', id: 'future-1' },
+        { date: '2026-11-06', title: 'Mixed Film', id: 'mixed-2' }
+    ], { nearTermThrough: '2026-09-03' });
     const result = flattenScheduleData(raw);
     assert.deepEqual(result.groupedMovies['Coming Soon'], ['Future Film']);
     assert.ok(result.groupedMovies['New Movies'].includes('Current Film'));
@@ -36,14 +36,7 @@ test('frontend groups only exclusively far-future titles under Coming Soon', asy
 
 test('frontend remains backward compatible when nearTermThrough is absent', async () => {
     const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
-    const raw = {
-        theaters: {
-            'amc-empire-25': {
-                id: 'amc-empire-25', location: 'new-york',
-                schedule: [{ date: '2026-11-06', movies: [movie('Future Film', 'future-1')] }]
-            }
-        }
-    };
+    const raw = dataFile([{ date: '2026-11-06', title: 'Future Film', id: 'future-1' }]);
     const result = flattenScheduleData(raw);
     assert.deepEqual(result.groupedMovies['Coming Soon'], []);
     assert.deepEqual(result.groupedMovies['New Movies'], ['Future Film']);
@@ -75,19 +68,7 @@ test('special-screening title containment is case-insensitive', async () => {
 
 test('parenthesized year events are categorized without becoming showing formats', async () => {
     const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
-    const raw = {
-        theaters: {
-            'amc-empire-25': {
-                id: 'amc-empire-25',
-                location: 'new-york',
-                schedule: [{
-                    date: '2026-09-01',
-                    movies: [movie('The Passion of the Christ (2026 Event)', 'passion-event')]
-                }]
-            }
-        }
-    };
-
+    const raw = dataFile([{ date: '2026-09-01', title: 'The Passion of the Christ (2026 Event)', id: 'passion-event' }]);
     const result = flattenScheduleData(raw);
     assert.equal(result.showtimes[0].movieTitle, 'The Passion of the Christ');
     assert.equal(result.showtimes[0].variant, null);
