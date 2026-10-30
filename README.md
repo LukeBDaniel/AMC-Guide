@@ -1,6 +1,6 @@
 # AMC Guide
 
-**Live Site:** [https://LukeBDaniel.github.io/AMC-Guide](https://LukeBDaniel.github.io/AMC-Guide)
+**Live Site:** [https://LukeBDaniel.github.io/AMC-Guide](https://LBDaniel.com/AMC-Guide)
 
 A personalized, automated web application designed to track, aggregate, and filter AMC theater showtimes across the New York and New Jersey areas. 
 
