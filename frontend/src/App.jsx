@@ -22,9 +22,14 @@ function App() {
   const [pinnedShowtimes, setPinnedShowtimes] = useState(new Set());
 
   useEffect(() => {
-    // Fetch data.json using Vite's BASE_URL so it works on GitHub Pages subpaths
-    fetch(`${import.meta.env.BASE_URL}data.json`)
-      .then(res => res.json())
+    // Fetch data.json using Vite's BASE_URL so it works on GitHub Pages subpaths.
+    // Revalidate rather than use a cached copy: GitHub Pages lets browsers cache it for
+    // 10 minutes, and a copy from before a deploy may not match the new code.
+    fetch(`${import.meta.env.BASE_URL}data.json`, { cache: 'no-cache' })
+      .then(res => {
+        if (!res.ok) throw new Error(`data.json: HTTP ${res.status}`);
+        return res.json();
+      })
       .then(json => {
         const processed = flattenScheduleData(json);
         setData(processed);
