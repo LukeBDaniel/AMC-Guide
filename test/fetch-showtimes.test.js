@@ -74,16 +74,26 @@ test('the Eastern-time calendar date is used regardless of runner time zone', ()
     assert.equal(dateInTimeZone(new Date('2026-10-30T12:00:00Z')), '2026-10-30');
 });
 
-test('tags use display labels, with Standard when only amenities exist', () => {
+test('tags come from attribute codes, with Standard when only amenities exist', () => {
     assert.deepEqual(showtimeTags(apiShowtime()), [
-        'Standard', 'Closed Caption', 'Audio Description', 'Signature Recliners', 'Reserved Seating', 'Included in A-List'
+        'Standard', 'Closed Caption', 'Audio Description', 'Signature Recliners', 'Included in A-List'
     ]);
 
-    const imax = showtimeTags(apiShowtime({
-        premiumFormat: 'IMAX at AMC',
-        attributes: [attr('RESERVEDSEATING', 'Reserved Seating'), attr('IMAXWITHLASERATAMC', 'IMAX with Laser at AMC')]
-    }));
-    assert.deepEqual(imax, ['Reserved Seating', 'IMAX with Laser', 'IMAX', 'Laser', 'Included in A-List']);
+    // Format variants contribute every family they belong to.
+    const formats = (code) => showtimeTags(apiShowtime({ premiumFormat: 'IMAX at AMC', attributes: [attr(code, code)] }))
+        .filter((tag) => tag !== 'Included in A-List');
+    assert.deepEqual(formats('IMAXWITHLASERATAMC'), ['IMAX', 'Laser']);
+    assert.deepEqual(formats('IMAXWITHLASER3D'), ['IMAX', 'Laser', '3D']);
+    assert.deepEqual(formats('IMAX70MM'), ['IMAX', '70MM']);
+    assert.deepEqual(formats('PRIME3D'), ['PRIME', '3D']);
+    assert.deepEqual(formats('REALD3D'), ['3D']);
+    assert.deepEqual(formats('DOLBYCINEMAATAMCPRIME'), ['Dolby Cinema']);
+
+    // AMC's display name doesn't matter for mapped codes.
+    assert.deepEqual(
+        showtimeTags(apiShowtime({ attributes: [attr('RECLINERSEATING', 'Luxury Recliners (renamed)')] })),
+        ['Standard', 'Signature Recliners', 'Included in A-List']
+    );
 
     const language = showtimeTags(apiShowtime({
         attributes: [attr('LASERATAMC', 'Laser at AMC'), attr('JAPANESEENGLISHSUBTITLE', 'Japanese Spoken with English Subtitles')]
@@ -96,6 +106,41 @@ test('tags use display labels, with Standard when only amenities exist', () => {
         showtimeTags(apiShowtime({ attributes: [attr('AMCCLUBROCKERS', 'AMC Club Rockers'), attr('NOALIST', 'Excluded from A-List')] })),
         ['Standard', 'Club Rockers', 'Excluded from A-List']
     );
+});
+
+test('each tag is published with its filter group', () => {
+    const { tagGroups } = toTheaterShowtimes('amc-empire-25', [apiShowtime({
+        premiumFormat: 'IMAX at AMC',
+        attributes: [
+            attr('IMAXWITHLASERATAMC', 'IMAX with Laser at AMC'),
+            attr('AMCPRIME', 'PRIME at AMC'),
+            attr('HEATEDSEATS', 'Heated AMC Signature Recliners'),
+            attr('INPERSNQA', 'Special Guest In-Person Q&A'),
+            attr('KOREANENGLISHSUBTITLE', 'Korean Spoken with English Subtitles'),
+            attr('AMCARTISANFILMS', 'AMC Artisan Films'),
+            attr('NOALIST', 'Excluded from A-List')
+        ]
+    })]);
+    assert.deepEqual(tagGroups, {
+        IMAX: 'format',
+        Laser: 'format',
+        PRIME: 'format',
+        'Heated Signature Recliners': 'seating',
+        'Special Guest In-Person Q&A': 'other',
+        'Korean Spoken with English Subtitles': 'language',
+        'AMC Artisan Films': 'info',
+        'Excluded from A-List': 'info'
+    });
+});
+
+test('unmapped attribute codes are filed under Other and reported', () => {
+    const { tags, tagGroups, unknownCodes } = (() => {
+        const result = toTheaterShowtimes('amc-empire-25', [apiShowtime({ attributes: [attr('BRANDNEW', 'Brand New Thing at AMC')] })]);
+        return { tags: result.showtimes[0].tags, ...result };
+    })();
+    assert.ok(tags.includes('Brand New Thing'));
+    assert.equal(tagGroups['Brand New Thing'], 'other');
+    assert.deepEqual([...unknownCodes], [['BRANDNEW', 'Brand New Thing at AMC']]);
 });
 
 test('internal, restriction, and trailer attributes are not tags', () => {
@@ -111,10 +156,11 @@ test('internal, restriction, and trailer attributes are not tags', () => {
             attr('NOTRAILER', 'No Trailers'),
             attr('NOTRAILERS', 'NoTrailers'),
             attr('EVENT', 'Event'),
+            attr('RESERVEDSEATING', 'Reserved Seating'),
             attr('PARENTALESCORTPOLICYUNDER18AFTER6PM', 'Adult Supervision Required (Under 18 Starting 6pm)')
         ]
     }));
-    for (const hidden of ['AOneLive', 'DCDC Live', 'Pay with Disney Rewards Redemption Card', 'Excluded from 50% off Discount',
+    for (const hidden of ['Reserved Seating', 'AOneLive', 'DCDC Live', 'Pay with Disney Rewards Redemption Card', 'Excluded from 50% off Discount',
         'No Passes', 'ID Required', 'No Trailers', 'NoTrailers']) {
         assert.ok(!tags.includes(hidden), hidden);
     }
@@ -173,6 +219,7 @@ test('compaction shares tag lists, derives purchase URLs, and drops defaults', (
     const data = compactSchedule({
         theaters: [{ id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york' }],
         movies: rows.movies,
+        tagGroups: rows.tagGroups,
         showtimes: rows.showtimes
     });
 
@@ -206,6 +253,7 @@ test('frontend output from compact data matches the API', async () => {
         nearTermThrough: '2026-11-12',
         theaters: [{ id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york' }],
         movies: rows.movies,
+        tagGroups: rows.tagGroups,
         showtimes: rows.showtimes
     });
     const result = flattenScheduleData(data);
@@ -257,6 +305,7 @@ test('frontend uses Event as a category signal and files new tags under Other', 
         nearTermThrough: '2026-11-12',
         theaters: [{ id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york' }],
         movies: rows.movies,
+        tagGroups: rows.tagGroups,
         showtimes: rows.showtimes
     }));
     const eventKey = result.showtimes.find((s) => s.id === '30').movieKey;
@@ -282,6 +331,7 @@ test('frontend groups theatres by state using their display names', async () => 
         version: DATA_VERSION,
         theaters: theaterList,
         movies: toTheaterShowtimes('x', [apiShowtime()]).movies,
+        tagGroups: toTheaterShowtimes('x', [apiShowtime()]).tagGroups,
         showtimes: rows
     }));
     assert.deepEqual(result.theaters, {
@@ -395,6 +445,7 @@ test('a failed theatre keeps its future showtimes from the previous data file', 
         version: DATA_VERSION,
         theaters: [{ id: failing.id, name: failing.name, location: failing.location }],
         movies: previousRows.movies,
+        tagGroups: previousRows.tagGroups,
         showtimes: previousRows.showtimes
     });
     const { schedule, failures } = await buildSchedule({
@@ -415,6 +466,7 @@ test('a failed theatre keeps its future showtimes from the previous data file', 
     // Per-showtime runtimes survive the round trip through the compact form.
     assert.deepEqual([kept[0].runtime ?? schedule.movies['7'].runtime, kept[1].runtime ?? schedule.movies['7'].runtime], [100, 105]);
     assert.deepEqual(schedule.tagSets[kept[0].tags], showtimeTags(apiShowtime()));
+    assert.equal(schedule.tagGroups['Signature Recliners'], 'seating');
     assert.equal(
         schedule.theaters.find((theater) => theater.id === failing.id).purchaseUrlTemplate,
         'https://www.amctheatres.com/showtimes/all/{startDate}/empire/all/{id}'
