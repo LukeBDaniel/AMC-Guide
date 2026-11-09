@@ -2,11 +2,38 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import Filters from './components/Filters';
 import ShowtimeTimeline from './components/ShowtimeTimeline';
 import { flattenScheduleData } from './utils/dataProcessor';
-import { Ticket } from 'lucide-react';
+import { isNative } from './utils/platform';
+import { Ticket, SlidersHorizontal } from 'lucide-react';
+
+// The website serves data.json next to itself; the iOS app fetches the website's copy.
+const DATA_URL = import.meta.env.VITE_DATA_URL || `${import.meta.env.BASE_URL}data.json`;
+const CACHED_DATA_KEY = 'amc-guide:data.json';
+
+// The app keeps the last schedule it downloaded so it still opens without a connection.
+function readCachedData() {
+  try {
+    const cached = localStorage.getItem(CACHED_DATA_KEY);
+    return cached ? JSON.parse(cached) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedData(json) {
+  try {
+    localStorage.setItem(CACHED_DATA_KEY, JSON.stringify(json));
+  } catch {
+    // Storage full or unavailable; the app just won't work offline.
+  }
+}
+
+// How often showtimes that have started get cleared off the timeline while the page is open.
+const CLOCK_INTERVAL_MS = 60 * 1000;
 
 function App() {
-  const [data, setData] = useState(null);
+  const [rawData, setRawData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [now, setNow] = useState(() => new Date());
 
   // Filter state
   const [selectedMovies, setSelectedMovies] = useState(new Set());
@@ -20,19 +47,30 @@ function App() {
   const [selectedOthers, setSelectedOthers] = useState(new Set());
   const [selectedLanguages, setSelectedLanguages] = useState(new Set());
   const [pinnedShowtimes, setPinnedShowtimes] = useState(new Set());
+  // iOS app only: the filters live in a full-screen sheet instead of a sidebar.
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
     // Fetch data.json using Vite's BASE_URL so it works on GitHub Pages subpaths.
     // Revalidate rather than use a cached copy: GitHub Pages lets browsers cache it for
     // 10 minutes, and a copy from before a deploy may not match the new code.
-    fetch(`${import.meta.env.BASE_URL}data.json`, { cache: 'no-cache' })
+    fetch(DATA_URL, { cache: 'no-cache' })
       .then(res => {
         if (!res.ok) throw new Error(`data.json: HTTP ${res.status}`);
         return res.json();
       })
       .then(json => {
-        const processed = flattenScheduleData(json);
-        setData(processed);
+        if (isNative) writeCachedData(json);
+        return json;
+      })
+      .catch(err => {
+        const cached = isNative && readCachedData();
+        if (!cached) throw err;
+        console.warn("Using cached showtimes:", err);
+        return cached;
+      })
+      .then(json => {
+        setRawData(json);
         setLoading(false);
       })
       .catch(err => {
@@ -40,6 +78,23 @@ function App() {
         setLoading(false);
       });
   }, []);
+
+  // Timers pause while the phone is locked or the tab is hidden, so also catch up the
+  // moment the page is shown again.
+  useEffect(() => {
+    const tick = () => setNow(new Date());
+    const interval = setInterval(tick, CLOCK_INTERVAL_MS);
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') tick();
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+    };
+  }, []);
+
+  const data = useMemo(() => rawData && flattenScheduleData(rawData, { now }), [rawData, now]);
 
   const togglePin = (showtimeId) => {
     setPinnedShowtimes(prev => {
@@ -198,9 +253,10 @@ function App() {
   }
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${filtersOpen ? 'filters-open' : ''}`}>
       {/* Left Sidebar Filters */}
       <Filters
+        onDone={isNative ? () => setFiltersOpen(false) : undefined}
         groupedMovies={data.groupedMovies}
         movieDisplayTitles={data.movieDisplayTitles}
         movieVariants={data.movieVariants}
@@ -234,6 +290,12 @@ function App() {
             <Ticket className="text-accent-color" size={32} color="var(--accent-color)" />
             AMC Guide
           </h1>
+          {isNative && (
+            <button className="filters-toggle-btn" onClick={() => setFiltersOpen(true)}>
+              <SlidersHorizontal size={16} />
+              Filters
+            </button>
+          )}
         </header>
 
         <ShowtimeTimeline

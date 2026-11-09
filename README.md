@@ -38,3 +38,17 @@ npm run fetch                # write frontend/public/data.json (used by `npm run
 ```
 
 Tracked theaters (API ID, name and state) are configured in `fetch-showtimes.js`. In GitHub Actions, the key comes from the `AMC_VENDOR_KEY` repository secret, and the currently deployed `data.json` is downloaded first so that any theater the API fails to return keeps its previous showtimes.
+
+## iOS App
+
+The iOS app wraps the same React frontend in a native shell with [Capacitor](https://capacitorjs.com), so filters, pins and the timeline behave exactly as on the website. On iPhone the filters open in a full-screen sheet, ticket links open in an in-app Safari view, and the last downloaded schedule is kept for offline use. The app fetches the showtimes published by the live site (set in `frontend/.env.ios`), so it stays current without an app update.
+
+Requires Xcode and Node 20+:
+
+```
+cd frontend
+npm run build:ios   # build the web app for iOS and copy it into ios/
+npm run ios         # same, then open the project in Xcode to run on a simulator or device
+```
+
+Re-run `npm run build:ios` after any frontend change. To run on a physical iPhone, pick your team under *Signing & Capabilities* in Xcode.

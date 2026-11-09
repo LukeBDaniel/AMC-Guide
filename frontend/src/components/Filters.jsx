@@ -36,6 +36,7 @@ export default function Filters({
     setSelectedOthers,
     selectedLanguages,
     setSelectedLanguages,
+    onDone,
 }) {
     const [openSections, setOpenSections] = useState({
         theaters: true,
@@ -87,13 +88,20 @@ export default function Filters({
 
     return (
         <aside className="filters-sidebar">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+            <div className="filters-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <h2 style={{ fontSize: '1.125rem', fontWeight: 600 }}>Filters</h2>
-                {hasFilters && (
-                    <button className="filter-clear-btn" onClick={clearFilters}>
-                        Clear All
-                    </button>
-                )}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    {hasFilters && (
+                        <button className="filter-clear-btn" onClick={clearFilters}>
+                            Clear All
+                        </button>
+                    )}
+                    {onDone && (
+                        <button className="filters-done-btn" onClick={onDone}>
+                            Done
+                        </button>
+                    )}
+                </div>
             </div>
 
             <div className="filter-section">

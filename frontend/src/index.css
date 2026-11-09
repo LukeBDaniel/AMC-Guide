@@ -508,3 +508,188 @@ body {
     flex: 1 0 250px;
   }
 }
+
+/* iOS app (see main.jsx): full-screen timeline, filters in a sheet */
+.native-app,
+.native-app body,
+.native-app #root {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.native-app .app-container {
+  height: 100dvh;
+  padding: env(safe-area-inset-top) 0 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+.native-app .main-content {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.native-app .main-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0.75rem calc(1rem + env(safe-area-inset-right)) 0.75rem calc(1rem + env(safe-area-inset-left));
+}
+
+.native-app .header-title {
+  font-size: 1.5rem;
+}
+
+.native-app .header-title svg {
+  width: 26px;
+  height: 26px;
+}
+
+.filters-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 9999px;
+  background: var(--accent-color);
+  color: white;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.filters-toggle-btn:active {
+  background: var(--accent-hover);
+}
+
+.native-app .filters-sidebar {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  max-height: none;
+  border: none;
+  border-radius: 0;
+  padding: 0 calc(1.25rem + env(safe-area-inset-right)) calc(2rem + env(safe-area-inset-bottom)) calc(1.25rem + env(safe-area-inset-left));
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.native-app .filters-open .filters-sidebar {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 0.3s ease;
+}
+
+.native-app .filters-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--card-bg);
+  padding: calc(1rem + env(safe-area-inset-top)) 0 1rem;
+  margin-bottom: 0.5rem !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.native-app .filter-clear-btn {
+  font-size: 0.9375rem;
+  float: none;
+}
+
+.filters-done-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.native-app .filter-title {
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  margin-bottom: 0.25rem;
+}
+
+.native-app .filter-label {
+  font-size: 1rem;
+  padding: 0.35rem 0;
+  margin-bottom: 0.15rem;
+}
+
+.native-app .filter-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.1rem;
+}
+
+.native-app .timeline-container.vertical {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  box-shadow: none;
+  padding-bottom: env(safe-area-inset-bottom);
+  -webkit-overflow-scrolling: touch;
+}
+
+.native-app .timeline-y-axis {
+  position: sticky;
+  left: 0;
+  z-index: 30;
+  align-self: flex-start;
+  flex: 0 0 52px;
+  min-width: 52px;
+}
+
+.native-app .timeline-corner {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.native-app .timeline-hour-marker-y {
+  font-size: 0.6875rem;
+  padding: 0.5rem 0.4rem;
+}
+
+.native-app .timeline-x-axis {
+  flex: 0 0 auto;
+  min-width: calc(100% - 52px);
+  overflow: visible;
+}
+
+.native-app .timeline-column {
+  flex: 1 0 200px;
+  min-width: 200px;
+}
+
+/* No hover on touch screens: keep the pin button visible and tappable */
+.native-app .pin-btn {
+  opacity: 0.7;
+  padding: 8px;
+}
+
+.native-app .timeline-block:hover {
+  filter: none;
+}
+
+.native-app .timeline-block:active {
+  filter: brightness(1.15);
+}
+
+.native-app .empty-state {
+  margin: 1rem;
+}

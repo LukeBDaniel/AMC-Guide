@@ -79,3 +79,33 @@ test('parenthesized year events are categorized without becoming showing formats
     assert.ok(!result.groupedMovies['New Movies'].includes('The Passion of the Christ'));
     assert.equal('_isEventTitle' in result.showtimes[0], false);
 });
+
+test('frontend drops showtimes that started more than 30 minutes ago', async () => {
+    const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const raw = dataFile([
+        { date: '2026-11-08', title: 'Yesterday Film', id: 'yesterday-1' },
+        { date: '2026-11-09', title: 'Started Film', id: 'started-1' },
+        { date: '2026-11-09', title: 'Just Started Film', id: 'just-started-1' },
+        { date: '2026-11-09', title: 'Tonight Film', id: 'tonight-1' }
+    ]);
+    raw.showtimes[1].startsAt = '2026-11-09T11:29:00';
+    raw.showtimes[2].startsAt = '2026-11-09T11:30:00';
+    // 12:00pm in New York (EST)
+    const result = flattenScheduleData(raw, { now: new Date('2026-11-09T17:00:00Z') });
+    assert.deepEqual(result.showtimes.map(s => s.id), ['just-started-1', 'tonight-1']);
+    assert.deepEqual(result.dates, ['2026-11-09']);
+    assert.deepEqual(result.movies, ['Just Started Film', 'Tonight Film']);
+});
+
+test('frontend keeps the previous day while its late-night showtimes are upcoming', async () => {
+    const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const raw = dataFile([
+        { date: '2026-11-08', title: 'Evening Film', id: 'evening-1' },
+        { date: '2026-11-08', title: 'Late Film', id: 'late-1' }
+    ]);
+    raw.showtimes[1].startsAt = '2026-11-09T01:15:00';
+    // 1:00am on Monday in New York
+    const result = flattenScheduleData(raw, { now: new Date('2026-11-09T06:00:00Z') });
+    assert.deepEqual(result.showtimes.map(s => s.id), ['late-1']);
+    assert.deepEqual(result.dates, ['2026-11-08']);
+});

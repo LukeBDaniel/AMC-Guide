@@ -4,6 +4,24 @@ import { buildTitleGroups } from './titleNormalizer.js';
 const TRAILER_MINUTES = 30;
 // Used for the timeline when AMC has not published a runtime.
 const DEFAULT_RUNTIME_MINUTES = 120;
+// Showtimes stay listed this long after they start, for anyone running late.
+const PAST_SHOWTIME_GRACE_MINUTES = 30;
+// Showtimes' startsAt are local times at the theatres (see fetch-showtimes.js).
+const THEATER_TIME_ZONE = 'America/New_York';
+
+const theaterClock = new Intl.DateTimeFormat('en-CA', {
+    timeZone: THEATER_TIME_ZONE,
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hourCycle: 'h23'
+});
+
+// A moment as the theatres' local time, in the same "2026-10-30T19:05:00" form as
+// startsAt, so the two compare as strings.
+function theaterLocalTime(date) {
+    const parts = Object.fromEntries(theaterClock.formatToParts(date).map(({ type, value }) => [type, value]));
+    return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}`;
+}
 
 // 'new-york' -> 'New York'
 function titleCaseSlug(slug) {
@@ -43,8 +61,10 @@ function theaterDisplayName(name) {
 }
 
 // Turns data.json (see fetch-showtimes.js) into the showtime list, filter options and
-// movie groupings the UI renders.
-export function flattenScheduleData(rawData) {
+// movie groupings the UI renders. With `now`, showtimes that started more than
+// PAST_SHOWTIME_GRACE_MINUTES before it are dropped, along with any day, movie or filter
+// option left with no showtimes; data.json can be a day old when the deploy runs late.
+export function flattenScheduleData(rawData, { now } = {}) {
     const flattened = [];
     const uniqueMovies = new Set();
     const uniqueTheaters = new Map();
@@ -73,7 +93,10 @@ export function flattenScheduleData(rawData) {
     // titleNormalizer.js for the rules).
     const titleGroups = buildTitleGroups(new Set(Object.values(rawData.movies).map(movie => movie.title)));
 
+    const earliestStart = now && theaterLocalTime(new Date(now.getTime() - PAST_SHOWTIME_GRACE_MINUTES * 60000));
+
     rawData.showtimes.forEach(showtime => {
+        if (earliestStart && showtime.startsAt < earliestStart) return;
         const movie = rawData.movies[showtime.movie];
         const theater = uniqueTheaters.get(showtime.theater);
         if (!movie || !theater) return;

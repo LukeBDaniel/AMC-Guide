@@ -1,11 +1,12 @@
 import { Calendar, Pin } from 'lucide-react';
+import { isNative, openLink } from '../utils/platform';
 
 export default function ShowtimeTimeline({ showtimes, allDates, pinnedShowtimes = new Set(), onTogglePin }) {
     if (showtimes.length === 0 && (!allDates || allDates.length === 0)) {
         return (
             <div className="empty-state">
                 <h3>Select a theater and movies</h3>
-                <p>Use the filters on the left to select at least one theater. Then, select specific movies, or check the Premium Formats override to see what's playing.</p>
+                <p>{isNative ? 'Tap Filters to select' : 'Use the filters on the left to select'} at least one theater. Then, select specific movies, or check the Premium Formats override to see what's playing.</p>
             </div>
         );
     }
@@ -175,7 +176,7 @@ export default function ShowtimeTimeline({ showtimes, allDates, pinnedShowtimes 
                                             key={event.id}
                                             className={`timeline-block ${isPinned ? 'pinned' : ''}`}
                                             style={event.styleObj}
-                                            onClick={() => window.open(event.ticketLink || event.link, '_blank')}
+                                            onClick={() => openLink(event.ticketLink || event.link)}
                                             role="button"
                                             tabIndex={0}
                                             title={`${event.movieTitle} (${event.time} - ${event.runtime})`}

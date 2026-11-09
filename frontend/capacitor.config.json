@@ -1,0 +1,9 @@
+{
+  "appId": "com.lbdaniel.amcguide",
+  "appName": "AMC Guide",
+  "webDir": "dist",
+  "ios": {
+    "contentInset": "never",
+    "backgroundColor": "#f9fafb"
+  }
+}
