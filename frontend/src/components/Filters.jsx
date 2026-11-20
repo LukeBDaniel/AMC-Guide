@@ -1,4 +1,23 @@
 import { useState } from 'react';
+import { Film } from 'lucide-react';
+import { posterUrl } from '../utils/dataProcessor';
+
+// Shown at 28x42; requested at twice that for high-density screens (about 5 KB each).
+const POSTER_WIDTH = 56;
+const POSTER_HEIGHT = 84;
+
+// Keeps the placeholder when AMC has no poster, or it fails to load.
+const MoviePoster = ({ poster }) => {
+    const [failed, setFailed] = useState(false);
+    const src = posterUrl(poster, POSTER_WIDTH, POSTER_HEIGHT);
+    return (
+        <span className="filter-poster" aria-hidden="true">
+            {src && !failed
+                ? <img src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+                : <Film size={14} />}
+        </span>
+    );
+};
 
 const Chevron = ({ isOpen }) => (
     <span style={{
@@ -14,6 +33,7 @@ const Chevron = ({ isOpen }) => (
 export default function Filters({
     groupedMovies,
     movieDisplayTitles,
+    moviePosters,
     movieVariants,
     availableMovies,
     availableVariantKeys,
@@ -318,13 +338,14 @@ export default function Filters({
                                             : allVariants;
                                         return (
                                             <div key={movie} style={{ marginBottom: variants.length ? '0.5rem' : 0 }}>
-                                                <label className="filter-label">
+                                                <label className="filter-label movie-label">
                                                     <input
                                                         type="checkbox"
                                                         className="filter-checkbox"
                                                         checked={selectedMovies.has(movie)}
                                                         onChange={() => handleCheckboxChange(setSelectedMovies, selectedMovies, movie)}
                                                     />
+                                                    <MoviePoster key={moviePosters?.[movie]} poster={moviePosters?.[movie]} />
                                                     <span>{label}</span>
                                                 </label>
                                                 {variants.map(({ variant, isInformational }) => (

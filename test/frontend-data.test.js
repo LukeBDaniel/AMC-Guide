@@ -143,3 +143,26 @@ test('past showtimes are judged in each theatre\'s own time zone', async () => {
     const result = flattenScheduleData(mergeSchedules([empire, century]), { now: new Date('2026-11-10T02:00:00Z') });
     assert.deepEqual(result.showtimes.map(s => s.id), ['west-1']);
 });
+
+test('posters are resized by AMC\'s image CDN, and other hosts are ignored', async () => {
+    const { posterUrl } = await import('../frontend/src/utils/dataProcessor.js');
+    assert.equal(
+        posterUrl('https://amc-theatres-res.cloudinary.com/v1793224194/amc-cdn/content/general/abc.jpg', 56, 84),
+        'https://amc-theatres-res.cloudinary.com/w_56,h_84,c_fill,g_auto,q_auto,f_auto/v1793224194/amc-cdn/content/general/abc.jpg'
+    );
+    assert.equal(posterUrl('https://example.com/huge.jpg', 56, 84), null);
+    assert.equal(posterUrl(null, 56, 84), null);
+});
+
+test('a movie merged with its event screenings uses the regular release\'s poster', async () => {
+    const { flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const raw = dataFile([
+        { date: '2026-11-09', title: 'THE CONVERSATION: One-Night Q&A', id: 'event-1' },
+        { date: '2026-11-09', title: 'The Conversation', id: 'release-1' },
+        { date: '2026-11-09', title: 'No Poster Film', id: 'plain-1' }
+    ]);
+    raw.movies['THE CONVERSATION: One-Night Q&A'].poster = 'https://amc-theatres-res.cloudinary.com/v1/event.jpg';
+    raw.movies['The Conversation'].poster = 'https://amc-theatres-res.cloudinary.com/v1/release.jpg';
+    const result = flattenScheduleData(raw);
+    assert.deepEqual(result.moviePosters, { 'The Conversation': 'https://amc-theatres-res.cloudinary.com/v1/release.jpg' });
+});

@@ -87,6 +87,16 @@ function purchaseUrl(showtime, theater) {
         .replace('{id}', showtime.id);
 }
 
+const POSTER_HOST = 'https://amc-theatres-res.cloudinary.com/';
+
+// A poster resized by AMC's image CDN (Cloudinary) to `width` x `height`, cropped to fill
+// and in the best format the browser takes. The originals run to several megabytes, so
+// posters from anywhere else aren't used at all.
+export function posterUrl(poster, width, height) {
+    if (!poster?.startsWith(POSTER_HOST)) return null;
+    return `${POSTER_HOST}w_${width},h_${height},c_fill,g_auto,q_auto,f_auto/${poster.slice(POSTER_HOST.length)}`;
+}
+
 // "AMC 19th St. East 6" -> "19th St. East"
 function theaterDisplayName(name) {
     return name.replace(/^AMC\s+/i, '').replace(/\s+\d+$/, '').trim();
@@ -102,6 +112,10 @@ export function flattenScheduleData(rawData, { now } = {}) {
     const uniqueTheaters = new Map();
     const uniqueFormats = new Set();
     const movieDisplayTitles = {};
+    // movieKey -> poster URL. A movie merged with its event screenings (see below) uses
+    // the regular release's poster when it has one.
+    const moviePosters = {};
+    const postersFromRelease = new Set();
     // movieKey -> Map(variant text -> isInformational). A movie's event/anniversary
     // variants (e.g. "Fan Event Screening", "85th Anniversary") are tracked per movie
     // rather than merged into the movie's own identity, so the UI can offer them as
@@ -109,7 +123,7 @@ export function flattenScheduleData(rawData, { now } = {}) {
     const movieVariantMaps = {};
 
     if (!Array.isArray(rawData?.showtimes)) {
-        return { showtimes: [], movies: [], groupedMovies: {}, theaters: {}, formats: [], seatings: [], others: [], languages: [], movieDisplayTitles: {}, movieVariants: {}, dates: [] };
+        return { showtimes: [], movies: [], groupedMovies: {}, theaters: {}, formats: [], seatings: [], others: [], languages: [], movieDisplayTitles: {}, moviePosters: {}, movieVariants: {}, dates: [] };
     }
 
     rawData.theaters.forEach(theater => {
@@ -142,6 +156,10 @@ export function flattenScheduleData(rawData, { now } = {}) {
 
         const { movieKey, displayTitle, variant, isInformational, isEvent = false } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
         movieDisplayTitles[movieKey] = displayTitle;
+        if (movie.poster && !postersFromRelease.has(movieKey) && (!variant || !moviePosters[movieKey])) {
+            moviePosters[movieKey] = movie.poster;
+            if (!variant) postersFromRelease.add(movieKey);
+        }
         if (variant) {
             if (!movieVariantMaps[movieKey]) movieVariantMaps[movieKey] = new Map();
             movieVariantMaps[movieKey].set(variant, isInformational);
@@ -293,6 +311,7 @@ export function flattenScheduleData(rawData, { now } = {}) {
         others: finalOthers,
         languages: finalLanguages,
         movieDisplayTitles,
+        moviePosters,
         movieVariants,
         dates: uniqueDates
     };

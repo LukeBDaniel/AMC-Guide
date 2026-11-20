@@ -17,7 +17,8 @@ const DIRECTORY_FILE = "theaters.json";
 // {
 //   version, generatedAt, nearTermThrough,      // nearTermThrough: last day of the 14-day window
 //   theaters: [{ id, name, location, timeZone, purchaseUrlTemplate }],
-//   movies: { [movieId]: { title, url, runtime, rating } },  // runtime in minutes or null
+//   movies: { [movieId]: { title, url, runtime, rating, poster } },  // runtime in minutes or null;
+//                                               // poster: full-size image URL on AMC's Cloudinary, or null
 //   tagSets: [[tag, ...], ...],                 // shared tag lists, in display form
 //   tagGroups: { [tag]: group },                // format | seating | language | other | info
 //   showtimes: [{
@@ -300,6 +301,7 @@ function toTheaterShowtimes(theaterId, apiShowtimes) {
       url: showtime.movieUrl || null,
       runtime: runtimeMinutes(showtime.runTime),
       rating: showtime.mpaaRating || null,
+      poster: showtime.media?.posterDynamic || null,
     };
     showtimes.push({
       id: String(showtime.id),

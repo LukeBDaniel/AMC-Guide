@@ -317,6 +317,7 @@ function App() {
         onEditTheaters={() => setPickerOpen(true)}
         groupedMovies={data.groupedMovies}
         movieDisplayTitles={data.movieDisplayTitles}
+        moviePosters={data.moviePosters}
         movieVariants={data.movieVariants}
         availableMovies={availableMovies}
         availableVariantKeys={availableVariantKeys}

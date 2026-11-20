@@ -200,7 +200,10 @@ test('alerts combine discounts with availability like the website badges', () =>
 
 test('API showtimes become movie entries and showtime rows', () => {
     const { movies, showtimes } = toTheaterShowtimes('amc-empire-25', [
-        apiShowtime({ id: 1, showDateTimeLocal: '2026-10-30T13:00:00', discountMatineeMessage: '20% OFF' }),
+        apiShowtime({
+            id: 1, showDateTimeLocal: '2026-10-30T13:00:00', discountMatineeMessage: '20% OFF',
+            media: { posterDynamic: 'https://amc-theatres-res.cloudinary.com/v1/amc-cdn/poster.jpg', posterIMAXDynamic: '' }
+        }),
         apiShowtime({ id: 2, showDateTimeLocal: '2026-10-31T00:30:00', attributes: [...AMENITIES, attr('NOTRAILERS', 'NoTrailers')] }),
         apiShowtime({ id: 3, showDateTimeLocal: '2026-10-30T18:00:00', isCanceled: true }),
         apiShowtime({ id: 4, showDateTimeLocal: '2026-10-30T17:00:00', attributes: [...AMENITIES, attr('PRIVATE', 'Private Event')] }),
@@ -208,8 +211,11 @@ test('API showtimes become movie entries and showtime rows', () => {
     ]);
 
     assert.deepEqual(movies, {
-        79697: { title: 'Resident Evil', url: 'https://www.amctheatres.com/movies/resident-evil-79697', runtime: 94, rating: 'R' },
-        1: { title: 'Club Kid with Q&A', url: null, runtime: null, rating: null }
+        79697: {
+            title: 'Resident Evil', url: 'https://www.amctheatres.com/movies/resident-evil-79697', runtime: 94, rating: 'R',
+            poster: 'https://amc-theatres-res.cloudinary.com/v1/amc-cdn/poster.jpg'
+        },
+        1: { title: 'Club Kid with Q&A', url: null, runtime: null, rating: null, poster: null }
     });
     assert.deepEqual(showtimes.map((row) => row.id), ['1', '2', '5']);
     assert.deepEqual(showtimes[0], {
