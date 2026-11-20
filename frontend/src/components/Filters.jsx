@@ -1,21 +1,31 @@
 import { useState } from 'react';
-import { Film } from 'lucide-react';
+import { Check, Film } from 'lucide-react';
 import { posterUrl } from '../utils/dataProcessor';
 
-// Shown at 28x42; requested at twice that for high-density screens (about 5 KB each).
-const POSTER_WIDTH = 56;
-const POSTER_HEIGHT = 84;
+// Shown at about 80px wide; requested at twice that for high-density screens (about 10 KB each).
+const POSTER_WIDTH = 160;
+const POSTER_HEIGHT = 240;
 
-// Keeps the placeholder when AMC has no poster, or it fails to load.
-const MoviePoster = ({ poster }) => {
+// A movie's poster with its title beneath; selecting it filters to that movie. Keeps a
+// placeholder when AMC has no poster, or it fails to load.
+const PosterTile = ({ title, poster, note, selected, onToggle }) => {
     const [failed, setFailed] = useState(false);
     const src = posterUrl(poster, POSTER_WIDTH, POSTER_HEIGHT);
     return (
-        <span className="filter-poster" aria-hidden="true">
-            {src && !failed
-                ? <img src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed(true)} />
-                : <Film size={14} />}
-        </span>
+        <button type="button" className={`poster-tile ${selected ? 'selected' : ''}`} onClick={onToggle} aria-pressed={selected}>
+            <span className="poster-tile-image">
+                {src && !failed
+                    ? <img src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+                    : <Film size={22} />}
+                {selected && (
+                    <span className="poster-tile-check">
+                        <Check size={14} strokeWidth={3} />
+                    </span>
+                )}
+            </span>
+            <span className="poster-tile-title">{title}</span>
+            {note && <span className="poster-tile-note" title={note}>{note}</span>}
+        </button>
     );
 };
 
@@ -93,6 +103,24 @@ export default function Filters({
             newSelection.add(value);
         }
         setFn(newSelection);
+    };
+
+    // Deselecting a movie also clears its special-screening checkboxes, which are only
+    // shown while the movie is selected.
+    // Built on the latest selection, so taps in quick succession all count.
+    const toggleMovie = (movie) => {
+        if (selectedMovies.has(movie)) {
+            const prefix = `${movie}::`;
+            setSelectedVariants(prev => ([...prev].some(v => v.startsWith(prefix))
+                ? new Set([...prev].filter(v => !v.startsWith(prefix)))
+                : prev));
+        }
+        setSelectedMovies(prev => {
+            const next = new Set(prev);
+            if (next.has(movie)) next.delete(movie);
+            else next.add(movie);
+            return next;
+        });
     };
 
     const clearFilters = () => {
@@ -330,44 +358,56 @@ export default function Filters({
                                         <span>{cat}</span>
                                         <Chevron isOpen={openSubGenres[cat]} />
                                     </div>
-                                    {openSubGenres[cat] && catMovies.map(movie => {
-                                        const label = (movieDisplayTitles && movieDisplayTitles[movie]) || movie;
-                                        const allVariants = (movieVariants && movieVariants[movie]) || [];
-                                        const variants = availableVariantKeys
-                                            ? allVariants.filter(({ variant }) => availableVariantKeys.has(`${movie}::${variant}`))
-                                            : allVariants;
+                                    {openSubGenres[cat] && (() => {
+                                        const label = movie => (movieDisplayTitles && movieDisplayTitles[movie]) || movie;
+                                        const variantsOf = (movie) => {
+                                            const allVariants = (movieVariants && movieVariants[movie]) || [];
+                                            return availableVariantKeys
+                                                ? allVariants.filter(({ variant }) => availableVariantKeys.has(`${movie}::${variant}`))
+                                                : allVariants;
+                                        };
+                                        // Special screenings of the selected movies that can be picked on their own.
+                                        const selectableVariants = catMovies
+                                            .filter(movie => selectedMovies.has(movie))
+                                            .map(movie => [movie, variantsOf(movie).filter(({ isInformational }) => !isInformational)])
+                                            .filter(([, variants]) => variants.length > 0);
                                         return (
-                                            <div key={movie} style={{ marginBottom: variants.length ? '0.5rem' : 0 }}>
-                                                <label className="filter-label movie-label">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="filter-checkbox"
-                                                        checked={selectedMovies.has(movie)}
-                                                        onChange={() => handleCheckboxChange(setSelectedMovies, selectedMovies, movie)}
-                                                    />
-                                                    <MoviePoster key={moviePosters?.[movie]} poster={moviePosters?.[movie]} />
-                                                    <span>{label}</span>
-                                                </label>
-                                                {variants.map(({ variant, isInformational }) => (
-                                                    isInformational ? (
-                                                        <div key={variant} style={{ fontSize: '0.7rem', opacity: 0.7, marginLeft: '1.5rem' }}>
-                                                            {variant}
-                                                        </div>
-                                                    ) : (
-                                                        <label key={variant} className="filter-label" style={{ marginLeft: '1.5rem', fontSize: '0.85rem', opacity: 0.85 }}>
-                                                            <input
-                                                                type="checkbox"
-                                                                className="filter-checkbox"
-                                                                checked={selectedVariants.has(`${movie}::${variant}`)}
-                                                                onChange={() => handleCheckboxChange(setSelectedVariants, selectedVariants, `${movie}::${variant}`)}
-                                                            />
-                                                            <span>{variant}</span>
-                                                        </label>
-                                                    )
-                                                ))}
-                                            </div>
+                                            <>
+                                                <div className="poster-grid">
+                                                    {catMovies.map(movie => (
+                                                        <PosterTile
+                                                            key={movie}
+                                                            title={label(movie)}
+                                                            poster={moviePosters?.[movie]}
+                                                            note={variantsOf(movie).filter(({ isInformational }) => isInformational).map(({ variant }) => variant).join(', ')}
+                                                            selected={selectedMovies.has(movie)}
+                                                            onToggle={() => toggleMovie(movie)}
+                                                        />
+                                                    ))}
+                                                </div>
+                                                {selectableVariants.length > 0 && (
+                                                    <div className="poster-variants">
+                                                        {selectableVariants.map(([movie, variants]) => (
+                                                            <div key={movie} className="poster-variants-movie">
+                                                                <div className="poster-variants-title">{label(movie)}</div>
+                                                                {variants.map(({ variant }) => (
+                                                                    <label key={variant} className="filter-label">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            className="filter-checkbox"
+                                                                            checked={selectedVariants.has(`${movie}::${variant}`)}
+                                                                            onChange={() => handleCheckboxChange(setSelectedVariants, selectedVariants, `${movie}::${variant}`)}
+                                                                        />
+                                                                        <span>{variant}</span>
+                                                                    </label>
+                                                                ))}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </>
                                         );
-                                    })}
+                                    })()}
                                 </div>
                             );
                         })}

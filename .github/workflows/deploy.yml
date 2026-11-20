@@ -1,5 +1,7 @@
 name: Deploy AMC Guide
 
+# Showtimes are fetched by the nightly run and by "Run workflow". A push reuses the
+# showtimes the last fetch saved, unless the data format changed.
 on:
   push:
     branches:
@@ -44,11 +46,26 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
+      - name: Read data format version
+        id: data
+        run: echo "version=$(node -p 'require("./fetch-showtimes").DATA_VERSION')" >> "$GITHUB_OUTPUT"
+
+      # The showtimes the last fetch published. Keyed by data format, so a change
+      # to the format never pairs new code with old files.
+      - name: Restore saved showtimes
+        id: restore
+        uses: actions/cache/restore@v4
+        with:
+          path: frontend/public/data
+          key: showtimes-v${{ steps.data.outputs.version }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: showtimes-v${{ steps.data.outputs.version }}-
+
       # A partial fetch still publishes (failed theatres keep their previous
-      # showtimes, downloaded from the live site as needed); the run is marked
+      # showtimes, from the saved copy or the live site); the run is marked
       # failed at the end so it gets noticed when too many theatres fail.
       - name: Fetch showtimes from AMC API
         id: fetch
+        if: ${{ github.event_name != 'push' || steps.restore.outputs.cache-matched-key == '' }}
         continue-on-error: true
         run: npm run fetch
         env:
@@ -72,6 +89,13 @@ jobs:
 
       - name: Check showtimes data exists
         run: test -s frontend/public/data/theaters.json
+
+      - name: Save showtimes for later runs
+        if: ${{ steps.fetch.outcome != 'skipped' }}
+        uses: actions/cache/save@v4
+        with:
+          path: frontend/public/data
+          key: showtimes-v${{ steps.data.outputs.version }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Install frontend dependencies
         working-directory: ./frontend
