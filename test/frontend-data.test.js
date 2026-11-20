@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
 
-// Builds a data.json (version 2) with one theatre and one showtime per entry.
+// Builds a theatre file (data/theaters/{id}.json) with one showtime per entry.
 function dataFile(entries, extra = {}) {
     const movies = {};
     const showtimes = entries.map(({ date, title, id }) => {
@@ -9,7 +9,7 @@ function dataFile(entries, extra = {}) {
         return { id, theater: 'amc-empire-25', movie: title, date, startsAt: `${date}T19:00:00`, tags: 0 };
     });
     return {
-        version: 3,
+        version: 4,
         theaters: [{ id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york', purchaseUrlTemplate: null }],
         movies,
         tagSets: [['Standard', 'Included in A-List']],
@@ -108,4 +108,38 @@ test('frontend keeps the previous day while its late-night showtimes are upcomin
     const result = flattenScheduleData(raw, { now: new Date('2026-11-09T06:00:00Z') });
     assert.deepEqual(result.showtimes.map(s => s.id), ['late-1']);
     assert.deepEqual(result.dates, ['2026-11-08']);
+});
+
+test('merging theatre files remaps their tag lists onto one shared list', async () => {
+    const { mergeSchedules, flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const empire = dataFile([{ date: '2026-11-09', title: 'Shared Film', id: 'e-1' }], { nearTermThrough: '2026-11-22' });
+    const century = dataFile([{ date: '2026-11-09', title: 'Shared Film', id: 'c-1' }], { nearTermThrough: '2026-11-21' });
+    century.theaters = [{ id: 'amc-century-city-15', name: 'AMC Century City 15', location: 'california', timeZone: 'America/Los_Angeles', purchaseUrlTemplate: null }];
+    century.tagSets = [['IMAX', 'Included in A-List'], ['Standard', 'Included in A-List']];
+    century.tagGroups = { IMAX: 'format', Standard: 'format', 'Included in A-List': 'other' };
+    century.showtimes[0].theater = 'amc-century-city-15';
+    century.showtimes[0].tags = 0;
+
+    const merged = mergeSchedules([empire, century, null]);
+    assert.deepEqual(merged.tagSets, [['Standard', 'Included in A-List'], ['IMAX', 'Included in A-List']]);
+    assert.deepEqual(merged.showtimes.map(s => merged.tagSets[s.tags][0]), ['Standard', 'IMAX']);
+    assert.equal(merged.nearTermThrough, '2026-11-22');
+    assert.deepEqual(merged.theaters.map(t => t.id), ['amc-empire-25', 'amc-century-city-15']);
+
+    const result = flattenScheduleData(merged);
+    assert.deepEqual(Object.keys(result.theaters), ['New York', 'California']);
+    assert.deepEqual(result.formats, ['IMAX', 'Standard']);
+    // The original files are left untouched.
+    assert.equal(century.showtimes[0].tags, 0);
+});
+
+test('past showtimes are judged in each theatre\'s own time zone', async () => {
+    const { mergeSchedules, flattenScheduleData } = await import('../frontend/src/utils/dataProcessor.js');
+    const empire = dataFile([{ date: '2026-11-09', title: 'East Film', id: 'east-1' }]);
+    const century = dataFile([{ date: '2026-11-09', title: 'West Film', id: 'west-1' }]);
+    century.theaters = [{ id: 'amc-century-city-15', name: 'AMC Century City 15', location: 'california', timeZone: 'America/Los_Angeles' }];
+    century.showtimes[0].theater = 'amc-century-city-15';
+    // Both at 7:00pm local; 9:00pm in New York is 6:00pm in Los Angeles.
+    const result = flattenScheduleData(mergeSchedules([empire, century]), { now: new Date('2026-11-10T02:00:00Z') });
+    assert.deepEqual(result.showtimes.map(s => s.id), ['west-1']);
 });

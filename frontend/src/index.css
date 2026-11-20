@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
   --bg-color: #f9fafb;
   --card-bg: #ffffff;
@@ -21,7 +19,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
   line-height: 1.5;
@@ -78,6 +76,299 @@ body {
 
 .main-header {
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theaters-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theaters-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+@media (max-width: 480px) {
+  .theaters-btn {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .theaters-btn-label {
+    display: none;
+  }
+}
+
+.filter-edit-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.filter-edit-btn:hover {
+  text-decoration: underline;
+}
+
+.filter-add-theaters-btn {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  background: none;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Theater Picker */
+.picker-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: rgba(17, 24, 39, 0.4);
+}
+
+.picker {
+  width: 100%;
+  max-width: 520px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 0.75rem;
+}
+
+.picker-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.picker-done-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.picker-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.picker-intro {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.picker-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.picker-locate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: white;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.picker-locate-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.picker-locate-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.picker-search {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-tertiary);
+}
+
+.picker-search:focus-within {
+  border-color: var(--accent-color);
+}
+
+.picker-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0;
+  border: none;
+  outline: none;
+  background: none;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.picker-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.picker-clear-btn {
+  display: flex;
+  padding: 0.2rem;
+  border: none;
+  border-radius: 9999px;
+  background: var(--badge-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.picker-note {
+  margin: 0.5rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+}
+
+.picker-note.error {
+  color: var(--alert-text);
+}
+
+.picker-section {
+  margin-top: 1.25rem;
+}
+
+.picker-section h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.picker-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.5rem;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.picker-row:hover:not(:disabled) {
+  background: var(--bg-color);
+}
+
+.picker-row:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.picker-star {
+  flex: 0 0 auto;
+  color: var(--text-tertiary);
+}
+
+.picker-row.favorite .picker-star {
+  color: #f59e0b;
+}
+
+.picker-row-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.picker-row-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.picker-row-meta {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.picker-empty {
+  padding: 1rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.picker-more-btn {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: none;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 /* Filters Component */
@@ -692,4 +983,38 @@ body {
 
 .native-app .empty-state {
   margin: 1rem;
+}
+
+/* iOS app: the theatre picker is a full-screen sheet over everything, filters included. */
+.native-app .theaters-btn {
+  padding: 0.5rem 0.65rem;
+}
+
+.native-app .theaters-btn-label {
+  display: none;
+}
+
+.native-app .picker-backdrop {
+  padding: 0;
+  background: none;
+}
+
+.native-app .picker {
+  max-width: none;
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.native-app .picker-header {
+  padding: calc(1rem + env(safe-area-inset-top)) calc(1.25rem + env(safe-area-inset-right)) 0.75rem calc(1.25rem + env(safe-area-inset-left));
+  border-bottom: 1px solid var(--border-color);
+}
+
+.native-app .picker-body {
+  padding: 1rem calc(1.25rem + env(safe-area-inset-right)) calc(2rem + env(safe-area-inset-bottom)) calc(1.25rem + env(safe-area-inset-left));
+}
+
+.native-app .picker-search input {
+  font-size: 1rem;
 }

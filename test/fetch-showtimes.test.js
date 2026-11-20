@@ -7,14 +7,16 @@ const path = require('node:path');
 const { createAmcClient } = require('../amc-api');
 const {
     DATA_VERSION,
-    buildSchedule,
+    buildTheaterSchedule,
     compactSchedule,
+    createPreviousLoader,
     dateInTimeZone,
+    directoryEntry,
     fetchShowtimes,
+    loadDirectory,
     scheduleDate,
     showtimeAlert,
     showtimeTags,
-    theaters,
     toTheaterShowtimes
 } = require('../fetch-showtimes');
 
@@ -54,9 +56,14 @@ function apiShowtime(overrides = {}) {
 function fakeFetch(handler) {
     const calls = [];
     const fetchImpl = async (url, init) => {
-        calls.push({ url, headers: init.headers });
-        const { status = 200, body } = await handler(url, calls.length);
-        return { ok: status >= 200 && status < 300, status, json: async () => body };
+        calls.push({ url, headers: init?.headers });
+        const { status = 200, body, headers = {} } = await handler(url, calls.length);
+        return {
+            ok: status >= 200 && status < 300,
+            status,
+            headers: { get: (name) => headers[name.toLowerCase()] ?? null },
+            json: async () => body
+        };
     };
     return { fetchImpl, calls };
 }
@@ -131,6 +138,18 @@ test('each tag is published with its filter group', () => {
         'AMC Artisan Films': 'info',
         'Excluded from A-List': 'info'
     });
+});
+
+test('regional formats and per-theatre escort policies are recognised', () => {
+    const policy = attr('PARENTALESCORTPOLICYUNDER17AFTER9PM', 'Adult Supervision Required (Under 17 Starting 9pm)');
+    const { showtimes, tagGroups, unknownCodes } = toTheaterShowtimes('amc-empire-25', [
+        apiShowtime({ attributes: [attr('35MM', '35MM'), policy] }),
+        apiShowtime({ premiumFormat: 'BigD', attributes: [attr('BIGD3D', 'BigD 3D')] })
+    ]);
+    assert.deepEqual(showtimes[0].tags, ['35MM', 'Adult Supervision Required (Under 17 Starting 9pm)', 'Included in A-List']);
+    assert.deepEqual(showtimes[1].tags, ['BigD', '3D', 'Included in A-List']);
+    assert.equal(tagGroups['Adult Supervision Required (Under 17 Starting 9pm)'], 'other');
+    assert.equal(unknownCodes.size, 0);
 });
 
 test('unmapped attribute codes are filed under Other and reported', () => {
@@ -390,11 +409,64 @@ test('client refuses to run without a key or to send it to another host', async 
     assert.equal(calls.length, 0);
 });
 
-const NOW = new Date('2026-10-30T12:00:00Z');
-const twoTheaters = theaters.slice(0, 2);
+test('client spaces out requests and honours Retry-After', async () => {
+    const sleeps = [];
+    const sleep = async (ms) => { sleeps.push(ms); };
+    const { fetchImpl } = fakeFetch((url, attempt) => (attempt === 1
+        ? { status: 429, headers: { 'retry-after': '7' }, body: {} }
+        : { body: { count: 0, _links: {}, _embedded: { showtimes: [] } } }));
+    const client = createAmcClient({ vendorKey: 'k', fetchImpl, sleep, minIntervalMs: 500 });
+    await client.getTheatreShowtimes(1);
+    // Retry-After instead of the 1s backoff, then the retry waits its turn.
+    assert.equal(sleeps[0], 7000);
+    assert.ok(sleeps.slice(1).every((ms) => ms > 0 && ms <= 500), String(sleeps));
+});
 
-function stubClient(byApiId) {
+test('client stops calling the API once it stays rate limited', async () => {
+    const { fetchImpl, calls } = fakeFetch(() => ({ status: 429, body: {} }));
+    const client = createAmcClient({ vendorKey: 'k', fetchImpl, sleep: async () => {} });
+    await assert.rejects(client.getTheatreShowtimes(1), (error) => error.status === 429);
+    assert.equal(calls.length, 3);
+    await assert.rejects(client.getTheatreShowtimes(2), /skipped: the API is rate limiting requests/);
+    assert.equal(calls.length, 3);
+});
+
+const NOW = new Date('2026-10-30T12:00:00Z');
+
+function apiTheatre(overrides = {}) {
+    const { location, ...rest } = overrides;
     return {
+        id: 552,
+        slug: 'amc-empire-25',
+        name: 'AMC Empire 25',
+        timezone: 'EASTERN TIME',
+        isClosed: false,
+        location: {
+            city: 'NEW YORK',
+            postalCode: '10036-1234',
+            state: 'NY',
+            stateUrlSuffixText: 'new-york',
+            latitude: 40.756,
+            longitude: -73.989,
+            ...location
+        },
+        ...rest
+    };
+}
+
+const EMPIRE = directoryEntry(apiTheatre());
+const LINCOLN = directoryEntry(apiTheatre({ id: 2116, slug: 'amc-lincoln-square-13', name: 'AMC Lincoln Square 13' }));
+const CENTURY_CITY = directoryEntry(apiTheatre({
+    id: 1, slug: 'amc-century-city-15', name: 'AMC Century City 15', timezone: 'PACIFIC TIME',
+    location: { city: 'LOS ANGELES', state: 'CA', stateUrlSuffixText: 'california', latitude: 34.06, longitude: -118.42 }
+}));
+
+function stubClient(byApiId, theatres = []) {
+    return {
+        getTheatres: async () => {
+            if (theatres instanceof Error) throw theatres;
+            return theatres;
+        },
         getTheatreShowtimes: async (apiId) => {
             const result = byApiId[apiId];
             if (result instanceof Error) throw result;
@@ -403,114 +475,212 @@ function stubClient(byApiId) {
     };
 }
 
-test('published data lists configured theatres, sorted showtimes, and the format version', async () => {
-    const { schedule } = await buildSchedule({
+const noPrevious = async () => null;
+
+test('directory entries carry location, display city, and an IANA time zone', () => {
+    assert.deepEqual(EMPIRE, {
+        id: 'amc-empire-25', apiId: 552, name: 'AMC Empire 25', city: 'New York', state: 'NY', zip: '10036',
+        location: 'new-york', latitude: 40.756, longitude: -73.989, timeZone: 'America/New_York'
+    });
+    assert.equal(CENTURY_CITY.timeZone, 'America/Los_Angeles');
+    assert.equal(directoryEntry(apiTheatre({ timezone: 'MOUNTAIN TIME', location: { state: 'AZ' } })).timeZone, 'America/Phoenix');
+    assert.equal(directoryEntry(apiTheatre({ timezone: 'MOUNTAIN TIME', location: { state: 'CO' } })).timeZone, 'America/Denver');
+    assert.equal(directoryEntry(apiTheatre({ location: { city: 'SAINT LOUIS' } })).city, 'Saint Louis');
+});
+
+test('the directory lists open theatres and falls back to the previous list', async () => {
+    const { theaters } = await loadDirectory({
+        client: stubClient({}, [
+            apiTheatre({ id: 2116, slug: 'amc-lincoln-square-13' }),
+            apiTheatre(),
+            apiTheatre({ id: 3, slug: 'amc-closed-1', isClosed: true }),
+            apiTheatre({ id: 4, slug: 'amc-nowhere-1', location: { latitude: null } })
+        ]),
+        loadPrevious: noPrevious
+    });
+    assert.deepEqual(theaters.map((t) => t.id), ['amc-empire-25', 'amc-lincoln-square-13']);
+
+    const fallback = await loadDirectory({
+        client: stubClient({}, new Error('HTTP 500')),
+        loadPrevious: async (file) => (file === 'theaters.json' ? { theaters: [EMPIRE] } : null)
+    });
+    assert.deepEqual(fallback.theaters, [EMPIRE]);
+    assert.match(fallback.error.message, /HTTP 500/);
+    await assert.rejects(
+        loadDirectory({ client: stubClient({}, new Error('HTTP 500')), loadPrevious: noPrevious }),
+        /Could not list theatres: HTTP 500/
+    );
+});
+
+test('a theatre file holds its sorted showtimes and its own time zone', async () => {
+    const { schedule, error } = await buildTheaterSchedule(EMPIRE, {
         now: NOW,
-        theaters: twoTheaters,
+        loadPrevious: noPrevious,
         client: stubClient({
-            [twoTheaters[0].apiId]: [apiShowtime({ id: 2, showDateTimeLocal: '2026-10-30T21:00:00' })],
-            [twoTheaters[1].apiId]: [apiShowtime({ id: 1, showDateTimeLocal: '2026-10-30T19:00:00' })]
+            552: [
+                apiShowtime({ id: 2, showDateTimeLocal: '2026-10-30T21:00:00' }),
+                apiShowtime({ id: 1, showDateTimeLocal: '2026-10-30T19:00:00' })
+            ]
         })
     });
+    assert.equal(error, null);
     assert.equal(schedule.version, DATA_VERSION);
     assert.equal(schedule.nearTermThrough, '2026-11-12');
     assert.deepEqual(schedule.theaters.map(({ purchaseUrlTemplate, ...theater }) => theater), [
-        { id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york' },
-        { id: 'amc-lincoln-square-13', name: 'AMC Lincoln Square 13', location: 'new-york' }
+        { id: 'amc-empire-25', name: 'AMC Empire 25', location: 'new-york', timeZone: 'America/New_York' }
     ]);
     assert.deepEqual(schedule.showtimes.map((row) => row.id), ['1', '2']);
-    for (const theater of theaters) {
-        assert.match(theater.name, /^AMC .+ \d+$/, theater.id);
-        assert.match(theater.location, /^new-(york|jersey)$/, theater.id);
+
+    // 3am UTC on Oct 31 is still the evening of Oct 30 in Los Angeles.
+    const late = await buildTheaterSchedule(CENTURY_CITY, {
+        now: new Date('2026-10-31T03:00:00Z'),
+        loadPrevious: noPrevious,
+        client: stubClient({ 1: [apiShowtime({ showDateTimeLocal: '2026-10-30T21:00:00' })] })
+    });
+    assert.equal(late.error, null);
+    assert.equal(late.schedule.nearTermThrough, '2026-11-12');
+});
+
+test('a theatre with nothing on sale is published empty, not as a failure', async () => {
+    const missing = new Error('GET /v2/theatres/552/showtimes failed with HTTP 404: No showtimes found.');
+    missing.status = 404;
+    for (const result of [[], missing]) {
+        const { schedule, error } = await buildTheaterSchedule(EMPIRE, {
+            now: NOW, loadPrevious: noPrevious, client: stubClient({ 552: result })
+        });
+        assert.equal(error, null);
+        assert.deepEqual(schedule.showtimes, []);
     }
 });
 
 test('a theatre with no showtimes in the coming week is treated as a failure', async () => {
-    const { failures } = await buildSchedule({
+    const { error } = await buildTheaterSchedule(EMPIRE, {
         now: NOW,
-        theaters: twoTheaters.slice(0, 1),
-        client: stubClient({ [twoTheaters[0].apiId]: [apiShowtime({ showDateTimeLocal: '2026-12-25T19:00:00' })] })
+        loadPrevious: noPrevious,
+        client: stubClient({ 552: [apiShowtime({ showDateTimeLocal: '2026-12-25T19:00:00' })] })
     });
-    assert.match(failures[0], /no showtimes between 2026-10-30 and 2026-11-05/);
+    assert.match(error.message, /no showtimes between 2026-10-30 and 2026-11-05/);
 });
 
-test('a failed theatre keeps its future showtimes from the previous data file', async () => {
-    const [ok, failing] = twoTheaters;
-    const previousRows = toTheaterShowtimes(failing.id, [
+test('a failed theatre keeps its future showtimes from the previous file', async () => {
+    const previousRows = toTheaterShowtimes(EMPIRE.id, [
         apiShowtime({ id: 50, showDateTimeLocal: '2026-10-29T19:00:00' }),
         apiShowtime({ id: 51, showDateTimeLocal: '2026-10-31T19:00:00', movieId: 7, movieName: 'Kept', runTime: 100, isAlmostSoldOut: true }),
         apiShowtime({ id: 52, showDateTimeLocal: '2026-10-31T21:00:00', movieId: 7, movieName: 'Kept', runTime: 105 })
     ]);
-    const previousSchedule = compactSchedule({
+    const previous = compactSchedule({
         version: DATA_VERSION,
-        theaters: [{ id: failing.id, name: failing.name, location: failing.location }],
+        theaters: [{ id: EMPIRE.id, name: EMPIRE.name, location: EMPIRE.location, timeZone: EMPIRE.timeZone }],
         movies: previousRows.movies,
         tagGroups: previousRows.tagGroups,
         showtimes: previousRows.showtimes
     });
-    const { schedule, failures } = await buildSchedule({
+    const requested = [];
+    const { schedule, error } = await buildTheaterSchedule(EMPIRE, {
         now: NOW,
-        theaters: twoTheaters,
-        previousSchedule: structuredClone(previousSchedule),
-        client: stubClient({
-            [ok.apiId]: [apiShowtime({ id: 60, showDateTimeLocal: '2026-10-30T19:00:00' })],
-            [failing.apiId]: new Error('HTTP 500')
-        })
+        loadPrevious: async (file) => {
+            requested.push(file);
+            return structuredClone(previous);
+        },
+        client: stubClient({ 552: new Error('HTTP 500') })
     });
-    assert.equal(failures.length, 1);
-    assert.match(failures[0], /HTTP 500/);
-    const kept = schedule.showtimes.filter((row) => row.theater === failing.id);
-    assert.deepEqual(kept.map((row) => row.id), ['51', '52']);
+    assert.match(error.message, /HTTP 500/);
+    assert.deepEqual(requested, ['theaters/amc-empire-25.json']);
+    assert.deepEqual(schedule.showtimes.map((row) => row.id), ['51', '52']);
     assert.equal(schedule.movies['7'].title, 'Kept');
-    assert.equal(kept[0].alert, 'Almost Full');
+    assert.equal(schedule.showtimes[0].alert, 'Almost Full');
     // Per-showtime runtimes survive the round trip through the compact form.
-    assert.deepEqual([kept[0].runtime ?? schedule.movies['7'].runtime, kept[1].runtime ?? schedule.movies['7'].runtime], [100, 105]);
-    assert.deepEqual(schedule.tagSets[kept[0].tags], showtimeTags(apiShowtime()));
+    assert.deepEqual(schedule.showtimes.map((row) => row.runtime ?? schedule.movies['7'].runtime), [100, 105]);
+    assert.deepEqual(schedule.tagSets[schedule.showtimes[0].tags], showtimeTags(apiShowtime()));
     assert.equal(schedule.tagGroups['Signature Recliners'], 'seating');
     assert.equal(
-        schedule.theaters.find((theater) => theater.id === failing.id).purchaseUrlTemplate,
+        schedule.theaters[0].purchaseUrlTemplate,
         'https://www.amctheatres.com/showtimes/all/{startDate}/empire/all/{id}'
     );
 });
 
-test('fetchShowtimes writes minified output, and preserves it when everything fails', async () => {
+test('previous files are read from disk, else from the live site, and only in this format', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-api-'));
-    const outputPath = path.join(dir, 'data.json');
-    const ok = stubClient({
-        [twoTheaters[0].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
-        [twoTheaters[1].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-31T19:00:00' })]
-    });
+    fs.mkdirSync(path.join(dir, 'theaters'));
+    const file = { version: DATA_VERSION, theaters: [], showtimes: [], tagSets: [], tagGroups: {} };
+    fs.writeFileSync(path.join(dir, 'theaters', 'a.json'), JSON.stringify(file));
+    fs.writeFileSync(path.join(dir, 'theaters', 'old.json'), JSON.stringify({ ...file, version: 3 }));
+    const { fetchImpl, calls } = fakeFetch((url) => (url.endsWith('/b.json') ? { body: file } : { status: 404, body: {} }));
+    const loadPrevious = createPreviousLoader({ dir, baseUrl: 'https://example.com/AMC-Guide/data', fetchImpl });
 
-    await fetchShowtimes({ now: NOW, theaters: twoTheaters, client: ok, outputPath, dryRun: true });
-    assert.ok(!fs.existsSync(outputPath));
-
-    const schedule = await fetchShowtimes({ now: NOW, theaters: twoTheaters, client: ok, outputPath });
-    const written = fs.readFileSync(outputPath, 'utf8');
-    assert.deepEqual(JSON.parse(written), schedule);
-    assert.ok(!written.includes('\n'), 'output should be minified');
-
-    const down = stubClient({ [twoTheaters[0].apiId]: new Error('down'), [twoTheaters[1].apiId]: new Error('down') });
-    await assert.rejects(
-        fetchShowtimes({ now: new Date('2027-03-01T12:00:00Z'), theaters: twoTheaters, client: down, outputPath }),
-        /No usable showtimes; the existing data file was preserved/
-    );
-    assert.equal(fs.readFileSync(outputPath, 'utf8'), written);
-    assert.deepEqual(fs.readdirSync(dir), ['data.json']);
+    assert.deepEqual(await loadPrevious('theaters/a.json'), file);
+    assert.equal(await loadPrevious('theaters/old.json'), null);
+    assert.deepEqual(await loadPrevious('theaters/b.json'), file);
+    assert.equal(await loadPrevious('theaters/c.json'), null);
+    assert.deepEqual(calls.map((call) => call.url), [
+        'https://example.com/AMC-Guide/data/theaters/b.json',
+        'https://example.com/AMC-Guide/data/theaters/c.json'
+    ]);
 });
 
-test('a previous data file in another format is not used as a fallback', async () => {
+function readJson(...parts) {
+    return JSON.parse(fs.readFileSync(path.join(...parts), 'utf8'));
+}
+
+test('fetchShowtimes publishes the directory and one file per theatre', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-api-'));
-    const outputPath = path.join(dir, 'data.json');
-    fs.writeFileSync(outputPath, JSON.stringify({ theaters: { [twoTheaters[1].id]: { schedule: [] } } }));
+    const outputDir = path.join(dir, 'data');
     const client = stubClient({
-        [twoTheaters[0].apiId]: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
-        [twoTheaters[1].apiId]: new Error('HTTP 500')
-    });
+        552: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })],
+        2116: [apiShowtime({ showDateTimeLocal: '2026-10-31T19:00:00' })]
+    }, [apiTheatre(), apiTheatre({ id: 2116, slug: 'amc-lincoln-square-13', name: 'AMC Lincoln Square 13' })]);
+
+    await fetchShowtimes({ now: NOW, client, outputDir, loadPrevious: noPrevious, dryRun: true });
+    assert.deepEqual(fs.readdirSync(dir), []);
+
+    const result = await fetchShowtimes({ now: NOW, client, outputDir, loadPrevious: noPrevious });
+    assert.deepEqual(result, { theaters: 2, showtimes: 2, failures: [] });
+    assert.deepEqual(fs.readdirSync(dir), ['data']);
+    const directory = readJson(outputDir, 'theaters.json');
+    assert.equal(directory.version, DATA_VERSION);
+    assert.deepEqual(directory.theaters, [EMPIRE, LINCOLN]);
+    assert.deepEqual(fs.readdirSync(path.join(outputDir, 'theaters')).sort(), ['amc-empire-25.json', 'amc-lincoln-square-13.json']);
+    const written = fs.readFileSync(path.join(outputDir, 'theaters', 'amc-empire-25.json'), 'utf8');
+    assert.ok(!written.includes('\n'), 'output should be minified');
+    assert.equal(JSON.parse(written).showtimes.length, 1);
+});
+
+test('fetchShowtimes preserves the published files when everything fails', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-api-'));
+    const outputDir = path.join(dir, 'data');
+    const ok = stubClient({ 552: [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })] });
+    await fetchShowtimes({ now: NOW, client: ok, theaters: [EMPIRE], outputDir, loadPrevious: noPrevious });
+    const before = fs.readFileSync(path.join(outputDir, 'theaters', 'amc-empire-25.json'), 'utf8');
+
+    const down = stubClient({ 552: new Error('down') });
     await assert.rejects(
-        fetchShowtimes({ now: NOW, theaters: twoTheaters, client, outputPath }),
-        /Partial update published with 1 theater failures/
+        fetchShowtimes({ now: new Date('2027-03-01T12:00:00Z'), client: down, theaters: [EMPIRE], outputDir, loadPrevious: noPrevious }),
+        /No usable showtimes; the existing data files were preserved/
     );
-    const published = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
-    assert.equal(published.version, DATA_VERSION);
-    assert.deepEqual(published.showtimes.map((row) => row.theater), [twoTheaters[0].id]);
+    assert.equal(fs.readFileSync(path.join(outputDir, 'theaters', 'amc-empire-25.json'), 'utf8'), before);
+    assert.deepEqual(fs.readdirSync(dir), ['data']);
+});
+
+test('a few failed theatres publish quietly; more than 5% fail the run', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'amc-api-'));
+    const outputDir = path.join(dir, 'data');
+    const many = Array.from({ length: 40 }, (_, index) => ({ ...EMPIRE, id: `amc-theatre-${index}`, apiId: index }));
+    const run = (failing) => fetchShowtimes({
+        now: NOW,
+        theaters: many,
+        outputDir,
+        loadPrevious: noPrevious,
+        client: stubClient(Object.fromEntries(many.map(({ apiId }) => [
+            apiId,
+            apiId < failing ? new Error('HTTP 500') : [apiShowtime({ showDateTimeLocal: '2026-10-30T19:00:00' })]
+        ])))
+    });
+
+    // 5% of 40 is 2.
+    const { failures } = await run(2);
+    assert.equal(failures.length, 2);
+    await assert.rejects(run(3), /Partial update published with 3 failures \(more than 2\)/);
+    // Still published, with the failed theatres empty.
+    assert.equal(readJson(outputDir, 'theaters', 'amc-theatre-0.json').showtimes.length, 0);
+    assert.equal(readJson(outputDir, 'theaters', 'amc-theatre-3.json').showtimes.length, 1);
 });

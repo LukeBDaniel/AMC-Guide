@@ -44,25 +44,34 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
-      # The live copy is the fallback for any theatre the API fails to return.
-      - name: Download currently deployed showtimes
-        run: |
-          curl --fail --silent --show-error --location --retry 2 \
-            --output frontend/public/data.json \
-            "${{ steps.pages.outputs.base_url }}/data.json" \
-            || echo "::warning::No deployed data.json to fall back on"
-
       # A partial fetch still publishes (failed theatres keep their previous
-      # showtimes); the run is marked failed at the end so it gets noticed.
+      # showtimes, downloaded from the live site as needed); the run is marked
+      # failed at the end so it gets noticed when too many theatres fail.
       - name: Fetch showtimes from AMC API
         id: fetch
         continue-on-error: true
         run: npm run fetch
         env:
           AMC_VENDOR_KEY: ${{ secrets.AMC_VENDOR_KEY }}
+          PREVIOUS_DATA_URL: ${{ steps.pages.outputs.base_url }}/data/
+
+      # When the fetch fails outright, publish the live copy rather than nothing.
+      - name: Fall back to the deployed showtimes
+        if: ${{ steps.fetch.outcome == 'failure' && hashFiles('frontend/public/data/theaters.json') == '' }}
+        run: |
+          base="${{ steps.pages.outputs.base_url }}/data"
+          mkdir -p frontend/public/data/theaters
+          curl --fail --silent --show-error --location --retry 2 \
+            --output frontend/public/data/theaters.json "$base/theaters.json"
+          node -e 'for (const t of require("./frontend/public/data/theaters.json").theaters) console.log(t.id)' |
+            while read -r id; do
+              curl --fail --silent --location --retry 2 \
+                --output "frontend/public/data/theaters/$id.json" "$base/theaters/$id.json" ||
+                echo "::warning::No deployed showtimes for $id"
+            done
 
       - name: Check showtimes data exists
-        run: test -s frontend/public/data.json
+        run: test -s frontend/public/data/theaters.json
 
       - name: Install frontend dependencies
         working-directory: ./frontend

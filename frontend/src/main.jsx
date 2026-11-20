@@ -1,5 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+// Bundled rather than loaded from Google Fonts, so first paint doesn't wait on the network
+import '@fontsource-variable/inter'
 import './index.css'
 import App from './App.jsx'
 import { isNative } from './utils/platform'

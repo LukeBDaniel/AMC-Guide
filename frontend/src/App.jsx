@@ -1,17 +1,25 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Filters from './components/Filters';
 import ShowtimeTimeline from './components/ShowtimeTimeline';
-import { flattenScheduleData } from './utils/dataProcessor';
+import TheaterPicker from './components/TheaterPicker';
+import { flattenScheduleData, mergeSchedules } from './utils/dataProcessor';
 import { isNative } from './utils/platform';
-import { Ticket, SlidersHorizontal } from 'lucide-react';
+import { readFavorites, writeFavorites } from './utils/theaters';
+import { Ticket, SlidersHorizontal, MapPin } from 'lucide-react';
 
-// The website serves data.json next to itself; the iOS app fetches the website's copy.
-const DATA_URL = import.meta.env.VITE_DATA_URL || `${import.meta.env.BASE_URL}data.json`;
-const CACHED_DATA_KEY = 'amc-guide:data.json';
+// The website serves data/ next to itself; the iOS app fetches the website's copy.
+// data/theaters.json lists every theatre and data/theaters/{id}.json holds each one's
+// showtimes (see fetch-showtimes.js); only the user's favourites are downloaded.
+const DATA_BASE_URL = import.meta.env.VITE_DATA_BASE_URL || `${import.meta.env.BASE_URL}data/`;
+const CACHED_DATA_KEY = 'amc-guide:schedule';
+// Held the single data.json the app downloaded before theatres could be picked.
+const LEGACY_CACHED_DATA_KEY = 'amc-guide:data.json';
 
-// The app keeps the last schedule it downloaded so it still opens without a connection.
+// The app keeps the theatre list and its favourites' schedules from the last download,
+// so it still opens without a connection.
 function readCachedData() {
   try {
+    localStorage.removeItem(LEGACY_CACHED_DATA_KEY);
     const cached = localStorage.getItem(CACHED_DATA_KEY);
     return cached ? JSON.parse(cached) : null;
   } catch {
@@ -19,20 +27,37 @@ function readCachedData() {
   }
 }
 
-function writeCachedData(json) {
+function writeCachedData(data) {
   try {
-    localStorage.setItem(CACHED_DATA_KEY, JSON.stringify(json));
+    localStorage.setItem(CACHED_DATA_KEY, JSON.stringify(data));
   } catch {
     // Storage full or unavailable; the app just won't work offline.
   }
+}
+
+// Revalidate rather than use a cached copy: GitHub Pages lets browsers cache files for
+// 10 minutes, and a copy from before a deploy may not match the new code.
+async function fetchJson(path) {
+  const res = await fetch(`${DATA_BASE_URL}${path}`, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+  return res.json();
 }
 
 // How often showtimes that have started get cleared off the timeline while the page is open.
 const CLOCK_INTERVAL_MS = 60 * 1000;
 
 function App() {
-  const [rawData, setRawData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // The app opens on what it last downloaded while it fetches the latest.
+  const [cached] = useState(() => (isNative ? readCachedData() : null));
+  const [directory, setDirectory] = useState(() => cached?.directory ?? null);
+  const [directoryFailed, setDirectoryFailed] = useState(false);
+  const [favorites, setFavorites] = useState(readFavorites);
+  // Theatre files by id: favourites, plus any unstarred this session.
+  const [theaterFiles, setTheaterFiles] = useState(() => cached?.files ?? {});
+  // Favourites whose download has finished, whether or not it worked.
+  const [settledIds, setSettledIds] = useState(() => new Set());
+  const requestedIds = useRef(new Set());
+  const [pickerOpen, setPickerOpen] = useState(() => readFavorites().length === 0);
   const [now, setNow] = useState(() => new Date());
 
   // Filter state
@@ -51,33 +76,67 @@ function App() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch data.json using Vite's BASE_URL so it works on GitHub Pages subpaths.
-    // Revalidate rather than use a cached copy: GitHub Pages lets browsers cache it for
-    // 10 minutes, and a copy from before a deploy may not match the new code.
-    fetch(DATA_URL, { cache: 'no-cache' })
-      .then(res => {
-        if (!res.ok) throw new Error(`data.json: HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchJson('theaters.json')
       .then(json => {
-        if (isNative) writeCachedData(json);
-        return json;
+        setDirectory(json.theaters);
+        // Theatres AMC no longer lists have closed; forget them.
+        const listed = new Set(json.theaters.map(theater => theater.id));
+        setFavorites(prev => {
+          const kept = prev.filter(id => listed.has(id));
+          if (kept.length === prev.length) return prev;
+          writeFavorites(kept);
+          return kept;
+        });
       })
       .catch(err => {
-        const cached = isNative && readCachedData();
-        if (!cached) throw err;
-        console.warn("Using cached showtimes:", err);
-        return cached;
-      })
-      .then(json => {
-        setRawData(json);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Error loading data:", err);
-        setLoading(false);
+        // The app keeps using its saved list, if it has one.
+        console.error('Error loading theaters:', err);
+        setDirectoryFailed(true);
       });
   }, []);
+
+  // Downloads each favourite once per session, as it's added.
+  useEffect(() => {
+    const missing = favorites.filter(id => !requestedIds.current.has(id));
+    if (!missing.length) return;
+    missing.forEach(id => requestedIds.current.add(id));
+    missing.forEach(id => {
+      fetchJson(`theaters/${id}.json`)
+        .then(json => setTheaterFiles(prev => ({ ...prev, [id]: json })))
+        // The app keeps showing this theatre's saved schedule, if it has one.
+        .catch(err => console.error(`Error loading ${id}:`, err))
+        .finally(() => setSettledIds(prev => new Set(prev).add(id)));
+    });
+  }, [favorites]);
+
+  useEffect(() => {
+    if (!isNative || !directory) return;
+    const files = Object.fromEntries(favorites.filter(id => theaterFiles[id]).map(id => [id, theaterFiles[id]]));
+    writeCachedData({ directory, files });
+  }, [directory, favorites, theaterFiles]);
+
+  const toggleFavorite = useCallback((id) => {
+    setFavorites(prev => {
+      const next = prev.includes(id) ? prev.filter(other => other !== id) : [...prev, id];
+      writeFavorites(next);
+      return next;
+    });
+    setSelectedTheaters(prev => {
+      if (!prev.has(id)) return prev;
+      const next = new Set(prev);
+      next.delete(id);
+      return next;
+    });
+  }, []);
+
+  const closePicker = useCallback(() => setPickerOpen(false), []);
+
+  const rawData = useMemo(
+    () => mergeSchedules(favorites.map(id => theaterFiles[id]).filter(Boolean)),
+    [favorites, theaterFiles]
+  );
+  const hasSchedules = rawData.theaters.length > 0;
+  const loading = favorites.some(id => !settledIds.has(id));
 
   // Timers pause while the phone is locked or the tab is hidden, so also catch up the
   // moment the page is shown again.
@@ -94,7 +153,9 @@ function App() {
     };
   }, []);
 
-  const data = useMemo(() => rawData && flattenScheduleData(rawData, { now }), [rawData, now]);
+  // Before the theatre files arrive this is an empty schedule, so the page renders straight
+  // away and the showtimes fill in.
+  const data = useMemo(() => flattenScheduleData(rawData, { now }), [rawData, now]);
 
   const togglePin = (showtimeId) => {
     setPinnedShowtimes(prev => {
@@ -244,11 +305,7 @@ function App() {
 
   const { availableMovies, availableVariantKeys, availableTheaters, availableFormats, availableSeatings, availableOthers, availableLanguages } = dynamicFilters;
 
-  if (loading) {
-    return <div style={{ padding: '2rem', textAlign: 'center' }}>Loading showtimes...</div>;
-  }
-
-  if (!data) {
+  if (directoryFailed && !directory) {
     return <div style={{ padding: '2rem', textAlign: 'center' }}>Failed to load data.</div>;
   }
 
@@ -257,6 +314,7 @@ function App() {
       {/* Left Sidebar Filters */}
       <Filters
         onDone={isNative ? () => setFiltersOpen(false) : undefined}
+        onEditTheaters={() => setPickerOpen(true)}
         groupedMovies={data.groupedMovies}
         movieDisplayTitles={data.movieDisplayTitles}
         movieVariants={data.movieVariants}
@@ -290,21 +348,37 @@ function App() {
             <Ticket className="text-accent-color" size={32} color="var(--accent-color)" />
             AMC Guide
           </h1>
-          {isNative && (
-            <button className="filters-toggle-btn" onClick={() => setFiltersOpen(true)}>
-              <SlidersHorizontal size={16} />
-              Filters
+          <div className="header-actions">
+            <button className="theaters-btn" onClick={() => setPickerOpen(true)} aria-label="My Theaters">
+              <MapPin size={16} />
+              <span className="theaters-btn-label">My Theaters</span>
             </button>
-          )}
+            {isNative && (
+              <button className="filters-toggle-btn" onClick={() => setFiltersOpen(true)}>
+                <SlidersHorizontal size={16} />
+                Filters
+              </button>
+            )}
+          </div>
         </header>
 
         <ShowtimeTimeline
           showtimes={filteredShowtimes}
           allDates={data.dates}
+          loading={loading && !hasSchedules}
           pinnedShowtimes={pinnedShowtimes}
           onTogglePin={togglePin}
         />
       </main>
+
+      {pickerOpen && (
+        <TheaterPicker
+          directory={directory}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
+          onClose={closePicker}
+        />
+      )}
     </div>
   );
 }

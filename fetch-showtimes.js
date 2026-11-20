@@ -1,55 +1,62 @@
 const fs = require("fs");
+const path = require("path");
 const { createAmcClient } = require("./amc-api");
 
-// Served by the frontend and bundled into the site at build time. In CI the
-// currently deployed copy is downloaded here first so it can serve as the
-// previous schedule.
-const OUTPUT_PATH = "frontend/public/data.json";
-// data.json (read by frontend/src/utils/dataProcessor.js):
+// Served by the frontend and bundled into the site at build time. A run writes
+// into a staging directory and swaps it in only at the end, so a failed run
+// leaves the previous files in place.
+const OUTPUT_DIR = "frontend/public/data";
+const DIRECTORY_FILE = "theaters.json";
+// data/theaters.json: every AMC theatre, for the theatre picker.
+// {
+//   version, generatedAt,
+//   theaters: [{ id, apiId, name, city, state, zip, location, latitude, longitude, timeZone }],
+// }
+// data/theaters/{id}.json: one theatre's schedule (read by frontend/src/utils/dataProcessor.js,
+// which merges the files of a user's favourite theatres).
 // {
 //   version, generatedAt, nearTermThrough,      // nearTermThrough: last day of the 14-day window
-//   theaters: [{ id, name, location, purchaseUrlTemplate }],
+//   theaters: [{ id, name, location, timeZone, purchaseUrlTemplate }],
 //   movies: { [movieId]: { title, url, runtime, rating } },  // runtime in minutes or null
 //   tagSets: [[tag, ...], ...],                 // shared tag lists, in display form
 //   tagGroups: { [tag]: group },                // format | seating | language | other | info
 //   showtimes: [{
 //     id, theater, movie, tags,                 // tags: index into tagSets
 //     date,                                     // schedule day; shows before 5am belong to the previous day
-//     startsAt,                                 // AMC local time, e.g. "2026-10-30T19:00:00"
+//     startsAt,                                 // theatre local time, e.g. "2026-10-30T19:00:00"
 //     alert?, noTrailers?,                      // omitted when there's no alert / trailers play
 //     runtime?,                                 // only when it differs from the movie's
 //     purchaseUrl?,                             // only when it doesn't match the theatre's template
 //   }],
 // }
-// Bump when this shape changes; a previous file with another version is not
+// Bump when either shape changes; previous files with another version are not
 // used as a fallback.
-const DATA_VERSION = 3;
+const DATA_VERSION = 4;
 const NEAR_TERM_DAYS = 14;
 const MIN_RECENT_DAYS = 7;
-const CONCURRENCY = 4;
-const TIME_ZONE = "America/New_York";
+// Kept gentle on AMC's API: two requests in flight at most, and no more than
+// two started per second. Every theatre takes one request, so a nightly run of
+// ~520 theatres takes a little over four minutes.
+const CONCURRENCY = 2;
+const REQUEST_INTERVAL_MS = 500;
+// A few theatres failing on a given night is expected; they keep their previous
+// showtimes. The run is only marked failed beyond this share.
+const MAX_FAILURE_SHARE = 0.05;
+const DEFAULT_TIME_ZONE = "America/New_York";
 // Shows that start before this hour belong to the previous evening's schedule.
 const LATE_NIGHT_CUTOFF_HOUR = 5;
 
-// Tracked theatres. `apiId`, `name` and `location` match AMC's /v2/theatres/{apiId}
-// (`name` and `location.stateUrlSuffixText`); `id` is the theatre's key in data.json.
-const theaters = [
-  { id: "amc-empire-25", apiId: 552, name: "AMC Empire 25", location: "new-york" },
-  { id: "amc-lincoln-square-13", apiId: 2116, name: "AMC Lincoln Square 13", location: "new-york" },
-  { id: "amc-34th-street-14", apiId: 2120, name: "AMC 34th Street 14", location: "new-york" },
-  { id: "amc-kips-bay-15", apiId: 2195, name: "AMC Kips Bay 15", location: "new-york" },
-  { id: "amc-magic-johnson-harlem-9", apiId: 2304, name: "AMC Magic Johnson Harlem 9", location: "new-york" },
-  { id: "amc-84th-street-6", apiId: 2102, name: "AMC 84th Street 6", location: "new-york" },
-  { id: "amc-orpheum-7", apiId: 2104, name: "AMC Orpheum 7", location: "new-york" },
-  { id: "amc-19th-st-east-6", apiId: 2112, name: "AMC 19th St. East 6", location: "new-york" },
-  { id: "amc-village-7", apiId: 2110, name: "AMC Village 7", location: "new-york" },
-  { id: "amc-mountainside-10", apiId: 2183, name: "AMC Mountainside 10", location: "new-jersey" },
-  { id: "amc-east-hanover-12", apiId: 2181, name: "AMC East Hanover 12", location: "new-jersey" },
-  { id: "amc-aviation-12", apiId: 2249, name: "AMC Aviation 12", location: "new-jersey" },
-  { id: "amc-jersey-gardens-20", apiId: 2198, name: "AMC Jersey Gardens 20", location: "new-jersey" },
-  { id: "amc-clifton-commons-16", apiId: 865, name: "AMC Clifton Commons 16", location: "new-jersey" },
-  { id: "amc-newport-centre-11", apiId: 2184, name: "AMC Newport Centre 11", location: "new-jersey" },
-];
+// AMC's time zone names. Arizona stays on standard time all year, so it's
+// listed by state.
+const TIME_ZONES = {
+  "EASTERN TIME": "America/New_York",
+  "CENTRAL TIME": "America/Chicago",
+  "MOUNTAIN TIME": "America/Denver",
+  "PACIFIC TIME": "America/Los_Angeles",
+  "ALASKA TIME": "America/Anchorage",
+  "HAWAII TIME": "Pacific/Honolulu",
+};
+const STATE_TIME_ZONES = { AZ: "America/Phoenix" };
 
 // What each AMC attribute code contributes to a showtime: the tags it is
 // published as, and the filter group of each tag. Codes map to tags rather than
@@ -76,10 +83,19 @@ const ATTRIBUTE_TAGS = {
   "4DX": { format: ["4DX"] },
   SCREENX: { format: ["ScreenX"] },
   VISTVISION: { format: ["VistaVision"] },
+  "35MM": { format: ["35MM"] },
+  BIGD: { format: ["BigD"] },
+  BIGD3D: { format: ["BigD", "3D"] },
+  GXL: { format: ["GXL"] },
+  GDX: { format: ["GDX"] },
   // Seating
   RECLINERSEATING: { seating: ["Signature Recliners"] },
   HEATEDSEATS: { seating: ["Heated Signature Recliners"] },
   AMCCLUBROCKERS: { seating: ["Club Rockers"] },
+  AMCSIGNATUREPLUSHROCKERS: { seating: ["Plush Rockers"] },
+  LUXURYSEATSWITHOTTOMANS: { seating: ["Luxury Seats with Ottomans"] },
+  MOVIEPARLORSEATING: { seating: ["Movie Parlor Seating"] },
+  BALCONY: { seating: ["Balcony"] },
   // Accessibility and special showings
   CLOSEDCAPTION: { other: ["Closed Caption"] },
   OPENCAPTION: { other: ["Open Caption (On-screen Subtitles)"] },
@@ -93,6 +109,8 @@ const ATTRIBUTE_TAGS = {
   LIVEQA: { other: ["AMC Live Q&A"] },
   LIVESTRQA: { other: ["Livestream - Q&A"] },
   LIVE: { other: ["Live event"] },
+  DINEINDELIVERYTOSEAT: { other: ["Dine-In Delivery to Seat"] },
+  MEMEXCLUSV: { other: ["AMC Stubs Member Exclusive"] },
   // Curated series and event markers: drive the movie categories
   AMCARTISANFILMS: { info: ["AMC Artisan Films"] },
   THRLSCHLS: { info: ["Thrills & Chills"] },
@@ -101,6 +119,10 @@ const ATTRIBUTE_TAGS = {
   EVENT: { info: ["Event"] },
   ALTERNATIVECONTENT: { info: ["Alternative Content"] },
   NOALIST: { info: ["Excluded from A-List"] },
+  LIVESTREAM: { info: ["Livestream Event"] },
+  DIRECTV: { info: ["DirecTV Live"] },
+  LIVFOOTBAL: { info: ["Live Football"] },
+  NONREFUND: { info: ["Non-refundable"] },
   // Not published: on every showtime, ticketing restrictions, payment options,
   // and internal markers amctheatres.com never displays
   RESERVEDSEATING: {},
@@ -111,6 +133,7 @@ const ATTRIBUTE_TAGS = {
   DISNEYRWDS: {},
   AONELIVE: {},
   DCDCLIVE: {},
+  "4DXPOLICY": {},
   // Published as the showtime's `noTrailers` flag instead
   NOTRAILER: {},
   NOTRAILERS: {},
@@ -120,6 +143,11 @@ const ATTRIBUTE_TAGS = {
 // appear often enough that these are recognised by pattern.
 const LANGUAGE_CODE = /(SPOKEN|SUBTITLE|DUBBED)$/;
 
+// Each theatre sets its own unaccompanied-minor policy, e.g.
+// PARENTALESCORTPOLICYUNDER17AFTER9PM or ...UNDER18AFTER8PMFRISAT. Like the
+// 6pm policy above, each is filed under Other with AMC's name.
+const ESCORT_POLICY_CODE = /^PARENTALESCORTPOLICY/;
+
 const NO_TRAILER_CODES = new Set(["NOTRAILER", "NOTRAILERS"]);
 
 // Private bookings are not public showtimes.
@@ -128,7 +156,7 @@ const EXCLUDED_ATTRIBUTE_CODES = new Set(["PRIVATE"]);
 // Showtimes with none of these attributes (premium format, Laser, Open Caption,
 // language, curated series) are tagged as the standard presentation.
 const EXPERIENCE_ATTRIBUTE_CODE =
-  /LASER|IMAX|DOLBY|PRIME|^XL$|3D|70MM|INFINITYVI|OPENCAPTION|SPOKEN|SUBTITLE|DUBBED|ARTISAN|FANFAVES|THRLSCHLS|INTERNATIONAL/;
+  /LASER|IMAX|DOLBY|PRIME|^XL$|3D|70MM|35MM|BIGD|GXL|GDX|INFINITYVI|OPENCAPTION|SPOKEN|SUBTITLE|DUBBED|ARTISAN|FANFAVES|THRLSCHLS|INTERNATIONAL/;
 
 function loadEnvFile(path = ".env") {
   if (!fs.existsSync(path)) return;
@@ -140,7 +168,7 @@ function loadEnvFile(path = ".env") {
   }
 }
 
-function dateInTimeZone(now = new Date(), timeZone = TIME_ZONE) {
+function dateInTimeZone(now = new Date(), timeZone = DEFAULT_TIME_ZONE) {
   // en-CA formats as YYYY-MM-DD.
   return new Intl.DateTimeFormat("en-CA", {
     timeZone,
@@ -162,11 +190,48 @@ function scheduleDate(showDateTimeLocal) {
   return hour < LATE_NIGHT_CUTOFF_HOUR ? addDays(date, -1) : date;
 }
 
+// "SAINT LOUIS" -> "Saint Louis"
+function titleCase(text) {
+  return (text || "").toLowerCase().replace(/(^|[\s-])\S/g, (letter) => letter.toUpperCase());
+}
+
+function theatreTimeZone(theatre) {
+  return STATE_TIME_ZONES[theatre.location?.state] || TIME_ZONES[theatre.timezone] || null;
+}
+
+function isListedTheatre(theatre) {
+  return (
+    !theatre.isClosed &&
+    Boolean(theatre.slug) &&
+    Number.isFinite(theatre.location?.latitude) &&
+    Number.isFinite(theatre.location?.longitude)
+  );
+}
+
+// A theatre from /v2/theatres as a data/theaters.json entry. `id` is AMC's slug,
+// e.g. "amc-empire-25", which is also how the frontend remembers favourites.
+function directoryEntry(theatre) {
+  const { location } = theatre;
+  return {
+    id: theatre.slug,
+    apiId: theatre.id,
+    name: theatre.name.trim(),
+    city: titleCase(location.city),
+    state: location.state,
+    zip: (location.postalCode || "").slice(0, 5),
+    location: location.stateUrlSuffixText,
+    latitude: location.latitude,
+    longitude: location.longitude,
+    timeZone: theatreTimeZone(theatre) || DEFAULT_TIME_ZONE,
+  };
+}
+
 // Tags for one attribute as { group: [tag, ...] }. Codes missing from
 // ATTRIBUTE_TAGS fall back to AMC's name under "other" and are reported.
 function attributeTags(attribute, unknownCodes) {
   if (ATTRIBUTE_TAGS[attribute.code]) return ATTRIBUTE_TAGS[attribute.code];
   if (LANGUAGE_CODE.test(attribute.code)) return { language: [attribute.name] };
+  if (ESCORT_POLICY_CODE.test(attribute.code)) return { other: [attribute.name] };
   unknownCodes?.set(attribute.code, attribute.name);
   return { other: [attribute.name.replace(/\s+at AMC$/i, "")] };
 }
@@ -252,15 +317,6 @@ function toTheaterShowtimes(theaterId, apiShowtimes) {
     });
   }
   return { movies, showtimes, tagGroups, unknownCodes };
-}
-
-function getScheduleStats(schedule) {
-  const days = new Set(schedule.showtimes.map((showtime) => `${showtime.theater} ${showtime.date}`));
-  return {
-    days: days.size,
-    movies: Object.keys(schedule.movies).length,
-    showtimes: schedule.showtimes.length,
-  };
 }
 
 function validateTheaterShowtimes(theater, showtimes, today) {
@@ -351,33 +407,53 @@ function compactSchedule(schedule) {
   return schedule;
 }
 
-function loadPreviousSchedule(path = OUTPUT_PATH) {
-  if (!fs.existsSync(path)) return null;
-  try {
-    const schedule = JSON.parse(fs.readFileSync(path, "utf8"));
-    if (schedule.version !== DATA_VERSION) {
-      throw new Error(`data version ${schedule.version ?? 1} is not ${DATA_VERSION}`);
+// Reads previously published files: from the output directory when they're on
+// disk (local runs), otherwise from the live site at `baseUrl` (CI, where only
+// the files actually needed are downloaded).
+function createPreviousLoader({ dir = OUTPUT_DIR, baseUrl, fetchImpl = globalThis.fetch } = {}) {
+  return async function loadPrevious(relativePath) {
+    try {
+      let file;
+      const localPath = path.join(dir, relativePath);
+      if (fs.existsSync(localPath)) {
+        file = JSON.parse(fs.readFileSync(localPath, "utf8"));
+      } else if (baseUrl) {
+        const response = await fetchImpl(new URL(relativePath, baseUrl.replace(/\/?$/, "/")).toString());
+        if (response.status === 404) return null;
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        file = await response.json();
+      } else {
+        return null;
+      }
+      if (file?.version !== DATA_VERSION) throw new Error(`data version ${file?.version ?? 1} is not ${DATA_VERSION}`);
+      if (!Array.isArray(file.theaters)) throw new Error("missing theaters");
+      if (relativePath !== DIRECTORY_FILE && (!Array.isArray(file.showtimes) || !Array.isArray(file.tagSets) || !file.tagGroups)) {
+        throw new Error("missing showtimes");
+      }
+      return file;
+    } catch (error) {
+      console.warn(`Could not load previous ${relativePath}: ${error.message}`);
+      return null;
     }
-    if (!Array.isArray(schedule.showtimes) || !Array.isArray(schedule.tagSets) || !schedule.tagGroups) {
-      throw new Error("missing showtimes");
-    }
-    return schedule;
-  } catch (error) {
-    console.warn(`Could not load previous schedule from ${path}: ${error.message}`);
-    return null;
-  }
+  };
 }
 
-function writeScheduleAtomically(schedule, outputPath = OUTPUT_PATH) {
-  // Minified: the file is only read by the frontend, never diffed.
-  const json = JSON.stringify(schedule);
-  const tempPath = `${outputPath}.${process.pid}.tmp`;
-  try {
-    fs.writeFileSync(tempPath, json);
-    fs.renameSync(tempPath, outputPath);
-  } finally {
-    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
-  }
+function theaterFile(theaterId) {
+  return `theaters/${theaterId}.json`;
+}
+
+function writeJson(filePath, value) {
+  // Minified: the files are only read by the frontend, never diffed.
+  fs.writeFileSync(filePath, JSON.stringify(value));
+}
+
+// Swaps the staged files in for the published ones in two renames, so the site is
+// never built from a mix of old and new files.
+function replaceDirectory(stagingDir, outputDir) {
+  const oldDir = `${outputDir}.${process.pid}.old`;
+  if (fs.existsSync(outputDir)) fs.renameSync(outputDir, oldDir);
+  fs.renameSync(stagingDir, outputDir);
+  fs.rmSync(oldDir, { recursive: true, force: true });
 }
 
 async function mapWithConcurrency(items, limit, worker) {
@@ -393,103 +469,153 @@ async function mapWithConcurrency(items, limit, worker) {
   return results;
 }
 
-async function buildSchedule(options = {}) {
-  const now = options.now || new Date();
-  const today = dateInTimeZone(now);
-  const selectedTheaters = options.theaters || theaters;
-  const client =
-    options.client || createAmcClient({ vendorKey: options.vendorKey ?? process.env.AMC_VENDOR_KEY });
-  const previous = options.previousSchedule;
+// Every open AMC theatre. When the list can't be fetched, the previously
+// published one is used, so the night's showtimes still update.
+async function loadDirectory({ client, loadPrevious }) {
+  try {
+    const theaters = (await client.getTheatres())
+      .filter(isListedTheatre)
+      .map((theatre) => {
+        if (!theatreTimeZone(theatre)) {
+          console.warn(`${theatre.slug}: unknown time zone "${theatre.timezone}"; using ${DEFAULT_TIME_ZONE}`);
+        }
+        return directoryEntry(theatre);
+      })
+      .sort((a, b) => a.id.localeCompare(b.id));
+    if (!theaters.length) throw new Error("the API listed no open theatres");
+    return { theaters, error: null };
+  } catch (error) {
+    const previous = await loadPrevious(DIRECTORY_FILE);
+    if (!previous) throw new Error(`Could not list theatres: ${error.message}`);
+    console.warn(`Theatre list: ${error.message}; using the previous list`);
+    return { theaters: previous.theaters, error };
+  }
+}
 
-  const schedule = {
+// A theatre with nothing on sale (newly opened, closed for renovation) is
+// answered with a 404 rather than an empty list.
+async function theaterApiShowtimes(client, apiId) {
+  try {
+    return await client.getTheatreShowtimes(apiId);
+  } catch (error) {
+    if (error.status === 404) return [];
+    throw error;
+  }
+}
+
+// One theatre's published file. When its showtimes can't be fetched, or look
+// wrong, its future showtimes from the previous file are kept instead.
+async function buildTheaterSchedule(theater, { now, client, loadPrevious }) {
+  const today = dateInTimeZone(now, theater.timeZone);
+  let result;
+  let error = null;
+  try {
+    result = toTheaterShowtimes(theater.id, await theaterApiShowtimes(client, theater.apiId));
+    if (result.showtimes.length) validateTheaterShowtimes(theater, result.showtimes, today);
+  } catch (caught) {
+    error = caught;
+    result = previousTheaterShowtimes(await loadPrevious(theaterFile(theater.id)), theater.id, today);
+  }
+  result.showtimes.sort((a, b) => a.date.localeCompare(b.date) || a.startsAt.localeCompare(b.startsAt));
+  const schedule = compactSchedule({
     version: DATA_VERSION,
     generatedAt: now.toISOString(),
     nearTermThrough: addDays(today, NEAR_TERM_DAYS - 1),
-    theaters: selectedTheaters.map(({ id, name, location }) => ({ id, name, location })),
-    movies: {},
-    tagGroups: {},
-    showtimes: [],
-  };
+    theaters: [{ id: theater.id, name: theater.name, location: theater.location, timeZone: theater.timeZone }],
+    movies: result.movies,
+    tagGroups: result.tagGroups,
+    showtimes: result.showtimes,
+  });
+  return { schedule, error, unknownCodes: result.unknownCodes };
+}
+
+async function fetchShowtimes(options = {}) {
+  const now = options.now || new Date();
+  const outputDir = options.outputDir || OUTPUT_DIR;
+  const client =
+    options.client ||
+    createAmcClient({
+      vendorKey: options.vendorKey ?? process.env.AMC_VENDOR_KEY,
+      minIntervalMs: REQUEST_INTERVAL_MS,
+    });
+  const loadPrevious =
+    options.loadPrevious ||
+    createPreviousLoader({ dir: outputDir, baseUrl: options.previousDataUrl ?? process.env.PREVIOUS_DATA_URL });
+
+  const directory = options.theaters
+    ? { theaters: options.theaters, error: null }
+    : await loadDirectory({ client, loadPrevious });
+  const { theaters } = directory;
+
+  const stagingDir = `${outputDir}.${process.pid}.tmp`;
   const failures = [];
   const unknownCodes = new Map();
+  const stats = { showtimes: 0, empty: 0, first: null, last: null };
+  fs.rmSync(stagingDir, { recursive: true, force: true });
+  fs.mkdirSync(path.join(stagingDir, "theaters"), { recursive: true });
+  try {
+    await mapWithConcurrency(theaters, CONCURRENCY, async (theater) => {
+      const { schedule, error, unknownCodes: codes } = await buildTheaterSchedule(theater, { now, client, loadPrevious });
+      const { showtimes } = schedule;
+      if (error) {
+        failures.push(`${theater.id}: ${error.message}`);
+        console.warn(`${theater.id}: ${error.message} (kept ${showtimes.length} previous showtimes)`);
+      } else {
+        console.log(`${theater.id}: ${showtimes.length} showtimes`);
+      }
+      codes?.forEach((name, code) => unknownCodes.set(code, name));
+      stats.showtimes += showtimes.length;
+      if (!showtimes.length) stats.empty += 1;
+      else {
+        if (!stats.first || showtimes[0].date < stats.first) stats.first = showtimes[0].date;
+        const last = showtimes[showtimes.length - 1].date;
+        if (!stats.last || last > stats.last) stats.last = last;
+      }
+      writeJson(path.join(stagingDir, theaterFile(theater.id)), schedule);
+    });
+    writeJson(path.join(stagingDir, DIRECTORY_FILE), {
+      version: DATA_VERSION,
+      generatedAt: now.toISOString(),
+      theaters,
+    });
 
-  const results = await mapWithConcurrency(selectedTheaters, CONCURRENCY, async (theater) => {
-    try {
-      const apiShowtimes = await client.getTheatreShowtimes(theater.apiId);
-      const result = toTheaterShowtimes(theater.id, apiShowtimes);
-      validateTheaterShowtimes(theater, result.showtimes, today);
-      console.log(`${theater.id}: ${result.showtimes.length} showtimes`);
-      return result;
-    } catch (error) {
-      console.warn(`${theater.id}: ${error.message}`);
-      return { error };
+    if (failures.length === theaters.length || stats.showtimes === 0) {
+      throw new Error(
+        `No usable showtimes; the existing data files were preserved.\n- ${failures.slice(0, 20).join("\n- ")}`,
+      );
     }
-  });
 
-  selectedTheaters.forEach((theater, index) => {
-    let result = results[index];
-    if (result.error) {
-      failures.push(`${theater.id}: ${result.error.message}`);
-      // Keep this theatre's previously published future showtimes rather than
-      // dropping it from the site for a day.
-      result = previousTheaterShowtimes(previous, theater.id, today);
+    console.log(
+      `Prepared ${stats.showtimes} showtimes at ${theaters.length - stats.empty} of ${theaters.length} theaters, ` +
+        `from ${stats.first} through ${stats.last} (${failures.length} theater failures).`,
+    );
+
+    if (options.dryRun) {
+      console.log("Dry run complete; the data files were not changed.");
+    } else {
+      replaceDirectory(stagingDir, outputDir);
+      console.log(`Saved ${outputDir}/.`);
     }
-    Object.assign(schedule.movies, result.movies);
-    Object.assign(schedule.tagGroups, result.tagGroups);
-    result.unknownCodes?.forEach((name, code) => unknownCodes.set(code, name));
-    schedule.showtimes.push(...result.showtimes);
-  });
-
-  const theaterOrder = new Map(selectedTheaters.map((theater, index) => [theater.id, index]));
-  schedule.showtimes.sort(
-    (a, b) =>
-      a.date.localeCompare(b.date) ||
-      a.startsAt.localeCompare(b.startsAt) ||
-      theaterOrder.get(a.theater) - theaterOrder.get(b.theater),
-  );
-  compactSchedule(schedule);
+  } finally {
+    fs.rmSync(stagingDir, { recursive: true, force: true });
+  }
 
   // Shown as annotations on the GitHub Actions run.
   const annotation = process.env.GITHUB_ACTIONS ? "::warning::" : "";
   unknownCodes.forEach((name, code) => {
     console.warn(`${annotation}Unmapped AMC attribute ${code} ("${name}") was filed under Other; add it to ATTRIBUTE_TAGS.`);
   });
+  if (directory.error) failures.unshift(`theatre list: ${directory.error.message}`);
+  if (annotation) failures.forEach((failure) => console.warn(`${annotation}${failure}`));
 
-  return { schedule, failures };
-}
-
-async function fetchShowtimes(options = {}) {
-  const outputPath = options.outputPath || OUTPUT_PATH;
-  const previousSchedule = loadPreviousSchedule(outputPath);
-  const { schedule, failures } = await buildSchedule({ ...options, previousSchedule });
-
-  const stats = getScheduleStats(schedule);
-  if (failures.length === schedule.theaters.length || stats.showtimes === 0) {
+  const allowedFailures = Math.max(1, Math.floor(theaters.length * MAX_FAILURE_SHARE));
+  if (failures.length > allowedFailures) {
     throw new Error(
-      `No usable showtimes; the existing data file was preserved.\n- ${failures.join("\n- ")}`,
+      `Partial update published with ${failures.length} failures (more than ${allowedFailures}); ` +
+        `previous showtimes were retained for failed theaters. First failure: ${failures[0]}`,
     );
   }
-
-  const { showtimes } = schedule;
-  console.log(
-    `Prepared ${stats.days} theater-days, ${stats.movies} movies, and ${stats.showtimes} showtimes ` +
-      `from ${showtimes[0].date} through ${showtimes[showtimes.length - 1].date} (${failures.length} theater failures).`,
-  );
-
-  if (options.dryRun) {
-    console.log("Dry run complete; the data file was not changed.");
-  } else {
-    writeScheduleAtomically(schedule, outputPath);
-    console.log(`Saved ${outputPath}.`);
-  }
-
-  if (failures.length) {
-    throw new Error(
-      `Partial update published with ${failures.length} theater failures; ` +
-        `previous showtimes were retained for them. First failure: ${failures[0]}`,
-    );
-  }
-  return schedule;
+  return { theaters: theaters.length, showtimes: stats.showtimes, failures };
 }
 
 async function main(argv = process.argv.slice(2)) {
@@ -507,16 +633,16 @@ if (require.main === module) {
 module.exports = {
   DATA_VERSION,
   addDays,
-  buildSchedule,
+  buildTheaterSchedule,
   compactSchedule,
+  createPreviousLoader,
   dateInTimeZone,
+  directoryEntry,
   fetchShowtimes,
-  getScheduleStats,
-  loadEnvFile,
+  loadDirectory,
   scheduleDate,
   ATTRIBUTE_TAGS,
   showtimeAlert,
   showtimeTags,
-  theaters,
   toTheaterShowtimes,
 };

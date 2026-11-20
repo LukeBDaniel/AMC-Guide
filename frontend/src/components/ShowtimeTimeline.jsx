@@ -1,8 +1,9 @@
 import { Calendar, Pin } from 'lucide-react';
 import { isNative, openLink } from '../utils/platform';
 
-export default function ShowtimeTimeline({ showtimes, allDates, pinnedShowtimes = new Set(), onTogglePin }) {
-    if (showtimes.length === 0 && (!allDates || allDates.length === 0)) {
+export default function ShowtimeTimeline({ showtimes, allDates, loading = false, pinnedShowtimes = new Set(), onTogglePin }) {
+    // While data.json loads, show the empty grid rather than the instructions.
+    if (!loading && showtimes.length === 0 && (!allDates || allDates.length === 0)) {
         return (
             <div className="empty-state">
                 <h3>Select a theater and movies</h3>

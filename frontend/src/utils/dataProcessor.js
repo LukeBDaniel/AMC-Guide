@@ -6,21 +6,53 @@ const TRAILER_MINUTES = 30;
 const DEFAULT_RUNTIME_MINUTES = 120;
 // Showtimes stay listed this long after they start, for anyone running late.
 const PAST_SHOWTIME_GRACE_MINUTES = 30;
-// Showtimes' startsAt are local times at the theatres (see fetch-showtimes.js).
-const THEATER_TIME_ZONE = 'America/New_York';
+// Showtimes' startsAt are local times at their theatre (see fetch-showtimes.js).
+// Files from before theatres carried a time zone were all in New York.
+const DEFAULT_TIME_ZONE = 'America/New_York';
 
-const theaterClock = new Intl.DateTimeFormat('en-CA', {
-    timeZone: THEATER_TIME_ZONE,
-    year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', second: '2-digit',
-    hourCycle: 'h23'
-});
+const theaterClocks = new Map();
+function theaterClock(timeZone) {
+    if (!theaterClocks.has(timeZone)) {
+        theaterClocks.set(timeZone, new Intl.DateTimeFormat('en-CA', {
+            timeZone,
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hourCycle: 'h23'
+        }));
+    }
+    return theaterClocks.get(timeZone);
+}
 
-// A moment as the theatres' local time, in the same "2026-10-30T19:05:00" form as
+// A moment as local time in `timeZone`, in the same "2026-10-30T19:05:00" form as
 // startsAt, so the two compare as strings.
-function theaterLocalTime(date) {
-    const parts = Object.fromEntries(theaterClock.formatToParts(date).map(({ type, value }) => [type, value]));
+function theaterLocalTime(date, timeZone) {
+    const parts = Object.fromEntries(theaterClock(timeZone).formatToParts(date).map(({ type, value }) => [type, value]));
     return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}`;
+}
+
+// Combines theatre files (data/theaters/{id}.json) into one schedule in the same
+// shape, for flattenScheduleData. Each file numbers its own tagSets, so tag indexes
+// are remapped onto one shared list. Theatres keep the order the files are given in.
+export function mergeSchedules(files) {
+    const merged = { theaters: [], movies: {}, tagSets: [], tagGroups: {}, showtimes: [], nearTermThrough: null };
+    const tagSetIndex = new Map();
+    files.forEach(file => {
+        if (!Array.isArray(file?.showtimes)) return;
+        const remap = file.tagSets.map(tags => {
+            const key = JSON.stringify(tags);
+            if (!tagSetIndex.has(key)) {
+                tagSetIndex.set(key, merged.tagSets.length);
+                merged.tagSets.push(tags);
+            }
+            return tagSetIndex.get(key);
+        });
+        merged.theaters.push(...file.theaters);
+        Object.assign(merged.movies, file.movies);
+        Object.assign(merged.tagGroups, file.tagGroups);
+        file.showtimes.forEach(showtime => merged.showtimes.push({ ...showtime, tags: remap[showtime.tags] }));
+        if (file.nearTermThrough && !(merged.nearTermThrough >= file.nearTermThrough)) merged.nearTermThrough = file.nearTermThrough;
+    });
+    return merged;
 }
 
 // 'new-york' -> 'New York'
@@ -84,6 +116,7 @@ export function flattenScheduleData(rawData, { now } = {}) {
         uniqueTheaters.set(theater.id, {
             name: theaterDisplayName(theater.name),
             location: titleCaseSlug(theater.location),
+            timeZone: theater.timeZone || DEFAULT_TIME_ZONE,
             purchaseUrlTemplate: theater.purchaseUrlTemplate
         });
     });
@@ -93,13 +126,19 @@ export function flattenScheduleData(rawData, { now } = {}) {
     // titleNormalizer.js for the rules).
     const titleGroups = buildTitleGroups(new Set(Object.values(rawData.movies).map(movie => movie.title)));
 
-    const earliestStart = now && theaterLocalTime(new Date(now.getTime() - PAST_SHOWTIME_GRACE_MINUTES * 60000));
+    // The earliest start still listed, as local time in each theatre's time zone.
+    const graceStart = now && new Date(now.getTime() - PAST_SHOWTIME_GRACE_MINUTES * 60000);
+    const earliestStarts = new Map();
+    const earliestStart = timeZone => {
+        if (!earliestStarts.has(timeZone)) earliestStarts.set(timeZone, theaterLocalTime(graceStart, timeZone));
+        return earliestStarts.get(timeZone);
+    };
 
     rawData.showtimes.forEach(showtime => {
-        if (earliestStart && showtime.startsAt < earliestStart) return;
         const movie = rawData.movies[showtime.movie];
         const theater = uniqueTheaters.get(showtime.theater);
         if (!movie || !theater) return;
+        if (graceStart && showtime.startsAt < earliestStart(theater.timeZone)) return;
 
         const { movieKey, displayTitle, variant, isInformational, isEvent = false } = titleGroups.get(movie.title) || { movieKey: movie.title, displayTitle: movie.title, variant: null, isInformational: false };
         movieDisplayTitles[movieKey] = displayTitle;
@@ -237,7 +276,7 @@ export function flattenScheduleData(rawData, { now } = {}) {
     const finalLanguages = tagsInGroup('language');
     flattened.forEach(showtime => delete showtime._isEventTitle);
 
-    // Grouped by state, in the order states first appear in the data file.
+    // Grouped by state, in the order states first appear in the data.
     const theatersByLocation = {};
     uniqueTheaters.forEach(({ name, location }, id) => {
         (theatersByLocation[location] ||= []).push({ id, name });

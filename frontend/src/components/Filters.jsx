@@ -37,6 +37,7 @@ export default function Filters({
     selectedLanguages,
     setSelectedLanguages,
     onDone,
+    onEditTheaters,
 }) {
     const [openSections, setOpenSections] = useState({
         theaters: true,
@@ -107,12 +108,30 @@ export default function Filters({
             <div className="filter-section">
                 <div className={`filter-title ${!openSections.theaters ? 'collapsed' : ''}`} onClick={() => toggleSection('theaters')}>
                     <span>Theaters</span>
-                    <Chevron isOpen={openSections.theaters} />
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <button
+                            className="filter-edit-btn"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onEditTheaters();
+                            }}
+                        >
+                            Edit
+                        </button>
+                        <Chevron isOpen={openSections.theaters} />
+                    </span>
                 </div>
                 {openSections.theaters && (
                     <div className="filter-content">
                         {(() => {
                             const allTheaterIds = theaters ? Object.values(theaters).flat().map(t => t.id) : [];
+                            if (allTheaterIds.length === 0) {
+                                return (
+                                    <button className="filter-add-theaters-btn" onClick={onEditTheaters}>
+                                        Choose your theaters
+                                    </button>
+                                );
+                            }
                             return (
                                 <>
                                     <label className="filter-label" style={{ fontWeight: 500, paddingBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', marginBottom: '0.5rem' }}>
